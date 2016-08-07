@@ -26,88 +26,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-      <script>
-// Portfolio
-(function($) {
-  "use strict";
-  var $container = $('.portfolio'),
-    $items = $container.find('.portfolio-item'),
-    portfolioLayout = 'fitRows';
     
-    if( $container.hasClass('portfolio-centered') ) {
-      portfolioLayout = 'masonry';
-    }
-        
-    $container.isotope({
-      filter: '*',
-      animationEngine: 'best-available',
-      layoutMode: portfolioLayout,
-      animationOptions: {
-      duration: 750,
-      easing: 'linear',
-      queue: false
-    },
-    masonry: {
-    }
-    }, refreshWaypoints());
-    
-    function refreshWaypoints() {
-      setTimeout(function() {
-      }, 1000);   
-    }
-        
-    $('nav.portfolio-filter ul a').on('click', function() {
-        var selector = $(this).attr('data-filter');
-        $container.isotope({ filter: selector }, refreshWaypoints());
-        $('nav.portfolio-filter ul a').removeClass('active');
-        $(this).addClass('active');
-        return false;
-    });
-    
-    function getColumnNumber() { 
-      var winWidth = $(window).width(), 
-      columnNumber = 1;
-    
-      if (winWidth > 1200) {
-        columnNumber = 5;
-      } else if (winWidth > 950) {
-        columnNumber = 4;
-      } else if (winWidth > 600) {
-        columnNumber = 3;
-      } else if (winWidth > 400) {
-        columnNumber = 2;
-      } else if (winWidth > 250) {
-        columnNumber = 1;
-      }
-        return columnNumber;
-      }       
-      
-      function setColumns() {
-        var winWidth = $(window).width(), 
-        columnNumber = getColumnNumber(), 
-        itemWidth = Math.floor(winWidth / columnNumber);
-        
-        $container.find('.portfolio-item').each(function() { 
-          $(this).css( { 
-          width : itemWidth + 'px' 
-        });
-      });
-    }
-    
-    function setPortfolio() { 
-      setColumns();
-      $container.isotope('reLayout');
-    }
-      
-    $container.imagesLoaded(function () { 
-      setPortfolio();
-    });
-    
-    $(window).on('resize', function () { 
-    setPortfolio();          
-  });
-})(jQuery);
-</script>
   </head>
 
   <body>
@@ -126,8 +45,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="about me -RN.html">About me (Right Now)</a></li>
-            <li><a href="blog.html">Blog</a></li>
+              <li><a href="work.html">Work</a></li>
+              <li><a href="CV.html">CV</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -142,9 +61,12 @@
 					<img src="assets/img/user.png" alt="Stanley">
 					<h1>Hi, I am Danilo!</h1>
 					<p>I believe that the way to be happy is creating something new, something that merge the arts and science to make useful stuff to make the world diverse, because it's going to be a better place proportionally to the offer of quality and beautiful things, and I want to make that offer wider and better.</p>
-                    <p>My way to do it is studying electronic engineering (And being an engineer) because engineering is no more than "the art of the possible". Remember that Einstein said that the art is the expression of the most complex feeling in the simplest way, so the engineering is the way to make something complex, simple (beautiful and useful).</p>
-					<p>I consider myself very creative, i'm an Apple Fan, ex-Musician and Electronic Engineering student at the <a href="http://www.usb.ve">Simón Bolivar University</a> located in Caracas, Venezuela. When i love what i do, i do it with passion.</p>
-				<iframe src="https://p3d.in/e/Tbhq0" width="640" height="480" frameborder="0" seamless allowfullscreen webkitallowfullscreen></iframe>
+                    
+                    <p>My way to do it is being an electronic engineer because engineering is no more than "the art of the possible". Remember that Einstein said that the art is the expression of the most complex feeling in the simplest way, so the engineering is the way to make something complex, simple (beautiful and useful).</p>
+                    
+                    <p>I consider myself very creative, i'm an Apple Fan, ex-Musician and Electronic Engineer, Power Electronics and Mechatronics master student at the <a href="http://www.usb.ve">Simón Bolivar University</a> located in Caracas, Venezuela. When I love what i do, I do it with passion. </p>
+                    
+				
 				</div><!-- /col-lg-8 -->
 			</div><!-- /row -->
 	    </div> <!-- /container -->
@@ -152,27 +74,35 @@
 	
 	
 	<!-- +++++ Projects Section +++++ -->
-	<iframe src="https://drive.google.com/file/d/0B5Z3zbZ4VJDPOHlaTEtnQVZ6dWs/preview" width="640" height="480"></iframe>
 	<div class="container pt">
+        <div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<h1>Areas of interest</h1>
+					                    
+				
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+        
         <div class="row mt centered">	
 			<div class="col-lg-3">
 				<span class="glyphicon glyphicon-book" ></span>
-				<p>I study in the Simón Bolívar University (Electronic engineering).</p>
+				<p>Power Electronics</p>
 			</div>
 			
 			<div class="col-lg-3">
 				<span class="glyphicon glyphicon-user"></span>
-				<p>I've been the president of FutBot USB.</p>
+				<p>PCB design and manufacture</p>
 			</div>
 
 			<div class="col-lg-3">
 				<span class="glyphicon glyphicon-heart"></span>
-				<p>I love making new stuff, in any field, everyday.</p>
+				<p>Product design</p>
 			</div>
 
 			<div class="col-lg-3">
 				<span class="glyphicon glyphicon-globe"></span>
-				<p>I want to make it global.</p>
+				<p>Mechatronics</p>
 			</div>
 		</div><!-- /row -->
         
@@ -207,7 +137,7 @@
 				
 				<div class="col-lg-4">
 					<h4>What's engineering?</h4>
-					<p>It's the art of the possible and i'm trying to learn it. HOLAAAAAAAAA</p>
+					<p>It's the art of the possible and i'm trying to learn it.</p>
 				</div><!-- /col-lg-4 -->
 			
 			</div>
