@@ -1,0 +1,63 @@
+# Danilo Díaz Tarascó
+
+> CTO & Electronic Engineer at Sento IoT+Electronics Hub, Medellín, Colombia
+
+## About
+
+Danilo Díaz Tarascó is a Chief Technology Officer and Electronic Engineer based in Medellín, Antioquia, Colombia. He holds Spanish nationality (EU citizen) and has 9+ years of professional experience across 4 countries (Colombia, Venezuela, USA, Canada).
+
+He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strategy, selects projects, and ensures the tech stack stays aligned with global trends. He oversees engineering teams and drives innovation for sustainable growth.
+
+## Education
+
+- Master's in Electronics, Mechatronics and Power Electronics — Universidad Simón Bolívar (2020–2026)
+- Electronic Engineering Degree — Universidad Simón Bolívar (2010–2016)
+
+## Professional Experience
+
+- **CTO** — Sento IoT+Electronics Hub, Colombia (2024–Present)
+- **Sr. Electronics Engineer Team Lead** — Sento IoT+Electronics Hub, Colombia (2023–2024)
+- **Software Engineer** — PowDevs / Blackline Safety, USA/Canada (2021–2022)
+- **Development Engineer** — Sento IoT+Electronics Hub, Colombia (2019–2021)
+- **Hardware Engineer** — Innavitas SAPI - Wiot, Venezuela (2016–2019)
+- **Component Specialist** — Altium, Canada (2018–2019)
+
+## Core Expertise
+
+- Cloud IoT / Industrial IoT (IIoT)
+- Power Electronics (switching supplies, DC-DC converters)
+- PCB Design & Manufacturing (Altium Designer, IPC, FCC compliance)
+- Mechatronics (Fusion 360, SolidWorks, ROVs, embedded systems)
+- Software Engineering (Serverless, AWS, Python, Infrastructure as Code)
+- Technical Leadership (Scrum, cross-functional teams, strategic planning)
+
+## Awards & Certifications
+
+- 1st Place IEEE Open Category at CCSBOTS 2013
+- Latin American Robotics Competition participant (Team "Giatronica")
+- Mención Honorífica — ROV Telemetry System Thesis
+- AWS Fundamentals: Going Cloud-Native
+- AWS Fundamentals: Addressing Security Risk
+- SQL Intermediate Certificate
+
+## Languages
+
+- Spanish (Native)
+- English (Full Professional)
+
+## Contact
+
+- LinkedIn: https://linkedin.com/in/ddtdanilo
+- GitHub: https://github.com/ddtdanilo
+- Website: https://ddtdanilo.github.io
+- YouTube: https://youtube.com/ddtdanilo
+- Upwork: https://www.upwork.com/o/profiles/users/_~011fc999425c20f270/
+
+## Selected Projects
+
+- Power Distribution Board for Quadcopter/Hexacopter Drones
+- Switching Power Supply with TPS54331DDAR (Texas Instruments)
+- ROV Telemetry System (Award-winning thesis)
+- Weather Station with Freescale/NXP DemoQE128
+- TCP/IP Client-Server (Python)
+- Telemedicine Web Platform
