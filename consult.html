@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulting | Danilo D&iacute;az Tarasc&oacute; &mdash; CTO &amp; Electronic Engineer</title>
+    <meta name="description" content="Book a consulting session with Danilo D&iacute;az Tarasc&oacute; &mdash; CTO &amp; Electronic Engineer. Expert advice on IoT, IIoT, cloud architecture, PCB design, and technical strategy.">
+    <meta name="author" content="Danilo D&iacute;az Tarasc&oacute;">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ddtdanilo.github.io/consult.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ddtdanilo.github.io/consult.html">
+    <meta property="og:title" content="Consulting | Danilo D&iacute;az Tarasc&oacute;">
+    <meta property="og:description" content="Book a consulting session &mdash; IoT, cloud architecture, electronics, and technical strategy.">
+    <meta property="og:image" content="https://ddtdanilo.github.io/assets/img/user.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ---- Consulting Page Styles ---- */
+        .consult-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .consult-hero-content {
+            max-width: 700px;
+        }
+
+        .consult-hero-tag {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+        }
+
+        .consult-hero-title {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .consult-hero-subtitle {
+            font-family: var(--mono);
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* ---- Pricing Cards ---- */
+        .pricing-section {
+            position: relative;
+            padding: 4rem 0 6rem;
+            z-index: 1;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, border-color 0.3s, background 0.3s;
+            will-change: transform;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(0, 212, 255, 0.3);
+            background: var(--surface-hover);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            border-color: rgba(0, 212, 255, 0.25);
+            background: rgba(0, 212, 255, 0.04);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient);
+            border-radius: 16px 16px 0 0;
+        }
+
+        .pricing-badge {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--bg);
+            background: var(--gradient);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card-duration {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-card-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-card-price-note {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ---- What You Get Section ---- */
+        .benefits-section {
+            position: relative;
+            padding: 6rem 0 8rem;
+            z-index: 1;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .benefit-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            transition: border-color 0.3s;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .benefit-item:hover {
+            border-color: rgba(0, 212, 255, 0.2);
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .benefit-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .benefit-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .benefit-text p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ---- Back link in nav ---- */
+        .nav-back {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-back:hover {
+            color: var(--accent);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .consult-hero {
+                padding: 7rem 1.5rem 3rem;
+                min-height: 50vh;
+            }
+
+            .pricing-section {
+                padding: 2rem 0 4rem;
+            }
+
+            .benefits-section {
+                padding: 4rem 0 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo">DDT.</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link nav-back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span data-en="Back to Portfolio" data-es="Volver al Portafolio">Back to Portfolio</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+                <span class="lang-option active" data-lang="en">EN</span>
+                <span class="lang-divider">/</span>
+                <span class="lang-option" data-lang="es">ES</span>
+            </button>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu">
+        <a href="index.html" class="mobile-link" data-en="Portfolio" data-es="Portafolio">Portfolio</a>
+        <a href="index.html#about" class="mobile-link" data-en="About" data-es="Sobre m&iacute;">About</a>
+        <a href="index.html#contact" class="mobile-link" data-en="Contact" data-es="Contacto">Contact</a>
+        <div class="mobile-socials">
+            <a href="https://github.com/ddtdanilo" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://linkedin.com/in/ddtdanilo" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://youtube.com/ddtdanilo" target="_blank" rel="noopener">YouTube</a>
+        </div>
+    </div>
+
+    <main>
+    <!-- Hero Section -->
+    <section class="consult-hero">
+        <div class="consult-hero-content">
+            <div class="consult-hero-tag" data-en="Consulting Services" data-es="Servicios de Consultor&iacute;a">Consulting Services</div>
+            <h1 class="consult-hero-title" data-en="Book a Consulting Session" data-es="Reserva una Sesi&oacute;n de Consultor&iacute;a">Book a Consulting Session</h1>
+            <p class="consult-hero-subtitle" data-en="Get expert guidance on IoT, cloud architecture, electronics design, and technical strategy from a CTO with 9+ years of experience." data-es="Obt&eacute;n asesor&iacute;a experta en IoT, arquitectura cloud, dise&ntilde;o electr&oacute;nico y estrategia t&eacute;cnica de un CTO con m&aacute;s de 9 a&ntilde;os de experiencia.">Get expert guidance on IoT, cloud architecture, electronics design, and technical strategy from a CTO with 9+ years of experience.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-label" data-en="Pricing" data-es="Precios">Pricing</div>
+            <h2 class="section-title reveal-text" data-en="Choose Your Session" data-es="Elige Tu Sesi&oacute;n">Choose Your Session</h2>
+            <div class="pricing-grid">
+                <!-- Quick Call -->
+                <div class="pricing-card" data-tilt>
+                    <span class="pricing-card-name" data-en="Quick Call" data-es="Llamada R&aacute;pida">Quick Call</span>
+                    <span class="pricing-card-duration" data-en="30 minutes" data-es="30 minutos">30 minutes</span>
+                    <span class="pricing-card-price">$50</span>
+                    <span class="pricing-card-price-note">USD</span>
+                    <p class="pricing-card-desc" data-en="For quick technical questions about IoT, electronics, PCB design, or cloud architecture. Get clear answers fast." data-es="Para preguntas t&eacute;cnicas r&aacute;pidas sobre IoT, electr&oacute;nica, dise&ntilde;o de PCB o arquitectura cloud. Respuestas claras y r&aacute;pidas.">For quick technical questions about IoT, electronics, PCB design, or cloud architecture. Get clear answers fast.</p>
+                    <a href="#stripe-quick" class="btn btn-ghost" data-en="Book Now" data-es="Reservar">Book Now</a>
+                </div>
+
+                <!-- Deep Dive -->
+                <div class="pricing-card featured" data-tilt>
+                    <span class="pricing-badge" data-en="Most Popular" data-es="M&aacute;s Popular">Most Popular</span>
+                    <span class="pricing-card-name" data-en="Deep Dive" data-es="An&aacute;lisis Profundo">Deep Dive</span>
+                    <span class="pricing-card-duration" data-en="60 minutes" data-es="60 minutos">60 minutes</span>
+                    <span class="pricing-card-price">$120</span>
+                    <span class="pricing-card-price-note">USD</span>
+                    <p class="pricing-card-desc" data-en="In-depth consultation on project architecture, technical decisions, and IIoT solutions. Ideal for teams evaluating their tech stack or facing complex engineering challenges." data-es="Consulta en profundidad sobre arquitectura de proyectos, decisiones t&eacute;cnicas y soluciones IIoT. Ideal para equipos evaluando su stack tecnol&oacute;gico o enfrentando desaf&iacute;os de ingenier&iacute;a complejos.">In-depth consultation on project architecture, technical decisions, and IIoT solutions. Ideal for teams evaluating their tech stack or facing complex engineering challenges.</p>
+                    <a href="#stripe-deep" class="btn btn-primary" data-en="Book Now" data-es="Reservar">Book Now</a>
+                </div>
+
+                <!-- Strategy Session -->
+                <div class="pricing-card" data-tilt>
+                    <span class="pricing-card-name" data-en="Strategy Session" data-es="Sesi&oacute;n Estrat&eacute;gica">Strategy Session</span>
+                    <span class="pricing-card-duration" data-en="90 minutes" data-es="90 minutos">90 minutes</span>
+                    <span class="pricing-card-price">$200</span>
+                    <span class="pricing-card-price-note">USD</span>
+                    <p class="pricing-card-desc" data-en="Full technical strategy session for startups and companies. Covers roadmap planning, stack selection, team structure, and scaling strategy for hardware and software products." data-es="Sesi&oacute;n completa de estrategia t&eacute;cnica para startups y empresas. Cubre planificaci&oacute;n de roadmap, selecci&oacute;n de stack, estructura de equipo y estrategia de escalamiento para productos de hardware y software.">Full technical strategy session for startups and companies. Covers roadmap planning, stack selection, team structure, and scaling strategy for hardware and software products.</p>
+                    <a href="#stripe-strategy" class="btn btn-ghost" data-en="Book Now" data-es="Reservar">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-label" data-en="What You Get" data-es="Qu&eacute; Incluye">What You Get</div>
+            <h2 class="section-title reveal-text" data-en="Every Session Includes" data-es="Cada Sesi&oacute;n Incluye">Every Session Includes</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 004 4h12"/></svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h4 data-en="Video Call via Google Meet" data-es="Videollamada por Google Meet">Video Call via Google Meet</h4>
+                        <p data-en="One-on-one video session with screen sharing. We can review your code, schematics, or architecture diagrams in real time." data-es="Sesi&oacute;n de video uno a uno con pantalla compartida. Podemos revisar tu c&oacute;digo, esquem&aacute;ticos o diagramas de arquitectura en tiempo real.">One-on-one video session with screen sharing. We can review your code, schematics, or architecture diagrams in real time.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h4 data-en="Follow-Up Notes" data-es="Notas de Seguimiento">Follow-Up Notes</h4>
+                        <p data-en="Within 24 hours you'll receive a summary document with key takeaways, action items, and any resources or links discussed." data-es="Dentro de 24 horas recibir&aacute;s un documento resumen con los puntos clave, acciones a seguir y recursos o enlaces discutidos.">Within 24 hours you'll receive a summary document with key takeaways, action items, and any resources or links discussed.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h4 data-en="Flexible Scheduling" data-es="Horarios Flexibles">Flexible Scheduling</h4>
+                        <p data-en="After booking, you'll receive a scheduling link to pick a time that works for you. Sessions available in English or Spanish." data-es="Despu&eacute;s de reservar, recibir&aacute;s un enlace para elegir el horario que te convenga. Sesiones disponibles en ingl&eacute;s o espa&ntilde;ol.">After booking, you'll receive a scheduling link to pick a time that works for you. Sessions available in English or Spanish.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h4 data-en="NDA Available" data-es="NDA Disponible">NDA Available</h4>
+                        <p data-en="If you need to discuss proprietary technology or confidential projects, I'm happy to sign an NDA before the session." data-es="Si necesitas discutir tecnolog&iacute;a propietaria o proyectos confidenciales, con gusto firmo un NDA antes de la sesi&oacute;n.">If you need to discuss proprietary technology or confidential projects, I'm happy to sign an NDA before the session.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container footer-inner">
+            <span class="footer-quote" data-en="&quot;The way to be happy is creating something new, merging arts and science to make useful stuff&quot;" data-es="&quot;La felicidad est&aacute; en crear cosas nuevas que fusionen el arte y la ciencia para hacer cosas &uacute;tiles&quot;">"The way to be happy is creating something new, merging arts and science to make useful stuff"</span>
+            <span class="footer-copy">&copy; 2026 Danilo D&iacute;az Tarasc&oacute;. Medell&iacute;n, Colombia.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+    /* ============================================
+       Consulting Page — Simplified JS
+       Three.js 3D Background + Cursor + i18n + Nav
+       ============================================ */
+    (function () {
+        'use strict';
+
+        // ---- i18n System ----
+        var currentLang = 'en';
+
+        function detectLanguage() {
+            var saved = localStorage.getItem('ddt-lang');
+            if (saved === 'en' || saved === 'es') return saved;
+            var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            if (browserLang.startsWith('es')) return 'es';
+            return 'en';
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('ddt-lang', lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
+                var text = el.getAttribute('data-' + lang);
+                if (text) el.innerHTML = text;
+            });
+            document.querySelectorAll('.lang-option').forEach(function (opt) {
+                opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+            });
+        }
+
+        function initLanguage() {
+            var detected = detectLanguage();
+            setLanguage(detected);
+            var toggle = document.getElementById('lang-toggle');
+            if (toggle) {
+                toggle.addEventListener('click', function () {
+                    setLanguage(currentLang === 'en' ? 'es' : 'en');
+                });
+            }
+        }
+
+        // ---- Three.js 3D Scene ----
+        var canvasContainer = document.getElementById('canvas-container');
+        var scene, camera, renderer, particles, geometries = [];
+        var mouseX = 0, mouseY = 0;
+        var windowW = window.innerWidth;
+        var windowH = window.innerHeight;
+
+        function initThree() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, windowW / windowH, 0.1, 1000);
+            camera.position.z = 30;
+
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(windowW, windowH);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            canvasContainer.appendChild(renderer.domElement);
+
+            var particleCount = Math.min(1500, Math.floor(windowW * 0.8));
+            var positions = new Float32Array(particleCount * 3);
+            var colors = new Float32Array(particleCount * 3);
+
+            for (var i = 0; i < particleCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 80;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 80;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 80;
+                var t = Math.random();
+                colors[i * 3] = t * 0 + (1 - t) * 0.48;
+                colors[i * 3 + 1] = t * 0.83 + (1 - t) * 0.38;
+                colors[i * 3 + 2] = t * 1 + (1 - t) * 1;
+            }
+
+            var particleGeom = new THREE.BufferGeometry();
+            particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            var particleMat = new THREE.PointsMaterial({
+                size: 0.08,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.7,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            particles = new THREE.Points(particleGeom, particleMat);
+            scene.add(particles);
+
+            var geoTypes = [
+                new THREE.IcosahedronGeometry(3, 1),
+                new THREE.OctahedronGeometry(2.5, 0),
+                new THREE.TorusGeometry(2, 0.6, 8, 16),
+                new THREE.TetrahedronGeometry(2, 0),
+            ];
+
+            var geoPositions = [
+                { x: -15, y: 8, z: -10 },
+                { x: 18, y: -6, z: -15 },
+                { x: -10, y: -12, z: -8 },
+                { x: 14, y: 10, z: -20 },
+            ];
+
+            geoTypes.forEach(function (geo, i) {
+                var mat = new THREE.MeshBasicMaterial({
+                    color: i % 2 === 0 ? 0x00d4ff : 0x7b61ff,
+                    wireframe: true,
+                    transparent: true,
+                    opacity: 0.15,
+                });
+                var mesh = new THREE.Mesh(geo, mat);
+                mesh.position.set(geoPositions[i].x, geoPositions[i].y, geoPositions[i].z);
+                mesh.userData = {
+                    rotSpeed: { x: 0.002 + Math.random() * 0.005, y: 0.003 + Math.random() * 0.005 },
+                    floatOffset: Math.random() * Math.PI * 2,
+                    baseY: geoPositions[i].y,
+                };
+                geometries.push(mesh);
+                scene.add(mesh);
+            });
+        }
+
+        function animateThree() {
+            requestAnimationFrame(animateThree);
+            var time = Date.now() * 0.001;
+            if (particles) {
+                particles.rotation.x += 0.0003;
+                particles.rotation.y += 0.0005;
+                particles.rotation.x += (mouseY * 0.0001 - particles.rotation.x * 0.01);
+                particles.rotation.y += (mouseX * 0.0001 - particles.rotation.y * 0.01);
+            }
+            geometries.forEach(function (mesh) {
+                mesh.rotation.x += mesh.userData.rotSpeed.x;
+                mesh.rotation.y += mesh.userData.rotSpeed.y;
+                mesh.position.y = mesh.userData.baseY + Math.sin(time + mesh.userData.floatOffset) * 1.5;
+            });
+            renderer.render(scene, camera);
+        }
+
+        // ---- Custom Cursor ----
+        function initCursor() {
+            var cursor = document.getElementById('cursor');
+            var follower = document.getElementById('cursor-follower');
+            if (!cursor || !follower) return;
+            if ('ontouchstart' in window) {
+                cursor.style.display = 'none';
+                follower.style.display = 'none';
+                return;
+            }
+            var cx = 0, cy = 0;
+            var fx = 0, fy = 0;
+
+            document.addEventListener('mousemove', function (e) {
+                mouseX = e.clientX - windowW / 2;
+                mouseY = e.clientY - windowH / 2;
+                cx = e.clientX;
+                cy = e.clientY;
+            });
+
+            function updateCursor() {
+                fx += (cx - fx) * 0.12;
+                fy += (cy - fy) * 0.12;
+                cursor.style.left = cx + 'px';
+                cursor.style.top = cy + 'px';
+                follower.style.left = fx + 'px';
+                follower.style.top = fy + 'px';
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+
+            var hoverElements = document.querySelectorAll('a, button, .pricing-card, .benefit-item');
+            hoverElements.forEach(function (el) {
+                el.addEventListener('mouseenter', function () { follower.classList.add('hover'); });
+                el.addEventListener('mouseleave', function () { follower.classList.remove('hover'); });
+            });
+        }
+
+        // ---- Scroll Animations ----
+        function initScrollAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            ScrollTrigger.create({
+                start: 'top -80',
+                onUpdate: function (self) {
+                    document.getElementById('navbar').classList.toggle('scrolled', self.progress > 0);
+                }
+            });
+
+            gsap.utils.toArray('.reveal-text').forEach(function (el) {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                });
+            });
+
+            // Pricing cards stagger
+            gsap.utils.toArray('.pricing-card').forEach(function (el, i) {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 0.8, delay: i * 0.15, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+                });
+            });
+
+            // Benefit items stagger
+            gsap.utils.toArray('.benefit-item').forEach(function (el, i) {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: 0.8, delay: i * 0.1, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+                });
+            });
+        }
+
+        // ---- Hero Animation ----
+        function animateHero() {
+            var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+            tl.to('.consult-hero-tag', { opacity: 1, duration: 0.8 })
+              .to('.consult-hero-title', { opacity: 1, y: 0, duration: 1 }, '-=0.4')
+              .to('.consult-hero-subtitle', { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+        }
+
+        // ---- 3D Tilt Effect on Cards ----
+        function initTiltCards() {
+            var cards = document.querySelectorAll('[data-tilt]');
+            cards.forEach(function (card) {
+                card.addEventListener('mousemove', function (e) {
+                    var rect = card.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    var centerX = rect.width / 2;
+                    var centerY = rect.height / 2;
+                    var rotateX = (y - centerY) / centerY * -6;
+                    var rotateY = (x - centerX) / centerX * 6;
+                    card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+                });
+                card.addEventListener('mouseleave', function () {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                });
+            });
+        }
+
+        // ---- Mobile Menu ----
+        function initMobileMenu() {
+            var toggle = document.querySelector('.nav-toggle');
+            var menu = document.getElementById('mobile-menu');
+            if (!toggle || !menu) return;
+            var links = menu.querySelectorAll('.mobile-link');
+
+            toggle.addEventListener('click', function () {
+                toggle.classList.toggle('active');
+                menu.classList.toggle('open');
+                document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+            });
+
+            links.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    toggle.classList.remove('active');
+                    menu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+
+        // ---- Resize Handler ----
+        function onResize() {
+            windowW = window.innerWidth;
+            windowH = window.innerHeight;
+            if (camera && renderer) {
+                camera.aspect = windowW / windowH;
+                camera.updateProjectionMatrix();
+                renderer.setSize(windowW, windowH);
+            }
+        }
+
+        // ---- Init ----
+        function init() {
+            initLanguage();
+            initThree();
+            animateThree();
+            initCursor();
+            initScrollAnimations();
+            initTiltCards();
+            initMobileMenu();
+            window.addEventListener('resize', onResize);
+
+            // Animate hero after a short delay (no loader on this page)
+            setTimeout(animateHero, 200);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    })();
+    </script>
+</body>
+</html>
