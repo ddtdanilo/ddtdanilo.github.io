@@ -4,7 +4,7 @@
 
 ## About
 
-Danilo Díaz Tarascó is a Chief Technology Officer and Electronic Engineer based in Medellín, Antioquia, Colombia. He holds Spanish nationality (EU citizen) and has 9+ years of professional experience across 4 countries (Colombia, Venezuela, USA, Canada).
+Danilo Díaz Tarascó is a Chief Technology Officer and Electronic Engineer based in Medellín, Antioquia, Colombia. He holds Spanish (EU citizen), Venezuelan citizenship and has 10+ years of professional experience across 4 countries (Colombia, Venezuela, USA, Canada). He is a permanent resident in Colombia since 2019.
 
 He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strategy, selects projects, and ensures the tech stack stays aligned with global trends. He oversees engineering teams and drives innovation for sustainable growth.
 
@@ -51,13 +51,13 @@ He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strat
 - GitHub: https://github.com/ddtdanilo
 - Website: https://ddtdanilo.github.io
 - YouTube: https://youtube.com/ddtdanilo
-- Upwork: https://www.upwork.com/o/profiles/users/_~011fc999425c20f270/
+- Consulting: https://ddtdanilo.github.io/consult.html
 
 ## Selected Projects
 
-- Power Distribution Board for Quadcopter/Hexacopter Drones
-- Switching Power Supply with TPS54331DDAR (Texas Instruments)
-- ROV Telemetry System (Award-winning thesis)
-- Weather Station with Freescale/NXP DemoQE128
-- TCP/IP Client-Server (Python)
-- Telemedicine Web Platform
+- Altium Component Library (open-source, 21+ stars)
+- GW Standalone — Industrial IoT Gateway
+- Pycom OTA WiFi — OTA firmware updates for Pycom devices
+- OTA App AWS — Serverless OTA management platform
+- OTA Amplify Manager — AWS Amplify OTA management app
+- PigVision 2.0 — Computer vision for livestock monitoring
