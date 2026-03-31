@@ -4,9 +4,9 @@
 
 ## About
 
-Danilo Díaz Tarascó is a Chief Technology Officer and Electronic Engineer based in Medellín, Antioquia, Colombia. He holds Spanish (EU citizen), Venezuelan citizenship and has 10+ years of professional experience across 4 countries (Colombia, Venezuela, USA, Canada). He is a permanent resident in Colombia since 2019.
+Danilo Díaz Tarascó is a Chief Technology Officer and Electronic Engineer based in Medellín, Antioquia, Colombia. He holds Spanish (EU citizen), Venezuelan citizenship and has 10+ years of professional experience across 5 countries (Colombia, Venezuela, Mexico, USA, Canada). He is a permanent resident in Colombia since 2019.
 
-He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strategy, selects projects, and ensures the tech stack stays aligned with global trends. He oversees engineering teams and drives innovation for sustainable growth.
+He is currently CTO at Sento IoT+Electronics Hub, where he leads a 12-engineer team defining technical vision and product roadmap for the IIoT portfolio — achieving 99.9% uptime. He drove the company from negative to positive EBITDA with ~60% revenue growth over three years. He expanded into maritime cargo tracking, chemical dosing systems, and precision agriculture. He integrates AI tooling (Claude Code, Codex) to maximize lean-team output.
 
 ## Education
 
@@ -19,7 +19,7 @@ He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strat
 - **Sr. Electronics Engineer Team Lead** — Sento IoT+Electronics Hub, Colombia (2023–2024)
 - **Software Engineer** — PowDevs / Blackline Safety, USA/Canada (2021–2022)
 - **Development Engineer** — Sento IoT+Electronics Hub, Colombia (2019–2021)
-- **Hardware Engineer** — Innavitas SAPI - Wiot, Venezuela (2016–2019)
+- **Hardware Engineer** — Innavitas SAPI - Wiot, Mexico (Remote) (2016–2019)
 - **Component Specialist** — Altium, Canada (2018–2019)
 
 ## Core Expertise
@@ -29,6 +29,7 @@ He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strat
 - PCB Design & Manufacturing (Altium Designer, IPC, FCC compliance)
 - Mechatronics (Fusion 360, SolidWorks, ROVs, embedded systems)
 - Software Engineering (Serverless, AWS, Python, Infrastructure as Code)
+- AI-augmented Development (Claude Code, Codex)
 - Technical Leadership (Scrum, cross-functional teams, strategic planning)
 
 ## Awards & Certifications
@@ -39,6 +40,10 @@ He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strat
 - AWS Fundamentals: Going Cloud-Native
 - AWS Fundamentals: Addressing Security Risk
 - SQL Intermediate Certificate
+- AI Proficiency
+- Advanced Prompting Techniques
+- Working with Reasoning Models
+- Building a Custom GPT
 
 ## Languages
 
@@ -55,6 +60,8 @@ He is currently CTO at Sento IoT+Electronics Hub, where he leads technical strat
 
 ## Selected Projects
 
+- microsoft/vcpkg — Contributor to Microsoft's C/C++ package manager (PR #50323, release 2026.03.18)
+- OpenAI Document Analyzer (open-source, 40+ stars)
 - Altium Component Library (open-source, 21+ stars)
 - GW Standalone — Industrial IoT Gateway
 - Pycom OTA WiFi — OTA firmware updates for Pycom devices
