@@ -65,6 +65,9 @@
         if (!target) return false;
         target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
         history.replaceState(null, '', hash);
+        // Move keyboard focus too, so skip links and in-page nav work for AT users.
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
         return true;
     }
 
@@ -96,10 +99,15 @@
         var menu = document.getElementById('mobile-menu');
         if (!toggle || !menu) return;
 
+        // Everything outside the header and the menu becomes inert while open,
+        // so keyboard focus can't wander into the obscured page.
+        var behind = document.querySelectorAll('body > main, body > footer, .skip-link');
         function setOpen(open) {
             toggle.setAttribute('aria-expanded', String(open));
             menu.hidden = !open;
             document.body.style.overflow = open ? 'hidden' : '';
+            behind.forEach(function (el) { el.inert = open; });
+            document.querySelectorAll('#navbar a, #navbar .chip-btn').forEach(function (el) { el.inert = open; });
             if (open) {
                 var first = menu.querySelector('a');
                 if (first) first.focus();
@@ -327,7 +335,7 @@
     function inEuropeanTimeZone() {
         try {
             var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-            return /^(Europe|Atlantic\/(Canary|Madeira|Azores|Reykjavik))\//.test(tz);
+            return /^(?:Europe\/|Atlantic\/(?:Canary|Madeira|Azores|Reykjavik)$)/.test(tz);
         } catch (e) { return false; }
     }
 
@@ -342,8 +350,8 @@
         function paint() {
             note.innerHTML =
                 '<b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' + t('GDPR · privacy', 'RGPD · privacidad') + '</b>' +
-                t('No cookies, no analytics, no trackers. Fonts are self-hosted, and only your language choice is saved in this browser. ',
-                  'Sin cookies, sin analítica, sin rastreadores. Las fuentes se sirven desde este sitio y solo tu idioma se guarda en este navegador. ') +
+                t('No cookies, no analytics, no trackers. Fonts are self-hosted; this browser only stores your language choice and that you closed this note. ',
+                  'Sin cookies, sin analítica, sin rastreadores. Las fuentes se sirven desde este sitio; este navegador solo guarda tu idioma y que cerraste este aviso. ') +
                 '<a href="/privacy.html">' + t('Details', 'Detalles') + '</a>' +
                 '<div class="privacy-note-actions"><button type="button">' + t('Got it', 'Entendido') + '</button></div>';
             note.querySelector('button').addEventListener('click', function () {
@@ -368,6 +376,21 @@
         });
     }
 
+    // ---- 3D mesh-field background (lazy, self-hosted Three.js) ----
+    function initField() {
+        var el = document.getElementById('field');
+        if (!el) return;
+        var conn = navigator.connection;
+        if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
+        var load = function () {
+            import('/assets/js/field.js')
+                .then(function (m) { m.startField(el, { reduceMotion: reduceMotion }); })
+                .catch(function () { /* background is decorative; ignore */ });
+        };
+        if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 2000 });
+        else setTimeout(load, 1200);
+    }
+
     function init() {
         initLanguage();
         initNavbar();
@@ -379,6 +402,7 @@
         initSpotlight();
         initPalette();
         initPrivacyNote();
+        initField();
     }
 
     window.DDT = {

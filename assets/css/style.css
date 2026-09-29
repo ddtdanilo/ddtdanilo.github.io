@@ -1153,3 +1153,25 @@ main { display: block; }
 /* Long bilingual prose: one block per language, switched by <html lang> */
 html[lang="es"] [data-lang-block="en"],
 html:not([lang="es"]) [data-lang-block="es"] { display: none; }
+/* Programmatic focus targets (sections, main) don't need a ring */
+[tabindex="-1"]:focus { outline: none; }
+
+/* ---- 3D mesh field (assets/js/field.js) ---- */
+#field {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+#field.ready { opacity: 1; }
+#field canvas { display: block; width: 100%; height: 100%; }
+/* Keep text contrast: darken the field behind the reading column */
+#field::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 35% 45%, rgba(13, 19, 21, 0.55), transparent 75%);
+}
+@media print { #field { display: none; } }

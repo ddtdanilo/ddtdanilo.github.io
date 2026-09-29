@@ -74,23 +74,35 @@ async function fetchJson(env, path) {
   return res.json();
 }
 
+// True when text/markdown is acceptable (q > 0) and preferred over HTML.
 function wantsMarkdown(request) {
-  const accept = request.headers.get('Accept') || '';
-  return /(^|,)\s*text\/markdown/i.test(accept);
+  const ranges = (request.headers.get('Accept') || '').split(',').map((part) => {
+    const [type, ...params] = part.trim().toLowerCase().split(';');
+    const q = params.map((p) => p.trim()).find((p) => p.startsWith('q='));
+    return { type: type.trim(), q: q ? Number(q.slice(2)) : 1 };
+  });
+  const qOf = (type) => Math.max(0, ...ranges.filter((r) => r.type === type).map((r) => r.q));
+  const md = qOf('text/markdown');
+  return md > 0 && md >= qOf('text/html');
 }
 
 function serverCard(baseUrl) {
+  // Current Server Card extension shape (top-level name/version/remotes), plus
+  // the older serverInfo/transport/capabilities fields some scanners still read.
   return {
-    $schema: 'https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json',
-    version: '1.0',
-    protocolVersion: PROTOCOL_VERSION,
+    $schema: 'https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json',
+    name: 'io.github.ddtdanilo/portfolio',
+    version: '2026.9.29',
+    title: SERVER_INFO.title,
+    description: 'Read-only facts about Danilo Díaz Tarascó and his consulting offer.',
+    websiteUrl: `${baseUrl}/`,
+    repository: { url: 'https://github.com/ddtdanilo/ddtdanilo.github.io', source: 'github', subfolder: 'worker' },
+    remotes: [{ type: 'streamable-http', url: `${baseUrl}/mcp`, supportedProtocolVersions: [PROTOCOL_VERSION] }],
     serverInfo: SERVER_INFO,
-    description: 'Read-only facts about Danilo Díaz Tarascó (CTO, electronics engineer) and his consulting offer.',
-    documentationUrl: `${baseUrl}/llms.txt`,
+    protocolVersion: PROTOCOL_VERSION,
     transport: { type: 'streamable-http', endpoint: '/mcp' },
     capabilities: { tools: { listChanged: false } },
     authentication: { required: false, schemes: [] },
-    tools: TOOLS.map(({ name, title, description }) => ({ name, title, description })),
   };
 }
 
@@ -138,9 +150,18 @@ class RpcError extends Error {
   constructor(code, message) { super(message); this.code = code; }
 }
 
+function isValidEnvelope(msg) {
+  return msg !== null && typeof msg === 'object' && !Array.isArray(msg)
+    && msg.jsonrpc === '2.0' && typeof msg.method === 'string';
+}
+
 async function handleRpc(env, msg) {
+  if (!isValidEnvelope(msg)) {
+    const id = msg && typeof msg === 'object' && 'id' in msg ? msg.id : null;
+    return { jsonrpc: '2.0', id, error: { code: -32600, message: 'Invalid Request' } };
+  }
   const { id, method, params = {} } = msg;
-  const isNotification = id === undefined || id === null;
+  const isNotification = !('id' in msg);
   try {
     let result;
     switch (method) {
@@ -186,6 +207,9 @@ async function handleMcp(request, env) {
     return Response.json({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'Parse error' } }, { status: 400, headers: cors });
   }
   const batch = Array.isArray(body);
+  if (batch && !body.length) {
+    return Response.json({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'Invalid Request' } }, { status: 400, headers: cors });
+  }
   const replies = (await Promise.all((batch ? body : [body]).map((m) => handleRpc(env, m)))).filter(Boolean);
   if (!replies.length) return new Response(null, { status: 202, headers: cors });
   return Response.json(batch ? replies : replies[0], { headers: cors });
