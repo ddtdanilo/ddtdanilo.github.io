@@ -1,4 +1,32 @@
+# ddtdanilo.github.io — personal portfolio. AI agents and crawlers are welcome.
+# Content Signals (https://contentsignals.org): search, AI answers (ai-input),
+# and AI training (ai-train) are all permitted.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
+Disallow: /consult-success.html
+
+# AI crawlers and assistants, explicitly allowed
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: MistralAI-User
+User-agent: DuckAssistBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+Disallow: /consult-success.html
 
 Sitemap: https://ddtdanilo.github.io/sitemap.xml
+Agentmap: https://ddtdanilo.github.io/.well-known/ai-catalog.json

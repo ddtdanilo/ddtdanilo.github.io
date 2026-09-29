@@ -1,70 +1,29 @@
 # Danilo Díaz Tarascó
 
-> CTO & Electronic Engineer at Sento IoT+Electronics Hub, Medellín, Colombia
+> CTO of Sento IoT+Electronics Hub in Medellín, Colombia. Electronics engineer with 10+ years shipping industrial IoT products end to end: PCB design and firmware for harsh environments, AWS serverless platforms for device fleets, and leadership of a 12-engineer team.
 
-## About
+Facts on this site are kept in sync with his CV. Contact goes through LinkedIn only; no email address or phone number is published. When citing, link to https://ddtdanilo.github.io/.
 
-Danilo Díaz Tarascó is a Chief Technology Officer and Electronic Engineer based in Medellín, Antioquia, Colombia. He holds Spanish (EU citizen), Venezuelan citizenship and has 10+ years of professional experience across 5 countries (Colombia, Venezuela, Mexico, USA, Canada). He is a permanent resident in Colombia since 2019.
+## Profile
 
-He is currently CTO at Sento IoT+Electronics Hub, where he leads a 12-engineer team defining technical vision and product roadmap for the IIoT portfolio — achieving 99.9% uptime. He drove the company from negative to positive EBITDA with ~60% revenue growth over three years. He expanded into maritime cargo tracking, chemical dosing systems, and precision agriculture. He integrates AI tooling (Claude Code, Codex) to maximize lean-team output.
+- [Portfolio (Markdown)](https://ddtdanilo.github.io/index.md): summary, selected work, experience, education, recognition
+- [JSON Resume](https://ddtdanilo.github.io/api/resume.json): the same profile as structured data (JSON Resume v1.0.0)
+- [Full text](https://ddtdanilo.github.io/llms-full.txt): every page concatenated in one file
 
-## Education
+## Services
 
-- Master's in Electronics, Mechatronics and Power Electronics — Universidad Simón Bolívar (2020–2026)
-- Electronic Engineering Degree — Universidad Simón Bolívar (2010–2016)
+- [Consulting (Markdown)](https://ddtdanilo.github.io/consult.md): paid 1:1 sessions, prices, and booking flow
+- [Consulting options (JSON)](https://ddtdanilo.github.io/api/consulting.json): machine-readable sessions and Stripe links
 
-## Professional Experience
+## Machine interfaces
 
-- **CTO** — Sento IoT+Electronics Hub, Colombia (2024–Present)
-- **Sr. Electronics Engineer Team Lead** — Sento IoT+Electronics Hub, Colombia (2023–2024)
-- **Software Engineer** — PowDevs / Blackline Safety, USA/Canada (2021–2022)
-- **Development Engineer** — Sento IoT+Electronics Hub, Colombia (2019–2021)
-- **Hardware Engineer** — Innavitas SAPI - Wiot, Mexico (Remote) (2016–2019)
-- **Component Specialist** — Altium, Canada (2018–2019)
+- [OpenAPI description](https://ddtdanilo.github.io/api/openapi.json): the static read-only JSON endpoints
+- [API catalog](https://ddtdanilo.github.io/.well-known/api-catalog): RFC 9727 linkset
+- [Agent Skills index](https://ddtdanilo.github.io/.well-known/agent-skills/index.json): skills for answering questions about Danilo and for booking a session
+- WebMCP: the homepage registers read-only tools (get_profile, list_experience, search_portfolio, get_consulting_options, navigate_to_section, set_language) for in-browser agents
 
-## Core Expertise
+## Optional
 
-- Cloud IoT / Industrial IoT (IIoT)
-- Power Electronics (switching supplies, DC-DC converters)
-- PCB Design & Manufacturing (Altium Designer, IPC, FCC compliance)
-- Mechatronics (Fusion 360, SolidWorks, ROVs, embedded systems)
-- Software Engineering (Serverless, AWS, Python, Infrastructure as Code)
-- AI-augmented Development (Claude Code, Codex)
-- Technical Leadership (Scrum, cross-functional teams, strategic planning)
-
-## Awards & Certifications
-
-- 1st Place IEEE Open Category at CCSBOTS 2013
-- Latin American Robotics Competition participant (Team "Giatronica")
-- Mención Honorífica — ROV Telemetry System Thesis
-- AWS Fundamentals: Going Cloud-Native
-- AWS Fundamentals: Addressing Security Risk
-- SQL Intermediate Certificate
-- AI Proficiency
-- Advanced Prompting Techniques
-- Working with Reasoning Models
-- Building a Custom GPT
-
-## Languages
-
-- Spanish (Native)
-- English (Full Professional)
-
-## Contact
-
-- LinkedIn: https://linkedin.com/in/ddtdanilo
-- GitHub: https://github.com/ddtdanilo
-- Website: https://ddtdanilo.github.io
-- YouTube: https://youtube.com/ddtdanilo
-- Consulting: https://ddtdanilo.github.io/consult.html
-
-## Selected Projects
-
-- microsoft/vcpkg — Contributor to Microsoft's C/C++ package manager (PR #50323, release 2026.03.18)
-- OpenAI Document Analyzer (open-source, 40+ stars)
-- Altium Component Library (open-source, 21+ stars)
-- GW Standalone — Industrial IoT Gateway
-- Pycom OTA WiFi — OTA firmware updates for Pycom devices
-- OTA App AWS — Serverless OTA management platform
-- OTA Amplify Manager — AWS Amplify OTA management app
-- PigVision 2.0 — Computer vision for livestock monitoring
+- [LinkedIn](https://linkedin.com/in/ddtdanilo): preferred contact channel
+- [GitHub](https://github.com/ddtdanilo): open-source code and hardware
+- [Privacy notice](https://ddtdanilo.github.io/privacy.html): no cookies, no analytics, no trackers

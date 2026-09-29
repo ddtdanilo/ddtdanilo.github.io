@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "danilo-profile",
+      "type": "skill-md",
+      "description": "Answer questions about Danilo Díaz Tarascó using his own published, citable sources (JSON Resume, Markdown portfolio).",
+      "url": "/.well-known/agent-skills/danilo-profile/SKILL.md",
+      "digest": "sha256:b8bf3e264b0443419e96d3c2ad0406e612d062841f4b73bedbb5d63080ddf974"
+    },
+    {
+      "name": "book-consulting",
+      "type": "skill-md",
+      "description": "Help a user choose and book a paid 1:1 consulting session with Danilo Díaz Tarascó; never pay without explicit confirmation.",
+      "url": "/.well-known/agent-skills/book-consulting/SKILL.md",
+      "digest": "sha256:ed160fa80cbae8dd9e52fe12c069ddc93e7538a49ea8dd3ad78d193ab8709f0d"
+    }
+  ]
+}

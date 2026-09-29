@@ -1,0 +1,41 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://ddtdanilo.github.io/api/",
+      "service-desc": [
+        {
+          "href": "https://ddtdanilo.github.io/api/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ddtdanilo.github.io/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://ddtdanilo.github.io/index.md",
+          "type": "text/markdown"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://ddtdanilo.github.io/api/resume.json",
+          "type": "application/json"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://ddtdanilo.github.io/api/resume.json",
+          "type": "application/json",
+          "title": "JSON Resume"
+        },
+        {
+          "href": "https://ddtdanilo.github.io/api/consulting.json",
+          "type": "application/json",
+          "title": "Consulting options"
+        }
+      ]
+    }
+  ]
+}

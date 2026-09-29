@@ -1,388 +1,394 @@
 /* ============================================
    DANILO DÍAZ TARASCÓ — Portfolio JS
-   Three.js 3D Background + GSAP Animations
-   + i18n (EN/ES) with auto-detection
+   i18n (EN/ES), navigation, reveals, command palette,
+   EU privacy notice. No dependencies, no cookies, no network calls.
+   Exposes window.DDT for assets/js/agent.js (WebMCP tools).
    ============================================ */
 
 (function () {
     'use strict';
 
-    // ---- i18n System ----
+    var LANG_KEY = 'ddt-lang';
+    var PRIVACY_KEY = 'ddt-privacy-ack';
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var currentLang = 'en';
 
-    function detectLanguage() {
-        // Check localStorage first
-        var saved = localStorage.getItem('ddt-lang');
-        if (saved === 'en' || saved === 'es') return saved;
+    // localStorage can throw (private mode, blocked site data).
+    function store(key, value) {
+        try {
+            if (value === undefined) return localStorage.getItem(key);
+            localStorage.setItem(key, value);
+        } catch (e) { return null; }
+        return value;
+    }
 
-        // Auto-detect from browser language
-        var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-        if (browserLang.startsWith('es')) return 'es';
-        return 'en';
+    function t(en, es) { return currentLang === 'es' ? es : en; }
+
+    // ---- i18n ----
+    function detectLanguage() {
+        var saved = store(LANG_KEY);
+        if (saved === 'en' || saved === 'es') return saved;
+        var nav = (navigator.language || 'en').toLowerCase();
+        return nav.indexOf('es') === 0 ? 'es' : 'en';
     }
 
     function setLanguage(lang) {
+        if (lang !== 'en' && lang !== 'es') return false;
         currentLang = lang;
-        localStorage.setItem('ddt-lang', lang);
+        store(LANG_KEY, lang);
         document.documentElement.lang = lang;
-
-        // Update all translatable elements
         document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
             var text = el.getAttribute('data-' + lang);
-            if (text) el.innerHTML = text;
+            if (text !== null) el.innerHTML = text;
         });
-
-        // Update toggle UI
+        document.querySelectorAll('[data-aria-' + lang + ']').forEach(function (el) {
+            el.setAttribute('aria-label', el.getAttribute('data-aria-' + lang));
+        });
         document.querySelectorAll('.lang-option').forEach(function (opt) {
             opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
         });
+        document.dispatchEvent(new CustomEvent('ddt:lang', { detail: lang }));
+        return true;
     }
 
     function initLanguage() {
-        var detected = detectLanguage();
-        setLanguage(detected);
-
+        setLanguage(detectLanguage());
         var toggle = document.getElementById('lang-toggle');
-        if (toggle) {
-            toggle.addEventListener('click', function () {
-                setLanguage(currentLang === 'en' ? 'es' : 'en');
+        if (toggle) toggle.addEventListener('click', function () {
+            setLanguage(currentLang === 'en' ? 'es' : 'en');
+        });
+    }
+
+    // ---- Navigation ----
+    function go(hash) {
+        var target = hash && document.querySelector(hash);
+        if (!target) return false;
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        history.replaceState(null, '', hash);
+        return true;
+    }
+
+    function initNavbar() {
+        var nav = document.getElementById('navbar');
+        if (!nav) return;
+        var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 24); };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Highlight the section in view
+        var links = document.querySelectorAll('.nav-link[href^="#"]');
+        if (!links.length || !('IntersectionObserver' in window)) return;
+        var map = {};
+        links.forEach(function (l) { map[l.getAttribute('href').slice(1)] = l; });
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                links.forEach(function (l) { l.removeAttribute('aria-current'); });
+                var link = map[e.target.id];
+                if (link) link.setAttribute('aria-current', 'true');
             });
-        }
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        document.querySelectorAll('main > section[id]').forEach(function (s) { io.observe(s); });
     }
 
-    // ---- Three.js 3D Scene ----
-    var canvasContainer = document.getElementById('canvas-container');
-    var scene, camera, renderer, particles, geometries = [];
-    var mouseX = 0, mouseY = 0;
-    var windowW = window.innerWidth;
-    var windowH = window.innerHeight;
-
-    function initThree() {
-        scene = new THREE.Scene();
-        camera = new THREE.PerspectiveCamera(75, windowW / windowH, 0.1, 1000);
-        camera.position.z = 30;
-
-        renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer.setSize(windowW, windowH);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        canvasContainer.appendChild(renderer.domElement);
-
-        // Particle field
-        var particleCount = Math.min(1500, Math.floor(windowW * 0.8));
-        var positions = new Float32Array(particleCount * 3);
-        var colors = new Float32Array(particleCount * 3);
-
-        for (var i = 0; i < particleCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 80;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 80;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 80;
-
-            var t = Math.random();
-            colors[i * 3] = t * 0 + (1 - t) * 0.48;
-            colors[i * 3 + 1] = t * 0.83 + (1 - t) * 0.38;
-            colors[i * 3 + 2] = t * 1 + (1 - t) * 1;
-        }
-
-        var particleGeom = new THREE.BufferGeometry();
-        particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particleGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-        var particleMat = new THREE.PointsMaterial({
-            size: 0.08,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.7,
-            blending: THREE.AdditiveBlending,
-            depthWrite: false
-        });
-
-        particles = new THREE.Points(particleGeom, particleMat);
-        scene.add(particles);
-
-        // Floating wireframe geometries
-        var geoTypes = [
-            new THREE.IcosahedronGeometry(3, 1),
-            new THREE.OctahedronGeometry(2.5, 0),
-            new THREE.TorusGeometry(2, 0.6, 8, 16),
-            new THREE.TetrahedronGeometry(2, 0),
-        ];
-
-        var geoPositions = [
-            { x: -15, y: 8, z: -10 },
-            { x: 18, y: -6, z: -15 },
-            { x: -10, y: -12, z: -8 },
-            { x: 14, y: 10, z: -20 },
-        ];
-
-        geoTypes.forEach(function (geo, i) {
-            var mat = new THREE.MeshBasicMaterial({
-                color: i % 2 === 0 ? 0x00d4ff : 0x7b61ff,
-                wireframe: true,
-                transparent: true,
-                opacity: 0.15,
-            });
-            var mesh = new THREE.Mesh(geo, mat);
-            mesh.position.set(geoPositions[i].x, geoPositions[i].y, geoPositions[i].z);
-            mesh.userData = {
-                rotSpeed: { x: 0.002 + Math.random() * 0.005, y: 0.003 + Math.random() * 0.005 },
-                floatOffset: Math.random() * Math.PI * 2,
-                baseY: geoPositions[i].y,
-            };
-            geometries.push(mesh);
-            scene.add(mesh);
-        });
-    }
-
-    function animateThree() {
-        requestAnimationFrame(animateThree);
-        var time = Date.now() * 0.001;
-
-        if (particles) {
-            particles.rotation.x += 0.0003;
-            particles.rotation.y += 0.0005;
-            particles.rotation.x += (mouseY * 0.0001 - particles.rotation.x * 0.01);
-            particles.rotation.y += (mouseX * 0.0001 - particles.rotation.y * 0.01);
-        }
-
-        geometries.forEach(function (mesh) {
-            mesh.rotation.x += mesh.userData.rotSpeed.x;
-            mesh.rotation.y += mesh.userData.rotSpeed.y;
-            mesh.position.y = mesh.userData.baseY + Math.sin(time + mesh.userData.floatOffset) * 1.5;
-        });
-
-        renderer.render(scene, camera);
-    }
-
-    // ---- Custom Cursor ----
-    function initCursor() {
-        var cursor = document.getElementById('cursor');
-        var follower = document.getElementById('cursor-follower');
-        if (!cursor || !follower) return;
-
-        if ('ontouchstart' in window) {
-            cursor.style.display = 'none';
-            follower.style.display = 'none';
-            return;
-        }
-
-        var cx = 0, cy = 0;
-        var fx = 0, fy = 0;
-
-        document.addEventListener('mousemove', function (e) {
-            mouseX = e.clientX - windowW / 2;
-            mouseY = e.clientY - windowH / 2;
-            cx = e.clientX;
-            cy = e.clientY;
-        });
-
-        function updateCursor() {
-            fx += (cx - fx) * 0.12;
-            fy += (cy - fy) * 0.12;
-            cursor.style.left = cx + 'px';
-            cursor.style.top = cy + 'px';
-            follower.style.left = fx + 'px';
-            follower.style.top = fy + 'px';
-            requestAnimationFrame(updateCursor);
-        }
-        updateCursor();
-
-        var hoverElements = document.querySelectorAll('a, button, .skill-card, .project-item');
-        hoverElements.forEach(function (el) {
-            el.addEventListener('mouseenter', function () { follower.classList.add('hover'); });
-            el.addEventListener('mouseleave', function () { follower.classList.remove('hover'); });
-        });
-    }
-
-    // ---- Loader ----
-    function initLoader() {
-        var progress = document.querySelector('.loader-progress');
-        var loader = document.getElementById('loader');
-        var pct = 0;
-
-        var loadInterval = setInterval(function () {
-            pct += Math.random() * 15 + 5;
-            if (pct >= 100) {
-                pct = 100;
-                clearInterval(loadInterval);
-                progress.style.width = '100%';
-                setTimeout(function () {
-                    gsap.to(loader, {
-                        opacity: 0,
-                        duration: 0.6,
-                        ease: 'power2.inOut',
-                        onComplete: function () {
-                            loader.style.display = 'none';
-                            animateHero();
-                        }
-                    });
-                }, 300);
-            }
-            progress.style.width = pct + '%';
-        }, 120);
-    }
-
-    // ---- Hero Animation ----
-    function animateHero() {
-        var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-        tl.to('.hero-tag', { opacity: 1, duration: 0.8 })
-          .to('.hero-title .word', {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              stagger: 0.1,
-          }, '-=0.4')
-          .to('.hero-subtitle', { opacity: 1, duration: 0.8 }, '-=0.5')
-          .to('.hero-cta', { opacity: 1, duration: 0.8 }, '-=0.5')
-          .to('.scroll-indicator', { opacity: 1, duration: 0.8 }, '-=0.3');
-    }
-
-    // ---- Scroll Animations ----
-    function initScrollAnimations() {
-        gsap.registerPlugin(ScrollTrigger);
-
-        ScrollTrigger.create({
-            start: 'top -80',
-            onUpdate: function (self) {
-                document.getElementById('navbar').classList.toggle('scrolled', self.progress > 0);
-            }
-        });
-
-        gsap.utils.toArray('.reveal-text').forEach(function (el) {
-            gsap.to(el, {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none',
-                }
-            });
-        });
-
-        gsap.utils.toArray('.reveal-up').forEach(function (el, i) {
-            gsap.to(el, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                delay: (i % 3) * 0.1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 88%',
-                    toggleActions: 'play none none none',
-                }
-            });
-        });
-
-        gsap.utils.toArray('.stat-number').forEach(function (el) {
-            var target = parseInt(el.getAttribute('data-count'));
-            ScrollTrigger.create({
-                trigger: el,
-                start: 'top 90%',
-                once: true,
-                onEnter: function () {
-                    gsap.to({ val: 0 }, {
-                        val: target,
-                        duration: 2,
-                        ease: 'power2.out',
-                        onUpdate: function () {
-                            el.textContent = Math.floor(this.targets()[0].val);
-                        }
-                    });
-                }
-            });
-        });
-    }
-
-    // ---- 3D Tilt Effect on Cards ----
-    function initTiltCards() {
-        var cards = document.querySelectorAll('[data-tilt]');
-        cards.forEach(function (card) {
-            card.addEventListener('mousemove', function (e) {
-                var rect = card.getBoundingClientRect();
-                var x = e.clientX - rect.left;
-                var y = e.clientY - rect.top;
-                var centerX = rect.width / 2;
-                var centerY = rect.height / 2;
-                var rotateX = (y - centerY) / centerY * -6;
-                var rotateY = (x - centerX) / centerX * 6;
-                card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
-            });
-            card.addEventListener('mouseleave', function () {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
-    }
-
-    // ---- Mobile Menu ----
     function initMobileMenu() {
         var toggle = document.querySelector('.nav-toggle');
         var menu = document.getElementById('mobile-menu');
-        var links = menu.querySelectorAll('.mobile-link');
+        if (!toggle || !menu) return;
 
+        function setOpen(open) {
+            toggle.setAttribute('aria-expanded', String(open));
+            menu.hidden = !open;
+            document.body.style.overflow = open ? 'hidden' : '';
+            if (open) {
+                var first = menu.querySelector('a');
+                if (first) first.focus();
+            }
+        }
         toggle.addEventListener('click', function () {
-            toggle.classList.toggle('active');
-            menu.classList.toggle('open');
-            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+            setOpen(toggle.getAttribute('aria-expanded') !== 'true');
         });
-
-        links.forEach(function (link) {
-            link.addEventListener('click', function () {
-                toggle.classList.remove('active');
-                menu.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+        menu.addEventListener('click', function (e) {
+            if (e.target.closest('a')) setOpen(false);
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !menu.hidden) { setOpen(false); toggle.focus(); }
         });
     }
 
-    // ---- Smooth Scroll ----
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-            anchor.addEventListener('click', function (e) {
-                var targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                e.preventDefault();
-                var target = document.querySelector(targetId);
-                if (target) {
-                    var offset = 80;
-                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top: top, behavior: 'smooth' });
-                }
+    // ---- Reveal on scroll + counters ----
+    function initReveals() {
+        var items = document.querySelectorAll('.reveal');
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+            items.forEach(function (el) { el.classList.add('in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
             });
-        });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+        items.forEach(function (el) { io.observe(el); });
     }
 
-    // ---- Resize Handler ----
-    function onResize() {
-        windowW = window.innerWidth;
-        windowH = window.innerHeight;
-        if (camera && renderer) {
-            camera.aspect = windowW / windowH;
-            camera.updateProjectionMatrix();
-            renderer.setSize(windowW, windowH);
+    function initCounters() {
+        var nums = document.querySelectorAll('[data-count]');
+        if (reduceMotion || !('IntersectionObserver' in window)) return;
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                io.unobserve(e.target);
+                var el = e.target;
+                var end = parseFloat(el.getAttribute('data-count'));
+                var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+                var start = performance.now();
+                var dur = 1400;
+                (function tick(now) {
+                    var p = Math.min(1, (now - start) / dur);
+                    var eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = (end * eased).toFixed(dec);
+                    if (p < 1) requestAnimationFrame(tick);
+                })(start);
+            });
+        }, { threshold: 0.6 });
+        nums.forEach(function (n) { io.observe(n); });
+    }
+
+    // ---- Hero board readouts ----
+    function initBoard() {
+        var clock = document.getElementById('clock');
+        var packets = document.getElementById('packets');
+        var board = document.querySelector('.board svg');
+        if (board) {
+            // Set trace lengths so the draw-in animation is exact.
+            board.querySelectorAll('.trace').forEach(function (p) {
+                if (p.getTotalLength) p.style.setProperty('--len', Math.ceil(p.getTotalLength()));
+            });
+            if (reduceMotion && board.pauseAnimations) board.pauseAnimations();
+        }
+        if (clock) {
+            var fmt;
+            try {
+                fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'America/Bogota' });
+            } catch (e) { fmt = null; }
+            var paint = function () { if (fmt) clock.textContent = fmt.format(new Date()) + ' COT'; };
+            paint();
+            setInterval(paint, 1000);
+        }
+        if (packets) {
+            // Illustrative counter, labelled as such via aria; not real telemetry.
+            packets.setAttribute('title', 'Illustrative animation, not live data');
+            var n = 18240 + Math.floor((Date.now() / 1000) % 5000);
+            var paintN = function () { packets.textContent = n.toLocaleString('en-US'); };
+            paintN();
+            if (!reduceMotion) setInterval(function () { n += 1 + Math.floor(Math.random() * 3); paintN(); }, 900);
         }
     }
 
-    // ---- Init ----
-    function init() {
-        initLanguage();
-        initThree();
-        animateThree();
-        initCursor();
-        initLoader();
-        initScrollAnimations();
-        initTiltCards();
-        initMobileMenu();
-        initSmoothScroll();
-        window.addEventListener('resize', onResize);
+    // ---- Card spotlight (pointer-follow gradient) ----
+    function initSpotlight() {
+        if (reduceMotion || !window.matchMedia('(hover: hover)').matches) return;
+        document.addEventListener('pointermove', function (e) {
+            var card = e.target.closest && e.target.closest('.card');
+            if (!card) return;
+            var r = card.getBoundingClientRect();
+            card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+            card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        }, { passive: true });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
+    // ---- Toast ----
+    var toastTimer;
+    function toast(msg) {
+        var el = document.querySelector('.toast');
+        if (!el) {
+            el = document.createElement('div');
+            el.className = 'toast';
+            el.setAttribute('role', 'status');
+            document.body.appendChild(el);
+        }
+        el.textContent = msg;
+        el.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2200);
     }
+
+    function copy(text) {
+        var done = function () { toast(t('Copied: ', 'Copiado: ') + text); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, function () { toast(text); });
+        } else { toast(text); }
+    }
+
+    // ---- Command palette ----
+    var ORIGIN = 'https://ddtdanilo.github.io';
+    function onHome() { return !!document.getElementById('hero'); }
+    function section(hash) {
+        return function () { if (onHome()) go(hash); else location.href = '/' + hash; };
+    }
+    var actions = [
+        { id: 'work', en: 'Go to selected work', es: 'Ir a trabajo seleccionado', group: 'nav', run: section('#work') },
+        { id: 'experience', en: 'Go to experience', es: 'Ir a experiencia', group: 'nav', run: section('#experience') },
+        { id: 'expertise', en: 'Go to expertise', es: 'Ir a especialidades', group: 'nav', run: section('#expertise') },
+        { id: 'lab', en: 'Go to lab archive', es: 'Ir al archivo del lab', group: 'nav', run: section('#lab') },
+        { id: 'agents', en: 'Go to the agent tools', es: 'Ir a herramientas para agentes', group: 'nav', run: section('#agents') },
+        { id: 'contact', en: 'Go to contact', es: 'Ir a contacto', group: 'nav', run: section('#contact') },
+        { id: 'consult', en: 'Book a consulting session', es: 'Agendar una sesión de consultoría', group: 'page', run: function () { location.href = '/consult.html'; } },
+        { id: 'lang', en: 'Cambiar a español', es: 'Switch to English', group: 'lang', run: function () { setLanguage(currentLang === 'en' ? 'es' : 'en'); } },
+        { id: 'md', en: 'Open this site as Markdown', es: 'Abrir este sitio en Markdown', group: 'agents', run: function () { location.href = '/index.md'; } },
+        { id: 'llms', en: 'Copy llms.txt URL', es: 'Copiar URL de llms.txt', group: 'agents', run: function () { copy(ORIGIN + '/llms.txt'); } },
+        { id: 'json', en: 'Open JSON Resume', es: 'Abrir JSON Resume', group: 'agents', run: function () { location.href = '/api/resume.json'; } },
+        { id: 'linkedin', en: 'Open LinkedIn', es: 'Abrir LinkedIn', group: 'link', run: function () { window.open('https://linkedin.com/in/ddtdanilo', '_blank', 'noopener'); } },
+        { id: 'github', en: 'Open GitHub', es: 'Abrir GitHub', group: 'link', run: function () { window.open('https://github.com/ddtdanilo', '_blank', 'noopener'); } },
+        { id: 'privacy', en: 'Privacy notice', es: 'Aviso de privacidad', group: 'page', run: function () { location.href = '/privacy.html'; } }
+    ];
+
+    function initPalette() {
+        if (typeof HTMLDialogElement !== 'function') return;
+        var dlg = document.createElement('dialog');
+        dlg.className = 'palette';
+        dlg.setAttribute('aria-label', 'Command palette');
+        dlg.innerHTML =
+            '<input class="palette-input" type="text" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" autocomplete="off" spellcheck="false">' +
+            '<ul class="palette-list" id="palette-list" role="listbox"></ul>' +
+            '<div class="palette-foot" aria-hidden="true"><span>↑↓ navigate</span><span>↵ run</span><span>esc close</span></div>';
+        document.body.appendChild(dlg);
+        var input = dlg.querySelector('input');
+        var list = dlg.querySelector('ul');
+        var shown = [];
+        var sel = 0;
+        var opener = null;
+
+        function render() {
+            var q = input.value.trim().toLowerCase();
+            shown = actions.filter(function (a) {
+                return !q || (a.en + ' ' + a.es + ' ' + a.id).toLowerCase().indexOf(q) !== -1;
+            });
+            sel = Math.min(sel, Math.max(0, shown.length - 1));
+            if (!shown.length) {
+                list.innerHTML = '<li class="palette-empty" role="option" aria-disabled="true">' + t('No matches', 'Sin resultados') + '</li>';
+                input.removeAttribute('aria-activedescendant');
+                return;
+            }
+            list.innerHTML = shown.map(function (a, i) {
+                return '<li role="option" id="pal-' + a.id + '" data-i="' + i + '" aria-selected="' + (i === sel) + '"><span>' + t(a.en, a.es) + '</span><small>' + a.group + '</small></li>';
+            }).join('');
+            input.setAttribute('aria-activedescendant', 'pal-' + shown[sel].id);
+            var active = list.children[sel];
+            if (active && active.scrollIntoView) active.scrollIntoView({ block: 'nearest' });
+        }
+        function run(i) {
+            var a = shown[i];
+            if (!a) return;
+            close();
+            a.run();
+        }
+        function open() {
+            opener = document.activeElement;
+            input.value = '';
+            input.placeholder = t('Type a command or search…', 'Escribe un comando o busca…');
+            sel = 0;
+            render();
+            dlg.showModal();
+            input.focus();
+        }
+        function close() {
+            if (dlg.open) dlg.close();
+        }
+        dlg.addEventListener('close', function () { if (opener && opener.focus) opener.focus(); });
+        dlg.addEventListener('click', function (e) {
+            if (e.target === dlg) { close(); return; }
+            var li = e.target.closest('li[data-i]');
+            if (li) run(parseInt(li.getAttribute('data-i'), 10));
+        });
+        input.addEventListener('input', function () { sel = 0; render(); });
+        input.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowDown') { e.preventDefault(); sel = (sel + 1) % Math.max(1, shown.length); render(); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); sel = (sel - 1 + shown.length) % Math.max(1, shown.length); render(); }
+            else if (e.key === 'Enter') { e.preventDefault(); run(sel); }
+        });
+        document.addEventListener('keydown', function (e) {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                if (dlg.open) close(); else open();
+            } else if (e.key === '/' && !dlg.open && !/input|textarea|select/i.test(document.activeElement.tagName)) {
+                e.preventDefault();
+                open();
+            }
+        });
+        document.querySelectorAll('[data-open-palette]').forEach(function (b) { b.addEventListener('click', open); });
+        var hint = document.querySelector('.nav-cmd kbd');
+        if (hint && !/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) hint.textContent = 'Ctrl K';
+    }
+
+    // ---- EU/EEA privacy notice ----
+    // Shown only when the browser's time zone is in Europe. Detection is local
+    // (Intl API): no geo-IP lookup, so nothing about the visitor leaves the page.
+    function inEuropeanTimeZone() {
+        try {
+            var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+            return /^(Europe|Atlantic\/(Canary|Madeira|Azores|Reykjavik))\//.test(tz);
+        } catch (e) { return false; }
+    }
+
+    function initPrivacyNote() {
+        if (store(PRIVACY_KEY) === '1') return;
+        var force = /[?&]privacy-note=1\b/.test(location.search);
+        if (!force && !inEuropeanTimeZone()) return;
+        var note = document.createElement('aside');
+        note.className = 'privacy-note';
+        note.setAttribute('aria-label', 'Privacy');
+        document.body.appendChild(note);
+        function paint() {
+            note.innerHTML =
+                '<b><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' + t('GDPR · privacy', 'RGPD · privacidad') + '</b>' +
+                t('No cookies, no analytics, no trackers. Fonts are self-hosted, and only your language choice is saved in this browser. ',
+                  'Sin cookies, sin analítica, sin rastreadores. Las fuentes se sirven desde este sitio y solo tu idioma se guarda en este navegador. ') +
+                '<a href="/privacy.html">' + t('Details', 'Detalles') + '</a>' +
+                '<div class="privacy-note-actions"><button type="button">' + t('Got it', 'Entendido') + '</button></div>';
+            note.querySelector('button').addEventListener('click', function () {
+                store(PRIVACY_KEY, '1');
+                note.classList.remove('show');
+                setTimeout(function () { note.remove(); }, 600);
+            });
+        }
+        paint();
+        document.addEventListener('ddt:lang', function () { if (note.isConnected) paint(); });
+        setTimeout(function () { note.classList.add('show'); }, reduceMotion ? 0 : 1800);
+    }
+
+    // ---- In-page anchors honour reduced motion and update the URL ----
+    function initAnchors() {
+        document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href^="#"]');
+            if (!a) return;
+            var hash = a.getAttribute('href');
+            if (hash.length < 2) return;
+            if (go(hash)) e.preventDefault();
+        });
+    }
+
+    function init() {
+        initLanguage();
+        initNavbar();
+        initMobileMenu();
+        initAnchors();
+        initReveals();
+        initCounters();
+        initBoard();
+        initSpotlight();
+        initPalette();
+        initPrivacyNote();
+    }
+
+    window.DDT = {
+        get lang() { return currentLang; },
+        setLanguage: setLanguage,
+        go: go,
+        toast: toast,
+        actions: actions
+    };
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
 })();

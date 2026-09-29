@@ -1,0 +1,9 @@
+name = "ddtdanilo-agent-edge"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+ORIGIN = "https://ddtdanilo.github.io"
+
+# Uncomment once a custom domain is on Cloudflare:
+# routes = [{ pattern = "example.dev", custom_domain = true }]
