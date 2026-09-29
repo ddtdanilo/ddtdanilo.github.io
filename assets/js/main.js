@@ -386,7 +386,7 @@
         var conn = navigator.connection;
         if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
         var load = function () {
-            import('/assets/js/field.js')
+            import('/assets/js/field.js?v=20260929b')
                 .then(function (m) { m.startField(el, { reduceMotion: reduceMotion }); })
                 .catch(function () { /* background is decorative; ignore */ });
         };

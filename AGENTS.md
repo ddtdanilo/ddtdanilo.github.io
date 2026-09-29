@@ -13,3 +13,4 @@ GitHub Pages portfolio for Danilo Díaz Tarascó, served from `master` at https:
 - After editing `index.md`, `consult.md`, a `SKILL.md`, or any JSON: run `python3 tools/build_agent_files.py`. It regenerates `llms-full.txt` and the skill digests, then validates JSON, local links, and email-like strings.
 - `worker/` holds the Cloudflare Worker (Link headers, Markdown negotiation, MCP server). It needs a custom domain; see `worker/README.md`. Test it with `node worker/test.mjs`.
 - Scan: `curl -s -X POST https://isitagentready.com/api/scan -H 'content-type: application/json' -d '{"url":"https://ddtdanilo.github.io"}'`.
+- Cache busting: GitHub Pages caches assets for 10 minutes. When CSS/JS changes, bump the `?v=` suffix in every HTML page and in the `field.js` import in `main.js`.
