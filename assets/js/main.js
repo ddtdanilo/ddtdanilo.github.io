@@ -12,6 +12,7 @@
     var PRIVACY_KEY = 'ddt-privacy-ack';
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var currentLang = 'en';
+    var closeMobileMenu = function () {};
 
     // localStorage can throw (private mode, blocked site data).
     function store(key, value) {
@@ -113,6 +114,7 @@
                 if (first) first.focus();
             }
         }
+        closeMobileMenu = function () { if (!menu.hidden) setOpen(false); };
         toggle.addEventListener('click', function () {
             setOpen(toggle.getAttribute('aria-expanded') !== 'true');
         });
@@ -292,6 +294,7 @@
             a.run();
         }
         function open() {
+            closeMobileMenu(); // un-inert the page so palette commands can focus targets
             opener = document.activeElement;
             input.value = '';
             input.placeholder = t('Type a command or search…', 'Escribe un comando o busca…');

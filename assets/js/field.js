@@ -199,9 +199,11 @@ export function startField(container, { reduceMotion = false } = {}) {
         nodeGeom.attributes.position.needsUpdate = true;
         nodeGeom.attributes.size.needsUpdate = true;
 
-        edges.forEach(([a, b], e) => {
-            linkPos.set([cur[a].x, cur[a].y, cur[a].z, cur[b].x, cur[b].y, cur[b].z], e * 6);
-        });
+        for (let e = 0, o = 0; e < edges.length; e++, o += 6) {
+            const a = cur[edges[e][0]], b = cur[edges[e][1]];
+            linkPos[o] = a.x; linkPos[o + 1] = a.y; linkPos[o + 2] = a.z;
+            linkPos[o + 3] = b.x; linkPos[o + 4] = b.y; linkPos[o + 5] = b.z;
+        }
         linkGeom.attributes.position.needsUpdate = true;
 
         packets.forEach((p, k) => {
@@ -245,18 +247,18 @@ export function startField(container, { reduceMotion = false } = {}) {
         update(clock.elapsedTime, dt);
         renderer.render(scene, camera);
     }
-    function start() { if (!running && !reduceMotion) { running = true; clock.getDelta(); loop(); } }
+    function start() { if (!running && !reduceMotion && !document.hidden) { running = true; clock.getDelta(); loop(); } }
     function stop() { running = false; cancelAnimationFrame(raf); }
 
     update(4, 0);
     renderer.render(scene, camera);
     container.classList.add('ready');
-    if (reduceMotion) {
-        // Static frame; re-render on resize only.
-        window.addEventListener('resize', () => renderer.render(scene, camera));
-    } else {
-        start();
-        document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
-    }
+    // Static frame under reduced motion (re-rendered on resize); follows live changes.
+    window.addEventListener('resize', () => { if (!running) renderer.render(scene, camera); });
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onMotionChange = (e) => { reduceMotion = e.matches; if (reduceMotion) stop(); else start(); };
+    if (motionQuery.addEventListener) motionQuery.addEventListener('change', onMotionChange);
+    start();
     return { start, stop };
 }
