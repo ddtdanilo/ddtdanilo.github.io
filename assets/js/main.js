@@ -223,15 +223,7 @@
         toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2200);
     }
 
-    function copy(text) {
-        var done = function () { toast(t('Copied: ', 'Copiado: ') + text); };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(done, function () { toast(text); });
-        } else { toast(text); }
-    }
-
     // ---- Command palette ----
-    var ORIGIN = 'https://ddtdanilo.github.io';
     function onHome() { return !!document.getElementById('hero'); }
     function section(hash) {
         return function () { if (onHome()) go(hash); else location.href = '/' + hash; };
@@ -241,13 +233,9 @@
         { id: 'experience', en: 'Go to experience', es: 'Ir a experiencia', group: 'nav', run: section('#experience') },
         { id: 'expertise', en: 'Go to expertise', es: 'Ir a especialidades', group: 'nav', run: section('#expertise') },
         { id: 'lab', en: 'Go to lab archive', es: 'Ir al archivo del lab', group: 'nav', run: section('#lab') },
-        { id: 'agents', en: 'Go to the agent tools', es: 'Ir a herramientas para agentes', group: 'nav', run: section('#agents') },
         { id: 'contact', en: 'Go to contact', es: 'Ir a contacto', group: 'nav', run: section('#contact') },
         { id: 'consult', en: 'Book a consulting session', es: 'Agendar una sesión de consultoría', group: 'page', run: function () { location.href = '/consult.html'; } },
         { id: 'lang', en: 'Cambiar a español', es: 'Switch to English', group: 'lang', run: function () { setLanguage(currentLang === 'en' ? 'es' : 'en'); } },
-        { id: 'md', en: 'Open this site as Markdown', es: 'Abrir este sitio en Markdown', group: 'agents', run: function () { location.href = '/index.md'; } },
-        { id: 'llms', en: 'Copy llms.txt URL', es: 'Copiar URL de llms.txt', group: 'agents', run: function () { copy(ORIGIN + '/llms.txt'); } },
-        { id: 'json', en: 'Open JSON Resume', es: 'Abrir JSON Resume', group: 'agents', run: function () { location.href = '/api/resume.json'; } },
         { id: 'linkedin', en: 'Open LinkedIn', es: 'Abrir LinkedIn', group: 'link', run: function () { window.open('https://linkedin.com/in/ddtdanilo', '_blank', 'noopener'); } },
         { id: 'github', en: 'Open GitHub', es: 'Abrir GitHub', group: 'link', run: function () { window.open('https://github.com/ddtdanilo', '_blank', 'noopener'); } },
         { id: 'privacy', en: 'Privacy notice', es: 'Aviso de privacidad', group: 'page', run: function () { location.href = '/privacy.html'; } }
@@ -386,7 +374,7 @@
         var conn = navigator.connection;
         if (conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))) return;
         var load = function () {
-            import('/assets/js/field.js?v=20260929b')
+            import('/assets/js/field.js?v=20260929c')
                 .then(function (m) { m.startField(el, { reduceMotion: reduceMotion }); })
                 .catch(function () { /* background is decorative; ignore */ });
         };

@@ -73,8 +73,8 @@
     </script>
 
     <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/fonts/fonts.css?v=20260929b">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260929b">
+    <link rel="stylesheet" href="assets/fonts/fonts.css?v=20260929c">
+    <link rel="stylesheet" href="assets/css/style.css?v=20260929c">
     <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -91,7 +91,6 @@
             <a href="#work" class="nav-link" data-en="Work" data-es="Trabajo">Work</a>
             <a href="#experience" class="nav-link" data-en="Experience" data-es="Experiencia">Experience</a>
             <a href="#expertise" class="nav-link" data-en="Expertise" data-es="Especialidades">Expertise</a>
-            <a href="#agents" class="nav-link" data-en="For agents" data-es="Para agentes">For agents</a>
             <a href="consult.html" class="nav-link" data-en="Consulting" data-es="Consultoría">Consulting</a>
         </nav>
         <div class="nav-right">
@@ -112,7 +111,6 @@
         <a href="#experience" class="mobile-link" data-en="Experience" data-es="Experiencia">Experience</a>
         <a href="#expertise" class="mobile-link" data-en="Expertise" data-es="Especialidades">Expertise</a>
         <a href="#lab" class="mobile-link" data-en="Lab archive" data-es="Archivo del lab">Lab archive</a>
-        <a href="#agents" class="mobile-link" data-en="For agents" data-es="Para agentes">For agents</a>
         <a href="consult.html" class="mobile-link" data-en="Consulting" data-es="Consultoría">Consulting</a>
         <div class="mobile-socials">
             <a href="https://linkedin.com/in/ddtdanilo" rel="noopener" target="_blank">LinkedIn</a>
@@ -181,7 +179,7 @@
                                 <text class="node-title" x="434" y="108" data-en="Cloud" data-es="Nube">Cloud</text>
                                 <text class="node-sub" x="434" y="126">AWS serverless</text>
                             </a>
-                            <a class="node-link" href="#agents" aria-label="Agents: see the section for AI agents">
+                            <a class="node-link" href="#expertise" aria-label="Analytics and AI: see expertise">
                                 <rect class="node-body" x="400" y="238" width="136" height="60" rx="10"/>
                                 <text class="node-title" x="414" y="264" data-en="Analytics · AI" data-es="Analítica · IA">Analytics · AI</text>
                                 <text class="node-sub" x="414" y="282">dashboards · MCP</text>
@@ -488,39 +486,12 @@
         </div>
     </section>
 
-    <!-- ============ FOR AGENTS ============ -->
-    <section id="agents" class="section">
-        <div class="container">
-            <div class="section-head">
-                <p class="section-label reveal" data-en="06 / For agents" data-es="06 / Para agentes">06 / For agents</p>
-                <h2 class="section-title reveal" data-en="This site reads well to machines, too." data-es="Este sitio también se lee bien para máquinas.">This site reads well to machines, too.</h2>
-                <p class="section-intro reveal" data-en="Everything here has a plain-text or structured twin, and the page registers WebMCP tools that in-browser agents can call. Try them below; it's the same code the agents run." data-es="Todo aquí tiene un gemelo en texto plano o estructurado, y la página registra herramientas WebMCP que los agentes en el navegador pueden invocar. Pruébalas abajo: es el mismo código que ejecutan los agentes.">Everything here has a plain-text or structured twin, and the page registers WebMCP tools that in-browser agents can call. Try them below; it's the same code the agents run.</p>
-            </div>
-            <div class="agents-grid">
-                <ul class="endpoint-list reveal">
-                    <li><a href="/llms.txt">/llms.txt</a><small data-en="Curated index for LLMs (llmstxt.org)" data-es="Índice curado para LLMs (llmstxt.org)">Curated index for LLMs (llmstxt.org)</small><span class="badge live">live</span></li>
-                    <li><a href="/index.md">/index.md</a><small data-en="This page as Markdown" data-es="Esta página en Markdown">This page as Markdown</small><span class="badge live">live</span></li>
-                    <li><a href="/api/resume.json">/api/resume.json</a><small data-en="JSON Resume, described by an OpenAPI spec" data-es="JSON Resume, descrito por una especificación OpenAPI">JSON Resume, described by an OpenAPI spec</small><span class="badge live">live</span></li>
-                    <li><a href="/.well-known/agent-skills/index.json">/.well-known/agent-skills/</a><small data-en="Agent Skills discovery index" data-es="Índice de descubrimiento de Agent Skills">Agent Skills discovery index</small><span class="badge live">live</span></li>
-                    <li><a href="/.well-known/api-catalog">/.well-known/api-catalog</a><small data-en="RFC 9727 API catalog" data-es="Catálogo de APIs RFC 9727">RFC 9727 API catalog</small><span class="badge live">live</span></li>
-                    <li><a href="/robots.txt">/robots.txt</a><small data-en="AI crawlers welcome; Content Signals declared" data-es="Crawlers de IA bienvenidos; Content Signals declarados">AI crawlers welcome; Content Signals declared</small><span class="badge live">live</span></li>
-                    <li><span class="endpoint-name">WebMCP</span><small id="webmcp-status" data-en="Checking your browser…" data-es="Revisando tu navegador…">Checking your browser…</small><span class="badge" id="webmcp-badge">…</span></li>
-                </ul>
-                <div class="terminal reveal" style="--delay:.08s">
-                    <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>webmcp://ddtdanilo.github.io</span></div>
-                    <div class="terminal-body" id="tool-output" role="log" aria-live="polite" aria-label="Tool output"><pre><span class="prompt">$</span> <span data-en="pick a tool ↓" data-es="elige una herramienta ↓">pick a tool ↓</span></pre></div>
-                    <div class="tool-row" id="tool-row" aria-label="WebMCP tools"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ============ CONTACT ============ -->
     <section id="contact" class="section">
         <div class="container">
             <div class="contact-grid">
                 <div>
-                    <p class="section-label reveal" data-en="07 / Contact" data-es="07 / Contacto">07 / Contact</p>
+                    <p class="section-label reveal" data-en="06 / Contact" data-es="06 / Contacto">06 / Contact</p>
                     <h2 class="contact-title reveal" data-en="Let's build<br>something that ships." data-es="Construyamos<br>algo que llegue a producción.">Let's build<br>something that ships.</h2>
                     <p class="reveal" data-en="IoT, electronics, or cloud architecture: the fastest way to reach me is LinkedIn. For focused technical help, book a paid session." data-es="IoT, electrónica o arquitectura cloud: la forma más rápida de contactarme es LinkedIn. Para ayuda técnica puntual, agenda una sesión paga.">IoT, electronics, or cloud architecture: the fastest way to reach me is LinkedIn. For focused technical help, book a paid session.</p>
                 </div>
@@ -542,7 +513,7 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js?v=20260929b" defer></script>
-    <script src="assets/js/agent.js?v=20260929b" defer></script>
+    <script src="assets/js/main.js?v=20260929c" defer></script>
+    <script src="assets/js/agent.js?v=20260929c" defer></script>
 </body>
 </html>

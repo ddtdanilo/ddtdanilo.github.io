@@ -1,14 +1,13 @@
 /* ============================================
    WebMCP tools (https://webmachinelearning.github.io/webmcp/)
-   Read-only tools that in-browser AI agents can call. The same tool
-   functions power the "For agents" terminal, so humans see exactly
-   what agents get. Data comes from same-origin static JSON.
+   Read-only tools that in-browser AI agents can call. Nothing is shown
+   in the UI; data comes from same-origin static JSON.
    ============================================ */
 
 (function () {
     'use strict';
 
-    var SECTIONS = ['top', 'about', 'work', 'experience', 'expertise', 'lab', 'agents', 'contact'];
+    var SECTIONS = ['top', 'about', 'work', 'experience', 'expertise', 'lab', 'contact'];
     var cache = {};
 
     function getJSON(path) {
@@ -137,79 +136,15 @@
 
     // ---- Register with the browser's model context (feature-detected) ----
     var modelContext = document.modelContext || navigator.modelContext;
-    var registered = false;
     if (modelContext && typeof modelContext.registerTool === 'function') {
         var controller = typeof AbortController === 'function' ? new AbortController() : null;
         tools.forEach(function (tool) {
             try {
                 var res = modelContext.registerTool(tool, controller ? { signal: controller.signal } : undefined);
                 if (res && typeof res.catch === 'function') res.catch(function () {});
-                registered = true;
             } catch (e) { /* older builds may reject options; keep going */ }
         });
         window.addEventListener('pagehide', function () { if (controller) controller.abort(); });
     }
 
-    // ---- Human-facing demo terminal ----
-    var DEMO_ARGS = {
-        list_experience: { limit: 3 },
-        search_portfolio: { query: 'LoRa' },
-        navigate_to_section: { section: 'lab' },
-        set_language: null
-    };
-
-    function initTerminal() {
-        var row = document.getElementById('tool-row');
-        var out = document.getElementById('tool-output');
-        if (!row || !out) return;
-
-        tools.forEach(function (tool) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.textContent = tool.name;
-            b.title = tool.description;
-            b.setAttribute('aria-pressed', 'false');
-            b.addEventListener('click', function () {
-                row.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
-                b.setAttribute('aria-pressed', 'true');
-                var args = tool.name === 'set_language' ? { lang: lang() === 'en' ? 'es' : 'en' } : (DEMO_ARGS[tool.name] || {});
-                var call = tool.name + '(' + (Object.keys(args).length ? JSON.stringify(args) : '') + ')';
-                out.innerHTML = '<pre><span class="prompt">$</span> ' + call + '\n<span class="out">…</span></pre>';
-                Promise.resolve(tool.execute(args)).then(function (res) {
-                    var body = res.content[0].text;
-                    var pre = document.createElement('pre');
-                    pre.innerHTML = '<span class="prompt">$</span> ' + call + '\n';
-                    var span = document.createElement('span');
-                    span.className = 'out';
-                    span.textContent = body;
-                    pre.appendChild(span);
-                    out.replaceChildren(pre);
-                }).catch(function (err) {
-                    out.textContent = 'Error: ' + err.message;
-                });
-            });
-            row.appendChild(b);
-        });
-
-        var status = document.getElementById('webmcp-status');
-        var badge = document.getElementById('webmcp-badge');
-        function paint() {
-            if (!status || !badge) return;
-            var es = lang() === 'es';
-            if (registered) {
-                status.textContent = es ? tools.length + ' herramientas registradas en tu navegador' : tools.length + ' tools registered with your browser';
-                badge.textContent = 'live';
-                badge.className = 'badge live';
-            } else {
-                status.textContent = es ? tools.length + ' herramientas listas; tu navegador aún no expone WebMCP' : tools.length + ' tools ready; your browser doesn’t expose WebMCP yet';
-                badge.textContent = es ? 'fallback' : 'fallback';
-                badge.className = 'badge pending';
-            }
-        }
-        paint();
-        document.addEventListener('ddt:lang', paint);
-    }
-
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initTerminal);
-    else initTerminal();
 })();
