@@ -14,3 +14,4 @@ GitHub Pages portfolio for Danilo Díaz Tarascó, served from `master` at https:
 - `worker/` holds the Cloudflare Worker (Link headers, Markdown negotiation, MCP server). It needs a custom domain; see `worker/README.md`. Test it with `node worker/test.mjs`.
 - Scan: `curl -s -X POST https://isitagentready.com/api/scan -H 'content-type: application/json' -d '{"url":"https://ddtdanilo.github.io"}'`.
 - Cache busting: GitHub Pages caches assets for 10 minutes. When CSS/JS changes, bump the `?v=` suffix in every HTML page and in the `field.js` import in `main.js`.
+- Google Search Console: `google8be6858017c655ce.html` verifies the property. Never delete it. `sitemap.xml` lists only HTML pages.
