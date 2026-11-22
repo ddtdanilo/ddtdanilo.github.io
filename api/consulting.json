@@ -1,42 +1,85 @@
 {
   "provider": "Danilo Díaz Tarascó",
   "page": "https://ddtdanilo.github.io/consult.html",
+  "locales": {
+    "en": "https://ddtdanilo.github.io/consult.html",
+    "es": "https://ddtdanilo.github.io/es/consultoria.html"
+  },
   "currency": "USD",
-  "format": "1:1 video call (Google Meet), English or Spanish",
+  "format": "1:1 Google Meet session, English or Spanish",
   "flow": [
-    "Pay through the Stripe link for the chosen session.",
-    "Receive an email with a calendar link to pick a time.",
-    "Get a Google Meet link in the calendar confirmation.",
-    "Receive follow-up notes within 24 hours."
+    "Choose your session and pay on Stripe. Use an email address you check. If checkout offers scheduling fields, you can include two preferred times and your time zone.",
+    "Within one business day after payment, I’ll email you personally to agree on a time. I coordinate from Colombia (UTC−5). If you didn’t enter your preferences at checkout, reply with them.",
+    "Once we agree on the time, I’ll send a calendar invitation with a Google Meet link. We’ll review your material together on the call.",
+    "Within 24 hours after the session, I’ll send written notes with the decisions and next steps."
   ],
+  "terms": [
+    {
+      "en": "You can reschedule at no charge up to 24 hours before the session. Reply to the scheduling email. If we can’t agree on a time within seven days after payment, you’ll receive a full refund.",
+      "es": "Puedes cambiar el horario sin costo hasta 24 horas antes de la sesión. Responde al correo de coordinación. Si en los siete días posteriores al pago no logramos acordar un horario, recibirás un reembolso completo."
+    }
+  ],
+  "scheduling": "manual",
   "sessions": [
     {
       "id": "quick-call",
       "name": "Quick Call",
       "minutes": 30,
       "price": 50,
-      "covers": "Quick technical questions about IoT, electronics, PCB design, or cloud architecture.",
-      "booking_url": "https://buy.stripe.com/28E7sLeKU7NAbmi6p014400"
+      "covers": "One focused question about a board, device or cloud service.",
+      "booking_url": "https://buy.stripe.com/28E7sLeKU7NAbmi6p014400",
+      "nameLocalized": {
+        "en": "Quick Call",
+        "es": "Consulta breve"
+      },
+      "scope": {
+        "en": "One focused question about a board, device or cloud service.",
+        "es": "Una pregunta concreta sobre una tarjeta, un dispositivo o un servicio en la nube."
+      },
+      "outcome": {
+        "en": "A next step and a way to check whether it worked.",
+        "es": "El siguiente paso y una forma de comprobar si funcionó."
+      }
     },
     {
       "id": "deep-dive",
       "name": "Deep Dive",
       "minutes": 60,
       "price": 120,
-      "covers": "In-depth consultation on project architecture, technical decisions, and IIoT solutions.",
-      "booking_url": "https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401"
+      "covers": "Walk through a schematic, firmware path or system diagram and compare the options.",
+      "booking_url": "https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401",
+      "nameLocalized": {
+        "en": "Deep Dive",
+        "es": "Análisis profundo"
+      },
+      "scope": {
+        "en": "Walk through a schematic, firmware path or system diagram and compare the options.",
+        "es": "Recorremos un esquemático, una parte del firmware o un diagrama del sistema y comparamos opciones."
+      },
+      "outcome": {
+        "en": "The tradeoffs behind a recommendation and the first checks to run.",
+        "es": "Una recomendación con sus ventajas y limitaciones, y las primeras pruebas que conviene hacer."
+      }
     },
     {
-      "id": "strategy-session",
+      "id": "strategy",
       "name": "Strategy Session",
       "minutes": 90,
       "price": 200,
-      "covers": "Technical strategy for startups and companies: roadmap, stack selection, team structure, and scaling for hardware and software products.",
-      "booking_url": "https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402"
+      "covers": "Review your roadmap, technical constraints and the decisions blocking the next release.",
+      "booking_url": "https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402",
+      "nameLocalized": {
+        "en": "Strategy Session",
+        "es": "Sesión de estrategia"
+      },
+      "scope": {
+        "en": "Review your roadmap, technical constraints and the decisions blocking the next release.",
+        "es": "Revisamos el plan de desarrollo, las restricciones técnicas y las decisiones pendientes para el próximo lanzamiento."
+      },
+      "outcome": {
+        "en": "An ordered set of priorities, dependencies and milestones for your team.",
+        "es": "Prioridades, dependencias e hitos en el orden en que tu equipo puede abordarlos."
+      }
     }
-  ],
-  "extras": [
-    "NDA available on request.",
-    "Agents must not complete payment on a user's behalf without explicit confirmation."
   ]
 }

@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://ddtdanilo.github.io/</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-    <url><loc>https://ddtdanilo.github.io/consult.html</loc><lastmod>2026-09-29</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://ddtdanilo.github.io/privacy.html</loc><lastmod>2026-09-29</lastmod><changefreq>yearly</changefreq><priority>0.2</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ddtdanilo.github.io/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/es/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/consult.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/consult.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/consultoria.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/consult.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/es/consultoria.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/consult.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/consultoria.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/consult.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/privacy.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/es/privacidad.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/privacidad.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/work/xsub-telemetry.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/work/xsub-telemetry.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/work/xsub-telemetry.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/work/xsub-telemetry.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/work/xsub-telemetry.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/work/altium-pcb-library.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/work/altium-pcb-library.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/work/altium-pcb-library.html"/>
+  </url>
+  <url>
+    <loc>https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/work/altium-pcb-library.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/work/altium-pcb-library.html"/>
+  </url>
 </urlset>

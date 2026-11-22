@@ -4,16 +4,16 @@
     {
       "name": "danilo-profile",
       "type": "skill-md",
-      "description": "Answer questions about Danilo Díaz Tarascó using his own published, citable sources (JSON Resume, Markdown portfolio).",
+      "description": "Find and cite public profile and engineering work.",
       "url": "/.well-known/agent-skills/danilo-profile/SKILL.md",
-      "digest": "sha256:b8bf3e264b0443419e96d3c2ad0406e612d062841f4b73bedbb5d63080ddf974"
+      "digest": "sha256:936670ed21dfbae3e4e052793193bd1c9f840f05433cb997a023912c4a6fed04"
     },
     {
       "name": "book-consulting",
       "type": "skill-md",
-      "description": "Help a user choose and book a paid 1:1 consulting session with Danilo Díaz Tarascó; never pay without explicit confirmation.",
+      "description": "Compare and cite consulting sessions and scheduling terms.",
       "url": "/.well-known/agent-skills/book-consulting/SKILL.md",
-      "digest": "sha256:ed160fa80cbae8dd9e52fe12c069ddc93e7538a49ea8dd3ad78d193ab8709f0d"
+      "digest": "sha256:2c30b103f3b9191f68b9b6a0f4478cd8da7e441b6b3845675928ca4dc9b619f3"
     }
   ]
 }

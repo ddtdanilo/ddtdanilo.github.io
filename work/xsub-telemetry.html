@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Underwater ROV Telemetry Archive — Danilo Díaz Tarascó</title>
+<meta name="description" content="See the designed PCBs, embedded firmware and serial protocol audit behind X-Sub, a preserved underwater robot telemetry project.">
+<link rel="canonical" href="https://ddtdanilo.github.io/work/xsub-telemetry.html">
+<link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/work/xsub-telemetry.html">
+<link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html">
+<link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/work/xsub-telemetry.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ddtdanilo.github.io/work/xsub-telemetry.html">
+<meta property="og:title" content="Underwater ROV Telemetry: Hardware, Firmware &amp; Protocol Audit">
+<meta property="og:description" content="Inspecting a preserved underwater-robot telemetry stack from custom Altium PCBs and ColdFire firmware to modern Python protocol tests.">
+<meta property="og:image" content="https://ddtdanilo.github.io/assets/img/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Danilo Díaz Tarascó · CTO and industrial IoT, with an illustration of the X-Sub acquisition board">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://ddtdanilo.github.io/work/xsub-telemetry.html#article",
+  "mainEntityOfPage": "https://ddtdanilo.github.io/work/xsub-telemetry.html",
+  "headline": "Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit",
+  "description": "A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.",
+  "inLanguage": "en",
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "image": "https://ddtdanilo.github.io/assets/img/lab/rov-telemetry-board.webp",
+  "author": {
+    "@type": "Person",
+    "@id": "https://ddtdanilo.github.io/#person",
+    "name": "Danilo Díaz Tarascó"
+  },
+  "citation": [
+    "https://github.com/X-Sub/Telemetry-System",
+    "https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/HARDWARE.md",
+    "https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/PROTOCOL.md"
+  ]
+}
+</script>
+<script>(() => {
+    const root = document.documentElement;
+    const key = 'ddt-theme';
+
+    try {
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+    } catch {
+        // Theme selection still works without storage.
+    }
+
+    root.classList.add('theme-ready');
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.querySelector('#theme-toggle');
+        const preference = window.matchMedia('(prefers-color-scheme: dark)');
+
+        toggle.addEventListener('click', () => {
+            const current = root.dataset.theme || (preference.matches ? 'dark' : 'light');
+            root.dataset.theme = current === 'dark' ? 'light' : 'dark';
+            try {
+                localStorage.setItem(key, root.dataset.theme);
+            } catch {
+                // The current page keeps the selection.
+            }
+        });
+    }, { once: true });
+})();</script>
+<link rel="preload" href="/assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter/inter-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/img/favicon.svg?v=5a17bbd86d94" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts/fonts.css?v=f142d0786d86">
+<link rel="stylesheet" href="/assets/css/tokens.css?v=5ca03a3ded12">
+<link rel="stylesheet" href="/assets/css/components.css?v=658c35b1669a">
+<link rel="stylesheet" href="/assets/css/style.css?v=0e180b0624a7">
+</head>
+<body class="case">
+<a href="#main" class="skip" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="DDT · Danilo Díaz Tarascó" data-aria-en="DDT · Danilo Díaz Tarascó" data-aria-es="DDT · Danilo Díaz Tarascó"><svg class="brand-mark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -72 181.43 80">
+
+<!-- DDT wordmark. Outlines: Junicode 2 (OFL 1.1) at wght 700, wdth 75. One colour via currentColor. -->
+<path fill="currentColor" d="M1 0.29Q0.52 0.29 0.38 -0.77Q0.23 -1.83 0.42 -2.94Q0.62 -4.05 1 -4.05Q7.09 -4.05 7.09 -9.56V-54.73Q7.09 -59.95 0.62 -59.95Q0.23 -59.95 0.09 -61.01Q-0.06 -62.07 0.04 -63.18Q0.14 -64.29 0.62 -64.29Q6.7 -64 12.88 -64Q16.45 -64 20.12 -64.14Q23.79 -64.29 27.45 -64.29Q33.82 -64.29 39.52 -62.36Q45.22 -60.43 49.61 -56.66Q54 -52.9 56.51 -47.3Q59.02 -41.7 59.02 -34.17Q59.02 -23.55 55.3 -15.83Q51.59 -8.11 44.78 -3.91Q37.98 0.29 29.09 0.29Q25.14 0.29 21.08 0.14Q17.03 0 12.88 0Q6.8 0 1 0.29ZM26.49 -3.38Q32.57 -3.38 37.06 -7.43Q41.55 -11.49 43.91 -18.44Q46.28 -25.39 46.28 -33.98Q46.28 -41.12 43.57 -47.2Q40.87 -53.29 35.85 -56.95Q30.83 -60.62 24.17 -60.62Q20.89 -60.62 19.73 -59.46Q18.57 -58.3 18.57 -55.12V-12.16Q18.57 -8.88 19.3 -6.95Q20.02 -5.02 21.76 -4.2Q23.5 -3.38 26.49 -3.38ZM63.11 0.29Q62.63 0.29 62.48 -0.77Q62.34 -1.83 62.53 -2.94Q62.73 -4.05 63.11 -4.05Q69.19 -4.05 69.19 -9.56V-54.73Q69.19 -59.95 62.73 -59.95Q62.34 -59.95 62.19 -61.01Q62.05 -62.07 62.15 -63.18Q62.24 -64.29 62.73 -64.29Q68.81 -64 74.99 -64Q78.56 -64 82.23 -64.14Q85.89 -64.29 89.56 -64.29Q95.93 -64.29 101.63 -62.36Q107.32 -60.43 111.72 -56.66Q116.11 -52.9 118.62 -47.3Q121.13 -41.7 121.13 -34.17Q121.13 -23.55 117.41 -15.83Q113.69 -8.11 106.89 -3.91Q100.08 0.29 91.2 0.29Q87.24 0.29 83.19 0.14Q79.14 0 74.99 0Q68.9 0 63.11 0.29ZM88.6 -3.38Q94.68 -3.38 99.17 -7.43Q103.65 -11.49 106.02 -18.44Q108.38 -25.39 108.38 -33.98Q108.38 -41.12 105.68 -47.2Q102.98 -53.29 97.96 -56.95Q92.94 -60.62 86.28 -60.62Q83 -60.62 81.84 -59.46Q80.68 -58.3 80.68 -55.12V-12.16Q80.68 -8.88 81.4 -6.95Q82.13 -5.02 83.87 -4.2Q85.6 -3.38 88.6 -3.38ZM130.49 0.29Q130.2 0.29 130.1 -0.77Q130.01 -1.83 130.14 -2.94Q130.27 -4.05 130.52 -4.05Q136.96 -4.05 136.96 -9.56V-59.95H131.29Q127.3 -59.95 125.52 -57.13Q123.73 -54.31 123.73 -47.76Q123.73 -47.3 122.67 -47.11Q121.6 -46.91 120.5 -47.11Q119.39 -47.3 119.39 -47.75V-61.68Q119.39 -64.29 124.51 -64.29Q128.91 -64.29 133.31 -64.14Q137.71 -64 142.07 -64Q146.78 -64 151.46 -64.14Q156.13 -64.29 160.9 -64.29Q165.43 -64.29 165.43 -61.68V-47.76Q165.43 -47.3 164.32 -47.11Q163.21 -46.91 162.1 -47.11Q160.99 -47.3 160.99 -47.76Q160.99 -54.31 159.4 -57.13Q157.81 -59.95 153.9 -59.95H148.06V-9.56Q148.06 -4.05 154.21 -4.05Q154.49 -4.05 154.61 -2.94Q154.72 -1.82 154.61 -0.77Q154.5 0.29 154.24 0.29Q151.29 0.1 148.3 0.05Q145.31 0 142.37 0Q139.47 0 136.48 0.05Q133.48 0.1 130.49 0.29Z"/>
+</svg><span class="brand-name" data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span></a><nav class="nav-links" aria-label="Primary" data-aria-en="Primary" data-aria-es="Principal"><a href="/#work" data-en="Work" data-es="Proyectos">Work</a><a href="/#experience" data-en="Experience" data-es="Trayectoria">Experience</a><a href="/consult.html" data-en="Consulting" data-es="Consultoría">Consulting</a></nav><div class="nav-utilities"><a href="/es/trabajo/xsub-telemetry.html" class="locale" lang="es" hreflang="es" data-en="Español" data-es="English">Español</a><button type="button" id="theme-toggle" class="theme-toggle"><span class="use-dark-theme" data-en="Use dark theme" data-es="Usar tema oscuro">Use dark theme</span><span class="use-light-theme" data-en="Use light theme" data-es="Usar tema claro">Use light theme</span></button></div></div></header>
+<main id="main" class="wrap" tabindex="-1">
+<article class="prose case-note"><a href="/#work" class="back-link" data-en="Back to selected work" data-es="Volver a los proyectos">Back to selected work</a><header class="page-header"><h1 data-en="Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit" data-es="Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo">Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit</h1><p data-en="A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol." data-es="Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una auditoría moderna del protocolo serial.">A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.</p></header><p class="byline" data-en="By Danilo Díaz Tarascó" data-es="Por Danilo Díaz Tarascó">By Danilo Díaz Tarascó</p><figure class="case-figure"><img src="/assets/img/lab/rov-telemetry-board.webp" alt="Assembled telemetry sub-board with connectors and a central microcontroller" srcset="/assets/img/lab/rov-telemetry-board-480.webp 480w, /assets/img/lab/rov-telemetry-board.webp 900w" sizes="(max-width: 640px) calc(100vw - 32px), 62ch" width="900" height="631" decoding="async" fetchpriority="high" data-alt-en="Assembled telemetry sub-board with connectors and a central microcontroller" data-alt-es="Tarjeta de telemetría montada con conectores y un microcontrolador central"><figcaption data-en="A telemetry sub-board from the X-Sub archive." data-es="Tarjeta de telemetría del archivo X-Sub.">A telemetry sub-board from the X-Sub archive.</figcaption></figure><h2 data-en="The problem" data-es="El problema">The problem</h2><div data-lang-block="en"><p>An underwater remotely operated vehicle (ROV) concentrates every boundary problem found in industrial IoT inside a sealed pressure housing. Sensors on different electrical buses must be sampled reliably, actuator commands must reach thrusters and lighting without jitter, power distribution has to survive inductive motor loads, and a single serial link between the embedded controller and the onboard computer has to carry both telemetry and teleoperation frames cleanly.</p>
+<p>Between 2015 and 2016, I designed and validated the telemetry and teleoperation system for <strong>X-Sub</strong>, an underwater robot developed by the Mechatronics Research and Development Group at Universidad Simón Bolívar. The work earned an honorific mention as my undergraduate Electronics Engineering thesis (the full 137-page Spanish thesis is preserved in <code>Libro Tesis.pdf</code>). Years later, rather than leaving the project as an opaque archive of legacy binaries, I audited the original firmware and hardware files and added modern, dependency-free verification tooling so any engineer can inspect the design honestly.</p></div><h2 data-en="System architecture" data-es="Arquitectura del sistema">System architecture</h2><div data-lang-block="en"><p>The archived vehicle architecture splits real-time sensing and actuation from higher-level logging and surface visualization:</p>
+<ul><li><strong>Embedded controller (<code>MCU Firmware/X-Sub MCU Firmware/</code>):</strong> A 32-bit Freescale <strong>MCF51QE128</strong> (ColdFire V1) microcontroller developed in CodeWarrior with Processor Expert drivers and custom C logic in <code>xSub.c</code>, <code>OneWire.c</code>, and <code>main.c</code>.</li><li><strong>Sensor interfaces:</strong> An <strong>MPU-6050</strong> inertial measurement unit and <strong>HMC6352</strong> digital compass over I²C; a <strong>DS18B20</strong> external temperature sensor over 1-Wire; an <strong>MPX5700AP</strong> pressure sensor and battery-voltage monitoring over ADC; and digital water-presence inputs over GPIO.</li><li><strong>Actuator outputs:</strong> PWM channels driving four bidirectional brushless ESCs, two pan/tilt camera servos, and two high-intensity LED loads, alongside status and handshake indicators.</li><li><strong>Custom PCBs (<code>PCB/</code>):</strong> Two Altium Designer boards — <code>X-Sub_Board</code> for acquisition, control, and sensor interfaces, and <code>pcDuino Link Board</code> for power distribution and controller-to-computer interconnection.</li><li><strong>Onboard and surface path:</strong> The MCF51QE128 exchanges fixed-length binary frames over UART (115200 baud in the Python experiments) with an onboard <strong>pcDuino</strong>, which relays telemetry to surface logging and visualization prototypes originally explored in Python 3.4, LabVIEW, and MATLAB/Simulink.</li></ul></div><h2 data-en="Auditing the wire protocol" data-es="Auditoría del protocolo serial">Auditing the wire protocol</h2><div data-lang-block="en"><p>Re-examining the C source (<code>xSub.c</code>, <code>Events.c</code>, <code>Init.c</code>) a decade later shows both what worked and what would fail a modern production review:</p>
+<ul><li><strong>Telemetry frames (27 bytes):</strong> Big-endian 16-bit readings covering status, external and internal temperature, external pressure, 3-axis acceleration, 3-axis angular velocity, linear velocity, compass heading, water-presence state, and battery level, ending with a <code>0xFF</code> terminator.</li><li><strong>Command frames (10 bytes):</strong> Four motor setpoints, camera pan and tilt, two light channels, a PC status byte (each 0–255), and a <code>0xFF</code> terminator.</li><li><strong>Documented failure modes:</strong> Although byte 25 of the telemetry frame is named <code>XOR</code> in the archived firmware, initialization assigns the fixed decimal constant <code>26</code> and no checksum calculation runs during frame assembly. Likewise, the protocol has no framing escape or resynchronization mechanism, no sequence numbers, no command timeout encoded on the wire, and no authentication.</li></ul>
+<p>In <code>docs/PROTOCOL.md</code> and <code>docs/HARDWARE.md</code>, those gaps are documented explicitly instead of glossed over. Any production telemetry link for industrial hardware needs a real CRC, deterministic framing (such as COBS or length-prefixed frames), watchdog fail-safes on command loss, and replay/authentication controls whenever commands cross an untrusted network.</p></div><h2 data-en="Modern verification boundary" data-es="Frontera moderna de verificación">Modern verification boundary</h2><div data-lang-block="en"><p>Legacy CodeWarrior, LabVIEW, and MATLAB binary projects cannot safely be assumed to compile or run unchanged ten years later. The maintained boundary of the repository is therefore deliberately narrow and verifiable:</p>
+<ul><li><code>tools/xsub_protocol.py</code> provides a dependency-free Python 3.11+ CLI to decode 27-byte telemetry frames (reporting raw unsigned integers and offering two&#x27;s-complement conversion via <code>signed_16()</code> without fabricating sensor calibration curves) and encode 10-byte command frames for inspection.</li><li>Automated CI (<code>quality.yml</code> and <code>codeql.yml</code>) runs Ruff linting, unit tests, and <code>scripts/verify_repository.py</code> to validate artifact hashes and repository hygiene, while <code>docs/HARDWARE.md</code> lays out a seven-step electrical, DRC/ERC, current-limited bring-up, and recalibration checklist before anyone powers an archived board.</li></ul></div><h2 data-en="Takeaway" data-es="Aprendizaje clave">Takeaway</h2><div data-lang-block="en"><p>Good embedded engineering is as much about knowing where a design stops being safe as making it work on the bench. Preserving <code>X-Sub/Telemetry-System</code> with an honest protocol audit, explicit safety warnings, and automated verification demonstrates the exact review lens I bring to connected hardware projects today.</p></div><h2 data-en="Sources" data-es="Fuentes">Sources</h2><ul><li><a href="https://github.com/X-Sub/Telemetry-System" data-en="Public repository" data-es="Repositorio público">Public repository</a></li><li><a href="https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/HARDWARE.md" data-en="Hardware guide" data-es="Guía de hardware">Hardware guide</a></li><li><a href="https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/PROTOCOL.md" data-en="Protocol reference" data-es="Referencia del protocolo">Protocol reference</a></li></ul><a href="/consult.html" class="btn btn-secondary" data-en="Explore consulting" data-es="Ver consultoría">Explore consulting</a></article>
+</main>
+<footer class="site-footer"><div class="wrap footer-row"><span data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span><div class="footer-links"><a href="/privacy.html" data-en="Privacy" data-es="Privacidad">Privacy</a><a href="https://www.linkedin.com/in/ddtdanilo/" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a><a href="https://github.com/ddtdanilo" data-en="GitHub" data-es="GitHub">GitHub</a><a href="https://www.youtube.com/ddtdanilo" data-en="YouTube" data-es="YouTube">YouTube</a><a href="https://orcid.org/0009-0006-7142-0573" data-en="ORCID" data-es="ORCID">ORCID</a></div></div></footer>
+</body>
+</html>

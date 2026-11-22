@@ -12,9 +12,17 @@
  */
 
 const PROTOCOL_VERSION = '2025-06-18';
-const SERVER_INFO = { name: 'ddtdanilo-portfolio', title: 'Danilo Díaz Tarascó portfolio', version: '2026.09.29' };
+const SERVER_VERSION = '2026.11.22';
+const SERVER_INFO = { name: 'ddtdanilo-portfolio', title: 'Danilo Díaz Tarascó portfolio', version: SERVER_VERSION };
 
-const MARKDOWN_TWINS = { '/': '/index.md', '/index.html': '/index.md', '/consult.html': '/consult.md' };
+const MARKDOWN_TWINS = {
+  '/': '/index.md',
+  '/index.html': '/index.md',
+  '/consult.html': '/consult.md',
+  '/es/': '/es/index.md',
+  '/es/index.html': '/es/index.md',
+  '/es/consultoria.html': '/es/consultoria.md',
+};
 
 const LINK_HEADER = [
   '</.well-known/api-catalog>; rel="api-catalog"',
@@ -92,7 +100,7 @@ function serverCard(baseUrl) {
   return {
     $schema: 'https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json',
     name: 'io.github.ddtdanilo/portfolio',
-    version: '2026.9.29',
+    version: SERVER_VERSION,
     title: SERVER_INFO.title,
     description: 'Read-only facts about Danilo Díaz Tarascó and his consulting offer.',
     websiteUrl: `${baseUrl}/`,
@@ -116,7 +124,7 @@ async function callTool(env, name, args) {
         name: resume.basics.name,
         headline: resume.basics.label,
         summary: resume.basics.summary,
-        location: `${resume.basics.location.city}, ${resume.basics.location.countryCode}`,
+        location: [resume.basics.location?.city, resume.basics.location?.countryCode].filter(Boolean).join(", "),
         languages: resume.languages.map((l) => `${l.language} (${l.fluency})`),
         profiles: resume.basics.profiles.map((p) => p.url),
       };

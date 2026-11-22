@@ -2,256 +2,172 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Danilo Díaz Tarascó",
-    "label": "CTO | IoT & Embedded Systems | Cloud | IIoT | Hardware + Software",
-    "image": "https://ddtdanilo.github.io/assets/img/portrait-800.webp",
+    "label": "Chief Technology Officer",
     "url": "https://ddtdanilo.github.io/",
-    "summary": "Hands-on CTO and electronics engineer with 10+ years delivering IIoT products across embedded systems, connected hardware, and AWS-backed platforms. Leads a 12-engineer team inside a 30-person company and helped drive the business from negative to positive EBITDA while supporting ~60% revenue growth over three years. Builds across the stack, from MCU firmware, PCB design, and FCC certification to serverless infrastructure and production rollouts in LATAM, the Caribbean, and the US.",
+    "summary": "I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment.",
     "location": {
       "city": "Medellín",
-      "region": "Antioquia",
       "countryCode": "CO"
     },
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "ddtdanilo",
-        "url": "https://linkedin.com/in/ddtdanilo"
+        "url": "https://www.linkedin.com/in/ddtdanilo/"
       },
       {
         "network": "GitHub",
-        "username": "ddtdanilo",
         "url": "https://github.com/ddtdanilo"
       },
       {
         "network": "YouTube",
-        "username": "ddtdanilo",
-        "url": "https://youtube.com/ddtdanilo"
+        "url": "https://www.youtube.com/ddtdanilo"
+      },
+      {
+        "network": "ORCID",
+        "url": "https://orcid.org/0009-0006-7142-0573"
       }
     ]
   },
   "work": [
     {
-      "name": "Sento IoT+Electronics Hub",
-      "position": "Chief Technology Officer (CTO)",
-      "url": "https://www.sento.tech/",
-      "location": "Colombia (hybrid)",
+      "name": "Sento Tech Labs",
+      "position": "Chief Technology Officer",
       "startDate": "2024-06",
       "highlights": [
-        "Leads a 12-engineer team setting technical vision and product roadmap for the IIoT portfolio while sustaining 99.9% uptime across deployed IoT infrastructure.",
-        "Helped move the business from negative to positive EBITDA and supported ~60% revenue growth over three years by prioritizing high-value verticals from field demand.",
-        "Expanded the portfolio into maritime cargo tracking, chemical dosing and control for food processing, and precision agriculture monitoring.",
-        "Integrates AI tooling and automation into engineering workflows; owns architecture across embedded firmware, edge systems, and AWS backends."
+        "Lead a team of 12 engineers and set the technical direction for industrial IoT hardware, firmware and cloud services."
       ]
     },
     {
-      "name": "Sento IoT+Electronics Hub",
-      "position": "Senior Electronics Engineer - Team Lead",
-      "location": "Colombia (hybrid)",
+      "name": "Sento Tech Labs",
+      "position": "Senior Electronics Engineer — Team Lead",
       "startDate": "2023-02",
       "endDate": "2024-06",
       "highlights": [
-        "Led a multidisciplinary team delivering IIoT systems for poultry and swine production in harsh industrial environments.",
-        "Designed and validated IPC-compliant PCBs, mechanical enclosures, solar telemetry, and chemical dosing control cabinets.",
-        "Managed export compliance and scaled prototypes from 3D printing to injection molding for LATAM, Caribbean, and US rollout.",
-        "Applied a hardware-adapted Scrum cadence to align firmware, hardware, and cloud deliverables."
+        "Led a multidisciplinary team developing industrial IoT hardware for demanding field conditions."
       ]
     },
     {
-      "name": "PowDevs (client: Blackline Safety)",
+      "name": "PowDevs",
       "position": "Software Engineer / DevOps",
-      "location": "Remote (US/Canada)",
       "startDate": "2021-11",
       "endDate": "2022-11",
       "highlights": [
-        "Built fully serverless REST API infrastructure on AWS for a connected safety-device platform.",
-        "Delivered infrastructure as code with CloudFormation and SAM across API Gateway, Cognito, Lambda, and OpenAPI specs.",
-        "Authored Python Lambda services for data pipelines and maintained CI/CD through CodePipeline."
+        "Built serverless infrastructure for a connected industrial device platform."
       ]
     },
     {
-      "name": "Vantu S.A.S (now Sento IoT+Electronics Hub)",
+      "name": "Vantu S.A.S",
       "position": "Development Engineer",
-      "location": "Colombia",
       "startDate": "2019-06",
       "endDate": "2021-11",
       "highlights": [
-        "Designed scalable IPC-compliant PCBs for self-service IoT devices deployed in harsh agricultural environments.",
-        "Achieved FCC certification and built MicroPython firmware with supervisor mechanisms for availability and energy efficiency.",
-        "Built AWS infrastructure for FOTA at scale and supported expansion into the US, Central America, and the Caribbean."
+        "Designed PCBs for industrial IoT and led designs through FCC certification."
       ]
     },
     {
-      "name": "Innavitas SAPI - Wiot",
+      "name": "Innavitas SAPI — Wiot",
       "position": "Hardware Engineer",
-      "location": "Remote (Mexico)",
       "startDate": "2016-09",
       "endDate": "2019-06",
       "highlights": [
-        "Developed embedded IoT systems for industrial and automotive hydrogen-generation control.",
-        "Programmed MCUs in C/C++ and Arduino and designed production PCBs in Altium Designer.",
-        "Built Linux-based embedded platforms, web interfaces, and computer-vision pipelines with OpenCV and Python."
-      ]
-    },
-    {
-      "name": "Altium Canada / Upverter",
-      "position": "Parts Specialist",
-      "startDate": "2018",
-      "endDate": "2019",
-      "highlights": [
-        "PCB footprint design per manufacturer specifications and IPC standards."
-      ]
-    },
-    {
-      "name": "Universidad Simón Bolívar",
-      "position": "Teaching Assistant",
-      "startDate": "2016",
-      "endDate": "2018",
-      "highlights": []
-    },
-    {
-      "name": "Mechatronics R&D Group, Universidad Simón Bolívar",
-      "position": "Project Engineer",
-      "startDate": "2013",
-      "endDate": "2017",
-      "highlights": [
-        "ROV telemetry, power distribution boards, and robotics competition hardware."
-      ]
-    },
-    {
-      "name": "Upwork",
-      "position": "Freelance Engineer",
-      "startDate": "2015",
-      "endDate": "2016",
-      "highlights": []
-    }
-  ],
-  "education": [
-    {
-      "institution": "Universidad Simón Bolívar",
-      "area": "Electronics (Mechatronics & Power Electronics)",
-      "studyType": "MSc",
-      "startDate": "2020",
-      "courses": [],
-      "score": "Thesis pending"
-    },
-    {
-      "institution": "Universidad Simón Bolívar",
-      "area": "Electronics Engineering",
-      "studyType": "B.S.",
-      "startDate": "2010",
-      "endDate": "2016",
-      "courses": [
-        "Honorific mention: underwater robot (ROV) telemetry system thesis"
+        "Developed embedded systems for industrial and automotive instrumentation."
       ]
     }
   ],
-  "awards": [
+  "projects": [
     {
-      "title": "1st Place, IEEE Open Category — CCSBOTS 2013",
-      "date": "2013",
-      "awarder": "Latin American Robotics Competition",
-      "summary": "Team Giatronica."
+      "name": "Personal Altium Library",
+      "description": "Public schematic symbols and PCB footprints with automated file integrity checks.",
+      "url": "https://github.com/ddtdanilo/Personal-Altium-Library"
     },
     {
-      "title": "Honorific Mention — undergraduate thesis",
-      "awarder": "Universidad Simón Bolívar",
-      "summary": "Underwater robot (ROV) telemetry system."
-    }
-  ],
-  "certificates": [
-    {
-      "name": "AWS Fundamentals: Going Cloud-Native"
+      "name": "X-Sub Telemetry System",
+      "description": "Underwater robot hardware, firmware and a maintained serial protocol toolkit.",
+      "url": "https://github.com/X-Sub/Telemetry-System"
     },
     {
-      "name": "AWS Fundamentals: Addressing Security Risk"
+      "name": "UT383BT Lux BLE",
+      "description": "Python tools to read and log a light meter over Bluetooth LE.",
+      "url": "https://github.com/ddtdanilo/ut383bt-lux-ble-python"
     },
     {
-      "name": "AI Proficiency"
+      "name": "vcpkg contribution",
+      "description": "Merged upstream port for a MISRA C wrapper for LMDB.",
+      "url": "https://github.com/microsoft/vcpkg/pull/50323"
     },
     {
-      "name": "Advanced Prompting Techniques"
+      "name": "Pycom MicroPython port",
+      "description": "An upstream-based MicroPython port for Pycom boards.",
+      "url": "https://github.com/ddtdanilo/pycom-micropython"
     },
     {
-      "name": "Working with Reasoning Models"
+      "name": "LMDB wrapper for MISRA C",
+      "description": "The C wrapper packaged in the merged vcpkg port.",
+      "url": "https://github.com/ddtdanilo/LMDB-wrapper-MISRA-C"
     },
     {
-      "name": "SQL (Intermediate)"
+      "name": "Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit",
+      "description": "A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.",
+      "url": "https://ddtdanilo.github.io/work/xsub-telemetry.html"
+    },
+    {
+      "name": "Disciplined PCB Component Libraries in Altium Designer",
+      "description": "The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.",
+      "url": "https://ddtdanilo.github.io/work/altium-pcb-library.html"
     }
   ],
   "skills": [
     {
-      "name": "Leadership",
+      "name": "Embedded systems and PCBs",
       "keywords": [
-        "Technical vision",
-        "Roadmap ownership",
-        "Team building (12 engineers)",
-        "Product strategy",
-        "Export readiness"
-      ]
-    },
-    {
-      "name": "Cloud & APIs",
-      "keywords": [
-        "AWS Lambda",
-        "API Gateway",
-        "EC2",
-        "DynamoDB",
-        "S3",
-        "Cognito",
-        "CloudFormation",
-        "SAM",
-        "Serverless REST APIs",
-        "CI/CD"
-      ]
-    },
-    {
-      "name": "Embedded & Hardware",
-      "keywords": [
-        "PCB design",
         "Altium Designer",
-        "ESP32",
-        "ARM Cortex",
-        "LoRa",
+        "MCU design",
         "IPC standards",
-        "FCC certification",
-        "Power electronics"
+        "FCC certification"
       ]
     },
     {
-      "name": "Software",
+      "name": "Power electronics",
       "keywords": [
-        "Python",
-        "C/C++ (embedded)",
-        "MicroPython",
-        "Shell scripting",
-        "SQL",
-        "OpenCV"
+        "DC-DC converters",
+        "Power distribution boards",
+        "Solar telemetry"
       ]
     },
     {
-      "name": "IIoT",
+      "name": "Firmware and software",
+      "keywords": [
+        "C",
+        "C++",
+        "MicroPython",
+        "Python"
+      ]
+    },
+    {
+      "name": "IoT connectivity",
       "keywords": [
         "MQTT",
+        "LoRa",
         "BLE",
         "Wi-Fi",
-        "LoRaWAN",
         "Cellular",
-        "FOTA",
-        "Agroindustry",
-        "Maritime cargo",
-        "Food processing",
         "Industrial telemetry"
       ]
     },
     {
-      "name": "Delivery tools",
+      "name": "Cloud and APIs",
       "keywords": [
-        "Claude Code",
-        "Codex",
-        "MCP",
-        "Fusion 360",
-        "3D printing",
-        "Injection molding"
+        "AWS architecture",
+        "Serverless computing",
+        "Infrastructure as code"
+      ]
+    },
+    {
+      "name": "Engineering leadership",
+      "keywords": [
+        "Technical direction",
+        "Product roadmaps",
+        "Team development"
       ]
     }
   ],
@@ -262,74 +178,32 @@
     },
     {
       "language": "English",
-      "fluency": "Full professional (C1+)"
+      "fluency": "C1+"
     }
   ],
-  "projects": [
+  "awards": [
     {
-      "name": "microsoft/vcpkg contribution",
-      "description": "Contributor to Microsoft's C/C++ package manager; PR #50323 merged in release 2026.03.18.",
-      "url": "https://github.com/microsoft/vcpkg/pull/50323",
-      "keywords": [
-        "C/C++",
-        "Open source"
-      ]
+      "title": "Honorific mention — undergraduate thesis on underwater telemetry",
+      "awarder": "Universidad Simón Bolívar"
     },
     {
-      "name": "OpenAI Document Analyzer",
-      "description": "Python app for analyzing text and PDF files with OpenAI chat models; 40+ stars.",
-      "url": "https://github.com/ddtdanilo/OpenAI-Document-Analyzer",
-      "keywords": [
-        "Python",
-        "OpenAI",
-        "AI"
-      ]
-    },
-    {
-      "name": "Personal Altium Library",
-      "description": "Open-source Altium PCB component library used by engineers worldwide; 21+ stars.",
-      "url": "https://github.com/ddtdanilo/Personal-Altium-Library",
-      "keywords": [
-        "Altium",
-        "PCB",
-        "Open source"
-      ]
-    },
-    {
-      "name": "Fuzzy Naked Mega",
-      "description": "Open-hardware, Arduino-compatible ATmega2560 board design; 17 community forks.",
-      "url": "https://github.com/ddtdanilo/Fuzzy-Naked-Mega",
-      "keywords": [
-        "Arduino",
-        "Open hardware"
-      ]
-    },
-    {
-      "name": "GW-Standalone",
-      "description": "Autonomous IoT gateway firmware in MicroPython for LoPy4 (ESP32): LoRa P2P, Wi-Fi AP, and cellular uplinks; bidirectional LoRa protocol with auto-ACK and a persistent flash buffer.",
-      "entity": "Sento IoT+Electronics Hub",
-      "keywords": [
-        "MicroPython",
-        "ESP32",
-        "LoRa",
-        "IoT"
-      ]
-    },
-    {
-      "name": "OTA fleet platform",
-      "description": "Over-the-air firmware management: React + TypeScript console on serverless AWS (Lambda, API Gateway, DynamoDB, S3), pre-signed firmware distribution, Amplify/Cognito/AppSync variant, CI/CD via GitHub Actions.",
-      "entity": "Sento IoT+Electronics Hub",
-      "keywords": [
-        "TypeScript",
-        "AWS",
-        "Serverless",
-        "OTA"
-      ]
+      "title": "First place, IEEE Open Category — CCSBOTS 2013",
+      "date": "2013",
+      "awarder": "Latin American Robotics Competition"
     }
   ],
-  "meta": {
-    "canonical": "https://ddtdanilo.github.io/api/resume.json",
-    "version": "2026.09.29",
-    "lastModified": "2026-09-29"
-  }
+  "education": [
+    {
+      "institution": "Universidad Simón Bolívar",
+      "area": "Electronics Engineering",
+      "studyType": "Bachelor's degree",
+      "endDate": "2016"
+    },
+    {
+      "institution": "Universidad Simón Bolívar",
+      "area": "Electronics",
+      "studyType": "Master’s studies, thesis pending",
+      "startDate": "2020"
+    }
+  ]
 }

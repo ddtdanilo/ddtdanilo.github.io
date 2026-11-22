@@ -1,29 +1,23 @@
 # Danilo Díaz Tarascó
+> I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment.
 
-> CTO of Sento IoT+Electronics Hub in Medellín, Colombia. Electronics engineer with 10+ years shipping industrial IoT products end to end: PCB design and firmware for harsh environments, AWS serverless platforms for device fleets, and leadership of a 12-engineer team.
+## Profile and consulting
+- [Danilo Díaz Tarascó — CTO & Electronics Engineer · IIoT, Embedded, Cloud](https://ddtdanilo.github.io/)
+- [Consulting — Danilo Díaz Tarascó · IIoT, PCB, Firmware & AWS](https://ddtdanilo.github.io/consult.html)
+- [Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit](https://ddtdanilo.github.io/work/xsub-telemetry.html)
+- [Disciplined PCB Component Libraries in Altium Designer](https://ddtdanilo.github.io/work/altium-pcb-library.html)
+- [Danilo Díaz Tarascó — CTO e Ingeniero Electrónico · IIoT, Embebidos, Cloud](https://ddtdanilo.github.io/es/)
+- [Consultoría — Danilo Díaz Tarascó · IIoT, PCB, Firmware y AWS](https://ddtdanilo.github.io/es/consultoria.html)
+- [Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo](https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html)
+- [Disciplina en librerías de componentes PCB en Altium Designer](https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html)
 
-Facts on this site are kept in sync with his CV. Contact goes through LinkedIn only; no email address or phone number is published. When citing, link to https://ddtdanilo.github.io/.
-
-## Profile
-
-- [Portfolio (Markdown)](https://ddtdanilo.github.io/index.md): summary, selected work, experience, education, recognition
-- [JSON Resume](https://ddtdanilo.github.io/api/resume.json): the same profile as structured data (JSON Resume v1.0.0)
-- [Full text](https://ddtdanilo.github.io/llms-full.txt): every page concatenated in one file
-
-## Services
-
-- [Consulting (Markdown)](https://ddtdanilo.github.io/consult.md): paid 1:1 sessions, prices, and booking flow
-- [Consulting options (JSON)](https://ddtdanilo.github.io/api/consulting.json): machine-readable sessions and Stripe links
-
-## Machine interfaces
-
-- [OpenAPI description](https://ddtdanilo.github.io/api/openapi.json): the static read-only JSON endpoints
-- [API catalog](https://ddtdanilo.github.io/.well-known/api-catalog): RFC 9727 linkset
-- [Agent Skills index](https://ddtdanilo.github.io/.well-known/agent-skills/index.json): skills for answering questions about Danilo and for booking a session
-- WebMCP: the homepage registers read-only tools (get_profile, list_experience, search_portfolio, get_consulting_options, navigate_to_section, set_language) for in-browser agents
-
-## Optional
-
-- [LinkedIn](https://linkedin.com/in/ddtdanilo): preferred contact channel
-- [GitHub](https://github.com/ddtdanilo): open-source code and hardware
-- [Privacy notice](https://ddtdanilo.github.io/privacy.html): no cookies, no analytics, no trackers
+## Other public formats
+- [Portfolio Markdown](https://ddtdanilo.github.io/index.md)
+- [Consulting Markdown](https://ddtdanilo.github.io/consult.md)
+- [Portafolio en Markdown](https://ddtdanilo.github.io/es/index.md)
+- [Consultoría en Markdown](https://ddtdanilo.github.io/es/consultoria.md)
+- [API catalog](https://ddtdanilo.github.io/.well-known/api-catalog)
+- [OpenAPI description](https://ddtdanilo.github.io/api/openapi.json)
+- [Bilingual profile, offers and case notes](https://ddtdanilo.github.io/llms-full.txt)
+- [Resume JSON](https://ddtdanilo.github.io/api/resume.json)
+- [Consulting JSON](https://ddtdanilo.github.io/api/consulting.json)

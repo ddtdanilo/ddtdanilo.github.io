@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Validating a Shared Altium PCB Library — Danilo Díaz Tarascó</title>
+<meta name="description" content="How to validate Altium PCB footprints and schematic symbols using a file manifest, automated integrity checks and manual datasheet review.">
+<link rel="canonical" href="https://ddtdanilo.github.io/work/altium-pcb-library.html">
+<link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/work/altium-pcb-library.html">
+<link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html">
+<link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/work/altium-pcb-library.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ddtdanilo.github.io/work/altium-pcb-library.html">
+<meta property="og:title" content="Disciplined PCB Component Libraries in Altium Designer">
+<meta property="og:description" content="How automated integrity checks and manual datasheet gates keep binary Altium schematic and PCB libraries safe for fabrication.">
+<meta property="og:image" content="https://ddtdanilo.github.io/assets/img/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Danilo Díaz Tarascó · CTO and industrial IoT, with an illustration of the X-Sub acquisition board">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://ddtdanilo.github.io/work/altium-pcb-library.html#article",
+  "mainEntityOfPage": "https://ddtdanilo.github.io/work/altium-pcb-library.html",
+  "headline": "Disciplined PCB Component Libraries in Altium Designer",
+  "description": "The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.",
+  "inLanguage": "en",
+  "datePublished": "2026-11-22",
+  "dateModified": "2026-11-22",
+  "image": "https://ddtdanilo.github.io/assets/img/social.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://ddtdanilo.github.io/#person",
+    "name": "Danilo Díaz Tarascó"
+  },
+  "citation": [
+    "https://github.com/ddtdanilo/Personal-Altium-Library",
+    "https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/INVENTORY.md",
+    "https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md"
+  ]
+}
+</script>
+<script>(() => {
+    const root = document.documentElement;
+    const key = 'ddt-theme';
+
+    try {
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+    } catch {
+        // Theme selection still works without storage.
+    }
+
+    root.classList.add('theme-ready');
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.querySelector('#theme-toggle');
+        const preference = window.matchMedia('(prefers-color-scheme: dark)');
+
+        toggle.addEventListener('click', () => {
+            const current = root.dataset.theme || (preference.matches ? 'dark' : 'light');
+            root.dataset.theme = current === 'dark' ? 'light' : 'dark';
+            try {
+                localStorage.setItem(key, root.dataset.theme);
+            } catch {
+                // The current page keeps the selection.
+            }
+        });
+    }, { once: true });
+})();</script>
+<link rel="preload" href="/assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter/inter-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/img/favicon.svg?v=5a17bbd86d94" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts/fonts.css?v=f142d0786d86">
+<link rel="stylesheet" href="/assets/css/tokens.css?v=5ca03a3ded12">
+<link rel="stylesheet" href="/assets/css/components.css?v=658c35b1669a">
+<link rel="stylesheet" href="/assets/css/style.css?v=0e180b0624a7">
+</head>
+<body class="case">
+<a href="#main" class="skip" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="DDT · Danilo Díaz Tarascó" data-aria-en="DDT · Danilo Díaz Tarascó" data-aria-es="DDT · Danilo Díaz Tarascó"><svg class="brand-mark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -72 181.43 80">
+
+<!-- DDT wordmark. Outlines: Junicode 2 (OFL 1.1) at wght 700, wdth 75. One colour via currentColor. -->
+<path fill="currentColor" d="M1 0.29Q0.52 0.29 0.38 -0.77Q0.23 -1.83 0.42 -2.94Q0.62 -4.05 1 -4.05Q7.09 -4.05 7.09 -9.56V-54.73Q7.09 -59.95 0.62 -59.95Q0.23 -59.95 0.09 -61.01Q-0.06 -62.07 0.04 -63.18Q0.14 -64.29 0.62 -64.29Q6.7 -64 12.88 -64Q16.45 -64 20.12 -64.14Q23.79 -64.29 27.45 -64.29Q33.82 -64.29 39.52 -62.36Q45.22 -60.43 49.61 -56.66Q54 -52.9 56.51 -47.3Q59.02 -41.7 59.02 -34.17Q59.02 -23.55 55.3 -15.83Q51.59 -8.11 44.78 -3.91Q37.98 0.29 29.09 0.29Q25.14 0.29 21.08 0.14Q17.03 0 12.88 0Q6.8 0 1 0.29ZM26.49 -3.38Q32.57 -3.38 37.06 -7.43Q41.55 -11.49 43.91 -18.44Q46.28 -25.39 46.28 -33.98Q46.28 -41.12 43.57 -47.2Q40.87 -53.29 35.85 -56.95Q30.83 -60.62 24.17 -60.62Q20.89 -60.62 19.73 -59.46Q18.57 -58.3 18.57 -55.12V-12.16Q18.57 -8.88 19.3 -6.95Q20.02 -5.02 21.76 -4.2Q23.5 -3.38 26.49 -3.38ZM63.11 0.29Q62.63 0.29 62.48 -0.77Q62.34 -1.83 62.53 -2.94Q62.73 -4.05 63.11 -4.05Q69.19 -4.05 69.19 -9.56V-54.73Q69.19 -59.95 62.73 -59.95Q62.34 -59.95 62.19 -61.01Q62.05 -62.07 62.15 -63.18Q62.24 -64.29 62.73 -64.29Q68.81 -64 74.99 -64Q78.56 -64 82.23 -64.14Q85.89 -64.29 89.56 -64.29Q95.93 -64.29 101.63 -62.36Q107.32 -60.43 111.72 -56.66Q116.11 -52.9 118.62 -47.3Q121.13 -41.7 121.13 -34.17Q121.13 -23.55 117.41 -15.83Q113.69 -8.11 106.89 -3.91Q100.08 0.29 91.2 0.29Q87.24 0.29 83.19 0.14Q79.14 0 74.99 0Q68.9 0 63.11 0.29ZM88.6 -3.38Q94.68 -3.38 99.17 -7.43Q103.65 -11.49 106.02 -18.44Q108.38 -25.39 108.38 -33.98Q108.38 -41.12 105.68 -47.2Q102.98 -53.29 97.96 -56.95Q92.94 -60.62 86.28 -60.62Q83 -60.62 81.84 -59.46Q80.68 -58.3 80.68 -55.12V-12.16Q80.68 -8.88 81.4 -6.95Q82.13 -5.02 83.87 -4.2Q85.6 -3.38 88.6 -3.38ZM130.49 0.29Q130.2 0.29 130.1 -0.77Q130.01 -1.83 130.14 -2.94Q130.27 -4.05 130.52 -4.05Q136.96 -4.05 136.96 -9.56V-59.95H131.29Q127.3 -59.95 125.52 -57.13Q123.73 -54.31 123.73 -47.76Q123.73 -47.3 122.67 -47.11Q121.6 -46.91 120.5 -47.11Q119.39 -47.3 119.39 -47.75V-61.68Q119.39 -64.29 124.51 -64.29Q128.91 -64.29 133.31 -64.14Q137.71 -64 142.07 -64Q146.78 -64 151.46 -64.14Q156.13 -64.29 160.9 -64.29Q165.43 -64.29 165.43 -61.68V-47.76Q165.43 -47.3 164.32 -47.11Q163.21 -46.91 162.1 -47.11Q160.99 -47.3 160.99 -47.76Q160.99 -54.31 159.4 -57.13Q157.81 -59.95 153.9 -59.95H148.06V-9.56Q148.06 -4.05 154.21 -4.05Q154.49 -4.05 154.61 -2.94Q154.72 -1.82 154.61 -0.77Q154.5 0.29 154.24 0.29Q151.29 0.1 148.3 0.05Q145.31 0 142.37 0Q139.47 0 136.48 0.05Q133.48 0.1 130.49 0.29Z"/>
+</svg><span class="brand-name" data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span></a><nav class="nav-links" aria-label="Primary" data-aria-en="Primary" data-aria-es="Principal"><a href="/#work" data-en="Work" data-es="Proyectos">Work</a><a href="/#experience" data-en="Experience" data-es="Trayectoria">Experience</a><a href="/consult.html" data-en="Consulting" data-es="Consultoría">Consulting</a></nav><div class="nav-utilities"><a href="/es/trabajo/altium-pcb-library.html" class="locale" lang="es" hreflang="es" data-en="Español" data-es="English">Español</a><button type="button" id="theme-toggle" class="theme-toggle"><span class="use-dark-theme" data-en="Use dark theme" data-es="Usar tema oscuro">Use dark theme</span><span class="use-light-theme" data-en="Use light theme" data-es="Usar tema claro">Use light theme</span></button></div></div></header>
+<main id="main" class="wrap" tabindex="-1">
+<article class="prose case-note"><a href="/#work" class="back-link" data-en="Back to selected work" data-es="Volver a los proyectos">Back to selected work</a><header class="page-header"><h1 data-en="Disciplined PCB Component Libraries in Altium Designer" data-es="Disciplina en librerías de componentes PCB en Altium Designer">Disciplined PCB Component Libraries in Altium Designer</h1><p data-en="The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets." data-es="La librería combina verificaciones automáticas de los archivos binarios de Altium con una revisión manual contra los datasheets.">The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.</p></header><p class="byline" data-en="By Danilo Díaz Tarascó" data-es="Por Danilo Díaz Tarascó">By Danilo Díaz Tarascó</p><h2 data-en="The problem" data-es="El problema">The problem</h2><div data-lang-block="en"><p>A large share of expensive PCB respins start long before routing: they begin in the component library. One swapped pin on a schematic symbol, a mirrored pin-1 mark, an undersized drill on a power header, or an unverified land pattern pulled from an anonymous forum can turn a two-week fabrication run into scrap hardware.</p>
+<p>At the same time, native Altium Designer libraries (<code>.SchLib</code> and <code>.PcbLib</code>) are opaque binary compound files. Standard <code>git diff</code> cannot show whether a footprint pad shifted by 0.2 mm, whether a file was corrupted during a save, or whether temporary Altium history and lock files slipped into a commit.</p>
+<p>Over several years of hardware work (2019–2026), I curated my reusable components into <code>Personal-Altium-Library</code>, published publicly under CERN-OHL-P-2.0. To make a binary EDA repository trustworthy for both personal reuse and external engineers, I paired the library files with a two-layer validation workflow modeled after software release discipline.</p></div><h2 data-en="What the library covers" data-es="Qué cubre la librería">What the library covers</h2><div data-lang-block="en"><p>The repository tracks two checked-in Altium libraries whose exact sizes and SHA-256 digests are recorded in <code>library-manifest.json</code>:</p>
+<ul><li><strong><code>AltiumLibraryDDT.SchLib</code></strong> (396,800 bytes) — <strong>81 schematic symbols</strong>.</li><li><strong><code>AltiumLibraryDDT.PcbLib</code></strong> (36,292,608 bytes) — <strong>106 PCB footprints</strong>.</li></ul>
+<p>Across <code>docs/INVENTORY.md</code>, the catalog spans practical building blocks from real hardware builds rather than synthetic demo parts: SMD passives across 0402/0603/1206 packages, high-voltage diodes, barrier terminal blocks and shrouded headers, wireless modules (<code>ESP32-DEVKITC-32D</code>, <code>ESP8266_ESP-12</code>, <code>HM-10</code>), power modules (<code>LM2596</code>, <code>MT3608</code>, <code>Mini-360</code>), load-cell and current sensors (<code>HX711</code>, <code>ACS758LCB-050B</code>), relays (<code>G5LE</code>), and micro-SD holders.</p></div><h2 data-en="Two-layer validation for binary EDA files" data-es="Validación en dos capas para archivos binarios de EDA">Two-layer validation for binary EDA files</h2><div data-lang-block="en"><p>Because CI cannot replace an electrical engineer inspecting copper geometry in Altium, <code>docs/VALIDATION.md</code> separates what machines can guarantee from what requires human review in the EDA tool.</p>
+<h3>Layer 1: Automated repository integrity (CI)</h3>
+<p>Running <code>python3 scripts/validate_repository.py</code> locally and in GitHub Actions (<code>quality.yml</code>) enforces six deterministic checks on every push and pull request:</p>
+<ol><li>Required project, licensing, and engineering-notice files exist.</li><li>Both <code>.SchLib</code> and <code>.PcbLib</code> carry valid compound-file binary signatures (catching truncated or text-corrupted commits immediately).</li><li>File byte sizes and SHA-256 checksums match <code>library-manifest.json</code> exactly.</li><li>Declared symbol (81) and footprint (106) counts match the tracked inventory in <code>docs/INVENTORY.md</code>.</li><li>Local Markdown documentation links resolve cleanly.</li><li>Common generated artifacts, Altium backups, and autosave files are blocked from entering Git.</li></ol>
+<p>When a component is intentionally added or edited, <code>scripts/update_manifest.py</code> refreshes the manifest — and the policy explicitly forbids blindly accepting a regenerated hash without verifying that only intended library entries changed.</p>
+<h3>Layer 2: Manual Altium engineering gate</h3>
+<p>Before any modified symbol or footprint is accepted, <code>docs/VALIDATION.md</code> defines a four-part Altium review checklist:</p>
+<ul><li><strong>Library integrity:</strong> Open and save both libraries without conversion or repair warnings and run built-in library checks.</li><li><strong>Schematic review:</strong> Verify every pin number, name, electrical type, hidden power pin, designator, and footprint link directly against the current manufacturer datasheet.</li><li><strong>Footprint review:</strong> Check pad geometry, numbering, drill sizes, thermal pads, solder mask, paste, silkscreen, courtyard, pin-1 indicator, and 3D body height against the manufacturer&#x27;s recommended land pattern and fabricator tolerances.</li><li><strong>Integration review:</strong> Place the symbol in a temporary schematic, push it to a temporary PCB, verify all pin-to-pad mappings, run ERC and DRC, and inspect both board sides in 2D and 3D.</li></ul></div><h2 data-en="Takeaway" data-es="Aprendizaje clave">Takeaway</h2><div data-lang-block="en"><p>Reliability in connected hardware starts with boring, repeatable habits: versioned manifests, datasheet-first verification, and honest boundaries about what automation can and cannot prove. <code>Personal-Altium-Library</code> is both a public engineering resource and a concrete look at how I structure PCB review workflows before releasing Gerbers to fabrication.</p></div><h2 data-en="Sources" data-es="Fuentes">Sources</h2><ul><li><a href="https://github.com/ddtdanilo/Personal-Altium-Library" data-en="Public repository" data-es="Repositorio público">Public repository</a></li><li><a href="https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/INVENTORY.md" data-en="Inventory" data-es="Inventario">Inventory</a></li><li><a href="https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md" data-en="Validation guide" data-es="Guía de validación">Validation guide</a></li></ul><a href="/consult.html" class="btn btn-secondary" data-en="Explore consulting" data-es="Ver consultoría">Explore consulting</a></article>
+</main>
+<footer class="site-footer"><div class="wrap footer-row"><span data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span><div class="footer-links"><a href="/privacy.html" data-en="Privacy" data-es="Privacidad">Privacy</a><a href="https://www.linkedin.com/in/ddtdanilo/" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a><a href="https://github.com/ddtdanilo" data-en="GitHub" data-es="GitHub">GitHub</a><a href="https://www.youtube.com/ddtdanilo" data-en="YouTube" data-es="YouTube">YouTube</a><a href="https://orcid.org/0009-0006-7142-0573" data-en="ORCID" data-es="ORCID">ORCID</a></div></div></footer>
+</body>
+</html>

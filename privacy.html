@@ -1,132 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy — Danilo Díaz Tarascó</title>
-    <meta name="description" content="Privacy notice for ddtdanilo.github.io: no cookies, no analytics, no trackers. GDPR and Colombian Law 1581 of 2012.">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0d1315">
-    <link rel="canonical" href="https://ddtdanilo.github.io/privacy.html">
-    <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="assets/fonts/fonts.css?v=20260929c">
-    <link rel="stylesheet" href="assets/css/style.css?v=20260929c">
-    <script>document.documentElement.classList.add('js');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Privacy Notice — Danilo Díaz Tarascó</title>
+<meta name="description" content="How the portfolio handles theme preference, hosting and Stripe checkout.">
+<link rel="canonical" href="https://ddtdanilo.github.io/privacy.html">
+<link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/privacy.html">
+<link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/privacidad.html">
+<link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ddtdanilo.github.io/privacy.html">
+<meta property="og:title" content="Privacy Notice — Danilo Díaz Tarascó">
+<meta property="og:description" content="How the portfolio handles theme preference, hosting and Stripe checkout.">
+<meta property="og:image" content="https://ddtdanilo.github.io/assets/img/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Danilo Díaz Tarascó · CTO and industrial IoT, with an illustration of the X-Sub acquisition board">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<script>(() => {
+    const root = document.documentElement;
+    const key = 'ddt-theme';
+
+    try {
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+    } catch {
+        // Theme selection still works without storage.
+    }
+
+    root.classList.add('theme-ready');
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.querySelector('#theme-toggle');
+        const preference = window.matchMedia('(prefers-color-scheme: dark)');
+
+        toggle.addEventListener('click', () => {
+            const current = root.dataset.theme || (preference.matches ? 'dark' : 'light');
+            root.dataset.theme = current === 'dark' ? 'light' : 'dark';
+            try {
+                localStorage.setItem(key, root.dataset.theme);
+            } catch {
+                // The current page keeps the selection.
+            }
+        });
+    }, { once: true });
+})();</script>
+<link rel="preload" href="/assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter/inter-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/img/favicon.svg?v=5a17bbd86d94" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts/fonts.css?v=f142d0786d86">
+<link rel="stylesheet" href="/assets/css/tokens.css?v=5ca03a3ded12">
+<link rel="stylesheet" href="/assets/css/components.css?v=658c35b1669a">
+<link rel="stylesheet" href="/assets/css/style.css?v=0e180b0624a7">
 </head>
-<body>
-    <div id="field" aria-hidden="true"></div>
-    <a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a>
-    <header id="navbar">
-        <a href="/" class="nav-logo" aria-label="Danilo Díaz Tarascó — home">
-            <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" stroke="currentColor" stroke-width="1.6"/><path d="M9 21V11h4.5a5 5 0 010 10H9zM19 11h4M21 11v10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <span>DDT</span>
-        </a>
-        <nav class="nav-links" aria-label="Primary">
-            <a href="/" class="nav-link" data-en="Portfolio" data-es="Portafolio">Portfolio</a>
-            <a href="consult.html" class="nav-link" data-en="Consulting" data-es="Consultoría">Consulting</a>
-        </nav>
-        <div class="nav-right">
-            <button type="button" id="lang-toggle" class="chip-btn" aria-label="Cambiar a español" data-aria-en="Cambiar a español" data-aria-es="Switch to English">
-                <span class="lang-option active" data-lang="en">EN</span><span class="lang-divider">/</span><span class="lang-option" data-lang="es">ES</span>
-            </button>
-        </div>
-    </header>
+<body class="utility">
+<a href="#main" class="skip" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a><header class="site-header"><div class="wrap nav"><a class="brand" href="/" aria-label="DDT · Danilo Díaz Tarascó" data-aria-en="DDT · Danilo Díaz Tarascó" data-aria-es="DDT · Danilo Díaz Tarascó"><svg class="brand-mark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -72 181.43 80">
 
-    <main id="main">
-        <section class="page-hero">
-            <div class="container">
-                <p class="section-label" data-en="Privacy notice" data-es="Aviso de privacidad">Privacy notice</p>
-                <h1 class="section-title" data-en="No cookies. No analytics. No trackers." data-es="Sin cookies. Sin analítica. Sin rastreadores.">No cookies. No analytics. No trackers.</h1>
-                <p class="section-intro" data-en="Last updated: 29 September 2026" data-es="Última actualización: 29 de septiembre de 2026">Last updated: 29 September 2026</p>
-            </div>
-        </section>
-
-        <section class="section" style="padding-top:0">
-            <div class="container">
-                <!-- English -->
-                <div class="prose" data-lang-block="en" lang="en">
-                    <p>This notice covers <strong>ddtdanilo.github.io</strong>, the personal portfolio of Danilo Díaz Tarascó. It is written to meet the EU General Data Protection Regulation (GDPR) and Colombia's Law 1581 of 2012 on personal data (Habeas Data).</p>
-
-                    <h2>Who is responsible</h2>
-                    <p>Danilo Díaz Tarascó, an individual based in Medellín, Colombia, is the data controller. Contact: a message on <a href="https://linkedin.com/in/ddtdanilo" rel="noopener" target="_blank">LinkedIn</a>.</p>
-
-                    <h2>What this site does not do</h2>
-                    <ul>
-                        <li>It sets <strong>no cookies</strong> and uses no analytics, advertising, fingerprinting, or session recording.</li>
-                        <li>It loads <strong>nothing from third parties</strong>: fonts, scripts, and images are all served from this site. There are no embedded videos, maps, or social widgets.</li>
-                        <li>It has no forms and no accounts.</li>
-                    </ul>
-
-                    <h2>What is stored in your browser</h2>
-                    <div class="prose-wrap"><table>
-                        <thead><tr><th>Key</th><th>Purpose</th><th>Where</th></tr></thead>
-                        <tbody>
-                            <tr><td><code>ddt-lang</code></td><td>Remembers the language you chose (EN/ES)</td><td>localStorage, on your device only</td></tr>
-                            <tr><td><code>ddt-privacy-ack</code></td><td>Remembers that you closed the privacy note</td><td>localStorage, on your device only</td></tr>
-                        </tbody>
-                    </table></div>
-                    <p>These values never leave your device. They are strictly necessary for features you use, so under Article 5(3) of the ePrivacy Directive they need no consent. You can delete them at any time by clearing this site's data in your browser.</p>
-
-                    <h2>Hosting (GitHub Pages)</h2>
-                    <p>The site is hosted on GitHub Pages by GitHub, Inc. (USA). Like any web server, GitHub receives your IP address and request details and may log them for security and abuse prevention. The legal basis is legitimate interest (GDPR Art. 6(1)(f)): delivering the site securely. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a> for retention and international-transfer safeguards.</p>
-
-                    <h2>Paid consulting (Stripe)</h2>
-                    <p>If you book a session, payment happens on Stripe's hosted checkout, and this site never sees your card details. Stripe shares your name and email with me so I can send the booking link, and I use them only to schedule and deliver the session. The legal basis is performing a contract (Art. 6(1)(b)). Billing records are kept for as long as tax law requires. See the <a href="https://stripe.com/privacy" rel="noopener" target="_blank">Stripe Privacy Policy</a>.</p>
-
-                    <h2>External links</h2>
-                    <p>Links to LinkedIn, GitHub, YouTube, and Stripe take you to services with their own privacy policies. Nothing is sent to them until you click.</p>
-
-                    <h2>Your rights</h2>
-                    <p>You can ask for access to, correction of, deletion of, restriction of, or a portable copy of your personal data, and you can object to processing. Contact me on LinkedIn. You may also complain to your local data protection authority in the EU/EEA or to the Superintendencia de Industria y Comercio (SIC) in Colombia.</p>
-                </div>
-
-                <!-- Español -->
-                <div class="prose" data-lang-block="es" lang="es">
-                    <p>Este aviso aplica a <strong>ddtdanilo.github.io</strong>, el portafolio personal de Danilo Díaz Tarascó. Está redactado conforme al Reglamento General de Protección de Datos de la UE (RGPD) y a la Ley 1581 de 2012 de Colombia sobre datos personales (Habeas Data).</p>
-
-                    <h2>Responsable</h2>
-                    <p>Danilo Díaz Tarascó, persona natural con domicilio en Medellín, Colombia, es el responsable del tratamiento. Contacto: un mensaje por <a href="https://linkedin.com/in/ddtdanilo" rel="noopener" target="_blank">LinkedIn</a>.</p>
-
-                    <h2>Lo que este sitio no hace</h2>
-                    <ul>
-                        <li>No instala <strong>cookies</strong> ni usa analítica, publicidad, fingerprinting ni grabación de sesiones.</li>
-                        <li>No carga <strong>nada de terceros</strong>: fuentes, scripts e imágenes se sirven desde este mismo sitio. No hay videos, mapas ni widgets sociales embebidos.</li>
-                        <li>No tiene formularios ni cuentas de usuario.</li>
-                    </ul>
-
-                    <h2>Lo que se guarda en tu navegador</h2>
-                    <div class="prose-wrap"><table>
-                        <thead><tr><th>Clave</th><th>Finalidad</th><th>Dónde</th></tr></thead>
-                        <tbody>
-                            <tr><td><code>ddt-lang</code></td><td>Recuerda el idioma que elegiste (EN/ES)</td><td>localStorage, solo en tu dispositivo</td></tr>
-                            <tr><td><code>ddt-privacy-ack</code></td><td>Recuerda que cerraste el aviso de privacidad</td><td>localStorage, solo en tu dispositivo</td></tr>
-                        </tbody>
-                    </table></div>
-                    <p>Estos valores nunca salen de tu dispositivo. Son estrictamente necesarios para funciones que tú usas, por lo que según el artículo 5(3) de la Directiva ePrivacy no requieren consentimiento. Puedes borrarlos cuando quieras limpiando los datos de este sitio en tu navegador.</p>
-
-                    <h2>Alojamiento (GitHub Pages)</h2>
-                    <p>El sitio está alojado en GitHub Pages, de GitHub, Inc. (EE.UU.). Como cualquier servidor web, GitHub recibe tu dirección IP y los datos de la solicitud y puede registrarlos por seguridad y prevención de abusos. La base legal es el interés legítimo (art. 6(1)(f) RGPD): servir el sitio de forma segura. Consulta la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">Declaración de privacidad de GitHub</a> sobre conservación y garantías de transferencia internacional.</p>
-
-                    <h2>Consultoría paga (Stripe)</h2>
-                    <p>Si reservas una sesión, el pago ocurre en el checkout de Stripe y este sitio nunca ve los datos de tu tarjeta. Stripe me comparte tu nombre y email para enviarte el enlace de reserva, y los uso solo para agendar y prestar la sesión. La base legal es la ejecución de un contrato (art. 6(1)(b)). Los registros de facturación se conservan el tiempo que exija la ley tributaria. Consulta la <a href="https://stripe.com/es/privacy" rel="noopener" target="_blank">Política de privacidad de Stripe</a>.</p>
-
-                    <h2>Enlaces externos</h2>
-                    <p>Los enlaces a LinkedIn, GitHub, YouTube y Stripe llevan a servicios con sus propias políticas de privacidad. No se les envía nada hasta que haces clic.</p>
-
-                    <h2>Tus derechos</h2>
-                    <p>Puedes solicitar acceso, rectificación, supresión, limitación o portabilidad de tus datos personales, y oponerte a su tratamiento. Escríbeme por LinkedIn. También puedes presentar una reclamación ante tu autoridad de protección de datos en la UE/EEE o ante la Superintendencia de Industria y Comercio (SIC) en Colombia.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer id="footer">
-        <div class="container footer-inner">
-            <span>© 2026 Danilo Díaz Tarascó</span>
-            <a href="/" data-en="Back to portfolio" data-es="Volver al portafolio">Back to portfolio</a>
-        </div>
-    </footer>
-
-    <script src="assets/js/main.js?v=20260929c" defer></script>
+<!-- DDT wordmark. Outlines: Junicode 2 (OFL 1.1) at wght 700, wdth 75. One colour via currentColor. -->
+<path fill="currentColor" d="M1 0.29Q0.52 0.29 0.38 -0.77Q0.23 -1.83 0.42 -2.94Q0.62 -4.05 1 -4.05Q7.09 -4.05 7.09 -9.56V-54.73Q7.09 -59.95 0.62 -59.95Q0.23 -59.95 0.09 -61.01Q-0.06 -62.07 0.04 -63.18Q0.14 -64.29 0.62 -64.29Q6.7 -64 12.88 -64Q16.45 -64 20.12 -64.14Q23.79 -64.29 27.45 -64.29Q33.82 -64.29 39.52 -62.36Q45.22 -60.43 49.61 -56.66Q54 -52.9 56.51 -47.3Q59.02 -41.7 59.02 -34.17Q59.02 -23.55 55.3 -15.83Q51.59 -8.11 44.78 -3.91Q37.98 0.29 29.09 0.29Q25.14 0.29 21.08 0.14Q17.03 0 12.88 0Q6.8 0 1 0.29ZM26.49 -3.38Q32.57 -3.38 37.06 -7.43Q41.55 -11.49 43.91 -18.44Q46.28 -25.39 46.28 -33.98Q46.28 -41.12 43.57 -47.2Q40.87 -53.29 35.85 -56.95Q30.83 -60.62 24.17 -60.62Q20.89 -60.62 19.73 -59.46Q18.57 -58.3 18.57 -55.12V-12.16Q18.57 -8.88 19.3 -6.95Q20.02 -5.02 21.76 -4.2Q23.5 -3.38 26.49 -3.38ZM63.11 0.29Q62.63 0.29 62.48 -0.77Q62.34 -1.83 62.53 -2.94Q62.73 -4.05 63.11 -4.05Q69.19 -4.05 69.19 -9.56V-54.73Q69.19 -59.95 62.73 -59.95Q62.34 -59.95 62.19 -61.01Q62.05 -62.07 62.15 -63.18Q62.24 -64.29 62.73 -64.29Q68.81 -64 74.99 -64Q78.56 -64 82.23 -64.14Q85.89 -64.29 89.56 -64.29Q95.93 -64.29 101.63 -62.36Q107.32 -60.43 111.72 -56.66Q116.11 -52.9 118.62 -47.3Q121.13 -41.7 121.13 -34.17Q121.13 -23.55 117.41 -15.83Q113.69 -8.11 106.89 -3.91Q100.08 0.29 91.2 0.29Q87.24 0.29 83.19 0.14Q79.14 0 74.99 0Q68.9 0 63.11 0.29ZM88.6 -3.38Q94.68 -3.38 99.17 -7.43Q103.65 -11.49 106.02 -18.44Q108.38 -25.39 108.38 -33.98Q108.38 -41.12 105.68 -47.2Q102.98 -53.29 97.96 -56.95Q92.94 -60.62 86.28 -60.62Q83 -60.62 81.84 -59.46Q80.68 -58.3 80.68 -55.12V-12.16Q80.68 -8.88 81.4 -6.95Q82.13 -5.02 83.87 -4.2Q85.6 -3.38 88.6 -3.38ZM130.49 0.29Q130.2 0.29 130.1 -0.77Q130.01 -1.83 130.14 -2.94Q130.27 -4.05 130.52 -4.05Q136.96 -4.05 136.96 -9.56V-59.95H131.29Q127.3 -59.95 125.52 -57.13Q123.73 -54.31 123.73 -47.76Q123.73 -47.3 122.67 -47.11Q121.6 -46.91 120.5 -47.11Q119.39 -47.3 119.39 -47.75V-61.68Q119.39 -64.29 124.51 -64.29Q128.91 -64.29 133.31 -64.14Q137.71 -64 142.07 -64Q146.78 -64 151.46 -64.14Q156.13 -64.29 160.9 -64.29Q165.43 -64.29 165.43 -61.68V-47.76Q165.43 -47.3 164.32 -47.11Q163.21 -46.91 162.1 -47.11Q160.99 -47.3 160.99 -47.76Q160.99 -54.31 159.4 -57.13Q157.81 -59.95 153.9 -59.95H148.06V-9.56Q148.06 -4.05 154.21 -4.05Q154.49 -4.05 154.61 -2.94Q154.72 -1.82 154.61 -0.77Q154.5 0.29 154.24 0.29Q151.29 0.1 148.3 0.05Q145.31 0 142.37 0Q139.47 0 136.48 0.05Q133.48 0.1 130.49 0.29Z"/>
+</svg><span class="brand-name" data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span></a><nav class="nav-links" aria-label="Primary" data-aria-en="Primary" data-aria-es="Principal"><a href="/#work" data-en="Work" data-es="Proyectos">Work</a><a href="/#experience" data-en="Experience" data-es="Trayectoria">Experience</a><a href="/consult.html" data-en="Consulting" data-es="Consultoría">Consulting</a></nav><div class="nav-utilities"><a href="/es/privacidad.html" class="locale" lang="es" hreflang="es" data-en="Español" data-es="English">Español</a><button type="button" id="theme-toggle" class="theme-toggle"><span class="use-dark-theme" data-en="Use dark theme" data-es="Usar tema oscuro">Use dark theme</span><span class="use-light-theme" data-en="Use light theme" data-es="Usar tema claro">Use light theme</span></button></div></div></header>
+<main id="main" class="wrap" tabindex="-1">
+<div class="prose"><header class="page-header"><h1 data-en="Privacy notice" data-es="Aviso de privacidad">Privacy notice</h1><p data-en="This site serves static pages and local fonts. It uses no analytics, tracking scripts, or cookies." data-es="Este sitio sirve páginas estáticas y fuentes locales. No usa analítica, scripts de seguimiento ni cookies.">This site serves static pages and local fonts. It uses no analytics, tracking scripts, or cookies.</p></header><h2 data-en="Theme preference" data-es="Preferencia de tema">Theme preference</h2><p data-en="If you choose a theme, the browser may save that preference locally. The page URL determines the language." data-es="Si eliges un tema, el navegador puede guardar esa preferencia en el dispositivo. El idioma depende de la URL.">If you choose a theme, the browser may save that preference locally. The page URL determines the language.</p><h2 data-en="Hosting and links" data-es="Alojamiento y enlaces">Hosting and links</h2><p data-en="GitHub Pages hosts the site and handles the network requests needed to serve it. Other services handle your information under their own terms when you follow a link." data-es="GitHub Pages aloja el sitio y procesa las solicitudes de red necesarias para servirlo. Cuando abres un enlace externo, ese servicio trata tus datos según sus propias condiciones.">GitHub Pages hosts the site and handles the network requests needed to serve it. Other services handle your information under their own terms when you follow a link.</p><h2 data-en="Consulting payments" data-es="Pagos de consultoría">Consulting payments</h2><p data-en="Stripe hosts checkout. This site does not receive card details. I use contact and scheduling information from checkout to coordinate and deliver the session and handle billing." data-es="El pago se realiza en Stripe. Este sitio no recibe datos de la tarjeta. Uso los datos de contacto y horario para coordinar y prestar la sesión y gestionar la facturación.">Stripe hosts checkout. This site does not receive card details. I use contact and scheduling information from checkout to coordinate and deliver the session and handle billing.</p><h2 data-en="Questions about your data" data-es="Preguntas sobre tus datos">Questions about your data</h2><p data-en="Contact me on LinkedIn with privacy questions or requests about your data." data-es="Si tienes preguntas de privacidad o solicitudes sobre tus datos, escríbeme por LinkedIn.">Contact me on LinkedIn with privacy questions or requests about your data.</p><a href="https://www.linkedin.com/in/ddtdanilo/" class="btn btn-secondary" data-en="Connect on LinkedIn" data-es="Conectar en LinkedIn">Connect on LinkedIn</a></div>
+</main>
+<footer class="site-footer"><div class="wrap footer-row"><span data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span><div class="footer-links"><a href="/privacy.html" data-en="Privacy" data-es="Privacidad">Privacy</a><a href="https://www.linkedin.com/in/ddtdanilo/" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a><a href="https://github.com/ddtdanilo" data-en="GitHub" data-es="GitHub">GitHub</a><a href="https://www.youtube.com/ddtdanilo" data-en="YouTube" data-es="YouTube">YouTube</a><a href="https://orcid.org/0009-0006-7142-0573" data-en="ORCID" data-es="ORCID">ORCID</a></div></div></footer>
 </body>
 </html>

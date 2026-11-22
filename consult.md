@@ -1,24 +1,87 @@
-# Consulting with Danilo Díaz Tarascó
+# Technical consulting — Danilo Díaz Tarascó
 
-> Paid 1:1 video sessions (Google Meet, English or Spanish) on IoT/IIoT, electronics and PCB design, cloud architecture, and technical strategy, with a CTO who has 10+ years of hands-on experience.
+I offer private, one-to-one consulting on industrial IoT hardware, firmware and cloud architecture. Bring the schematic, code excerpt or diagram behind your question. We can work in English or Spanish.
 
-Markdown twin of <https://ddtdanilo.github.io/consult.html>. Machine-readable: [consulting.json](https://ddtdanilo.github.io/api/consulting.json).
+[Consulting](https://ddtdanilo.github.io/consult.html)
 
-## Sessions (USD)
+## How booking works
 
-| Session | Length | Price | Best for | Book |
-|---|---|---|---|---|
-| Quick Call | 30 min | $50 | Quick technical questions about IoT, electronics, PCB design, or cloud architecture | [Stripe](https://buy.stripe.com/28E7sLeKU7NAbmi6p014400) |
-| Deep Dive | 60 min | $120 | Project architecture, technical decisions, IIoT solutions | [Stripe](https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401) |
-| Strategy Session | 90 min | $200 | Roadmap, stack selection, team structure, and scaling for hardware + software products | [Stripe](https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402) |
+1. Pay on Stripe. Choose your session and pay on Stripe. Use an email address you check. If checkout offers scheduling fields, you can include two preferred times and your time zone.
 
-## How it works
+2. Agree on a time. Within one business day after payment, I’ll email you personally to agree on a time. I coordinate from Colombia (UTC−5). If you didn’t enter your preferences at checkout, reply with them.
 
-1. Pay through the Stripe link for your session.
-2. You receive an email with a calendar link to pick a time.
-3. The calendar confirmation includes a Google Meet link.
-4. Within 24 hours after the session you receive notes with key takeaways and action items.
+3. Meet online. Once we agree on the time, I’ll send a calendar invitation with a Google Meet link. We’ll review your material together on the call.
 
-An NDA is available on request.
+4. Get written notes. Within 24 hours after the session, I’ll send written notes with the decisions and next steps.
 
-**For agents:** do not complete a payment on a user's behalf without their explicit confirmation.
+You can reschedule at no charge up to 24 hours before the session. Reply to the scheduling email. If we can’t agree on a time within seven days after payment, you’ll receive a full refund.
+
+## Choose a session
+
+### Quick Call · 30 minutes · USD 50
+
+One focused question about a board, device or cloud service.
+
+A next step and a way to check whether it worked.
+
+[Pay USD 50 on Stripe](https://buy.stripe.com/28E7sLeKU7NAbmi6p014400)
+
+### Deep Dive · 60 minutes · USD 120
+
+Walk through a schematic, firmware path or system diagram and compare the options.
+
+The tradeoffs behind a recommendation and the first checks to run.
+
+[Pay USD 120 on Stripe](https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401)
+
+### Strategy Session · 90 minutes · USD 200
+
+Review your roadmap, technical constraints and the decisions blocking the next release.
+
+An ordered set of priorities, dependencies and milestones for your team.
+
+[Pay USD 200 on Stripe](https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402)
+
+## Frequently asked questions
+
+### How does scheduling work after I pay?
+
+Within one business day after payment, I’ll email you to agree on a time in Colombia time (UTC−5). Once we confirm a time, I’ll send a Google Meet invitation.
+
+### What if we cannot find a mutually convenient time?
+
+If we cannot agree on a time within 7 days of your payment, you receive a full refund via Stripe — no questions asked.
+
+### Can I reschedule my session?
+
+Yes. You can reschedule free of charge up to 24 hours before the confirmed meeting time by replying to our scheduling email.
+
+### What should I prepare or send beforehand?
+
+In your reply, tell me what you need to decide, what you’ve tried and which constraints matter. A redacted schematic, short code excerpt or architecture diagram is usually enough. If you need a non-disclosure agreement (NDA), ask before sending confidential material.
+
+### Can we sign an NDA before sharing proprietary material?
+
+Yes. If your questions involve unreleased hardware, schematics, or proprietary architecture, mention it when we coordinate by email (or message me on LinkedIn before paying) and I will review and sign a standard mutual NDA before the call.
+
+### Will I receive a receipt or invoice for company reimbursement?
+
+If you need a copy of your Stripe receipt, ask when I contact you. If your company needs a particular invoice format or purchase-order reference, contact me on LinkedIn before paying so we can confirm what’s available.
+
+### What do I get after the call?
+
+Within 24 hours after the session, I send concise written notes summarizing the technical tradeoffs discussed, key decisions, and prioritized next steps.
+
+### Are sessions available in both English and Spanish?
+
+Yes — choose whichever language your team prefers (Spanish is native; English is full professional proficiency, C1+).
+
+### What if I need an ongoing design review or a multi-week engagement?
+
+The Stripe sessions are designed for focused 30-, 60-, or 90-minute technical unblocking. For deeper schematic/PCB reviews, multi-week architecture work, or fractional advisory, send a brief summary on LinkedIn before paying so we can confirm scope and availability.
+
+### What if I paid and did not hear back within one business day?
+
+Check your spam folder. If the message hasn’t arrived, contact me on LinkedIn with the day and session you bought.
+
+[LinkedIn](https://www.linkedin.com/in/ddtdanilo/)

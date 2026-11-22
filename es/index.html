@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Danilo Díaz Tarascó — CTO e Ingeniero Electrónico · IIoT, Embebidos, Cloud</title>
+<meta name="description" content="Danilo Díaz Tarascó es CTO en Sento Tech Labs e ingeniero electrónico. Desarrolla hardware, firmware y servicios en la nube para IoT industrial.">
+<link rel="canonical" href="https://ddtdanilo.github.io/es/">
+<link rel="alternate" hreflang="en" href="https://ddtdanilo.github.io/">
+<link rel="alternate" hreflang="es" href="https://ddtdanilo.github.io/es/">
+<link rel="alternate" hreflang="x-default" href="https://ddtdanilo.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ddtdanilo.github.io/es/">
+<meta property="og:title" content="Danilo Díaz Tarascó — CTO e Ingeniero Electrónico">
+<meta property="og:description" content="Danilo Díaz Tarascó, CTO en Sento Tech Labs. IoT industrial desde el diseño de PCB hasta el despliegue en la nube, con consultoría técnica individual.">
+<meta property="og:image" content="https://ddtdanilo.github.io/assets/img/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Danilo Díaz Tarascó · CTO e IoT industrial, con una ilustración de la tarjeta de adquisición de X-Sub">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://ddtdanilo.github.io/es/#page",
+      "url": "https://ddtdanilo.github.io/es/",
+      "name": "Danilo Díaz Tarascó — CTO e Ingeniero Electrónico · IIoT, Embebidos, Cloud",
+      "inLanguage": "es",
+      "mainEntity": {
+        "@id": "https://ddtdanilo.github.io/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://ddtdanilo.github.io/#person",
+      "name": "Danilo Díaz Tarascó",
+      "alternateName": [
+        "Danilo Diaz Tarasco",
+        "ddtdanilo"
+      ],
+      "jobTitle": "Chief Technology Officer (CTO)",
+      "url": "https://ddtdanilo.github.io/",
+      "description": "Soy CTO en Sento Tech Labs e ingeniero electrónico. Llevo más de diez años desarrollando productos de IoT industrial, desde el diseño hasta el despliegue en campo.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Sento Tech Labs",
+        "url": "https://sento.tech"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/ddtdanilo/",
+        "https://github.com/ddtdanilo",
+        "https://www.youtube.com/ddtdanilo",
+        "https://orcid.org/0009-0006-7142-0573"
+      ],
+      "knowsLanguage": [
+        "en",
+        "es"
+      ],
+      "makesOffer": [
+        {
+          "@id": "https://ddtdanilo.github.io/es/consultoria.html#offer-quick-call"
+        },
+        {
+          "@id": "https://ddtdanilo.github.io/es/consultoria.html#offer-deep-dive"
+        },
+        {
+          "@id": "https://ddtdanilo.github.io/es/consultoria.html#offer-strategy"
+        }
+      ],
+      "knowsAbout": [
+        "Sistemas embebidos y PCB",
+        "Electrónica de potencia",
+        "Firmware y software",
+        "Conectividad IoT",
+        "Nube y APIs",
+        "Liderazgo técnico"
+      ]
+    }
+  ]
+}
+</script>
+<link rel="alternate" type="text/markdown" href="/es/index.md">
+<link rel="describedby" type="application/json" href="/api/resume.json">
+<link rel="api-catalog" href="/.well-known/api-catalog">
+<script>(() => {
+    const root = document.documentElement;
+    const key = 'ddt-theme';
+
+    try {
+        const saved = localStorage.getItem(key);
+        if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
+    } catch {
+        // Theme selection still works without storage.
+    }
+
+    root.classList.add('theme-ready');
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggle = document.querySelector('#theme-toggle');
+        const preference = window.matchMedia('(prefers-color-scheme: dark)');
+
+        toggle.addEventListener('click', () => {
+            const current = root.dataset.theme || (preference.matches ? 'dark' : 'light');
+            root.dataset.theme = current === 'dark' ? 'light' : 'dark';
+            try {
+                localStorage.setItem(key, root.dataset.theme);
+            } catch {
+                // The current page keeps the selection.
+            }
+        });
+    }, { once: true });
+})();</script>
+<link rel="preload" href="/assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter/inter-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="/assets/img/favicon.svg?v=5a17bbd86d94" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/fonts/fonts.css?v=f142d0786d86">
+<link rel="stylesheet" href="/assets/css/tokens.css?v=5ca03a3ded12">
+<link rel="stylesheet" href="/assets/css/components.css?v=658c35b1669a">
+<link rel="stylesheet" href="/assets/css/style.css?v=0e180b0624a7">
+</head>
+<body class="home">
+<a href="#main" class="skip" data-en="Skip to content" data-es="Saltar al contenido">Saltar al contenido</a><header class="site-header"><div class="wrap nav"><a class="brand" href="/es/" aria-label="DDT · Danilo Díaz Tarascó" data-aria-en="DDT · Danilo Díaz Tarascó" data-aria-es="DDT · Danilo Díaz Tarascó"><svg class="brand-mark" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -72 181.43 80">
+
+<!-- DDT wordmark. Outlines: Junicode 2 (OFL 1.1) at wght 700, wdth 75. One colour via currentColor. -->
+<path fill="currentColor" d="M1 0.29Q0.52 0.29 0.38 -0.77Q0.23 -1.83 0.42 -2.94Q0.62 -4.05 1 -4.05Q7.09 -4.05 7.09 -9.56V-54.73Q7.09 -59.95 0.62 -59.95Q0.23 -59.95 0.09 -61.01Q-0.06 -62.07 0.04 -63.18Q0.14 -64.29 0.62 -64.29Q6.7 -64 12.88 -64Q16.45 -64 20.12 -64.14Q23.79 -64.29 27.45 -64.29Q33.82 -64.29 39.52 -62.36Q45.22 -60.43 49.61 -56.66Q54 -52.9 56.51 -47.3Q59.02 -41.7 59.02 -34.17Q59.02 -23.55 55.3 -15.83Q51.59 -8.11 44.78 -3.91Q37.98 0.29 29.09 0.29Q25.14 0.29 21.08 0.14Q17.03 0 12.88 0Q6.8 0 1 0.29ZM26.49 -3.38Q32.57 -3.38 37.06 -7.43Q41.55 -11.49 43.91 -18.44Q46.28 -25.39 46.28 -33.98Q46.28 -41.12 43.57 -47.2Q40.87 -53.29 35.85 -56.95Q30.83 -60.62 24.17 -60.62Q20.89 -60.62 19.73 -59.46Q18.57 -58.3 18.57 -55.12V-12.16Q18.57 -8.88 19.3 -6.95Q20.02 -5.02 21.76 -4.2Q23.5 -3.38 26.49 -3.38ZM63.11 0.29Q62.63 0.29 62.48 -0.77Q62.34 -1.83 62.53 -2.94Q62.73 -4.05 63.11 -4.05Q69.19 -4.05 69.19 -9.56V-54.73Q69.19 -59.95 62.73 -59.95Q62.34 -59.95 62.19 -61.01Q62.05 -62.07 62.15 -63.18Q62.24 -64.29 62.73 -64.29Q68.81 -64 74.99 -64Q78.56 -64 82.23 -64.14Q85.89 -64.29 89.56 -64.29Q95.93 -64.29 101.63 -62.36Q107.32 -60.43 111.72 -56.66Q116.11 -52.9 118.62 -47.3Q121.13 -41.7 121.13 -34.17Q121.13 -23.55 117.41 -15.83Q113.69 -8.11 106.89 -3.91Q100.08 0.29 91.2 0.29Q87.24 0.29 83.19 0.14Q79.14 0 74.99 0Q68.9 0 63.11 0.29ZM88.6 -3.38Q94.68 -3.38 99.17 -7.43Q103.65 -11.49 106.02 -18.44Q108.38 -25.39 108.38 -33.98Q108.38 -41.12 105.68 -47.2Q102.98 -53.29 97.96 -56.95Q92.94 -60.62 86.28 -60.62Q83 -60.62 81.84 -59.46Q80.68 -58.3 80.68 -55.12V-12.16Q80.68 -8.88 81.4 -6.95Q82.13 -5.02 83.87 -4.2Q85.6 -3.38 88.6 -3.38ZM130.49 0.29Q130.2 0.29 130.1 -0.77Q130.01 -1.83 130.14 -2.94Q130.27 -4.05 130.52 -4.05Q136.96 -4.05 136.96 -9.56V-59.95H131.29Q127.3 -59.95 125.52 -57.13Q123.73 -54.31 123.73 -47.76Q123.73 -47.3 122.67 -47.11Q121.6 -46.91 120.5 -47.11Q119.39 -47.3 119.39 -47.75V-61.68Q119.39 -64.29 124.51 -64.29Q128.91 -64.29 133.31 -64.14Q137.71 -64 142.07 -64Q146.78 -64 151.46 -64.14Q156.13 -64.29 160.9 -64.29Q165.43 -64.29 165.43 -61.68V-47.76Q165.43 -47.3 164.32 -47.11Q163.21 -46.91 162.1 -47.11Q160.99 -47.3 160.99 -47.76Q160.99 -54.31 159.4 -57.13Q157.81 -59.95 153.9 -59.95H148.06V-9.56Q148.06 -4.05 154.21 -4.05Q154.49 -4.05 154.61 -2.94Q154.72 -1.82 154.61 -0.77Q154.5 0.29 154.24 0.29Q151.29 0.1 148.3 0.05Q145.31 0 142.37 0Q139.47 0 136.48 0.05Q133.48 0.1 130.49 0.29Z"/>
+</svg><span class="brand-name" data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span></a><nav class="nav-links" aria-label="Principal" data-aria-en="Primary" data-aria-es="Principal"><a href="/es/#work" data-en="Work" data-es="Proyectos">Proyectos</a><a href="/es/#experience" data-en="Experience" data-es="Trayectoria">Trayectoria</a><a href="/es/consultoria.html" data-en="Consulting" data-es="Consultoría">Consultoría</a></nav><div class="nav-utilities"><a href="/" class="locale" lang="en" hreflang="en" data-en="Español" data-es="English">English</a><button type="button" id="theme-toggle" class="theme-toggle"><span class="use-dark-theme" data-en="Use dark theme" data-es="Usar tema oscuro">Usar tema oscuro</span><span class="use-light-theme" data-en="Use light theme" data-es="Usar tema claro">Usar tema claro</span></button></div></div></header>
+<main id="main" class="wrap" tabindex="-1">
+<section class="hero" aria-labelledby="hero-heading"><p class="hero-name" data-en="Danilo Díaz Tarascó · CTO" data-es="Danilo Díaz Tarascó · CTO">Danilo Díaz Tarascó · CTO</p><h1 id="hero-heading"><span data-en="Hardware that" data-es="Hardware que">Hardware que</span> <em data-en="ships." data-es="llega a campo.">llega a campo.</em></h1><figure class="board-figure"><div class="board-stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 320" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="board-title board-desc" class="hero-board" focusable="false">
+<title id="board-title" data-en="X-Sub telemetry board" data-es="Tarjeta de telemetría de X-Sub">Tarjeta de telemetría de X-Sub</title>
+<desc id="board-desc" data-en="Oblique view of Danilo’s underwater-robot acquisition board. The MCF51QE128 microcontroller is near the center. The board measures 93.1 by 53.9 millimeters." data-es="Vista oblicua de la tarjeta de adquisición que Danilo diseñó para el robot submarino. El microcontrolador MCF51QE128 está cerca del centro. La tarjeta mide 93,1 por 53,9 milímetros.">Vista oblicua de la tarjeta de adquisición que Danilo diseñó para el robot submarino. El microcontrolador MCF51QE128 está cerca del centro. La tarjeta mide 93,1 por 53,9 milímetros.</desc>
+<!--Original board layout: X-Sub Telemetry System. Source: https://github.com/X-Sub/Telemetry-System/tree/22aa3054668b9ac26f78241831455f62f9df0d27/PCB/X-Sub_Board
+MIT License
+
+Copyright (c) 2015-2026 Danilo Díaz Tarascó
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.-->
+<style>
+.hero-board{display:block;width:100%;height:auto}
+.hero-board .hb-data{font:400 18px var(--board-data-font,"IBM Plex Mono",monospace)}
+.hero-board .hb-label{font:400 16px var(--board-body-font,Inter,Arial,sans-serif)}
+.hero-board .hb-mobile{display:none}
+@media(max-width:660px){.hero-board{aspect-ratio:600/320}.hero-board .hb-desktop{display:none}.hero-board .hb-mobile{display:block}.hero-board .hb-data{font-size:27px}.hero-board .hb-label{font-size:32px}}
+</style>
+<defs><filter id="hb-soft" x="-.4" y="-2" width="1.8" height="5"><feGaussianBlur stdDeviation="8"/></filter></defs>
+<g aria-hidden="true">
+<ellipse cx="475" cy="259" rx="180" ry="8" fill="var(--board-shadow,#20211f)" opacity=".19" filter="url(#hb-soft)"/>
+<g transform="translate(470 145) matrix(4.4 -1.15 2.1 2.65 0 0) translate(-46.5 -26.9)"><rect width="93.1" height="53.9" rx=".65" fill="#292823" stroke="#343730" stroke-width=".3"/></g>
+<g transform="translate(470 143) matrix(4.4 -1.15 2.1 2.65 0 0) translate(-46.5 -26.9)"><rect width="93.1" height="53.9" rx=".65" fill="#755344" stroke="#343730" stroke-width=".3"/></g>
+<g transform="translate(470 141) matrix(4.4 -1.15 2.1 2.65 0 0) translate(-46.5 -26.9)"><rect width="93.1" height="53.9" rx=".65" fill="#363933" stroke="#343730" stroke-width=".3"/></g>
+<g transform="translate(470 141) matrix(4.4 -1.15 2.1 2.65 0 0) translate(-46.5 -26.9)" fill="none">
+<path stroke="#b2a194" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.2" d="M59.5 29.3 L60.5 30.3 M59.5 29.3 L59.5 27.3 M48.1 4.8 L57.5 14.3 M57.5 16.2 L57.5 14.3 M46.4 4.8 L48.1 4.8 M80.4 12.6 L80.4 11.7 M71.6 21.5 L80.4 12.6 M80.4 11.7 L81.1 10.9 M65 25.2 L79.3 25.2 M64.8 25 L65 25.2 M63.9 25 L64.8 25 M63.8 25 L63.9 25 M79.3 25.2 L81.7 22.9 M66.5 23.5 L67.4 22.7 M63.8 23.5 L66.5 23.5 M67 24 L68.3 24 M66.7 19 L67 18.7 M89 31 L91.3 31 M89 32.9 L89 31.1 M89.1 27.1 L89.1 25.8 M60.5 16.2 L60.5 13.1 M59.7 12.3 L60.5 13.1 M63.8 19 L66.7 19 M49.6 3 L52.5 5.9 L58.8 5.9 M59.5 17.3 L59.5 16.2 M44.6 3 L46.4 4.8 M64.9 46.5 L64.9 43.6 M62.6 48.9 L64.9 46.5 M62.6 50.3 L62.6 48.9 M60 50.3 L61.1 49.2 L61.1 47.1 M62 13.8 L66.3 9.6 M62 16.2 L62 13.8 M32.1 17.7 L33.5 17.7 L37.1 21.3 M27.7 16.1 L37.5 16.1 L39.6 18.3 M39.6 21.3 L39.6 18.3 M10.3 51.3 L10.3 50.2 L18.8 41.7 L18.8 24.8 L21 22.5 L21 21.3 M52.5 41.8 L52.5 32.2 M52.5 41.8 L57.8 47.1 L59.5 47.1 M61.1 47.1 L61.1 43.6 M53.9 33.6 L56 31.5 M54.1 39 L54.1 33.7 M54.1 39 L58.7 43.6 L59.5 43.6 M61.1 43.6 L63.3 43.6 M64.9 43.6 L64.9 39.7 L65.1 39.5 M46.6 18.5 L46.6 15.4 M46.6 18.5 L48.6 20.5 M9.6 14.7 L16 21.1 M6 14.7 L9.6 14.7 M5.4 15.3 L6 14.7 M5.4 16.3 L5.4 15.3 M6.5 31.4 L6.5 28.4 M6.7 18.6 L8.1 18.6 M7 18.4 L7 16.3 M46.9 22 L52.7 22 M8.1 18.6 L9.3 19.9 M9.3 22 L9.3 19.9 M9.3 22 L12.2 24.9 M12.2 28.9 L12.2 24.9 M12.2 28.9 L12.9 29.6 M45.1 23.8 L46.9 22 M6.7 28.2 L10.1 28.2 L10.4 27.8 M47.9 23.8 L48.2 24 L49.7 24 L51.3 22.5 L52.7 22.5 M39.1 39.9 L45.7 33.2 L45.7 31.5 M44.7 30.5 L45.7 31.5 M44.7 30.5 L44.7 29.3 L48.5 25.5 L52.7 25.5 M33.6 41.8 L33.6 38.8 L47.4 25 L52.7 25 M56 31.5 L56 27.3 M52.5 32.2 L52.5 32.2 L55.5 29.2 L55.5 27.3 M67.9 19.7 L70.4 19.7 M66.6 21 L67.9 19.7 M63.8 21 L66.6 21 M90 12.9 L91.1 11.8 M84.1 12.9 L90 12.9 M82.2 10.9 L84.1 12.9 M81.1 10.9 L82.2 10.9 M63.8 21.5 L71.6 21.5 M81.7 22.9 L81.7 12.2 M72 27.2 L77.3 27.2 M52.6 24.5 L53.9 24.5 L54.2 24.2 L60.6 24.2 L63.5 27.2 L70.4 27.2 M59.5 27.3 L59.5 25.2 M59.3 25 L59.5 25.2 M58.8 25 L59.3 25 M58.5 25.3 L58.8 25 M58.5 27.3 L58.5 25.3 M57 27.3 L57 25.2 L57.3 25 L57.8 25 L58 25.2 M58 27.3 L58 25.2 M14 5.4 L15.2 4.1 M12.7 8.2 L14 6.9 M12.7 12 L12.7 9.7 M12.7 12 L14.1 12 L15.6 13.5 M18 10.9 L19.9 9 M18 8.5 L21 5.5 M18 9 L18 8.5 M48.6 20.5 L50.4 20.5 M49.8 19 L52.7 19 M51.4 19.5 L52.7 19.5 M50.4 20.5 L51.4 19.5 M68.4 18.3 L70.4 18.3 M85.9 28 L86 28.1 M86 30.1 L86 28.1 M86 30.1 L87 31.1 L89 31.1 M51.7 18 L52.7 18 M50.9 17.3 L51.7 18 M82.9 9.6 L82.9 6.8 M81.9 5.8 L82.9 6.8 M2.8 24.1 L4.4 24.1 L7.7 20.8 M2.7 37 L6.6 37 L11.5 32.1 L11.5 26.8 M10.8 26 L11.5 26.8 M7.7 26 L10.8 26 M3.4 31.4 L4.9 31.4 M0.9 29 L3.4 31.4 M0.9 29 L0.9 18.8 L3.5 16.3 L5.4 16.3 M19.9 9 L24.4 13.6 M24.4 13.6 L24.4 13.6 M70.4 50.1 L70.4 36.2 M63.8 7.8 L63.8 3 M66.3 9.6 L66.3 3 M63.8 24.5 L66.6 24.5 L67 24 M73.6 9 L74.9 7.7 L78.5 7.7 L80.4 9.6 M73.6 10.1 L73.6 9 M67 18.7 L67 17.7 M65.2 14.9 L68.7 14.9 L73.6 10.1 M59.5 17.3 L60.4 18.1 L62 18.1 L65.2 14.9 M63.8 19.5 L67.1 19.5 L68.3 18.3 M49.1 12.1 L50.2 13.2 M44 10.6 L51.6 10.6 L55.5 14.6 M50.9 17.3 L50.9 12 M57.8 31.7 L57.8 30.8 M57 30.1 L57.8 30.8 M57 30.1 L57 27.3 M58 29.8 L58 27.3 M58 29.8 L60 31.7 L61.2 31.7 M55.5 14.6 L56.6 14.6 L57 14.9 M57 16.2 L57 15 M59.7 12.3 L59.7 12.3 M57.4 12.2 L60 14.8 M60 16.2 L60 14.8 M70.4 36.2 L74.1 32.5 M88.5 25.2 L89.1 25.8 M88.5 25.2 L88.5 23.9 M89.1 29.5 L89.1 27.1 M57.8 31.7 L58.1 32.1 L58.9 32.1 L59.6 32.8 M59.6 34.4 L59.6 32.8 M59.6 34.4 L61.7 36.5 M61.7 40.1 L61.7 36.5 M61.1 43.6 L61.1 40.7 L61.7 40.1 M21 5.5 L25.5 5.5 M19.9 12.6 L19.9 11.4 M15.6 13.5 L19 13.5 L19.9 12.6 M67.4 22.7 L73.4 22.7 M75 22.7 L77.5 22.7 M40.2 15.8 L40.2 14.5 L44 10.6 M31.1 44.3 L33.6 46.8 M91 28.6 L91 26.7 M91 27.6 L92 27.6 M89.9 27.6 L91 27.6 M67.1 53.4 L70.4 50.1 M52.2 51.3 L54.3 53.4 L67.1 53.4 M62.1 9.5 L63.8 7.8 M61.5 16.2 L61.5 13.4 L62.1 12.9 L62.1 9.5 M50.7 18.5 L52.7 18.5 M50.2 18 L50.7 18.5 M50.2 18 L50.2 13.2 M48.6 17.8 L49.8 19 M48.6 17.8 L48.6 16.8 M69.1 4.7 L70.2 5.8 L81.9 5.8 M33.6 46.8 L36.4 46.8 L39.1 44.1 L39.1 39.9 M61 16.2 L61 8.1 M58.8 5.9 L61 8.1 M61 29.5 L63.8 29.5 M60.9 29.4 L61 29.4 M60.8 29.6 L61 29.6"/>
+<path stroke="#b2a194" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M2.4 51.3 L4.5 53.4 L33.3 53.4 M2.4 48 L2.4 40.4 M2.4 48 L2.4 48 M2.4 51.3 L2.4 48 M44.6 21.2 L44.6 16.6 M61.2 3 L61.2 2.2 M60 1 L61.2 2.2 M40.9 1 L60 1 M39.5 2.4 L40.9 1 M39.5 4.3 L39.5 2.4 M39.5 4.3 L40.8 5.5 L42 5.5 M0.8 38.8 L2.4 40.4 M0.8 38.8 L0.8 31.4 M83.9 27.5 L83.9 16.2 M33.3 53.4 L35 51.6 L35 50.8 M24.9 11 L26.3 12.4 M26.3 14.7 L26.3 12.4 M45.9 8.8 L47.2 8.8 M68.7 35.1 L73.7 30.1 L81.2 30.1 M74.3 37 L81.2 30.1 L83.9 27.5 M35 50.8 L38.7 47.1 M42 5.5 L43.4 6.3 L45.9 8.8 M38.6 7.5 L38.6 5.3 L39.5 4.3 M25.5 5.5 L26.8 4.3 L26.8 3 M24.9 11 L24.9 6.1 L25.5 5.5 M24.1 16.9 L26.3 14.7 M38.7 47.1 L53.4 47.1 L58.5 52.3 L65.9 52.3 L68.7 49.5 L68.7 35.1 M24.1 31.8 L24.2 31.9 M24.1 31.8 L24.1 16.9"/>
+<path stroke="#b2a194" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" d="M79.4 37 L84.5 37 M10.2 3 L10.2 2.7 M10.2 6.1 L10.2 3 M3.7 9.3 L6.4 6.6 L9.6 6.6 L10.2 6.1 M10.2 2.7 L11.5 1.4 L16.8 1.4 L16.8 1.4 M28.3 10.3 L29.3 9.3 L29.3 3 M27.7 1.4 L29.3 3 M27.7 1.4 L27.7 1.4 M16.8 1.4 L27.7 1.4"/>
+<path stroke="#b2a194" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.4" d="M15.2 4.1 L15.2 3 M14 6.9 L14 5.4"/>
+<path fill="#c9bfb2" d="M54.4 26.4h0.3v1.8h-0.3z M54.9 26.4h0.3v1.8h-0.3z M55.4 26.4h0.3v1.8h-0.3z M55.9 26.4h0.3v1.8h-0.3z M56.4 26.4h0.3v1.8h-0.3z M56.9 26.4h0.3v1.8h-0.3z M57.4 26.4h0.3v1.8h-0.3z M57.9 26.4h0.3v1.8h-0.3z M58.4 26.4h0.3v1.8h-0.3z M58.9 26.4h0.3v1.8h-0.3z M59.4 26.4h0.3v1.8h-0.3z M59.9 26.4h0.3v1.8h-0.3z M60.4 26.4h0.3v1.8h-0.3z M60.9 26.4h0.3v1.8h-0.3z M61.4 26.4h0.3v1.8h-0.3z M61.9 26.4h0.3v1.8h-0.3z M61.9 15.3h0.3v1.8h-0.3z M59.9 15.3h0.3v1.8h-0.3z M58.9 15.3h0.3v1.8h-0.3z M58.4 15.3h0.3v1.8h-0.3z M57.9 15.3h0.3v1.8h-0.3z M56.9 15.3h0.3v1.8h-0.3z M56.4 15.3h0.3v1.8h-0.3z M55.9 15.3h0.3v1.8h-0.3z M55.4 15.3h0.3v1.8h-0.3z M54.9 15.3h0.3v1.8h-0.3z M54.4 15.3h0.3v1.8h-0.3z M60.4 15.3h0.3v1.8h-0.3z M59.4 15.3h0.3v1.8h-0.3z M57.4 15.3h0.3v1.8h-0.3z M60.9 15.3h0.3v1.8h-0.3z M61.4 15.3h0.3v1.8h-0.3z"/>
+<path fill="#c9bfb2" d="M62.9 25.4h1.8v0.3h-1.8z M62.9 24.9h1.8v0.3h-1.8z M62.9 24.4h1.8v0.3h-1.8z M62.9 23.9h1.8v0.3h-1.8z M62.9 23.4h1.8v0.3h-1.8z M62.9 22.9h1.8v0.3h-1.8z M62.9 22.4h1.8v0.3h-1.8z M62.9 21.9h1.8v0.3h-1.8z M62.9 21.4h1.8v0.3h-1.8z M62.9 20.9h1.8v0.3h-1.8z M62.9 20.4h1.8v0.3h-1.8z M62.9 19.9h1.8v0.3h-1.8z M62.9 19.4h1.8v0.3h-1.8z M62.9 18.9h1.8v0.3h-1.8z M62.9 18.4h1.8v0.3h-1.8z M62.9 17.9h1.8v0.3h-1.8z M51.8 17.9h1.8v0.3h-1.8z M51.8 18.4h1.8v0.3h-1.8z M51.8 18.9h1.8v0.3h-1.8z M51.8 19.4h1.8v0.3h-1.8z M51.8 19.9h1.8v0.3h-1.8z M51.8 20.4h1.8v0.3h-1.8z M51.8 20.9h1.8v0.3h-1.8z M51.8 21.4h1.8v0.3h-1.8z M51.8 21.9h1.8v0.3h-1.8z M51.8 22.4h1.8v0.3h-1.8z M51.8 22.9h1.8v0.3h-1.8z M51.8 23.4h1.8v0.3h-1.8z M51.8 23.9h1.8v0.3h-1.8z M51.8 24.4h1.8v0.3h-1.8z M51.8 24.9h1.8v0.3h-1.8z M51.8 25.4h1.8v0.3h-1.8z"/>
+<path fill="#c9bfb2" d="M26.3 9.6h4v1.5h-4z"/>
+<path fill="#c9bfb2" d="M34.3 9.6h4v1.5h-4z"/>
+<path fill="#c9bfb2" d="M39.4 8.3h4.1v1h-4.1z M45 8.3h4.1v1h-4.1z M1.6 8.8h4.1v1h-4.1z M7.2 8.8h4.1v1h-4.1z"/>
+<path fill="#c9bfb2" d="M4.4 30.8h1v1.3h-1z M6 30.8h1v1.3h-1z M4.9 15.6h1v1.3h-1z M6.5 15.6h1v1.3h-1z M71.5 26.5h1v1.3h-1z M69.9 26.5h1v1.3h-1z M60.6 46.5h1v1.3h-1z M59 46.5h1v1.3h-1z M60.6 42.9h1v1.3h-1z M59 42.9h1v1.3h-1z M62.8 42.9h1v1.3h-1z M64.4 42.9h1v1.3h-1z M76.8 26.5h1v1.3h-1z M78.4 26.5h1v1.3h-1z M77 22h1v1.3h-1z M78.6 22h1v1.3h-1z M74.5 22h1v1.3h-1z M72.9 22h1v1.3h-1z"/>
+<path fill="#c9bfb2" d="M5.5 25.6h0.6v0.9h-0.6z M7.4 25.6h0.6v0.9h-0.6z M6.4 27.7h0.6v0.9h-0.6z M6.4 18.2h0.6v0.9h-0.6z M7.4 20.3h0.6v0.9h-0.6z M5.5 20.3h0.6v0.9h-0.6z"/>
+<path fill="#c9bfb2" d="M12.1 4.9h0.7v0.9h-0.7z M13.6 4.9h0.7v0.9h-0.7z"/>
+<path fill="#c9bfb2" d="M12.2 9.3h0.9v0.7h-0.9z M12.2 7.8h0.9v0.7h-0.9z M12.2 13.1h0.9v0.7h-0.9z M12.2 11.6h0.9v0.7h-0.9z"/>
+<path fill="#c9bfb2" d="M17.7 8.4h0.6v1.1h-0.6z M19.6 8.4h0.6v1.1h-0.6z M19.6 10.8h0.6v1.1h-0.6z M18.6 10.8h0.6v1.1h-0.6z M17.7 10.8h0.6v1.1h-0.6z"/>
+<path fill="#c9bfb2" d="M88.4 29h1.3v1h-1.3z M88.4 30.6h1.3v1h-1.3z M88.4 32.4h1.3v1h-1.3z M88.4 34h1.3v1h-1.3z M57.1 31.2h1.3v1h-1.3z M57.1 32.8h1.3v1h-1.3z M60.6 31.2h1.3v1h-1.3z M60.6 32.8h1.3v1h-1.3z"/>
+<path fill="#c9bfb2" d="M59.9 28.8h1.7v1.7h-1.7z"/>
+<path fill="#c9bfb2" d="M60.1 28.4h3.1v2.4h-3.1z"/>
+<path fill="#c9bfb2" d="M64.3 49.6h1.5v1.5h-1.5z"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.5" d="M62.6 50.3h.01 M60 50.3h.01"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.5" d="M90.7 2.9h.01 M90.5 51.2h.01"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.8" d="M58 36.6h.01 M58 8.7h.01 M6.2 41.6h.01"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.7" d="M2.5 3h.01 M5.1 3h.01 M7.6 3h.01 M10.2 3h.01 M12.7 3h.01 M26.9 21.3h.01 M29.5 21.3h.01 M32 21.3h.01 M34.5 21.3h.01 M37.1 21.3h.01 M39.6 21.3h.01 M42.2 21.3h.01 M44.7 21.3h.01 M31.1 41.8h.01 M33.6 44.3h.01 M33.6 41.8h.01 M36.2 44.3h.01 M36.2 41.8h.01 M2.7 37h.01 M2.8 24.1h.01 M66.3 3h.01 M63.8 3h.01 M61.2 3h.01 M16 21.3h.01 M13.4 21.3h.01 M18.5 21.3h.01 M76.9 37h.01 M79.4 37h.01 M91.1 43.2h.01 M91.1 9.3h.01 M80.4 9.6h.01 M77.8 9.6h.01 M81.7 12.2h.01 M79.1 12.2h.01 M76.6 12.2h.01 M75.3 9.6h.01 M74 12.2h.01 M84.5 34.4h.01 M19.2 3h.01 M21.7 3h.01 M10.3 51.3h.01 M12.8 51.3h.01 M15.3 51.3h.01 M17.9 51.3h.01 M20.4 51.3h.01 M23 51.3h.01 M25.5 51.3h.01 M28 51.3h.01 M30.6 51.3h.01 M33.1 51.3h.01 M36.9 51.3h.01 M39.5 51.3h.01 M42 51.3h.01 M44.6 51.3h.01 M47.1 51.3h.01 M49.6 51.3h.01 M52.2 51.3h.01 M54.7 51.3h.01 M54.7 3h.01 M52.2 3h.01 M49.6 3h.01 M47.1 3h.01 M44.6 3h.01 M42 3h.01 M36.9 3h.01 M34.4 3h.01 M31.9 3h.01 M29.3 3h.01 M26.8 3h.01 M24.2 3h.01 M76.6 44.4h.01 M79.1 44.4h.01 M75.3 41.9h.01 M77.8 41.9h.01 M80.4 41.9h.01 M81.7 44.4h.01 M82.9 41.9h.01"/>
+<path fill="#c9bfb2" d="M14.4 2.1h1.7v1.7h-1.7z M30.3 43.5h1.7v1.7h-1.7z M57.8 2.1h1.7v1.7h-1.7z M20.2 20.5h1.7v1.7h-1.7z M73.5 36.1h1.7v1.7h-1.7z M82.1 8.8h1.7v1.7h-1.7z M73.2 43.6h1.7v1.7h-1.7z"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.5" d="M43.4 32.2h.01 M28.2 32.2h.01"/>
+<path fill="#c9bfb2" d="M1.8 33.6h1.7v1.7h-1.7z M1.9 20.7h1.7v1.7h-1.7z M90.2 44.9h1.7v1.7h-1.7z M90.2 11h1.7v1.7h-1.7z M83.7 36.1h1.7v1.7h-1.7z"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="3.2" d="M72.8 3.3h.01 M84.2 3.3h.01 M84.2 50.8h.01 M72.8 50.8h.01"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.8" d="M88.5 18.8h.01 M88.5 23.9h.01"/>
+<path fill="#c9bfb2" d="M90.4 34.3h1.8v0.9h-1.8z M90.4 30.6h1.8v0.9h-1.8z M47.7 20h1.8v0.9h-1.8z M47.7 16.3h1.8v0.9h-1.8z"/>
+<path stroke="#c9b7a5" stroke-linecap="round" stroke-width="1.3" d="M68.3 24h.01 M32.1 17.7h.01 M27.7 16.1h.01 M65.1 39.5h.01 M46.6 15.4h.01 M44.6 16.6h.01 M12.9 29.6h.01 M45.1 23.8h.01 M10.4 27.8h.01 M47.9 23.8h.01 M53.9 33.6h.01 M52.5 32.2h.01 M70.4 18.3h.01 M85.9 28h.01 M69.1 4.7h.01 M24.4 13.6h.01 M40.2 15.8h.01 M63.7 6.1h.01 M38.6 7.5h.01 M0.8 31.4h.01 M67 17.7h.01 M83.9 16.2h.01 M49.1 12.1h.01 M50.9 12h.01 M61.7 40.1h.01 M57.4 12.2h.01 M59.7 12.3h.01 M70.4 19.8h.01 M74.1 32.5h.01 M24.2 31.9h.01 M66.3 6.1h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="0.6" d="M61.7 40.1h.01 M65.1 39.5h.01 M74.1 32.5h.01 M68.3 24h.01 M70.4 19.8h.01 M70.4 18.3h.01 M67 17.7h.01 M66.3 6.1h.01 M63.7 6.1h.01 M69.1 4.7h.01 M59.7 12.3h.01 M57.4 12.2h.01 M83.9 16.2h.01 M85.9 28h.01 M53.9 33.6h.01 M52.5 32.2h.01 M47.9 23.8h.01 M45.1 23.8h.01 M44.6 16.6h.01 M46.6 15.4h.01 M49.1 12.1h.01 M50.9 12h.01 M40.2 15.8h.01 M38.6 7.5h.01 M32.1 17.7h.01 M27.7 16.1h.01 M24.4 13.6h.01 M24.2 31.9h.01 M12.9 29.6h.01 M10.4 27.8h.01 M0.8 31.4h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="0.9" d="M10.3 51.3h.01 M12.8 51.3h.01 M15.3 51.3h.01 M17.9 51.3h.01 M20.4 51.3h.01 M23 51.3h.01 M25.5 51.3h.01 M28 51.3h.01 M30.6 51.3h.01 M33.1 51.3h.01 M36.9 51.3h.01 M39.5 51.3h.01 M42 51.3h.01 M44.6 51.3h.01 M47.1 51.3h.01 M49.6 51.3h.01 M52.2 51.3h.01 M36.2 44.3h.01 M33.6 44.3h.01 M31.1 44.3h.01 M31.1 41.8h.01 M33.6 41.8h.01 M36.2 41.8h.01 M54.7 51.3h.01 M74 44.4h.01 M76.6 44.4h.01 M79.1 44.4h.01 M81.7 44.4h.01 M80.4 41.9h.01 M77.8 41.9h.01 M75.3 41.9h.01 M82.9 41.9h.01 M91.1 43.2h.01 M91.1 45.8h.01 M84.5 37h.01 M84.5 34.4h.01 M79.4 37h.01 M76.9 37h.01 M74.3 37h.01 M74 12.2h.01 M76.6 12.2h.01 M79.1 12.2h.01 M81.7 12.2h.01 M82.9 9.6h.01 M80.4 9.6h.01 M77.8 9.6h.01 M75.3 9.6h.01 M66.3 3h.01 M63.8 3h.01 M61.2 3h.01 M58.7 3h.01 M54.7 3h.01 M91.1 9.3h.01 M91.1 11.8h.01 M52.2 3h.01 M49.6 3h.01 M47.1 3h.01 M44.6 3h.01 M42 3h.01 M36.9 3h.01 M34.4 3h.01 M31.9 3h.01 M29.3 3h.01 M26.8 3h.01 M24.2 3h.01 M21.7 3h.01 M19.2 3h.01 M15.2 3h.01 M16 21.3h.01 M18.5 21.3h.01 M21 21.3h.01 M26.9 21.3h.01 M29.5 21.3h.01 M32 21.3h.01 M34.5 21.3h.01 M37.1 21.3h.01 M39.6 21.3h.01 M42.2 21.3h.01 M44.7 21.3h.01 M13.4 21.3h.01 M2.8 21.6h.01 M2.8 24.1h.01 M2.7 34.5h.01 M2.7 37h.01 M2.5 3h.01 M5.1 3h.01 M7.6 3h.01 M10.2 3h.01 M12.7 3h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="0.9" d="M60 50.3h.01 M62.6 50.3h.01 M65.1 50.3h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="1" d="M88.5 23.9h.01 M88.5 18.8h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="2.6" d="M28.2 32.2h.01 M43.4 32.2h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="3.2" d="M6.2 41.6h.01 M90.5 51.2h.01 M58 36.6h.01 M58 8.7h.01 M90.7 2.9h.01"/>
+<path stroke="#1d201c" stroke-linecap="round" stroke-width="3.2" d="M72.8 50.8h.01 M84.2 50.8h.01 M84.2 3.3h.01 M72.8 3.3h.01"/>
+<g transform="translate(58.3 21.8)"><rect x="-4.8" y="-4.8" width="9.6" height="9.6" rx=".35" fill="#242723" stroke="#69685f" stroke-width=".15"/><circle cx="-3.7" cy="-3.7" r=".32" fill="#97988b"/></g></g>
+<g class="hb-desktop" fill="none" stroke="currentColor" stroke-width="1" opacity=".48"><path d="M184 99H304L510.8 113.7M750 166h-38l-35 -20"/></g>
+<g class="hb-desktop"><text x="174" y="103" text-anchor="end" class="hb-data" fill="currentColor" data-en="MCF51QE128" data-es="MCF51QE128">MCF51QE128</text><text x="174" y="126" text-anchor="end" class="hb-label" fill="currentColor" data-en="Microcontroller" data-es="Microcontrolador">Microcontrolador</text><text x="762" y="170" text-anchor="start" class="hb-data" fill="currentColor" data-en="93.1 × 53.9 mm" data-es="93,1 × 53,9 mm">93,1 × 53,9 mm</text><text x="762" y="193" text-anchor="start" class="hb-label" fill="currentColor" data-en="Board dimensions" data-es="Dimensiones">Dimensiones</text></g>
+<g class="hb-mobile"><text x="470" y="304" text-anchor="middle" class="hb-data" fill="currentColor" data-en="MCF51QE128 · 93.1 × 53.9 mm" data-es="MCF51QE128 · 93,1 × 53,9 mm">MCF51QE128 · 93,1 × 53,9 mm</text></g></g></svg></div><figcaption><a href="https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/docs/HARDWARE.md" data-en="X-Sub underwater robot acquisition board" data-es="Tarjeta de adquisición del robot submarino X-Sub">Tarjeta de adquisición del robot submarino X-Sub</a><a href="https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/LICENSE" class="board-credit" data-en="MIT license" data-es="Licencia MIT">Licencia MIT</a></figcaption></figure><p class="hero-intro" data-en="I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment." data-es="Soy CTO en Sento Tech Labs e ingeniero electrónico. Llevo más de diez años desarrollando productos de IoT industrial, desde el diseño hasta el despliegue en campo.">Soy CTO en Sento Tech Labs e ingeniero electrónico. Llevo más de diez años desarrollando productos de IoT industrial, desde el diseño hasta el despliegue en campo.</p><p class="hero-availability" data-en="I offer focused 1:1 technical consulting in English and Spanish." data-es="Ofrezco consultoría técnica individual en español e inglés.">Ofrezco consultoría técnica individual en español e inglés.</p><div class="actions"><a href="/es/consultoria.html" class="btn btn-primary" data-en="Explore consulting" data-es="Ver consultoría">Ver consultoría</a><a href="#work" class="btn btn-secondary" data-en="See selected work" data-es="Ver proyectos">Ver proyectos</a></div></section>
+<dl class="proof-strip"><div><dt data-en="10+ years" data-es="Más de 10 años">Más de 10 años</dt><dd data-en="Building connected hardware" data-es="Desarrollo de hardware conectado">Desarrollo de hardware conectado</dd></div><div><dt data-en="12 engineers" data-es="12 ingenieros">12 ingenieros</dt><dd data-en="Team leadership" data-es="Liderazgo de equipo">Liderazgo de equipo</dd></div><div><dt data-en="FCC" data-es="FCC">FCC</dt><dd data-en="Hardware certification" data-es="Certificación de hardware">Certificación de hardware</dd></div><div><dt data-en="EN / ES" data-es="ES / EN">ES / EN</dt><dd data-en="Consulting languages" data-es="Idiomas de consultoría">Idiomas de consultoría</dd></div></dl>
+<section class="band " id="offer" aria-labelledby="offer-heading"><h2 id="offer-heading" data-en="Consulting" data-es="Consultoría">Consultoría</h2>
+<div class="offer-split"><div class="prose"><p data-en="Bring a schematic, a firmware question or a system diagram to a 30-, 60- or 90-minute review. After payment we agree on a time by email. You receive written notes after the session." data-es="Trae un esquemático, una pregunta de firmware o un diagrama del sistema a una revisión de 30, 60 o 90 minutos. Después del pago acordamos la hora por correo. Al terminar recibes notas por escrito.">Trae un esquemático, una pregunta de firmware o un diagrama del sistema a una revisión de 30, 60 o 90 minutos. Después del pago acordamos la hora por correo. Al terminar recibes notas por escrito.</p><p class="from-price" data-en="Sessions from USD 50." data-es="Sesiones desde 50 USD.">Sesiones desde 50 USD.</p></div><a href="/es/consultoria.html" class="btn btn-primary" data-en="Explore consulting" data-es="Ver consultoría">Ver consultoría</a></div>
+</section>
+<section class="band " id="work" aria-labelledby="work-heading"><h2 id="work-heading" data-en="Selected work" data-es="Proyectos seleccionados">Proyectos seleccionados</h2>
+<div class="card-grid case-grid"><article class="card"><h3><a href="/es/trabajo/xsub-telemetry.html" class="card-link" data-en="Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit" data-es="Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo">Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo</a></h3><p data-en="A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol." data-es="Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una auditoría moderna del protocolo serial.">Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una auditoría moderna del protocolo serial.</p><span class="note-action" aria-hidden="true" data-en="Read the note" data-es="Leer la nota">Leer la nota</span></article><article class="card"><h3><a href="/es/trabajo/altium-pcb-library.html" class="card-link" data-en="Disciplined PCB Component Libraries in Altium Designer" data-es="Disciplina en librerías de componentes PCB en Altium Designer">Disciplina en librerías de componentes PCB en Altium Designer</a></h3><p data-en="The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets." data-es="La librería combina verificaciones automáticas de los archivos binarios de Altium con una revisión manual contra los datasheets.">La librería combina verificaciones automáticas de los archivos binarios de Altium con una revisión manual contra los datasheets.</p><span class="note-action" aria-hidden="true" data-en="Read the note" data-es="Leer la nota">Leer la nota</span></article></div><ul class="practice"><li><h3 data-en="Telemetry for intermittent networks" data-es="Telemetría para redes intermitentes">Telemetría para redes intermitentes</h3><p data-en="I developed embedded systems that keep collecting data when industrial sites lose connectivity." data-es="Desarrollé sistemas embebidos que siguen recopilando datos cuando los sitios industriales pierden la conexión.">Desarrollé sistemas embebidos que siguen recopilando datos cuando los sitios industriales pierden la conexión.</p></li><li><h3 data-en="Software for connected device fleets" data-es="Software para flotas de dispositivos conectados">Software para flotas de dispositivos conectados</h3><p data-en="I led cloud architecture and firmware delivery work so field devices could be maintained remotely." data-es="Lideré el trabajo de arquitectura en la nube y entrega de firmware para facilitar el mantenimiento remoto de dispositivos.">Lideré el trabajo de arquitectura en la nube y entrega de firmware para facilitar el mantenimiento remoto de dispositivos.</p></li><li><h3 data-en="Hardware from prototype to production" data-es="Hardware del prototipo a producción">Hardware del prototipo a producción</h3><p data-en="I designed industrial PCBs, led hardware through FCC certification and helped scale enclosures from 3D printing to injection molding." data-es="Diseñé PCB industriales, lideré la certificación FCC de hardware y ayudé a llevar carcasas de impresión 3D a moldeo por inyección.">Diseñé PCB industriales, lideré la certificación FCC de hardware y ayudé a llevar carcasas de impresión 3D a moldeo por inyección.</p></li></ul>
+</section>
+<section class="band " id="about" aria-labelledby="about-heading"><h2 id="about-heading" data-en="About" data-es="Sobre mí">Sobre mí</h2>
+<div class="prose"><p data-en="My work spans microcontroller firmware, PCB design, certification and cloud infrastructure. I’ve taken connected products from prototypes through certification and deployments in Latin America, the Caribbean and the United States." data-es="Mi trabajo abarca firmware para microcontroladores, diseño de PCB, certificación e infraestructura en la nube. He llevado productos conectados del prototipo a la certificación y el despliegue en América Latina, el Caribe y Estados Unidos.">Mi trabajo abarca firmware para microcontroladores, diseño de PCB, certificación e infraestructura en la nube. He llevado productos conectados del prototipo a la certificación y el despliegue en América Latina, el Caribe y Estados Unidos.</p>
+<p data-en="I lead a team of 12 engineers working on embedded hardware, connectivity and cloud services. I hold a degree in Electronics Engineering from Universidad Simón Bolívar." data-es="Lidero un equipo de 12 ingenieros en hardware embebido, conectividad y servicios en la nube. Soy ingeniero electrónico de la Universidad Simón Bolívar.">Lidero un equipo de 12 ingenieros en hardware embebido, conectividad y servicios en la nube. Soy ingeniero electrónico de la Universidad Simón Bolívar.</p>
+<p data-en="My master’s studies in electronics are at Universidad Simón Bolívar, with the thesis pending. That university awarded an honorific mention to my undergraduate thesis on underwater telemetry. My team took first place in the IEEE Open Category at CCSBOTS 2013." data-es="Cursé estudios de maestría en electrónica en la Universidad Simón Bolívar y tengo la tesis pendiente. La universidad otorgó una mención honorífica a mi tesis de pregrado sobre telemetría submarina. Mi equipo obtuvo el primer lugar en la categoría IEEE Open de CCSBOTS 2013.">Cursé estudios de maestría en electrónica en la Universidad Simón Bolívar y tengo la tesis pendiente. La universidad otorgó una mención honorífica a mi tesis de pregrado sobre telemetría submarina. Mi equipo obtuvo el primer lugar en la categoría IEEE Open de CCSBOTS 2013.</p></div>
+</section>
+<section class="band " id="experience" aria-labelledby="experience-heading"><h2 id="experience-heading" data-en="Experience" data-es="Trayectoria">Trayectoria</h2>
+<ol class="timeline"><li><p class="dates" data-en="Jun 2024 — present" data-es="jun 2024 — presente">jun 2024 — presente</p><div><h3 data-en="Chief Technology Officer" data-es="Chief Technology Officer (CTO)">Chief Technology Officer (CTO)</h3><p class="organization" data-en="Sento Tech Labs" data-es="Sento Tech Labs">Sento Tech Labs</p><p data-en="Lead a team of 12 engineers and set the technical direction for industrial IoT hardware, firmware and cloud services." data-es="Lidero un equipo de 12 ingenieros y defino la dirección técnica para hardware, firmware y servicios en la nube de IoT industrial.">Lidero un equipo de 12 ingenieros y defino la dirección técnica para hardware, firmware y servicios en la nube de IoT industrial.</p></div></li><li><p class="dates" data-en="Feb 2023 — Jun 2024" data-es="feb 2023 — jun 2024">feb 2023 — jun 2024</p><div><h3 data-en="Senior Electronics Engineer — Team Lead" data-es="Ingeniero Electrónico Senior — Líder de equipo">Ingeniero Electrónico Senior — Líder de equipo</h3><p class="organization" data-en="Sento Tech Labs" data-es="Sento Tech Labs">Sento Tech Labs</p><p data-en="Led a multidisciplinary team developing industrial IoT hardware for demanding field conditions." data-es="Lideré un equipo multidisciplinario que desarrolló hardware de IoT industrial para condiciones exigentes en campo.">Lideré un equipo multidisciplinario que desarrolló hardware de IoT industrial para condiciones exigentes en campo.</p></div></li><li><p class="dates" data-en="Nov 2021 — Nov 2022" data-es="nov 2021 — nov 2022">nov 2021 — nov 2022</p><div><h3 data-en="Software Engineer / DevOps" data-es="Ingeniero de Software / DevOps">Ingeniero de Software / DevOps</h3><p class="organization" data-en="PowDevs" data-es="PowDevs">PowDevs</p><p data-en="Built serverless infrastructure for a connected industrial device platform." data-es="Construí infraestructura serverless para una plataforma de dispositivos industriales conectados.">Construí infraestructura serverless para una plataforma de dispositivos industriales conectados.</p></div></li><li><p class="dates" data-en="Jun 2019 — Nov 2021" data-es="jun 2019 — nov 2021">jun 2019 — nov 2021</p><div><h3 data-en="Development Engineer" data-es="Ingeniero de Desarrollo">Ingeniero de Desarrollo</h3><p class="organization" data-en="Vantu S.A.S" data-es="Vantu S.A.S">Vantu S.A.S</p><p data-en="Designed PCBs for industrial IoT and led designs through FCC certification." data-es="Diseñé PCB para IoT industrial y lideré el proceso de certificación FCC.">Diseñé PCB para IoT industrial y lideré el proceso de certificación FCC.</p></div></li><li><p class="dates" data-en="Sep 2016 — Jun 2019" data-es="sep 2016 — jun 2019">sep 2016 — jun 2019</p><div><h3 data-en="Hardware Engineer" data-es="Ingeniero de Hardware">Ingeniero de Hardware</h3><p class="organization" data-en="Innavitas SAPI — Wiot" data-es="Innavitas SAPI — Wiot">Innavitas SAPI — Wiot</p><p data-en="Developed embedded systems for industrial and automotive instrumentation." data-es="Desarrollé sistemas embebidos para instrumentación industrial y automotriz.">Desarrollé sistemas embebidos para instrumentación industrial y automotriz.</p></div></li></ol>
+</section>
+<section class="band " id="expertise" aria-labelledby="expertise-heading"><h2 id="expertise-heading" data-en="Expertise" data-es="Especialidades">Especialidades</h2>
+<div class="card-grid"><article class="card"><h3 data-en="Embedded systems and PCBs" data-es="Sistemas embebidos y PCB">Sistemas embebidos y PCB</h3><p data-en="Altium Designer, MCU design, IPC standards and FCC certification." data-es="Altium Designer, diseño con microcontroladores, normas IPC y certificación FCC.">Altium Designer, diseño con microcontroladores, normas IPC y certificación FCC.</p></article><article class="card"><h3 data-en="Power electronics" data-es="Electrónica de potencia">Electrónica de potencia</h3><p data-en="DC-DC converters, power distribution boards and solar telemetry." data-es="Convertidores DC-DC, tarjetas de distribución de energía y telemetría solar.">Convertidores DC-DC, tarjetas de distribución de energía y telemetría solar.</p></article><article class="card"><h3 data-en="Firmware and software" data-es="Firmware y software">Firmware y software</h3><p data-en="C and C++ for microcontrollers, MicroPython and Python." data-es="C y C++ para microcontroladores, MicroPython y Python.">C y C++ para microcontroladores, MicroPython y Python.</p></article><article class="card"><h3 data-en="IoT connectivity" data-es="Conectividad IoT">Conectividad IoT</h3><p data-en="MQTT, LoRa, BLE, Wi-Fi, cellular and industrial telemetry." data-es="MQTT, LoRa, BLE, Wi-Fi, redes celulares y telemetría industrial.">MQTT, LoRa, BLE, Wi-Fi, redes celulares y telemetría industrial.</p></article><article class="card"><h3 data-en="Cloud and APIs" data-es="Nube y APIs">Nube y APIs</h3><p data-en="AWS architecture, serverless computing and infrastructure as code." data-es="Arquitectura en AWS, servicios serverless e infraestructura como código.">Arquitectura en AWS, servicios serverless e infraestructura como código.</p></article><article class="card"><h3 data-en="Engineering leadership" data-es="Liderazgo técnico">Liderazgo técnico</h3><p data-en="Technical direction, product roadmaps and team development." data-es="Dirección técnica, planes de desarrollo y formación de equipos.">Dirección técnica, planes de desarrollo y formación de equipos.</p></article></div>
+</section>
+<section class="band " id="projects" aria-labelledby="projects-heading"><h2 id="projects-heading" data-en="Open source" data-es="Código abierto">Código abierto</h2>
+<ul class="project-list"><li><a href="https://github.com/ddtdanilo/Personal-Altium-Library" data-en="Personal Altium Library" data-es="Personal Altium Library">Personal Altium Library</a><p data-en="Public schematic symbols and PCB footprints with automated file integrity checks." data-es="Símbolos esquemáticos y footprints de PCB con verificación automática de integridad.">Símbolos esquemáticos y footprints de PCB con verificación automática de integridad.</p></li><li><a href="https://github.com/X-Sub/Telemetry-System" data-en="X-Sub Telemetry System" data-es="X-Sub Telemetry System">X-Sub Telemetry System</a><p data-en="Underwater robot hardware, firmware and a maintained serial protocol toolkit." data-es="Hardware y firmware de un robot submarino y herramientas para analizar su protocolo serial.">Hardware y firmware de un robot submarino y herramientas para analizar su protocolo serial.</p></li><li><a href="https://github.com/ddtdanilo/ut383bt-lux-ble-python" data-en="UT383BT Lux BLE" data-es="UT383BT Lux BLE">UT383BT Lux BLE</a><p data-en="Python tools to read and log a light meter over Bluetooth LE." data-es="Herramientas en Python para leer y registrar datos de un luxómetro por Bluetooth LE.">Herramientas en Python para leer y registrar datos de un luxómetro por Bluetooth LE.</p></li><li><a href="https://github.com/microsoft/vcpkg/pull/50323" data-en="vcpkg contribution" data-es="Contribución a vcpkg">Contribución a vcpkg</a><p data-en="Merged upstream port for a MISRA C wrapper for LMDB." data-es="Port integrado al proyecto para una interfaz de LMDB en C bajo criterios MISRA.">Port integrado al proyecto para una interfaz de LMDB en C bajo criterios MISRA.</p></li><li><a href="https://github.com/ddtdanilo/pycom-micropython" data-en="Pycom MicroPython port" data-es="Port de MicroPython para Pycom">Port de MicroPython para Pycom</a><p data-en="An upstream-based MicroPython port for Pycom boards." data-es="Port de MicroPython para tarjetas Pycom basado en el proyecto original.">Port de MicroPython para tarjetas Pycom basado en el proyecto original.</p></li><li><a href="https://github.com/ddtdanilo/LMDB-wrapper-MISRA-C" data-en="LMDB wrapper for MISRA C" data-es="Interfaz LMDB para MISRA C">Interfaz LMDB para MISRA C</a><p data-en="The C wrapper packaged in the merged vcpkg port." data-es="La interfaz en C incluida en el port integrado a vcpkg.">La interfaz en C incluida en el port integrado a vcpkg.</p></li></ul>
+</section>
+<section class="band " id="contact" aria-labelledby="contact-heading"><h2 id="contact-heading" data-en="Contact" data-es="Contacto">Contacto</h2>
+<div class="prose"><p data-en="For professional inquiries or a project that needs more than one session, get in touch on LinkedIn." data-es="Para consultas profesionales o proyectos que requieren más de una sesión, escríbeme por LinkedIn.">Para consultas profesionales o proyectos que requieren más de una sesión, escríbeme por LinkedIn.</p><a href="https://www.linkedin.com/in/ddtdanilo/" class="btn btn-secondary" data-en="Connect on LinkedIn" data-es="Conectar en LinkedIn">Conectar en LinkedIn</a></div>
+</section>
+</main>
+<footer class="site-footer"><div class="wrap footer-row"><span data-en="Danilo Díaz Tarascó" data-es="Danilo Díaz Tarascó">Danilo Díaz Tarascó</span><div class="footer-links"><a href="/es/privacidad.html" data-en="Privacy" data-es="Privacidad">Privacidad</a><a href="https://www.linkedin.com/in/ddtdanilo/" data-en="LinkedIn" data-es="LinkedIn">LinkedIn</a><a href="https://github.com/ddtdanilo" data-en="GitHub" data-es="GitHub">GitHub</a><a href="https://www.youtube.com/ddtdanilo" data-en="YouTube" data-es="YouTube">YouTube</a><a href="https://orcid.org/0009-0006-7142-0573" data-en="ORCID" data-es="ORCID">ORCID</a></div></div></footer>
+</body>
+</html>

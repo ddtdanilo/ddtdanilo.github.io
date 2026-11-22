@@ -3,3 +3,5 @@ LinkedIn_CV.pdf
 image.png
 *.DS_Store
 .env
+
+__pycache__/
