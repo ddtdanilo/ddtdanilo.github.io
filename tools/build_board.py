@@ -228,7 +228,7 @@ STYLE = """<style>
 .xsub-board .pcb-endpoint{display:none;color:var(--board-highlight,#7c3b0e);pointer-events:none}
 .xsub-board .pcb-endpoint path{fill:none;stroke:currentColor;stroke-width:.16}
 .xsub-board .pcb-endpoint circle{fill:var(--board-substrate,#f1ece2);stroke:currentColor;stroke-width:.25}
-.xsub-board .pcb-endpoint text{font:500 2.05px var(--font-mono,"IBM Plex Mono",monospace);fill:currentColor;stroke:var(--board-substrate,#f1ece2);stroke-width:.8;stroke-linejoin:round;paint-order:stroke}
+.xsub-board .pcb-endpoint text{font:var(--weight-regular,400) 2.05px var(--font-mono,"IBM Plex Mono",monospace);fill:currentColor;stroke:var(--board-substrate,#f1ece2);stroke-width:.8;stroke-linejoin:round;paint-order:stroke}
 @media(min-width:720px){ENDPOINT_RULES}
 @media(max-width:480px){.xsub-board [data-net].is-lit .pcb-route{stroke-width:max(.44px,calc(var(--actual)*1px))}}
 </style>"""
