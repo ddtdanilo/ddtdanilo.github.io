@@ -7,6 +7,7 @@ This repository is the public personal portfolio of Danilo Díaz Tarascó. GitHu
 - Keep facts grounded in the owner's approved career record or verifiable public work. Never publish private contact information, addresses, residency or nationality details, client identities, employer financials or proprietary implementation details. Public contact goes through LinkedIn.
 - Keep the three Stripe links and the manual scheduling steps in sync. Confirm any proposed scheduling policy with the owner. The return page should explain next steps without asserting payment.
 - Keep the Search Console verification file google8be6858017c655ce.html.
+- Keep the IndexNow key file `db0b4ec5da19c502be5ee006c7e2dbd7.txt`. After publishing new or changed pages, submit their URLs to `https://api.indexnow.org/indexnow` with that key (host, key, keyLocation, urlList).
 
 ## Structure and checks
 
