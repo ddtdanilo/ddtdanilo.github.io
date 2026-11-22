@@ -604,9 +604,9 @@
       {
         "id": "quick-call",
         "title": "Quick Call",
-        "url": "https://buy.stripe.com/28E7sLeKU7NAbmi6p014400",
+        "url": "https://buy.stripe.com/4gM6oH0U4gk64XUcNo14403",
         "minutes": 30,
-        "price": 50,
+        "price": 110,
         "duration": "30 minutes",
         "scope": "One focused question about a board, device or cloud service.",
         "outcome": "A next step and a way to check whether it worked."
@@ -614,9 +614,9 @@
       {
         "id": "deep-dive",
         "title": "Deep Dive",
-        "url": "https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401",
+        "url": "https://buy.stripe.com/28E14neKU4Bo8a600C14404",
         "minutes": 60,
-        "price": 120,
+        "price": 265,
         "duration": "60 minutes",
         "scope": "Walk through a schematic, firmware path or system diagram and compare the options.",
         "outcome": "The tradeoffs behind a recommendation and the first checks to run."
@@ -624,9 +624,9 @@
       {
         "id": "strategy",
         "title": "Strategy Session",
-        "url": "https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402",
+        "url": "https://buy.stripe.com/4gM28r32cebYeyu8x814405",
         "minutes": 90,
-        "price": 200,
+        "price": 440,
         "duration": "90 minutes",
         "scope": "Review your roadmap, technical constraints and the decisions blocking the next release.",
         "outcome": "An ordered set of priorities, dependencies and milestones for your team."

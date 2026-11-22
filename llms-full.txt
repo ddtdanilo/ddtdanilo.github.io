@@ -132,29 +132,29 @@ You can reschedule at no charge up to 24 hours before the session. Reply to the 
 
 ## Choose a session
 
-### Quick Call · 30 minutes · USD 50
+### Quick Call · 30 minutes · USD 110
 
 One focused question about a board, device or cloud service.
 
 A next step and a way to check whether it worked.
 
-[Pay USD 50 on Stripe](https://buy.stripe.com/28E7sLeKU7NAbmi6p014400)
+[Pay USD 110 on Stripe](https://buy.stripe.com/4gM6oH0U4gk64XUcNo14403)
 
-### Deep Dive · 60 minutes · USD 120
+### Deep Dive · 60 minutes · USD 265
 
 Walk through a schematic, firmware path or system diagram and compare the options.
 
 The tradeoffs behind a recommendation and the first checks to run.
 
-[Pay USD 120 on Stripe](https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401)
+[Pay USD 265 on Stripe](https://buy.stripe.com/28E14neKU4Bo8a600C14404)
 
-### Strategy Session · 90 minutes · USD 200
+### Strategy Session · 90 minutes · USD 440
 
 Review your roadmap, technical constraints and the decisions blocking the next release.
 
 An ordered set of priorities, dependencies and milestones for your team.
 
-[Pay USD 200 on Stripe](https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402)
+[Pay USD 440 on Stripe](https://buy.stripe.com/4gM28r32cebYeyu8x814405)
 
 ## Scoped engagements
 
