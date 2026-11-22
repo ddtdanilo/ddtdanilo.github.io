@@ -1055,7 +1055,6 @@ a {
 }
 
 .signal[aria-pressed="true"] {
-  border-left-color: var(--board-highlight);
   background: var(--surface);
   color: var(--ink);
   font-weight: var(--weight-medium);
