@@ -22,6 +22,20 @@
   --focus: #111110;             /* 18.89 : 1 focus ring */
   --selection: #f1dfd1;         /* text selection background; --ink on it 14.59 : 1 */
 
+  /* Technical figures: the board (light). Ratios against --board-substrate / --board-pour.
+     Resting copper and the board edge are graphics needed to read the figure: >= 3:1 (WCAG 1.4.11).
+     --board-copper-back, --board-copper-dim and --board-pour are context only, never the sole carrier of meaning. */
+  --board-substrate: #f1ece2;   /* board body; 1.18 : 1 against --bg, the edge line carries the shape */
+  --board-pour: #e9dccb;        /* copper zones as a quiet tint; 1.15 : 1 */
+  --board-copper: #a8581f;      /*  4.37 : 1  /  3.81 : 1 top copper at rest */
+  --board-copper-back: #c99a74; /*  2.13 : 1 bottom copper, seen through the substrate */
+  --board-copper-dim: #dccab6;  /*  1.35 : 1 copper not in the selected signal */
+  --board-highlight: #7c3b0e;   /*  7.17 : 1  /  6.25 : 1 selected signal; 5.29 : 1 against --board-copper-dim */
+  --board-silk: #3b3a36;        /*  9.67 : 1  /  8.44 : 1 silkscreen lines and text */
+  --board-drill: var(--bg);     /* holes show the page through the board */
+  --board-edge: #86847d;        /*  3.18 : 1 on substrate, 3.74 : 1 on --bg; board outline */
+  --board-shadow: rgb(17 17 16 / 0.10);
+
   /* Type families */
   --font-display: "Instrument Serif", "Instrument Serif Fallback", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -78,9 +92,23 @@
   --focus-offset: 3px;
 
   /* Motion */
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --dur-fast: 120ms;
-  --dur: 200ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);        /* default ease-out: UI responses */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);  /* state changes that move geometry (layer spread, tilt) */
+  --ease-draw: cubic-bezier(0.33, 0, 0.2, 1);     /* stroke draw-in */
+  --dur-fast: 120ms;   /* hover, press, colour */
+  --dur: 200ms;        /* focus, small reveals, signal highlight */
+  --dur-slow: 360ms;   /* layer spread, figure tilt */
+  --dur-draw: 900ms;   /* one-time copper draw-in; with --stagger the whole draw stays <= 1.2s */
+  --stagger: 30ms;     /* per-group delay in a draw-in, at most 10 groups */
+
+  /* Technical figure geometry */
+  --figure-perspective: 1800px;
+  --figure-tilt-x: 38deg;     /* rest tilt, applied only with JS, motion allowed and width >= 720px */
+  --figure-tilt-z: -16deg;
+  --figure-scale: 0.84;       /* keeps the tilted board inside its column */
+  --layer-gap: 10px;          /* distance between layers at rest */
+  --layer-gap-spread: 44px;   /* distance when the layer control is on */
+  --layer-mid: 1.5;           /* stack centre: (layers - 1) / 2 for 4 layers */
 
   /* Layers */
   --z-nav: 10;
@@ -104,6 +132,16 @@
     --border-ui: #6e7278;       /*  3.97 : 1  /  3.68 : 1 */
     --focus: #e09a63;           /*  8.20 : 1 */
     --selection: #4a3222;       /* --ink on it 10.68 : 1 */
+
+    --board-substrate: #1b1d1c;
+    --board-pour: #2a2622;
+    --board-copper: #d08a55;      /*  6.01 : 1  /  5.32 : 1 */
+    --board-copper-back: #7d5a40; /*  2.75 : 1 */
+    --board-copper-dim: #3d342c;  /*  1.39 : 1 */
+    --board-highlight: #f0b688;   /*  9.48 : 1  /  8.40 : 1; 6.81 : 1 against --board-copper-dim */
+    --board-silk: #c9c7c0;        /* 10.02 : 1  /  8.87 : 1 */
+    --board-edge: #6e7278;        /*  3.50 : 1 on substrate, 3.97 : 1 on --bg */
+    --board-shadow: rgb(0 0 0 / 0.45);
   }
 }
 
@@ -121,11 +159,29 @@
   --border-ui: #6e7278;
   --focus: #e09a63;
   --selection: #4a3222;
+
+  --board-substrate: #1b1d1c;
+  --board-pour: #2a2622;
+  --board-copper: #d08a55;      /*  6.01 : 1  /  5.32 : 1 */
+  --board-copper-back: #7d5a40; /*  2.75 : 1 */
+  --board-copper-dim: #3d342c;  /*  1.39 : 1 */
+  --board-highlight: #f0b688;   /*  9.48 : 1  /  8.40 : 1; 6.81 : 1 against --board-copper-dim */
+  --board-silk: #c9c7c0;        /* 10.02 : 1  /  8.87 : 1 */
+  --board-edge: #6e7278;        /*  3.50 : 1 on substrate, 3.97 : 1 on --bg */
+  --board-shadow: rgb(0 0 0 / 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-fast: 0ms;
     --dur: 0ms;
+    --dur-slow: 0ms;
+    --dur-draw: 0ms;
+    --stagger: 0ms;
+    --figure-tilt-x: 0deg;
+    --figure-tilt-z: 0deg;
+    --figure-scale: 1;
+    --layer-gap: 0px;
+    --layer-gap-spread: 0px;
   }
 }

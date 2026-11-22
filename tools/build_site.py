@@ -14,10 +14,22 @@ import unicodedata
 from urllib.parse import unquote, urljoin, urlsplit
 from xml.etree import ElementTree
 
+import build_board
+
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data" / "site.json"
+BOARD_SOURCE = ROOT / "data" / "xsub" / "mcu.kicad_pcb"
 LANGS = ("en", "es")
+CHAIN_GLYPHS = {
+    "sensor": '<circle cx="15" cy="15" r="4"/><path d="M8 9a9 9 0 0 0 0 12m14 0a9 9 0 0 0 0-12M4 6a13 13 0 0 0 0 18m22 0a13 13 0 0 0 0-18"/>',
+    "board": '<rect x="3" y="5" width="24" height="20" rx="2"/><rect x="12" y="11" width="8" height="8"/><path d="M12 15H8V11m12 5h3v5M7 8h2m12 14h2"/>',
+    "firmware": '<rect x="7" y="7" width="16" height="16" rx="2"/><path d="M11 3v4m8-4v4m-8 16v4m8-4v4M3 11h4m-4 8h4m16-8h4m-4 8h4M13 12l-3 3 3 3m4-6 3 3-3 3"/>',
+    "radio": '<circle cx="15" cy="13" r="2"/><path d="M15 15v12m-5 0h10M10 7a8 8 0 0 0 0 12m10 0a8 8 0 0 0 0-12M6 4a12 12 0 0 0 0 18m18 0a12 12 0 0 0 0-18"/>',
+    "gateway": '<rect x="3" y="8" width="24" height="15" rx="2"/><path d="M8 8V4m14 4V4M7 16h3m4 0h3m7-3v5m-3-2h6"/>',
+    "cloud": '<path d="M7 22a5 5 0 0 1-1-10 8 8 0 0 1 15-3 7 7 0 0 1 1 13ZM10 25h10"/>',
+    "model": '<path d="m15 3 11 6v12l-11 6-11-6V9Zm0 12L4 9m11 6 11-6M15 27V15m-5-9 11 6"/>',
+}
 # Normalized phrase fingerprints keep excluded legacy terms out of public source.
 DENY = {
     1: {'57de4cf40144bdf7d000', '97037ff68fa8d08e57d2'},
@@ -97,7 +109,7 @@ def json_text(value):
 def section(ident, title, lang, body, classes=""):
     return (
         f'<section class="band {classes}" id="{ident}" aria-labelledby="{ident}-heading">'
-        + text(title, lang, "h2", f' id="{ident}-heading"')
+        + text(title, lang, "h2", f' id="{ident}-heading" class="section-head--trace"')
         + "\n" + body + "\n</section>"
     )
 
@@ -106,19 +118,11 @@ def page_header(title, intro, lang):
     return '<header class="page-header">' + text(title, lang, "h1") + text(intro, lang, "p") + "</header>"
 
 
-def svg_asset(path, lang):
+def svg_asset(path):
     source = (ROOT / path).read_text().strip()
     if not source.startswith("<svg") or re.search(r"<(?:script|foreignObject)\b|\bon\w+\s*=", source, re.I):
         raise ValueError(f"Unexpected markup in {path}")
-
-    return re.sub(r"<(text|tspan|title|desc)(\s[^<>]*?)?>([^<>]*)</\1>",
-                  lambda match: svg_label(match, lang), source)
-
-
-def svg_label(match, lang):
-    tag, attrs, original = match[1], match[2] or "", match[3]
-    label = re.search(rf'\bdata-{lang}="([^"]*)"', attrs)
-    return f"<{tag}{attrs}>{label[1] if label else original}</{tag}>"
+    return source
 
 
 class Site:
@@ -132,7 +136,9 @@ class Site:
         self.cases = data["cases"]
         self.pairs = [item["paths"] for item in (*self.pages.values(), *self.cases) if "paths" in item]
         self.by_path = {path: pair_paths for pair_paths in self.pairs for path in pair_paths.values()}
-        self.files = {}
+        self.board_svg, board_json = build_board.build(build_board.parse(BOARD_SOURCE.read_text(encoding="utf-8")))
+        self.board = json.loads(board_json)
+        self.files = {"assets/img/hero-board.svg": self.board_svg, "assets/img/board.json": board_json}
 
     def url(self, path):
         return urljoin(self.origin, path)
@@ -145,7 +151,7 @@ class Site:
         home = self.pages["home"]["paths"][lang]
         consult = self.pages["consult"]["paths"][lang]
         brand_label = pair(f"DDT · {self.name}")
-        mark = svg_asset("assets/img/logo.svg", lang).replace(
+        mark = svg_asset("assets/img/logo.svg").replace(
             "<svg ", '<svg class="brand-mark" aria-hidden="true" focusable="false" ', 1
         ).replace(' role="img" aria-labelledby="title"', "").replace('<title id="title">DDT</title>', "")
         brand = (
@@ -183,7 +189,7 @@ class Site:
             + text(self.name, lang) + '<div class="footer-links">' + links + "</div></div></footer>"
         )
 
-    def document(self, item, lang, body, schema=None, *, route=None, layout=""):
+    def document(self, item, lang, body, schema=None, *, route=None, layout="", interactive_board=False):
         indexed = route is None
         paths = item.get("paths", self.pages["home"]["paths"])
         path = route or paths[lang]
@@ -209,7 +215,7 @@ class Site:
 <meta property="og:url" content="{self.url(path)}">
 <meta property="og:title" content="{esc(og_title)}">
 <meta property="og:description" content="{esc(og_description)}">
-<meta property="og:image" content="{self.url('/assets/img/social.jpg')}">
+<meta property="og:image" content="{self.url('/assets/img/social-xsub.jpg')}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{esc(self.copy['social_image'][lang])}">
@@ -228,21 +234,27 @@ class Site:
             if layout == "home":
                 meta += '\n<link rel="api-catalog" href="/.well-known/api-catalog">'
         script = (ROOT / "assets/js/main.js").read_text().strip()
+        board_script = (ROOT / "assets/js/board.js").read_text().strip() if interactive_board else ""
+        board_script = f"<script>{board_script}</script>" if board_script else ""
+        stylesheets = ("assets/css/tokens.css", "assets/css/components.css", "assets/css/style.css")
+        if interactive_board:
+            # Start layout without waiting for three stylesheet responses while the inline board arrives.
+            styles = "<style>\n" + "\n".join((ROOT / path).read_text() for path in stylesheets) + "</style>"
+        else:
+            styles = "\n".join(f'<link rel="stylesheet" href="{self.asset(path)}">' for path in stylesheets)
         return f"""<!doctype html>
 <html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-{meta}
 <script>{script}</script>
+<link rel="stylesheet" href="{self.asset('assets/fonts/fonts.css')}">
 <link rel="preload" href="/assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter/inter-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+{meta}
 <link rel="icon" href="{self.asset('assets/img/favicon.svg')}" type="image/svg+xml">
-<link rel="stylesheet" href="{self.asset('assets/fonts/fonts.css')}">
-<link rel="stylesheet" href="{self.asset('assets/css/tokens.css')}">
-<link rel="stylesheet" href="{self.asset('assets/css/components.css')}">
-<link rel="stylesheet" href="{self.asset('assets/css/style.css')}">
+{styles}
 </head>
 <body class="{layout}">
 {self.nav(lang, path, alternate)}
@@ -250,6 +262,7 @@ class Site:
 {body}
 </main>
 {self.footer(lang)}
+{board_script}
 </body>
 </html>
 """
@@ -280,40 +293,182 @@ class Site:
             "knowsAbout": [item["title"][lang] for item in self.data["home"]["expertise"]],
         }
 
+    def signal_chain(self, lang):
+        chain = self.data["home"]["signal_chain"]
+
+        def diagram(size, bounds, compact=False):
+            ident = "signal-chain-" + size
+            traces = []
+            nodes = []
+            for index, item in enumerate(chain):
+                if compact:
+                    x, y, width, height = 28, 8 + index * 96, 154, 62
+                    gx, gy, lx, ly = x + 17, y + 16, x + 61, y + 31
+                    cx, cy = x + 32, y + 79
+                    trace = f"M{cx} {y + height}v34"
+                    note_pos = f'x="{cx + 16}" y="{cy}" class="chain-protocol chain-protocol--vertical"'
+                else:
+                    x, y, width, height = 14 + index * 156, 13, 100, 80
+                    gx, gy, lx, ly = x + 35, y + 12, x + 50, y + 62
+                    cx, cy = x + 128, y + 54
+                    trace = f"M{x + width} {y + 41}h9l13 13h12l13-13h9"
+                    note_pos = f'x="{cx}" y="{cy + 39}" class="chain-protocol"'
+                if index < len(chain) - 1:
+                    traces.append(
+                        '<g class="chain-trace" aria-hidden="true">'
+                        f'<path d="{trace}"/><circle cx="{cx}" cy="{cy}" r="4.5"/></g>'
+                    )
+                    if protocol := item.get("protocol"):
+                        traces.append(f'<text {note_pos}>{esc(protocol)}</text>')
+                label = text(item["label"], lang, "text", f' x="{lx}" y="{ly}" class="chain-label"')
+                nodes.append(
+                    f'<a href="#{esc(item["target"])}"{alt_attrs(item["label"], lang)}>'
+                    f'<rect class="chain-node" x="{x}" y="{y}" width="{width}" height="{height}" rx="5"/>'
+                    f'<g class="chain-glyph" transform="translate({gx} {gy})" aria-hidden="true">'
+                    + CHAIN_GLYPHS[item["stage"]] + "</g>"
+                    + label + '</a>'
+                )
+            caption = text(self.copy["signal_chain"], lang, "title", f' id="{ident}"')
+            return (
+                f'<svg class="signal-chain signal-chain--{size}" viewBox="0 0 {bounds[0]} {bounds[1]}" '
+                f'role="group" aria-labelledby="{ident}">'
+                + caption + "".join(traces) + "".join(nodes) + "</svg>"
+            )
+
+        return diagram("wide", (1064, 120)) + diagram("compact", (230, 654), compact=True)
+
+    def spec_table(self, rows, lang):
+        entries = "".join(
+            "<tr>" + text(row["label"], lang, "th", ' scope="row"') + text(row["value"], lang, "td") + "</tr>"
+            for row in rows
+        )
+        return (
+            '<table class="spec-table">'
+            + text(self.copy["specifications"], lang, "caption")
+            + "<tbody>" + entries + "</tbody></table>"
+        )
+
+    def board_values(self, lang):
+        spec = self.board["spec"]
+        sep = "," if lang == "es" else "."
+        return {
+            **spec,
+            "width_mm": f'{spec["width_mm"]:.1f}'.replace(".", sep),
+            "height_mm": f'{spec["height_mm"]:.1f}'.replace(".", sep),
+        }
+
+    def board_specs(self):
+        values = {lang: self.board_values(lang) for lang in LANGS}
+        rows = []
+        for key, label in self.data["board"]["specs"].items():
+            if key == "dimensions":
+                display = {lang: "{width_mm} × {height_mm} mm".format(**values[lang]) for lang in LANGS}
+            else:
+                display = {lang: str(values[lang][key]) for lang in LANGS}
+            rows.append({"label": label, "value": display})
+        return rows
+
+    def board_figure(self, lang, *, case=False):
+        copy = self.data["board"]
+        values = {locale: self.board_values(locale) for locale in LANGS}
+        desc = {locale: copy["description"][locale].format(**values[locale]) for locale in LANGS}
+        caption = {locale: copy["caption"][locale].format(**values[locale]) for locale in LANGS}
+        svg = ElementTree.fromstring(self.board_svg)
+        _, _, width, height = svg.attrib["viewBox"].split()
+        ns = "http://www.w3.org/2000/svg"
+        ElementTree.register_namespace("", ns)
+        svg_style = ElementTree.tostring(svg.find(f"{{{ns}}}style"), encoding="unicode")
+        layer_sets = {
+            "substrate": (("substrate", "zones", "drill", "Edge.Cuts"), 0),
+            "B.Cu": (("B.Cu",), 1),
+            "F.Cu": (("F.Cu",), 2),
+            "F.SilkS": (("F.SilkS",), 3),
+        }
+        layers_by_name = {layer.attrib["data-layer"]: layer for layer in svg.findall(f"{{{ns}}}g")}
+        layers = "".join(
+            f'<svg class="board xsub-board tech-layer" viewBox="{svg.attrib["viewBox"]}" '
+            f'data-layer="{plane}" style="--i:{depth}" '
+            'aria-hidden="true" focusable="false">'
+            + (svg_style if depth == 0 else "")
+            + "".join(
+                f'<g id="board-preview-{layer}" class="xsub-board">'
+                + ElementTree.tostring(layers_by_name[layer], encoding="unicode") + "</g>"
+                for layer in names
+            )
+            + "</svg>"
+            for plane, (names, depth) in layer_sets.items()
+        )
+        groups = self.board["signals"]
+        if set(groups) != set(copy["groups"]):
+            raise ValueError("The board signal groups and bilingual copy must match")
+        selected = (
+            '<li><button type="button" class="signal" data-signal="" aria-pressed="true">'
+            + text(copy["all"], lang, "span", ' class="signal-label"') + "</button></li>"
+        )
+        legend = ""
+        for group, nets in groups.items():
+            item = copy["groups"][group]
+            selected += (
+                f'<li><button type="button" class="signal" data-signal="{esc(group)}" '
+                f'data-nets="{esc(" ".join(nets))}" data-note="{esc(item["sentence"][lang])}" aria-pressed="false">'
+                + text(item["label"], lang, "span", ' class="signal-label"')
+                + f'<span class="signal-nets" aria-hidden="true">{esc(item["tag"])}</span>'
+                + "</button></li>"
+            )
+            legend += "<div>" + text(item["label"], lang, "dt") + text(item["sentence"], lang, "dd") + "</div>"
+        specs = self.board_specs()
+        plate = self.spec_table(specs, lang) if case else (
+            '<dl class="spec-plate"' + alt_attrs(copy["spec_label"], lang) + '>'
+            + "".join("<div>" + text(row["label"], lang, "dt") + text(row["value"], lang, "dd") + "</div>"
+                      for row in specs) + "</dl>"
+        )
+        classes = "tech-figure tech-figure--case" if case else "tech-figure tech-figure--hero"
+        return (
+            f'<figure class="{classes}" aria-labelledby="board-caption">'
+            + f'<div class="tech-stage"><div id="board-stack" class="tech-board" style="aspect-ratio:{width}/{height}" role="img"'
+            + alt_attrs(copy["title"], lang) + ' aria-describedby="board-desc">'
+            + build_board.LICENCE + layers + "</div>"
+            + text(desc, lang, "p", ' id="board-desc" class="visually-hidden"') + "</div>"
+            + '<div class="tech-panel board-interactive">'
+            + text(copy["trace"], lang, "h2", ' id="board-signals" class="board-label"')
+            + '<ul class="signal-list" aria-labelledby="board-signals">' + selected + "</ul>"
+            + text(copy["rest"], lang, "p", ' class="signal-note"')
+            + '<p class="signal-status visually-hidden" role="status" aria-atomic="true"></p>'
+            + "</div>"
+            + '<figcaption><div id="board-caption">' + text(caption, lang)
+            + '<span class="board-sources">' + link(copy["source_label"], lang, copy["source_url"])
+            + link(copy["license_label"], lang, copy["license_url"]) + "</span></div>"
+            + '<button type="button" class="btn btn-secondary board-interactive board-layers" '
+            + f'data-spread data-stack-label="{esc(copy["stack"][lang])}" aria-controls="board-stack">'
+            + text(copy["layers"], lang)
+            + "</button></figcaption>"
+            + '<div class="board-specs">' + plate + "</div>"
+            + '<details class="board-legend">' + text(copy["trace"], lang, "summary")
+            + "<dl>" + legend + "</dl></details></figure>"
+        )
+
     def home(self, lang):
         content = self.data["home"]
         home = self.pages["home"]["paths"][lang]
         consult = self.pages["consult"]["paths"][lang]
-        art = content["illustration"]
-        board = svg_asset("assets/img/hero-board.svg", lang)
-        board = re.sub(r"<metadata>(.*?)</metadata>", r"<!--\1-->", board, flags=re.S)
         hero = (
             '<section class="hero" aria-labelledby="hero-heading">'
             + text(content["roleline"], lang, "p", ' class="hero-name"')
             + '<h1 id="hero-heading">' + text(content["headline"], lang) + " "
             + text(content["headline_end"], lang, "em") + "</h1>"
-            + '<figure class="board-figure"><div class="board-stage">'
-            + board
-            + '</div><figcaption>'
-            + link(art["caption"], lang, art["url"])
-            + link(art["credit_label"], lang, art["license_url"], "board-credit")
-            + "</figcaption></figure>"
             + text(content["intro"], lang, "p", ' class="hero-intro"')
             + text(content["availability"], lang, "p", ' class="hero-availability"')
             + '<div class="actions">' + link(self.copy["view_consult"], lang, consult, "btn btn-primary")
             + link(self.copy["view_work"], lang, "#work", "btn btn-secondary")
-            + "</div></section>"
+            + "</div>" + self.board_figure(lang) + "</section>"
         )
         proof = '<dl class="proof-strip">' + "".join(
             "<div>" + text(item["value"], lang, "dt") + text(item["label"], lang, "dd") + "</div>"
             for item in content["proof"]
         ) + "</dl>"
-        work_cards = "".join(
-            self.card(case["title"], case["intro"], lang, case["paths"][lang])
-            for case in self.cases
-        )
+        work_cards = "".join(self.case_card(case, lang) for case in self.cases)
         practice = "".join(
-            '<li>' + text(item["title"], lang, "h3") + text(item["body"], lang, "p") + "</li>"
+            f'<li id="{esc(item["id"])}">' + text(item["title"], lang, "h3") + text(item["body"], lang, "p") + "</li>"
             for item in content["selected"]
         )
         work = section(
@@ -326,7 +481,9 @@ class Site:
             + text(item["body"], lang, "p") + "</div></li>"
             for item in content["experience"]
         ) + "</ol>"
-        expertise = "".join(self.card(item["title"], item["body"], lang) for item in content["expertise"])
+        expertise = self.signal_chain(lang) + '<div class="card-grid">' + "".join(
+            self.card(item["title"], item["body"], lang, ident=item["id"]) for item in content["expertise"]
+        ) + '</div>'
         projects = "".join(
             f'<li>{link(item["title"], lang, item["url"])}{text(item["body"], lang, "p")}</li>'
             for item in content["projects"]
@@ -348,7 +505,7 @@ class Site:
             hero, proof, section("offer", self.copy["consult"], lang, offer),
             work, section("about", self.copy["about"], lang, about),
             section("experience", self.copy["experience"], lang, experience),
-            section("expertise", self.copy["expertise"], lang, f'<div class="card-grid">{expertise}</div>'),
+            section("expertise", self.copy["expertise"], lang, expertise),
             section("projects", self.copy["open_source"], lang, f'<ul class="project-list">{projects}</ul>'),
             section("contact", self.copy["contact"], lang, contact),
         ))
@@ -356,12 +513,29 @@ class Site:
                    "url": self.url(home), "name": self.pages["home"]["meta"]["title"][lang],
                    "inLanguage": lang, "mainEntity": {"@id": self.url("/#person")}}
         return self.document(self.pages["home"], lang, body,
-                             {"@graph": [profile, self.person(lang)]}, layout="home")
+                             {"@graph": [profile, self.person(lang)]}, layout="home", interactive_board=True)
 
-    def card(self, title, body, lang, url=None):
+    def case_card(self, case, lang):
+        if case.get("board"):
+            art = (
+                '<svg class="work-board xsub-board" viewBox="278 60 580 322" preserveAspectRatio="xMidYMid slice" '
+                'aria-hidden="true" focusable="false">'
+                + "".join(f'<use href="#board-preview-{layer}"/>'
+                          for layer in ("substrate", "zones", "B.Cu", "F.Cu", "F.SilkS", "drill", "Edge.Cuts"))
+                + "</svg>"
+            )
+        else:
+            art = '<dl class="work-figures">' + "".join(
+                "<div>" + text(row["label"], lang, "dt") + text(row["value"], lang, "dd") + "</div>"
+                for row in case.get("specs", ()) if row.get("featured")
+            ) + "</dl>"
+        return self.card(case["title"], case["intro"], lang, case["paths"][lang], visual=art)
+
+    def card(self, title, body, lang, url=None, *, ident=None, visual=""):
         heading = f'<h3>{link(title, lang, url, "card-link")}</h3>' if url else text(title, lang, "h3")
         action = text(self.copy["read_note"], lang, attrs=' class="note-action" aria-hidden="true"') if url else ""
-        return '<article class="card">' + heading + text(body, lang, "p") + action + "</article>"
+        target = f' id="{esc(ident)}"' if ident else ""
+        return f'<article class="card"{target}>' + heading + visual + text(body, lang, "p") + action + "</article>"
 
     def offer(self, tier, lang):
         label = {language: self.copy["pay"][language].format(price=tier["price"]) for language in LANGS}
@@ -419,6 +593,8 @@ class Site:
             + page_header(item["title"], item["intro"], lang)
             + text(self.copy["by"], lang, "p", ' class="byline"')
         )
+        if item.get("board"):
+            body += self.board_figure(lang, case=True)
         if image:
             alt = image["alt"]
             responsive = ""
@@ -430,12 +606,14 @@ class Site:
             body += (
                 f'<figure class="case-figure"><img src="{esc(image["path"])}" alt="{esc(alt[lang])}"'
                 + responsive
-                + f' width="{image["width"]}" height="{image["height"]}" decoding="async" fetchpriority="high"'
+                + f' width="{image["width"]}" height="{image["height"]}" decoding="async" loading="lazy"'
                 f' data-alt-en="{esc(alt["en"])}" data-alt-es="{esc(alt["es"])}">'
                 + text(image["caption"], lang, "figcaption") + "</figure>"
             )
+        if item.get("specs"):
+            body += self.spec_table(item["specs"], lang)
         for block in item["blocks"]:
-            body += text(block["heading"], lang, "h2")
+            body += text(block["heading"], lang, "h2", ' class="section-head--trace"')
             body += "".join(case_prose(value, lang) for value in block["paragraphs"])
         body += text(self.copy["sources"], lang, "h2") + "<ul>" + "".join(
             f'<li>{link(item["label"], lang, item["url"])}</li>' for item in item["sources"]
@@ -446,11 +624,11 @@ class Site:
             "@type": "Article", "@id": url + "#article", "mainEntityOfPage": url,
             "headline": item["title"][lang], "description": item["intro"][lang], "inLanguage": lang,
             "datePublished": item["date_published"], "dateModified": self.data["last_updated"],
-            "image": self.url(image["path"] if image else "/assets/img/social.jpg"),
+            "image": self.url(image["path"] if image else "/assets/img/social-xsub.jpg"),
             "author": {"@type": "Person", "@id": self.url("/#person"), "name": self.name},
             "citation": [source["url"] for source in item["sources"]],
         }
-        return self.document(item, lang, body, article, layout="case")
+        return self.document(item, lang, body, article, layout="case", interactive_board=item.get("board", False))
 
     def privacy(self, lang):
         data = self.data["privacy"]
@@ -552,6 +730,10 @@ class Site:
     def case_markdown(self, item, lang):
         lines = [f'# {item["title"][lang]}', item["intro"][lang],
                  f'<{self.url(item["paths"][lang])}>']
+        specs = self.board_specs() if item.get("board") else item.get("specs")
+        if specs:
+            lines.append(f'## {self.copy["specifications"][lang]}')
+            lines.extend(f'- {row["label"][lang]} — {row["value"][lang]}' for row in specs)
         for block in item["blocks"]:
             lines.extend((f'## {block["heading"][lang]}', *[p[lang] for p in block["paragraphs"]]))
         lines.append(f'## {self.copy["sources"][lang]}')

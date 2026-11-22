@@ -1,0 +1,103 @@
+{
+  "spec": {
+    "width_mm": 93.075,
+    "height_mm": 53.875,
+    "copper_layers": 2,
+    "footprints": 46,
+    "nets": 39,
+    "segments": 457,
+    "vias": 33,
+    "mcu": "MCF51QE128CLH",
+    "zones": 8,
+    "filled_polygons": 18
+  },
+  "signals": {
+    "imu": [
+      "SCL",
+      "SDA"
+    ],
+    "thrusters": [
+      "M1_ESC",
+      "M2_ESC",
+      "M3_ESC",
+      "M4_ESC"
+    ],
+    "depth": [
+      "P_OUT",
+      "NetOPAMP_1_3",
+      "ADC_PRESSURE_3.3V"
+    ],
+    "ingress": [
+      "PRESENCIAAGUA1",
+      "PRESENCIAAGUA2",
+      "NetPres_Agua1_2",
+      "NetPres_Agua2_2"
+    ],
+    "camera": [
+      "S_PANCAMERA",
+      "S_TILTCAMERA"
+    ],
+    "serial": [
+      "TXSERIALCOM",
+      "RXSERIALCOM",
+      "TXSERIALCOM2",
+      "RXSERIALCOM2"
+    ],
+    "lights": [
+      "LEDLIGHT1",
+      "LEDLIGHT2"
+    ],
+    "battery": [
+      "AD5_BAT",
+      "NetBatR1_2"
+    ],
+    "power": [
+      "+3.3V",
+      "+5V",
+      "GND",
+      "+V_SERVO",
+      "+V_SERVO_IN"
+    ]
+  },
+  "nets": [
+    "+3.3V",
+    "+5V",
+    "+V_SERVO",
+    "+V_SERVO_IN",
+    "AD1",
+    "AD2",
+    "AD3",
+    "AD4",
+    "AD5_BAT",
+    "ADC_PRESSURE_3.3V",
+    "BKGD",
+    "GND",
+    "LEDLIGHT1",
+    "LEDLIGHT2",
+    "M1_ESC",
+    "M2_ESC",
+    "M3_ESC",
+    "M4_ESC",
+    "NetBatR1_2",
+    "NetLED_sMCU_OK_2",
+    "NetLED_sPC_OK_2",
+    "NetOPAMP_1_3",
+    "NetPres_Agua1_2",
+    "NetPres_Agua2_2",
+    "PRESENCIAAGUA1",
+    "PRESENCIAAGUA2",
+    "P_OUT",
+    "RESET",
+    "RXSERIALCOM",
+    "RXSERIALCOM2",
+    "SCL",
+    "SCOM_IN",
+    "SDA",
+    "SMCU_OK",
+    "SPC_OK",
+    "S_PANCAMERA",
+    "S_TILTCAMERA",
+    "TXSERIALCOM",
+    "TXSERIALCOM2"
+  ]
+}

@@ -9,7 +9,7 @@
         // Theme selection still works without storage.
     }
 
-    root.classList.add('theme-ready');
+    root.classList.add('theme-ready', 'js');
     document.addEventListener('DOMContentLoaded', () => {
         const toggle = document.querySelector('#theme-toggle');
         const preference = window.matchMedia('(prefers-color-scheme: dark)');

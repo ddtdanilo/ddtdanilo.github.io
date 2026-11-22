@@ -50,7 +50,7 @@ My master’s studies in electronics are at Universidad Simón Bolívar, with th
 
 - IoT connectivity — MQTT, LoRa, BLE, Wi-Fi, cellular and industrial telemetry.
 
-- Cloud and APIs — AWS architecture, serverless computing and infrastructure as code.
+- Cloud and APIs — AWS architecture, serverless pipelines, telemetry data models and infrastructure as code.
 
 - Engineering leadership — Technical direction, product roadmaps and team development.
 
@@ -166,6 +166,22 @@ A degree-project archive brings together custom acquisition boards, embedded fir
 
 <https://ddtdanilo.github.io/work/xsub-telemetry.html>
 
+## Project specifications
+
+- MCU — MCF51QE128CLH
+
+- Board — 93.1 × 53.9 mm
+
+- Copper layers — 2
+
+- Footprints — 46
+
+- Named nets — 39
+
+- Track segments — 457
+
+- Vias — 33
+
 ## The problem
 
 An underwater remotely operated vehicle (ROV) concentrates every boundary problem found in industrial IoT inside a sealed pressure housing. Sensors on different electrical buses must be sampled reliably, actuator commands must reach thrusters and lighting without jitter, power distribution has to survive inductive motor loads, and a single serial link between the embedded controller and the onboard computer has to carry both telemetry and teleoperation frames cleanly.
@@ -218,6 +234,18 @@ Good embedded engineering is as much about knowing where a design stops being sa
 The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.
 
 <https://ddtdanilo.github.io/work/altium-pcb-library.html>
+
+## Project specifications
+
+- Schematic symbols — 81
+
+- PCB footprints — 106
+
+- Automated CI checks — 6 deterministic checks
+
+- Altium review — 4-part datasheet checklist
+
+- License — CERN-OHL-P-2.0
 
 ## The problem
 
@@ -274,6 +302,8 @@ Reliability in connected hardware starts with boring, repeatable habits: version
 
 - [Validation guide](https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md)
 
+- [Library manifest](https://github.com/ddtdanilo/Personal-Altium-Library/blob/main/library-manifest.json)
+
 ---
 
 # Danilo Díaz Tarascó
@@ -328,7 +358,7 @@ Cursé estudios de maestría en electrónica en la Universidad Simón Bolívar y
 
 - Conectividad IoT — MQTT, LoRa, BLE, Wi-Fi, redes celulares y telemetría industrial.
 
-- Nube y APIs — Arquitectura en AWS, servicios serverless e infraestructura como código.
+- Nube y APIs — Arquitectura en AWS, servicios serverless, modelos de datos de telemetría e infraestructura como código.
 
 - Liderazgo técnico — Dirección técnica, planes de desarrollo y formación de equipos.
 
@@ -444,6 +474,22 @@ Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una aud
 
 <https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html>
 
+## Especificaciones del proyecto
+
+- MCU — MCF51QE128CLH
+
+- Tarjeta — 93,1 × 53,9 mm
+
+- Capas de cobre — 2
+
+- Footprints — 46
+
+- Redes — 39
+
+- Segmentos — 457
+
+- Vías — 33
+
 ## El problema
 
 Un vehículo submarino teleoperado (ROV) concentra dentro de una carcasa sellada casi todos los retos de frontera que aparecen en el IoT industrial. Sensores en distintos buses eléctricos deben muestrearse con consistencia, los comandos de actuadores deben llegar a los propulsores e iluminación sin jitter, la distribución de potencia tiene que convivir con cargas inductivas y un único enlace serial entre el microcontrolador y la computadora a bordo debe transportar telemetría y comandos con claridad.
@@ -497,6 +543,18 @@ La librería combina verificaciones automáticas de los archivos binarios de Alt
 
 <https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html>
 
+## Especificaciones del proyecto
+
+- Símbolos esquemáticos — 81
+
+- Footprints PCB — 106
+
+- Controles automatizados de CI — 6 verificaciones deterministas
+
+- Revisión en Altium — Lista de 4 puntos basada en datasheets
+
+- Licencia — CERN-OHL-P-2.0
+
 ## El problema
 
 Una proporción alta de los respins costosos de PCB empieza mucho antes del ruteo: nace en la librería de componentes. Un pin invertido en un símbolo esquemático, una marca de pin 1 espejada, un taladro subdimensionado en un conector de potencia o un land pattern descargado sin verificar pueden convertir dos semanas de fabricación en tarjetas inservibles.
@@ -520,7 +578,7 @@ Como la automatización en CI no reemplaza el ojo de un ingeniero electrónico r
 
 ### Capa 1: Integridad automática del repositorio (CI)
 
-Ejecutar `python3 scripts/validate_repository.py` en local y en GitHub Actions (`quality.yml`) aplica seis controles determinísticos en cada push y pull request:
+Ejecutar `python3 scripts/validate_repository.py` en local y en GitHub Actions (`quality.yml`) aplica seis verificaciones deterministas en cada push y pull request:
 
 1. Existen los archivos requeridos de proyecto, licencia y aviso de ingeniería.
 2. Tanto `.SchLib` como `.PcbLib` conservan firmas válidas de archivo compuesto binario (detectando de inmediato commits truncados o corruptos).
@@ -533,7 +591,7 @@ Cuando un componente se agrega o modifica intencionalmente, `scripts/update_mani
 
 ### Capa 2: Compuerta manual de ingeniería en Altium
 
-Antes de aceptar un símbolo o footprint modificado, `docs/VALIDATION.md` exige un checklist de cuatro partes dentro de Altium:
+Antes de aceptar un símbolo o footprint modificado, `docs/VALIDATION.md` exige un lista de 4 puntos dentro de Altium:
 
 - **Integridad de librería:** Abrir y guardar ambas librerías sin advertencias de conversión o reparación y correr las validaciones internas.
 - **Revisión de esquemático:** Contrastar cada número de pin, nombre, tipo eléctrico, pin oculto de alimentación, designador y vínculo de footprint directamente contra el datasheet vigente del fabricante.
@@ -551,3 +609,5 @@ La confiabilidad en hardware conectado empieza por hábitos sobrios y repetibles
 - [Inventario](https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/INVENTORY.md)
 
 - [Guía de validación](https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md)
+
+- [Manifiesto de la librería](https://github.com/ddtdanilo/Personal-Altium-Library/blob/main/library-manifest.json)

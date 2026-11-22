@@ -50,7 +50,7 @@ My master’s studies in electronics are at Universidad Simón Bolívar, with th
 
 - IoT connectivity — MQTT, LoRa, BLE, Wi-Fi, cellular and industrial telemetry.
 
-- Cloud and APIs — AWS architecture, serverless computing and infrastructure as code.
+- Cloud and APIs — AWS architecture, serverless pipelines, telemetry data models and infrastructure as code.
 
 - Engineering leadership — Technical direction, product roadmaps and team development.
 

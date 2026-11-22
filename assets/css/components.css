@@ -843,6 +843,372 @@ a {
   color: var(--ink);
 }
 
+/* ---------- Section rule: a copper trace ending in a via ---------- */
+
+/* Static drawing, decorative: <hr class="trace-rule"> or on .section-head. */
+.trace-rule,
+.section-head--trace::after {
+  display: block;
+  position: relative;
+  height: 10px;
+  margin: 0;
+  border: 0;
+  background:
+    radial-gradient(circle at calc(100% - 5px) 50%, var(--bg) 0 2px, var(--board-copper) 2.5px 5px, transparent 5.5px) no-repeat,
+    linear-gradient(var(--board-copper), var(--board-copper)) left 50% / calc(100% - 9px) 2px no-repeat;
+}
+
+.section-head--trace::after {
+  content: "";
+  width: min(160px, 40%);
+  margin-top: var(--s-2);
+}
+
+/* ---------- Technical figure (the board, its controls and its specs) ---------- */
+
+/*
+ * Markup contract
+ * <figure class="tech-figure" aria-labelledby="…">
+ *   <div class="tech-stage">
+ *     <div class="tech-board">            stacked layers, bottom first
+ *       <svg class="tech-layer" data-layer="substrate" viewBox="…">…</svg>
+ *       <svg class="tech-layer" data-layer="B.Cu" style="--i: 1">…</svg>
+ *       <svg class="tech-layer" data-layer="F.Cu" style="--i: 2">… <g data-net="SCL">…</g> …</svg>
+ *       <svg class="tech-layer" data-layer="F.SilkS" style="--i: 3">…</svg>
+ *     </div>
+ *   </div>
+ *   <div class="tech-panel"> .signal-list, .signal-note, .segmented, .spec-plate </div>
+ *   <figcaption>…</figcaption>
+ * </figure>
+ * One SVG with all layers is also valid: it renders flat (no spread).
+ * State: JS sets data-lit="<group>" on .tech-figure and .is-lit on matching
+ * [data-net] groups; data-spread on .tech-figure spreads the layers.
+ * Without JS, or with reduced motion, the board is flat and complete.
+ */
+.tech-figure {
+  display: grid;
+  gap: var(--s-6);
+  margin: 0;
+  color: var(--ink);
+}
+
+@media (min-width: 960px) {
+  .tech-figure {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+    align-items: center;
+  }
+
+  .tech-figure > figcaption {
+    grid-column: 1 / -1;
+  }
+}
+
+.tech-stage {
+  min-width: 0;
+  padding: var(--s-5) 0;
+  isolation: isolate;
+}
+
+.tech-board {
+  display: grid;
+  transform-style: preserve-3d;
+}
+
+.tech-board > .tech-layer {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  /* Layers are pictures: when spread they overlap neighbouring content and
+     must never take its clicks. */
+  pointer-events: none;
+}
+
+/* Tilt and layer depth: only with JS, room and motion allowed. */
+@media (min-width: 720px) and (prefers-reduced-motion: no-preference) {
+  .js .tech-stage {
+    perspective: var(--figure-perspective);
+    /* Room for the spread stack above and below the board. */
+    padding-block: max(var(--s-5), calc(var(--layer-mid) * var(--layer-gap-spread)));
+  }
+
+  .js .tech-board {
+    transform: scale(var(--figure-scale)) rotateX(var(--figure-tilt-x)) rotateZ(var(--figure-tilt-z));
+    transition: transform var(--dur-slow) var(--ease-in-out);
+  }
+
+  /* Depth is centred on the middle of the stack (--layer-mid), so spreading
+     grows the board both ways instead of lifting it into the content above. */
+  .js .tech-board > .tech-layer {
+    transform: translateZ(calc((var(--i, 0) - var(--layer-mid)) * var(--layer-gap)));
+    transition: transform var(--dur-slow) var(--ease-in-out), opacity var(--dur) var(--ease);
+  }
+
+  .js .tech-figure[data-spread] .tech-board > .tech-layer {
+    transform: translateZ(calc((var(--i, 0) - var(--layer-mid)) * var(--layer-gap-spread)));
+  }
+
+  .js .tech-board > .tech-layer[data-layer="substrate"] {
+    filter: drop-shadow(0 18px 24px var(--board-shadow));
+  }
+}
+
+/* Layer isolation works flat too: data-layer-only="F.Cu" hides the others. */
+.tech-figure[data-layer-only] .tech-layer:not([data-layer="substrate"]) {
+  opacity: 0.12;
+}
+
+.tech-figure[data-layer-only="B.Cu"] .tech-layer[data-layer="B.Cu"],
+.tech-figure[data-layer-only="F.Cu"] .tech-layer[data-layer="F.Cu"],
+.tech-figure[data-layer-only="F.SilkS"] .tech-layer[data-layer="F.SilkS"] {
+  opacity: 1;
+}
+
+/* Net colouring. The SVG paints copper with var(--net-color, var(--board-copper)). */
+.tech-figure [data-layer="B.Cu"] {
+  --net-color: var(--board-copper-back);
+}
+
+.tech-figure [data-net] {
+  transition: stroke var(--dur) var(--ease), fill var(--dur) var(--ease);
+}
+
+.tech-figure[data-lit] [data-net] {
+  --net-color: var(--board-copper-dim);
+}
+
+.tech-figure[data-lit] [data-net].is-lit {
+  --net-color: var(--board-highlight);
+}
+
+/* One-time copper draw-in. Track paths carry pathLength="1". */
+@media (prefers-reduced-motion: no-preference) {
+  .js .tech-figure[data-draw] [data-layer="F.Cu"] [data-net] path[pathLength] {
+    stroke-dasharray: 1;
+    animation: trace-draw var(--dur-draw) var(--ease-draw) both;
+    animation-delay: calc(var(--g, 0) * var(--stagger));
+  }
+}
+
+@keyframes trace-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (forced-colors: active) {
+  .tech-figure[data-lit] [data-net] { --net-color: GrayText; }
+  .tech-figure[data-lit] [data-net].is-lit { --net-color: Highlight; }
+}
+
+.tech-figure > figcaption {
+  color: var(--ink-subtle);
+  font-size: var(--text-sm);
+}
+
+/* ---------- Signal list ---------- */
+
+/* <ul class="signal-list"><li><button type="button" class="signal" aria-pressed="false">
+     <span class="signal-label">Thrusters</span><span class="signal-nets">M1_ESC – M4_ESC</span>
+   </button></li></ul>
+   <p class="signal-note" aria-live="polite"></p> */
+.tech-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--s-5);
+  min-width: 0;
+}
+
+.signal-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--hairline) solid var(--border);
+}
+
+.signal {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: var(--s-3);
+  width: 100%;
+  min-height: var(--target-min);
+  padding: var(--s-2) var(--s-3);
+  border: 0;
+  border-bottom: var(--hairline) solid var(--border);
+  border-left: 2px solid transparent;
+  background: none;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: var(--text-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease);
+}
+
+.signal:hover {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.signal[aria-pressed="true"] {
+  border-left-color: var(--board-highlight);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: var(--weight-medium);
+}
+
+.signal-nets {
+  color: var(--ink-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-regular);
+  white-space: nowrap;
+}
+
+.signal-note {
+  min-height: calc(2 * var(--leading-body) * 1em);
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+/* ---------- Segmented control (layers, theme in references) ---------- */
+
+.segmented {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: var(--hairline) solid var(--border-ui);
+  border-radius: var(--radius-pill);
+}
+
+.segmented button {
+  min-height: 36px;
+  padding: 0 var(--s-3);
+  white-space: nowrap;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.segmented button:hover {
+  color: var(--ink);
+}
+
+.segmented button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ---------- Spec plate ---------- */
+
+/* <dl class="spec-plate"><div><dt>Board</dt><dd>93.07 × 53.87 mm</dd></div>…</dl>
+   Real, derived figures only. Labels in the text face, values in mono. */
+.spec-plate {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 104px), 1fr));
+  gap: var(--s-4) var(--s-5);
+  margin: 0;
+  padding: var(--s-4) var(--s-5);
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.spec-plate dt {
+  color: var(--ink-subtle);
+  font-size: var(--text-xs);
+}
+
+.spec-plate dd {
+  margin: 2px 0 0;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Spec table for case notes: same voice as the plate, as a real table. */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.spec-table th,
+.spec-table td {
+  padding: var(--s-2) var(--s-3);
+  border-bottom: var(--hairline) solid var(--border);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.spec-table th {
+  width: 40%;
+  color: var(--ink-subtle);
+  font-weight: var(--weight-regular);
+}
+
+.spec-table td {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Interaction intent ---------- */
+
+/* Small, consistent physical responses. Transforms still apply under reduced
+   motion but without transition, so nothing slides. */
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  outline-offset: 4px;
+}
+
+.card:has(a.card-link) {
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur) var(--ease);
+}
+
+.card:has(a.card-link):hover {
+  transform: translateY(-2px);
+}
+
+.prose a,
+.link {
+  transition: color var(--dur-fast) var(--ease), text-decoration-thickness var(--dur-fast) var(--ease);
+}
+
+/* ---------- Page transitions ---------- */
+
+/* Cross-document view transitions: progressive, no JS, off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: var(--dur);
+    animation-timing-function: var(--ease);
+  }
+
+  .site-header {
+    view-transition-name: site-header;
+  }
+}
+
 /* ---------- Motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {

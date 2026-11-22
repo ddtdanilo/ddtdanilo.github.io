@@ -259,6 +259,14 @@
     "price": {
       "en": "USD {price}",
       "es": "{price} USD"
+    },
+    "signal_chain": {
+      "en": "End-to-end industrial IoT signal chain",
+      "es": "Cadena de señal completa de IoT industrial"
+    },
+    "specifications": {
+      "en": "Project specifications",
+      "es": "Especificaciones del proyecto"
     }
   },
   "cases": [
@@ -392,7 +400,8 @@
         },
         "small_path": "/assets/img/lab/rov-telemetry-board-480.webp"
       },
-      "date_published": "2026-11-22"
+      "date_published": "2026-11-22",
+      "board": true
     },
     {
       "paths": {
@@ -458,7 +467,7 @@
           "paragraphs": [
             {
               "en": "Because CI cannot replace an electrical engineer inspecting copper geometry in Altium, `docs/VALIDATION.md` separates what machines can guarantee from what requires human review in the EDA tool.\n\n### Layer 1: Automated repository integrity (CI)\n\nRunning `python3 scripts/validate_repository.py` locally and in GitHub Actions (`quality.yml`) enforces six deterministic checks on every push and pull request:\n\n1. Required project, licensing, and engineering-notice files exist.\n2. Both `.SchLib` and `.PcbLib` carry valid compound-file binary signatures (catching truncated or text-corrupted commits immediately).\n3. File byte sizes and SHA-256 checksums match `library-manifest.json` exactly.\n4. Declared symbol (81) and footprint (106) counts match the tracked inventory in `docs/INVENTORY.md`.\n5. Local Markdown documentation links resolve cleanly.\n6. Common generated artifacts, Altium backups, and autosave files are blocked from entering Git.\n\nWhen a component is intentionally added or edited, `scripts/update_manifest.py` refreshes the manifest — and the policy explicitly forbids blindly accepting a regenerated hash without verifying that only intended library entries changed.\n\n### Layer 2: Manual Altium engineering gate\n\nBefore any modified symbol or footprint is accepted, `docs/VALIDATION.md` defines a four-part Altium review checklist:\n\n- **Library integrity:** Open and save both libraries without conversion or repair warnings and run built-in library checks.\n- **Schematic review:** Verify every pin number, name, electrical type, hidden power pin, designator, and footprint link directly against the current manufacturer datasheet.\n- **Footprint review:** Check pad geometry, numbering, drill sizes, thermal pads, solder mask, paste, silkscreen, courtyard, pin-1 indicator, and 3D body height against the manufacturer's recommended land pattern and fabricator tolerances.\n- **Integration review:** Place the symbol in a temporary schematic, push it to a temporary PCB, verify all pin-to-pad mappings, run ERC and DRC, and inspect both board sides in 2D and 3D.",
-              "es": "Como la automatización en CI no reemplaza el ojo de un ingeniero electrónico revisando cobre en Altium, `docs/VALIDATION.md` separa lo que la máquina puede garantizar de lo que exige revisión manual dentro de la herramienta EDA.\n\n### Capa 1: Integridad automática del repositorio (CI)\n\nEjecutar `python3 scripts/validate_repository.py` en local y en GitHub Actions (`quality.yml`) aplica seis controles determinísticos en cada push y pull request:\n\n1. Existen los archivos requeridos de proyecto, licencia y aviso de ingeniería.\n2. Tanto `.SchLib` como `.PcbLib` conservan firmas válidas de archivo compuesto binario (detectando de inmediato commits truncados o corruptos).\n3. Los tamaños en bytes y checksums SHA-256 coinciden exactamente con `library-manifest.json`.\n4. Los conteos declarados (81 símbolos y 106 footprints) coinciden con el inventario en `docs/INVENTORY.md`.\n5. Todos los enlaces internos de documentación en Markdown resuelven sin errores.\n6. Se bloquea el ingreso de respaldos, cachés y archivos autogenerados por Altium.\n\nCuando un componente se agrega o modifica intencionalmente, `scripts/update_manifest.py` actualiza el manifiesto —y la política prohíbe aceptar un cambio de hash sin comprobar primero qué entradas específicas cambiaron.\n\n### Capa 2: Compuerta manual de ingeniería en Altium\n\nAntes de aceptar un símbolo o footprint modificado, `docs/VALIDATION.md` exige un checklist de cuatro partes dentro de Altium:\n\n- **Integridad de librería:** Abrir y guardar ambas librerías sin advertencias de conversión o reparación y correr las validaciones internas.\n- **Revisión de esquemático:** Contrastar cada número de pin, nombre, tipo eléctrico, pin oculto de alimentación, designador y vínculo de footprint directamente contra el datasheet vigente del fabricante.\n- **Revisión de footprint:** Verificar geometría de pads, numeración, taladros, thermal pads, solder mask, pasta, serigrafía, courtyard, indicador de pin 1 y altura del modelo 3D frente al land pattern recomendado y las tolerancias del fabricante de PCB.\n- **Revisión de integración:** Colocar el símbolo en un esquemático temporal, transferirlo a una PCB temporal, comprobar cada mapeo pin-a-pad, correr ERC y DRC e inspeccionar ambas caras en 2D y 3D."
+              "es": "Como la automatización en CI no reemplaza el ojo de un ingeniero electrónico revisando cobre en Altium, `docs/VALIDATION.md` separa lo que la máquina puede garantizar de lo que exige revisión manual dentro de la herramienta EDA.\n\n### Capa 1: Integridad automática del repositorio (CI)\n\nEjecutar `python3 scripts/validate_repository.py` en local y en GitHub Actions (`quality.yml`) aplica seis verificaciones deterministas en cada push y pull request:\n\n1. Existen los archivos requeridos de proyecto, licencia y aviso de ingeniería.\n2. Tanto `.SchLib` como `.PcbLib` conservan firmas válidas de archivo compuesto binario (detectando de inmediato commits truncados o corruptos).\n3. Los tamaños en bytes y checksums SHA-256 coinciden exactamente con `library-manifest.json`.\n4. Los conteos declarados (81 símbolos y 106 footprints) coinciden con el inventario en `docs/INVENTORY.md`.\n5. Todos los enlaces internos de documentación en Markdown resuelven sin errores.\n6. Se bloquea el ingreso de respaldos, cachés y archivos autogenerados por Altium.\n\nCuando un componente se agrega o modifica intencionalmente, `scripts/update_manifest.py` actualiza el manifiesto —y la política prohíbe aceptar un cambio de hash sin comprobar primero qué entradas específicas cambiaron.\n\n### Capa 2: Compuerta manual de ingeniería en Altium\n\nAntes de aceptar un símbolo o footprint modificado, `docs/VALIDATION.md` exige un lista de 4 puntos dentro de Altium:\n\n- **Integridad de librería:** Abrir y guardar ambas librerías sin advertencias de conversión o reparación y correr las validaciones internas.\n- **Revisión de esquemático:** Contrastar cada número de pin, nombre, tipo eléctrico, pin oculto de alimentación, designador y vínculo de footprint directamente contra el datasheet vigente del fabricante.\n- **Revisión de footprint:** Verificar geometría de pads, numeración, taladros, thermal pads, solder mask, pasta, serigrafía, courtyard, indicador de pin 1 y altura del modelo 3D frente al land pattern recomendado y las tolerancias del fabricante de PCB.\n- **Revisión de integración:** Colocar el símbolo en un esquemático temporal, transferirlo a una PCB temporal, comprobar cada mapeo pin-a-pad, correr ERC y DRC e inspeccionar ambas caras en 2D y 3D."
             }
           ]
         },
@@ -496,9 +505,70 @@
             "es": "Guía de validación"
           },
           "url": "https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md"
+        },
+        {
+          "label": {
+            "en": "Library manifest",
+            "es": "Manifiesto de la librería"
+          },
+          "url": "https://github.com/ddtdanilo/Personal-Altium-Library/blob/main/library-manifest.json"
         }
       ],
-      "date_published": "2026-11-22"
+      "date_published": "2026-11-22",
+      "specs": [
+        {
+          "label": {
+            "en": "Schematic symbols",
+            "es": "Símbolos esquemáticos"
+          },
+          "value": {
+            "en": "81",
+            "es": "81"
+          },
+          "featured": true
+        },
+        {
+          "label": {
+            "en": "PCB footprints",
+            "es": "Footprints PCB"
+          },
+          "value": {
+            "en": "106",
+            "es": "106"
+          },
+          "featured": true
+        },
+        {
+          "label": {
+            "en": "Automated CI checks",
+            "es": "Controles automatizados de CI"
+          },
+          "value": {
+            "en": "6 deterministic checks",
+            "es": "6 verificaciones deterministas"
+          }
+        },
+        {
+          "label": {
+            "en": "Altium review",
+            "es": "Revisión en Altium"
+          },
+          "value": {
+            "en": "4-part datasheet checklist",
+            "es": "Lista de 4 puntos basada en datasheets"
+          }
+        },
+        {
+          "label": {
+            "en": "License",
+            "es": "Licencia"
+          },
+          "value": {
+            "en": "CERN-OHL-P-2.0",
+            "es": "CERN-OHL-P-2.0"
+          }
+        }
+      ]
     }
   ],
   "home": {
@@ -521,18 +591,6 @@
     "availability": {
       "en": "I offer focused 1:1 technical consulting in English and Spanish.",
       "es": "Ofrezco consultoría técnica individual en español e inglés."
-    },
-    "illustration": {
-      "url": "https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/docs/HARDWARE.md",
-      "caption": {
-        "en": "X-Sub underwater robot acquisition board",
-        "es": "Tarjeta de adquisición del robot submarino X-Sub"
-      },
-      "credit_label": {
-        "en": "MIT license",
-        "es": "Licencia MIT"
-      },
-      "license_url": "https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/LICENSE"
     },
     "proof": [
       {
@@ -599,7 +657,8 @@
         "body": {
           "en": "I developed embedded systems that keep collecting data when industrial sites lose connectivity.",
           "es": "Desarrollé sistemas embebidos que siguen recopilando datos cuando los sitios industriales pierden la conexión."
-        }
+        },
+        "id": "work-telemetry"
       },
       {
         "title": {
@@ -609,7 +668,8 @@
         "body": {
           "en": "I led cloud architecture and firmware delivery work so field devices could be maintained remotely.",
           "es": "Lideré el trabajo de arquitectura en la nube y entrega de firmware para facilitar el mantenimiento remoto de dispositivos."
-        }
+        },
+        "id": "work-fleet"
       },
       {
         "title": {
@@ -619,7 +679,8 @@
         "body": {
           "en": "I designed industrial PCBs, led hardware through FCC certification and helped scale enclosures from 3D printing to injection molding.",
           "es": "Diseñé PCB industriales, lideré la certificación FCC de hardware y ayudé a llevar carcasas de impresión 3D a moldeo por inyección."
-        }
+        },
+        "id": "work-hardware"
       }
     ],
     "consult_preview": [
@@ -750,7 +811,8 @@
           "MCU design",
           "IPC standards",
           "FCC certification"
-        ]
+        ],
+        "id": "expertise-embedded"
       },
       {
         "title": {
@@ -765,7 +827,8 @@
           "DC-DC converters",
           "Power distribution boards",
           "Solar telemetry"
-        ]
+        ],
+        "id": "expertise-power"
       },
       {
         "title": {
@@ -781,7 +844,8 @@
           "C++",
           "MicroPython",
           "Python"
-        ]
+        ],
+        "id": "expertise-firmware"
       },
       {
         "title": {
@@ -799,7 +863,8 @@
           "Wi-Fi",
           "Cellular",
           "Industrial telemetry"
-        ]
+        ],
+        "id": "expertise-connectivity"
       },
       {
         "title": {
@@ -807,14 +872,16 @@
           "es": "Nube y APIs"
         },
         "body": {
-          "en": "AWS architecture, serverless computing and infrastructure as code.",
-          "es": "Arquitectura en AWS, servicios serverless e infraestructura como código."
+          "en": "AWS architecture, serverless pipelines, telemetry data models and infrastructure as code.",
+          "es": "Arquitectura en AWS, servicios serverless, modelos de datos de telemetría e infraestructura como código."
         },
         "keywords": [
           "AWS architecture",
           "Serverless computing",
-          "Infrastructure as code"
-        ]
+          "Infrastructure as code",
+          "Telemetry data models"
+        ],
+        "id": "expertise-cloud"
       },
       {
         "title": {
@@ -829,7 +896,8 @@
           "Technical direction",
           "Product roadmaps",
           "Team development"
-        ]
+        ],
+        "id": "expertise-leadership"
       }
     ],
     "projects": [
@@ -898,6 +966,69 @@
           "es": "La interfaz en C incluida en el port integrado a vcpkg."
         },
         "url": "https://github.com/ddtdanilo/LMDB-wrapper-MISRA-C"
+      }
+    ],
+    "signal_chain": [
+      {
+        "label": {
+          "en": "Sensor",
+          "es": "Sensor"
+        },
+        "target": "work-telemetry",
+        "stage": "sensor",
+        "protocol": "I²C / ADC"
+      },
+      {
+        "label": {
+          "en": "Board",
+          "es": "Tarjeta"
+        },
+        "target": "expertise-embedded",
+        "stage": "board"
+      },
+      {
+        "label": {
+          "en": "Firmware",
+          "es": "Firmware"
+        },
+        "target": "expertise-firmware",
+        "stage": "firmware",
+        "protocol": "UART"
+      },
+      {
+        "label": {
+          "en": "Radio",
+          "es": "Radio"
+        },
+        "target": "expertise-connectivity",
+        "stage": "radio",
+        "protocol": "LoRa / BLE"
+      },
+      {
+        "label": {
+          "en": "Gateway",
+          "es": "Gateway"
+        },
+        "target": "work-fleet",
+        "stage": "gateway",
+        "protocol": "MQTT"
+      },
+      {
+        "label": {
+          "en": "Cloud",
+          "es": "Nube"
+        },
+        "target": "expertise-cloud",
+        "stage": "cloud",
+        "protocol": "HTTPS"
+      },
+      {
+        "label": {
+          "en": "Model",
+          "es": "Modelo"
+        },
+        "target": "expertise-cloud",
+        "stage": "model"
       }
     ]
   },
@@ -1231,5 +1362,184 @@
       }
     ]
   },
-  "last_updated": "2026-11-22"
+  "last_updated": "2026-11-22",
+  "board": {
+    "source_url": "https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/PCB/X-Sub_Board/MCU.PcbDoc",
+    "license_url": "https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/LICENSE",
+    "source_label": {
+      "en": "Board source",
+      "es": "Archivo fuente"
+    },
+    "license_label": {
+      "en": "MIT license",
+      "es": "Licencia MIT"
+    },
+    "title": {
+      "en": "X-Sub underwater robot acquisition board layout",
+      "es": "Diseño PCB de la tarjeta de adquisición del robot submarino X-Sub"
+    },
+    "caption": {
+      "en": "X-Sub acquisition board. Original {copper_layers}-layer layout with an {mcu} MCU.",
+      "es": "Tarjeta de adquisición X-Sub. Diseño original de {copper_layers} capas con MCU {mcu}."
+    },
+    "description": {
+      "en": "Vector rendering of the {copper_layers}-layer acquisition PCB designed by Danilo Díaz Tarascó for the X-Sub underwater robot. The board measures {width_mm} by {height_mm} millimeters and has {footprints} footprints, {nets} named nets, {segments} copper track segments and {vias} vias around a Freescale {mcu} microcontroller.",
+      "es": "Dibujo vectorial de la tarjeta de adquisición de {copper_layers} capas diseñada por Danilo Díaz Tarascó para el robot submarino X-Sub. La tarjeta mide {width_mm} por {height_mm} milímetros y tiene {footprints} footprints, {nets} redes con nombre, {segments} segmentos de pista de cobre y {vias} vías alrededor de un microcontrolador Freescale {mcu}."
+    },
+    "spec_label": {
+      "en": "X-Sub acquisition board specifications",
+      "es": "Especificaciones de la tarjeta de adquisición X-Sub"
+    },
+    "specs": {
+      "mcu": {
+        "en": "MCU",
+        "es": "MCU"
+      },
+      "dimensions": {
+        "en": "Board",
+        "es": "Tarjeta"
+      },
+      "copper_layers": {
+        "en": "Copper layers",
+        "es": "Capas de cobre"
+      },
+      "footprints": {
+        "en": "Footprints",
+        "es": "Footprints"
+      },
+      "nets": {
+        "en": "Named nets",
+        "es": "Redes"
+      },
+      "segments": {
+        "en": "Track segments",
+        "es": "Segmentos"
+      },
+      "vias": {
+        "en": "Vias",
+        "es": "Vías"
+      }
+    },
+    "trace": {
+      "en": "Trace a signal",
+      "es": "Trazar una señal"
+    },
+    "all": {
+      "en": "All signals",
+      "es": "Todas las señales"
+    },
+    "rest": {
+      "en": "Select a signal group to trace its real copper tracks, vias, and pads on the board.",
+      "es": "Selecciona un grupo de señales para trazar sus pistas de cobre, vías y pads en la tarjeta."
+    },
+    "layers": {
+      "en": "Separate layers",
+      "es": "Separar capas"
+    },
+    "groups": {
+      "imu": {
+        "tag": "I²C",
+        "label": {
+          "en": "IMU & compass",
+          "es": "IMU y brújula"
+        },
+        "sentence": {
+          "en": "I²C bus reading 6-axis motion from the MPU-6050 and heading from the HMC6352 digital compass.",
+          "es": "Bus I²C que lee el movimiento de 6 ejes del MPU-6050 y el rumbo de la brújula digital HMC6352."
+        }
+      },
+      "thrusters": {
+        "tag": "PWM",
+        "label": {
+          "en": "Thrusters ×4",
+          "es": "Propulsores ×4"
+        },
+        "sentence": {
+          "en": "Four PWM channels driving bidirectional brushless ESCs for underwater propulsion and maneuvering.",
+          "es": "Cuatro canales PWM para los ESC brushless bidireccionales que impulsan y maniobran el ROV."
+        }
+      },
+      "depth": {
+        "tag": "ADC",
+        "label": {
+          "en": "Depth sensor",
+          "es": "Sensor de profundidad"
+        },
+        "sentence": {
+          "en": "Scales the MPX5700AP pressure sensor via an OPA345 op-amp to measure dive depth at the 3.3 V ADC.",
+          "es": "Acondiciona el sensor de presión MPX5700AP con un OPA345 para medir profundidad en el ADC de 3,3 V."
+        }
+      },
+      "ingress": {
+        "tag": "GPIO",
+        "label": {
+          "en": "Water ingress",
+          "es": "Detección de agua"
+        },
+        "sentence": {
+          "en": "Two digital probes inside the sealed housing that alert the controller if water enters the hull.",
+          "es": "Dos sondas digitales en la carcasa sellada que alertan al controlador si entra agua al casco."
+        }
+      },
+      "camera": {
+        "tag": "PWM",
+        "label": {
+          "en": "Camera pan/tilt",
+          "es": "Cámara pan/tilt"
+        },
+        "sentence": {
+          "en": "Two PWM servo lines that pan and tilt the underwater inspection camera from surface commands.",
+          "es": "Dos líneas PWM de servo que orientan el paneo e inclinación de la cámara submarina desde superficie."
+        }
+      },
+      "serial": {
+        "tag": "UART",
+        "label": {
+          "en": "Serial link",
+          "es": "Enlace serial"
+        },
+        "sentence": {
+          "en": "UART link carrying 27-byte telemetry frames and 10-byte commands between the MCU and onboard pcDuino.",
+          "es": "Enlace UART que intercambia tramas de telemetría (27 B) y comandos (10 B) entre el MCU y la pcDuino."
+        }
+      },
+      "lights": {
+        "tag": "PWM",
+        "label": {
+          "en": "LED lights",
+          "es": "Luces LED"
+        },
+        "sentence": {
+          "en": "Two transistor-switched PWM outputs dimming high-intensity LED lamps for underwater visibility.",
+          "es": "Dos salidas PWM con transistor que regulan dos focos LED de alta intensidad bajo el agua."
+        }
+      },
+      "battery": {
+        "tag": "ADC",
+        "label": {
+          "en": "Battery monitor",
+          "es": "Monitor de batería"
+        },
+        "sentence": {
+          "en": "Resistive voltage divider feeding pack voltage into ADC channel 5 to track remaining dive power.",
+          "es": "Divisor resistivo que lleva el voltaje de la batería al canal ADC 5 para vigilar la autonomía."
+        }
+      },
+      "power": {
+        "tag": "DC",
+        "label": {
+          "en": "Power rails",
+          "es": "Rieles de potencia"
+        },
+        "sentence": {
+          "en": "The PCB routes 3.3 V logic, 5 V sensors and servo power separately, with a common ground.",
+          "es": "La PCB separa la alimentación de la lógica a 3,3 V, los sensores a 5 V y los servos, con tierra común."
+        }
+      }
+    },
+    "stack": {
+      "en": "Stack layers",
+      "es": "Apilar capas"
+    }
+  }
 }

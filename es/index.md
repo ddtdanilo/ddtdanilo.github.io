@@ -50,7 +50,7 @@ Cursé estudios de maestría en electrónica en la Universidad Simón Bolívar y
 
 - Conectividad IoT — MQTT, LoRa, BLE, Wi-Fi, redes celulares y telemetría industrial.
 
-- Nube y APIs — Arquitectura en AWS, servicios serverless e infraestructura como código.
+- Nube y APIs — Arquitectura en AWS, servicios serverless, modelos de datos de telemetría e infraestructura como código.
 
 - Liderazgo técnico — Dirección técnica, planes de desarrollo y formación de equipos.
 
