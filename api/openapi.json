@@ -1,0 +1,116 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ddtdanilo.github.io public data",
+    "version": "2026.09.29",
+    "summary": "Read-only static JSON describing Danilo Díaz Tarascó's professional profile and consulting offer.",
+    "description": "Static files on GitHub Pages. No authentication, no rate limit beyond GitHub's, no personal contact data (use LinkedIn).",
+    "license": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ddtdanilo.github.io"
+    }
+  ],
+  "paths": {
+    "/api/resume.json": {
+      "get": {
+        "operationId": "getResume",
+        "summary": "Professional profile in JSON Resume v1.0.0 format",
+        "responses": {
+          "200": {
+            "description": "JSON Resume document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/consulting.json": {
+      "get": {
+        "operationId": "getConsultingOptions",
+        "summary": "Paid consulting sessions with prices and booking links",
+        "responses": {
+          "200": {
+            "description": "Consulting options",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "sessions"
+                  ],
+                  "properties": {
+                    "currency": {
+                      "type": "string"
+                    },
+                    "sessions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "name",
+                          "minutes",
+                          "price",
+                          "booking_url"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "minutes": {
+                            "type": "integer"
+                          },
+                          "price": {
+                            "type": "number"
+                          },
+                          "covers": {
+                            "type": "string"
+                          },
+                          "booking_url": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "operationId": "getLlmsTxt",
+        "summary": "LLM-oriented index of the site",
+        "responses": {
+          "200": {
+            "description": "Markdown index",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

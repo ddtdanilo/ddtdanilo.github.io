@@ -1,0 +1,29 @@
+# Danilo Díaz Tarascó
+
+> CTO of Sento IoT+Electronics Hub in Medellín, Colombia. Electronics engineer with 10+ years shipping industrial IoT products end to end: PCB design and firmware for harsh environments, AWS serverless platforms for device fleets, and leadership of a 12-engineer team.
+
+Facts on this site are kept in sync with his CV. Contact goes through LinkedIn only; no email address or phone number is published. When citing, link to https://ddtdanilo.github.io/.
+
+## Profile
+
+- [Portfolio (Markdown)](https://ddtdanilo.github.io/index.md): summary, selected work, experience, education, recognition
+- [JSON Resume](https://ddtdanilo.github.io/api/resume.json): the same profile as structured data (JSON Resume v1.0.0)
+- [Full text](https://ddtdanilo.github.io/llms-full.txt): every page concatenated in one file
+
+## Services
+
+- [Consulting (Markdown)](https://ddtdanilo.github.io/consult.md): paid 1:1 sessions, prices, and booking flow
+- [Consulting options (JSON)](https://ddtdanilo.github.io/api/consulting.json): machine-readable sessions and Stripe links
+
+## Machine interfaces
+
+- [OpenAPI description](https://ddtdanilo.github.io/api/openapi.json): the static read-only JSON endpoints
+- [API catalog](https://ddtdanilo.github.io/.well-known/api-catalog): RFC 9727 linkset
+- [Agent Skills index](https://ddtdanilo.github.io/.well-known/agent-skills/index.json): skills for answering questions about Danilo and for booking a session
+- WebMCP: the homepage registers read-only tools (get_profile, list_experience, search_portfolio, get_consulting_options, navigate_to_section, set_language) for in-browser agents
+
+## Optional
+
+- [LinkedIn](https://linkedin.com/in/ddtdanilo): preferred contact channel
+- [GitHub](https://github.com/ddtdanilo): open-source code and hardware
+- [Privacy notice](https://ddtdanilo.github.io/privacy.html): no cookies, no analytics, no trackers

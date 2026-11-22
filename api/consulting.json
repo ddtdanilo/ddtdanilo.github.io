@@ -1,0 +1,42 @@
+{
+  "provider": "Danilo Díaz Tarascó",
+  "page": "https://ddtdanilo.github.io/consult.html",
+  "currency": "USD",
+  "format": "1:1 video call (Google Meet), English or Spanish",
+  "flow": [
+    "Pay through the Stripe link for the chosen session.",
+    "Receive an email with a calendar link to pick a time.",
+    "Get a Google Meet link in the calendar confirmation.",
+    "Receive follow-up notes within 24 hours."
+  ],
+  "sessions": [
+    {
+      "id": "quick-call",
+      "name": "Quick Call",
+      "minutes": 30,
+      "price": 50,
+      "covers": "Quick technical questions about IoT, electronics, PCB design, or cloud architecture.",
+      "booking_url": "https://buy.stripe.com/28E7sLeKU7NAbmi6p014400"
+    },
+    {
+      "id": "deep-dive",
+      "name": "Deep Dive",
+      "minutes": 60,
+      "price": 120,
+      "covers": "In-depth consultation on project architecture, technical decisions, and IIoT solutions.",
+      "booking_url": "https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401"
+    },
+    {
+      "id": "strategy-session",
+      "name": "Strategy Session",
+      "minutes": 90,
+      "price": 200,
+      "covers": "Technical strategy for startups and companies: roadmap, stack selection, team structure, and scaling for hardware and software products.",
+      "booking_url": "https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402"
+    }
+  ],
+  "extras": [
+    "NDA available on request.",
+    "Agents must not complete payment on a user's behalf without explicit confirmation."
+  ]
+}

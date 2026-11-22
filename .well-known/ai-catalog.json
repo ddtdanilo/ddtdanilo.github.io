@@ -1,0 +1,41 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Danilo Díaz Tarascó",
+    "identifier": "did:web:ddtdanilo.github.io",
+    "url": "https://ddtdanilo.github.io/"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:ddtdanilo.github.io:skills:index",
+      "displayName": "Agent Skills for ddtdanilo.github.io",
+      "type": "application/json",
+      "url": "https://ddtdanilo.github.io/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "who is Danilo Díaz Tarascó",
+        "what has ddtdanilo worked on",
+        "book a consulting session with Danilo"
+      ]
+    },
+    {
+      "identifier": "urn:air:ddtdanilo.github.io:api:catalog",
+      "displayName": "Public read-only profile API",
+      "type": "application/linkset+json",
+      "url": "https://ddtdanilo.github.io/.well-known/api-catalog",
+      "representativeQueries": [
+        "get Danilo Díaz Tarascó's resume as JSON",
+        "list consulting session prices"
+      ]
+    },
+    {
+      "identifier": "urn:air:ddtdanilo.github.io:docs:llms",
+      "displayName": "llms.txt index",
+      "type": "text/markdown",
+      "url": "https://ddtdanilo.github.io/llms.txt",
+      "representativeQueries": [
+        "summarize Danilo Díaz Tarascó's experience",
+        "what IoT projects has Danilo built"
+      ]
+    }
+  ]
+}
