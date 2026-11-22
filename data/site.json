@@ -7,10 +7,7 @@
       "Danilo Diaz Tarasco",
       "ddtdanilo"
     ],
-    "role": {
-      "en": "Chief Technology Officer",
-      "es": "Chief Technology Officer (CTO)"
-    },
+    "role": "Chief Technology Officer",
     "employer": "Sento Tech Labs",
     "employer_url": "https://sento.tech",
     "profiles": {
@@ -47,342 +44,147 @@
     "location": {
       "city": "Medellín",
       "countryCode": "CO"
-    }
+    },
+    "positioning": "Forward-deployed engineer",
+    "occupation_topics": [
+      "Industrial IoT hardware and electronics design",
+      "Embedded firmware",
+      "Wireless connectivity",
+      "Fleet provisioning and over-the-air updates",
+      "Cloud infrastructure and telemetry data",
+      "Edge AI and computer vision",
+      "AI agents for operations",
+      "Technical leadership"
+    ]
   },
   "pages": {
     "home": {
-      "paths": {
-        "en": "/",
-        "es": "/es/"
-      },
       "meta": {
-        "title": {
-          "en": "Danilo Díaz Tarascó — CTO & Electronics Engineer · IIoT, Embedded, Cloud",
-          "es": "Danilo Díaz Tarascó — CTO e Ingeniero Electrónico · IIoT, Embebidos, Cloud"
-        },
-        "description": {
-          "en": "Danilo Díaz Tarascó is CTO at Sento Tech Labs and an electronics engineer who builds industrial IoT hardware, firmware and cloud systems.",
-          "es": "Danilo Díaz Tarascó es CTO en Sento Tech Labs e ingeniero electrónico. Desarrolla hardware, firmware y servicios en la nube para IoT industrial."
-        },
-        "og_title": {
-          "en": "Danilo Díaz Tarascó — CTO & Electronics Engineer",
-          "es": "Danilo Díaz Tarascó — CTO e Ingeniero Electrónico"
-        },
-        "og_description": {
-          "en": "Danilo Díaz Tarascó, hands-on CTO at Sento Tech Labs. Industrial IoT from board design to cloud deployments, with 1:1 technical consulting.",
-          "es": "Danilo Díaz Tarascó, CTO en Sento Tech Labs. IoT industrial desde el diseño de PCB hasta el despliegue en la nube, con consultoría técnica individual."
-        }
-      }
+        "title": "Danilo Díaz Tarascó — Forward-Deployed Engineer · Hardware, Firmware, Cloud, AI",
+        "description": "Forward-deployed engineer and hardware-to-cloud consultant. Custom PCBs, embedded firmware, OTA fleets, AWS, edge AI, and audited AI agents for operations.",
+        "og_title": "Danilo Díaz Tarascó — Forward-deployed engineer"
+      },
+      "path": "/"
     },
     "consult": {
-      "paths": {
-        "en": "/consult.html",
-        "es": "/es/consultoria.html"
-      },
       "meta": {
-        "title": {
-          "en": "Consulting — Danilo Díaz Tarascó · IIoT, PCB, Firmware & AWS",
-          "es": "Consultoría — Danilo Díaz Tarascó · IIoT, PCB, Firmware y AWS"
-        },
-        "description": {
-          "en": "Book 1:1 technical consulting in English or Spanish with Danilo Díaz Tarascó, CTO. Review industrial IoT, PCB design, firmware or AWS architecture.",
-          "es": "Consulta técnica 1:1 en español o inglés con Danilo Díaz Tarascó, CTO. Revisa hardware de IoT industrial, diseño de PCB, firmware o arquitectura en AWS."
-        },
-        "og_title": {
-          "en": "Technical Consulting — Danilo Díaz Tarascó",
-          "es": "Consultoría Técnica — Danilo Díaz Tarascó"
-        },
-        "og_description": {
-          "en": "1:1 engineering reviews on IIoT hardware, PCB design, firmware, and AWS cloud architecture (30, 60, or 90 min, EN/ES).",
-          "es": "Revisiones de ingeniería 1:1 en hardware IIoT, diseño de PCB, firmware y arquitectura cloud en AWS (30, 60 o 90 min, ES/EN)."
-        }
-      }
+        "title": "Consulting — Danilo Díaz Tarascó · Hardware, Firmware, Cloud & AI",
+        "description": "Book a 1:1 engineering review or scoped engagement with Danilo Díaz Tarascó: PCBs, field failures, OTA fleets, AWS, edge AI, and operational AI agents."
+      },
+      "path": "/consult.html"
     },
     "privacy": {
-      "paths": {
-        "en": "/privacy.html",
-        "es": "/es/privacidad.html"
-      },
       "meta": {
-        "title": {
-          "en": "Privacy Notice — Danilo Díaz Tarascó",
-          "es": "Aviso de Privacidad — Danilo Díaz Tarascó"
-        },
-        "description": {
-          "en": "How the portfolio handles theme preference, hosting and Stripe checkout.",
-          "es": "Cómo gestiona el portafolio la preferencia de tema, el alojamiento y los pagos por Stripe."
-        }
-      }
+        "title": "Privacy Notice — Danilo Díaz Tarascó",
+        "description": "How the portfolio handles theme preference, hosting and Stripe checkout."
+      },
+      "path": "/privacy.html"
     },
     "success": {
       "meta": {
-        "title": {
-          "en": "After checkout — Danilo Díaz Tarascó",
-          "es": "Después del pago — Danilo Díaz Tarascó"
-        },
-        "description": {
-          "en": "Next steps after using Stripe checkout for a consulting session.",
-          "es": "Pasos para coordinar la sesión de consultoría después de usar Stripe."
-        }
+        "title": "After checkout — Danilo Díaz Tarascó",
+        "description": "Next steps after using Stripe checkout for a consulting session."
       }
     },
     "missing": {
       "meta": {
-        "title": {
-          "en": "Page not found — Danilo Díaz Tarascó",
-          "es": "Página no encontrada — Danilo Díaz Tarascó"
-        },
-        "description": {
-          "en": "Find the portfolio or consulting pages.",
-          "es": "Encuentra el portafolio o la página de consultoría."
-        }
+        "title": "Page not found — Danilo Díaz Tarascó",
+        "description": "Find the portfolio or consulting pages."
       }
     }
   },
   "copy": {
-    "work": {
-      "en": "Work",
-      "es": "Proyectos"
-    },
-    "experience": {
-      "en": "Experience",
-      "es": "Trayectoria"
-    },
-    "consult": {
-      "en": "Consulting",
-      "es": "Consultoría"
-    },
-    "locale": {
-      "en": "Español",
-      "es": "English"
-    },
-    "theme": {
-      "en": "Use dark theme",
-      "es": "Usar tema oscuro"
-    },
-    "skip": {
-      "en": "Skip to content",
-      "es": "Saltar al contenido"
-    },
-    "primary_nav": {
-      "en": "Primary",
-      "es": "Principal"
-    },
-    "privacy": {
-      "en": "Privacy",
-      "es": "Privacidad"
-    },
-    "view_consult": {
-      "en": "Explore consulting",
-      "es": "Ver consultoría"
-    },
-    "view_work": {
-      "en": "See selected work",
-      "es": "Ver proyectos"
-    },
-    "selected_work": {
-      "en": "Selected work",
-      "es": "Proyectos seleccionados"
-    },
-    "read_note": {
-      "en": "Read the note",
-      "es": "Leer la nota"
-    },
-    "about": {
-      "en": "About",
-      "es": "Sobre mí"
-    },
-    "expertise": {
-      "en": "Expertise",
-      "es": "Especialidades"
-    },
-    "open_source": {
-      "en": "Open source",
-      "es": "Código abierto"
-    },
-    "contact": {
-      "en": "Contact",
-      "es": "Contacto"
-    },
-    "connect": {
-      "en": "Connect on LinkedIn",
-      "es": "Conectar en LinkedIn"
-    },
-    "pay": {
-      "en": "Pay USD {price} on Stripe",
-      "es": "Pagar {price} USD en Stripe"
-    },
-    "how_it_works": {
-      "en": "How booking works",
-      "es": "Cómo reservar"
-    },
-    "sessions": {
-      "en": "Choose a session",
-      "es": "Elige una sesión"
-    },
-    "faq": {
-      "en": "Frequently asked questions",
-      "es": "Preguntas frecuentes"
-    },
-    "other_work": {
-      "en": "Larger engagements",
-      "es": "Proyectos de mayor alcance"
-    },
-    "back_work": {
-      "en": "Back to selected work",
-      "es": "Volver a los proyectos"
-    },
-    "sources": {
-      "en": "Sources",
-      "es": "Fuentes"
-    },
-    "by": {
-      "en": "By Danilo Díaz Tarascó",
-      "es": "Por Danilo Díaz Tarascó"
-    },
-    "back_home": {
-      "en": "Back to portfolio",
-      "es": "Volver al portafolio"
-    },
-    "theme_light": {
-      "en": "Use light theme",
-      "es": "Usar tema claro"
-    },
-    "from_price": {
-      "en": "Sessions from USD {price}.",
-      "es": "Sesiones desde {price} USD."
-    },
-    "social_image": {
-      "en": "Danilo Díaz Tarascó · CTO and industrial IoT, with an illustration of the X-Sub acquisition board",
-      "es": "Danilo Díaz Tarascó · CTO e IoT industrial, con una ilustración de la tarjeta de adquisición de X-Sub"
-    },
-    "price": {
-      "en": "USD {price}",
-      "es": "{price} USD"
-    },
-    "signal_chain": {
-      "en": "End-to-end industrial IoT signal chain",
-      "es": "Cadena de señal completa de IoT industrial"
-    },
-    "specifications": {
-      "en": "Project specifications",
-      "es": "Especificaciones del proyecto"
-    }
+    "work": "Work",
+    "experience": "Experience",
+    "consult": "Consulting",
+    "theme": "Use dark theme",
+    "skip": "Skip to content",
+    "primary_nav": "Primary",
+    "privacy": "Privacy",
+    "view_consult": "Explore consulting",
+    "view_work": "See how I work",
+    "selected_work": "Selected work",
+    "read_note": "Read the note",
+    "about": "About",
+    "expertise": "What I can take on",
+    "open_source": "Open source",
+    "contact": "Contact",
+    "connect": "Connect on LinkedIn",
+    "pay": "Pay USD {price} on Stripe",
+    "how_it_works": "How booking works",
+    "sessions": "Choose a session",
+    "faq": "Frequently asked questions",
+    "back_work": "Back to public work",
+    "sources": "Sources",
+    "by": "By Danilo Díaz Tarascó",
+    "back_home": "Back to portfolio",
+    "theme_light": "Use light theme",
+    "from_price": "Sessions from USD {price}.",
+    "social_image": "Danilo Díaz Tarascó · Forward-deployed engineer, hardware to cloud, with an illustration of the seven-stage connected hardware path",
+    "price": "USD {price}",
+    "specifications": "Project specifications",
+    "public_work": "Public work",
+    "working_method": "How I work",
+    "scoped_engagements": "Scoped engagements",
+    "whole_path": "The whole path",
+    "path_rest": "Select a stage to inspect how each layer connects from the board to the team running it.",
+    "all_stages": "Full path",
+    "path_caption": "One engineer, the whole path: from sensor and custom hardware in the field to cloud pipelines, edge inference, and audited operational agents.",
+    "security_controls": "Security controls"
   },
   "cases": [
     {
-      "paths": {
-        "en": "/work/xsub-telemetry.html",
-        "es": "/es/trabajo/xsub-telemetry.html"
-      },
       "meta": {
-        "title": {
-          "en": "Underwater ROV Telemetry Archive — Danilo Díaz Tarascó",
-          "es": "Archivo de Telemetría para ROV Submarino — Danilo Díaz Tarascó"
-        },
-        "description": {
-          "en": "See the designed PCBs, embedded firmware and serial protocol audit behind X-Sub, a preserved underwater robot telemetry project.",
-          "es": "Conoce las PCB, el firmware embebido y la auditoría del protocolo serial de X-Sub, un proyecto de telemetría para un robot submarino."
-        },
-        "og_title": {
-          "en": "Underwater ROV Telemetry: Hardware, Firmware & Protocol Audit",
-          "es": "Telemetría para ROV Submarino: Hardware, Firmware y Auditoría de Protocolo"
-        },
-        "og_description": {
-          "en": "Inspecting a preserved underwater-robot telemetry stack from custom Altium PCBs and ColdFire firmware to modern Python protocol tests.",
-          "es": "Análisis técnico de un sistema de telemetría submarina preservado: desde PCBs en Altium y firmware ColdFire hasta pruebas modernas en Python."
-        }
+        "title": "Underwater ROV Telemetry Archive — Danilo Díaz Tarascó",
+        "description": "See the designed PCBs, embedded firmware and serial protocol audit behind X-Sub, a preserved underwater robot telemetry project.",
+        "og_title": "Underwater ROV Telemetry: Hardware, Firmware & Protocol Audit",
+        "og_description": "Inspecting a preserved underwater-robot telemetry stack from custom Altium PCBs and ColdFire firmware to modern Python protocol tests."
       },
-      "title": {
-        "en": "Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit",
-        "es": "Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo"
-      },
-      "intro": {
-        "en": "A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.",
-        "es": "Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una auditoría moderna del protocolo serial."
-      },
+      "title": "Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit",
+      "intro": "A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.",
       "blocks": [
         {
-          "heading": {
-            "en": "The problem",
-            "es": "El problema"
-          },
+          "heading": "The problem",
           "paragraphs": [
-            {
-              "en": "An underwater remotely operated vehicle (ROV) concentrates every boundary problem found in industrial IoT inside a sealed pressure housing. Sensors on different electrical buses must be sampled reliably, actuator commands must reach thrusters and lighting without jitter, power distribution has to survive inductive motor loads, and a single serial link between the embedded controller and the onboard computer has to carry both telemetry and teleoperation frames cleanly.\n\nBetween 2015 and 2016, I designed and validated the telemetry and teleoperation system for **X-Sub**, an underwater robot developed by the Mechatronics Research and Development Group at Universidad Simón Bolívar. The work earned an honorific mention as my undergraduate Electronics Engineering thesis (the full 137-page Spanish thesis is preserved in `Libro Tesis.pdf`). Years later, rather than leaving the project as an opaque archive of legacy binaries, I audited the original firmware and hardware files and added modern, dependency-free verification tooling so any engineer can inspect the design honestly.",
-              "es": "Un vehículo submarino teleoperado (ROV) concentra dentro de una carcasa sellada casi todos los retos de frontera que aparecen en el IoT industrial. Sensores en distintos buses eléctricos deben muestrearse con consistencia, los comandos de actuadores deben llegar a los propulsores e iluminación sin jitter, la distribución de potencia tiene que convivir con cargas inductivas y un único enlace serial entre el microcontrolador y la computadora a bordo debe transportar telemetría y comandos con claridad.\n\nEntre 2015 y 2016 diseñé y validé el sistema de telemetría y teleoperación para **X-Sub**, un robot submarino del Grupo I+D en Mecatrónica de la Universidad Simón Bolívar. El proyecto obtuvo mención honorífica como tesis de Ingeniería Electrónica (las 137 páginas originales se conservan en `Libro Tesis.pdf`). Años después audité el firmware y el hardware originales y agregué herramientas de verificación sin dependencias para inspeccionarlo con transparencia."
-            }
+            "An underwater remotely operated vehicle (ROV) concentrates every boundary problem found in industrial IoT inside a sealed pressure housing. Sensors on different electrical buses must be sampled reliably, actuator commands must reach thrusters and lighting without jitter, power distribution has to survive inductive motor loads, and a single serial link between the embedded controller and the onboard computer has to carry both telemetry and teleoperation frames cleanly.\n\nBetween 2015 and 2016, I designed and validated the telemetry and teleoperation system for **X-Sub**, an underwater robot developed by the Mechatronics Research and Development Group at Universidad Simón Bolívar. The work earned an honorific mention as my undergraduate Electronics Engineering thesis (the full 137-page thesis is preserved in `Libro Tesis.pdf`). Years later, rather than leaving the project as an opaque archive of legacy binaries, I audited the original firmware and hardware files and added modern, dependency-free verification tooling so any engineer can inspect the design honestly."
           ]
         },
         {
-          "heading": {
-            "en": "System architecture",
-            "es": "Arquitectura del sistema"
-          },
+          "heading": "System architecture",
           "paragraphs": [
-            {
-              "en": "The archived vehicle architecture splits real-time sensing and actuation from higher-level logging and surface visualization:\n\n- **Embedded controller (`MCU Firmware/X-Sub MCU Firmware/`):** A 32-bit Freescale **MCF51QE128** (ColdFire V1) microcontroller developed in CodeWarrior with Processor Expert drivers and custom C logic in `xSub.c`, `OneWire.c`, and `main.c`.\n- **Sensor interfaces:** An **MPU-6050** inertial measurement unit and **HMC6352** digital compass over I²C; a **DS18B20** external temperature sensor over 1-Wire; an **MPX5700AP** pressure sensor and battery-voltage monitoring over ADC; and digital water-presence inputs over GPIO.\n- **Actuator outputs:** PWM channels driving four bidirectional brushless ESCs, two pan/tilt camera servos, and two high-intensity LED loads, alongside status and handshake indicators.\n- **Custom PCBs (`PCB/`):** Two Altium Designer boards — `X-Sub_Board` for acquisition, control, and sensor interfaces, and `pcDuino Link Board` for power distribution and controller-to-computer interconnection.\n- **Onboard and surface path:** The MCF51QE128 exchanges fixed-length binary frames over UART (115200 baud in the Python experiments) with an onboard **pcDuino**, which relays telemetry to surface logging and visualization prototypes originally explored in Python 3.4, LabVIEW, and MATLAB/Simulink.",
-              "es": "La arquitectura preservada separa la adquisición y actuación en tiempo real del registro y la visualización en superficie:\n\n- **Controlador embebido (`MCU Firmware/X-Sub MCU Firmware/`):** Microcontrolador Freescale **MCF51QE128** de 32 bits (ColdFire V1) desarrollado en CodeWarrior con drivers de Processor Expert y lógica propia en C (`xSub.c`, `OneWire.c` y `main.c`).\n- **Interfaces de sensores:** Unidad inercial **MPU-6050** y brújula digital **HMC6352** por I²C; sensor de temperatura externa **DS18B20** por 1-Wire; sensor de presión **MPX5700AP** y monitoreo de batería por ADC; y detección digital de presencia de agua por GPIO.\n- **Salidas de actuadores:** Canales PWM para cuatro ESCs brushless bidireccionales, dos servos de cámara (pan/tilt) y dos canales LED de alta intensidad, además de indicadores de estado y handshake.\n- **PCBs a medida (`PCB/`):** Dos tarjetas en Altium Designer: `X-Sub_Board` para adquisición, control e interfaces de sensores, y `pcDuino Link Board` para distribución de energía e interconexión con la computadora a bordo.\n- **Ruta a bordo y superficie:** El MCF51QE128 intercambia tramas binarias de longitud fija por UART (115200 baudios en los experimentos de Python) con una **pcDuino** a bordo, encargada de registrar y retransmitir datos hacia prototipos de visualización explorados originalmente en Python 3.4, LabVIEW y MATLAB/Simulink."
-            }
+            "The archived vehicle architecture splits real-time sensing and actuation from higher-level logging and surface visualization:\n\n- **Embedded controller (`MCU Firmware/X-Sub MCU Firmware/`):** A 32-bit Freescale **MCF51QE128** (ColdFire V1) microcontroller developed in CodeWarrior with Processor Expert drivers and custom C logic in `xSub.c`, `OneWire.c`, and `main.c`.\n- **Sensor interfaces:** An **MPU-6050** inertial measurement unit and **HMC6352** digital compass over I²C; a **DS18B20** external temperature sensor over 1-Wire; an **MPX5700AP** pressure sensor and battery-voltage monitoring over ADC; and digital water-presence inputs over GPIO.\n- **Actuator outputs:** PWM channels driving four bidirectional brushless ESCs, two pan/tilt camera servos, and two high-intensity LED loads, alongside status and handshake indicators.\n- **Custom PCBs (`PCB/`):** Two Altium Designer boards — `X-Sub_Board` for acquisition, control, and sensor interfaces, and `pcDuino Link Board` for power distribution and controller-to-computer interconnection.\n- **Onboard and surface path:** The MCF51QE128 exchanges fixed-length binary frames over UART (115200 baud in the Python experiments) with an onboard **pcDuino**, which relays telemetry to surface logging and visualization prototypes originally explored in Python 3.4, LabVIEW, and MATLAB/Simulink."
           ]
         },
         {
-          "heading": {
-            "en": "Auditing the wire protocol",
-            "es": "Auditoría del protocolo serial"
-          },
+          "heading": "Auditing the wire protocol",
           "paragraphs": [
-            {
-              "en": "Re-examining the C source (`xSub.c`, `Events.c`, `Init.c`) a decade later shows both what worked and what would fail a modern production review:\n\n- **Telemetry frames (27 bytes):** Big-endian 16-bit readings covering status, external and internal temperature, external pressure, 3-axis acceleration, 3-axis angular velocity, linear velocity, compass heading, water-presence state, and battery level, ending with a `0xFF` terminator.\n- **Command frames (10 bytes):** Four motor setpoints, camera pan and tilt, two light channels, a PC status byte (each 0–255), and a `0xFF` terminator.\n- **Documented failure modes:** Although byte 25 of the telemetry frame is named `XOR` in the archived firmware, initialization assigns the fixed decimal constant `26` and no checksum calculation runs during frame assembly. Likewise, the protocol has no framing escape or resynchronization mechanism, no sequence numbers, no command timeout encoded on the wire, and no authentication.\n\nIn `docs/PROTOCOL.md` and `docs/HARDWARE.md`, those gaps are documented explicitly instead of glossed over. Any production telemetry link for industrial hardware needs a real CRC, deterministic framing (such as COBS or length-prefixed frames), watchdog fail-safes on command loss, and replay/authentication controls whenever commands cross an untrusted network.",
-              "es": "Revisar el código C original (`xSub.c`, `Events.c`, `Init.c`) una década después deja ver tanto lo que funcionó como lo que no pasaría una revisión productiva actual:\n\n- **Tramas de telemetría (27 bytes):** Valores de 16 bits en big-endian para estado, temperatura externa e interna, presión externa, aceleración en 3 ejes, velocidad angular en 3 ejes, velocidad lineal, rumbo de brújula, presencia de agua y nivel de batería, cerrados con el terminador `0xFF`.\n- **Tramas de comando (10 bytes):** Consignas para cuatro motores, pan y tilt de cámara, dos luces y estado del PC (rango 0–255 cada uno), más el terminador `0xFF`.\n- **Limitaciones documentadas:** Aunque el byte 25 de telemetría se llama `XOR` en el firmware archivado, la inicialización le asigna la constante decimal `26` sin ejecutar un cálculo real de checksum al armar la trama. El protocolo tampoco incluye escape o recuperación de sincronismo, números de secuencia, timeout de comando ni autenticación.\n\nEn `docs/PROTOCOL.md` y `docs/HARDWARE.md` esas brechas se documentan de forma explícita. Cualquier protocolo de telemetría para hardware industrial en producción requiere CRC real, delimitación determinística (como COBS o prefijo de longitud), fail-safes por watchdog ante pérdida de enlace y autenticación cuando los comandos atraviesan redes no confiables."
-            }
+            "Re-examining the C source (`xSub.c`, `Events.c`, `Init.c`) a decade later shows both what worked and what would fail a modern production review:\n\n- **Telemetry frames (27 bytes):** Big-endian 16-bit readings covering status, external and internal temperature, external pressure, 3-axis acceleration, 3-axis angular velocity, linear velocity, compass heading, water-presence state, and battery level, ending with a `0xFF` terminator.\n- **Command frames (10 bytes):** Four motor setpoints, camera pan and tilt, two light channels, a PC status byte (each 0–255), and a `0xFF` terminator.\n- **Documented failure modes:** Although byte 25 of the telemetry frame is named `XOR` in the archived firmware, initialization assigns the fixed decimal constant `26` and no checksum calculation runs during frame assembly. Likewise, the protocol has no framing escape or resynchronization mechanism, no sequence numbers, no command timeout encoded on the wire, and no authentication.\n\nIn `docs/PROTOCOL.md` and `docs/HARDWARE.md`, those gaps are documented explicitly instead of glossed over. Any production telemetry link for industrial hardware needs a real CRC, deterministic framing (such as COBS or length-prefixed frames), watchdog fail-safes on command loss, and replay/authentication controls whenever commands cross an untrusted network."
           ]
         },
         {
-          "heading": {
-            "en": "Modern verification boundary",
-            "es": "Frontera moderna de verificación"
-          },
+          "heading": "Modern verification boundary",
           "paragraphs": [
-            {
-              "en": "Legacy CodeWarrior, LabVIEW, and MATLAB binary projects cannot safely be assumed to compile or run unchanged ten years later. The maintained boundary of the repository is therefore deliberately narrow and verifiable:\n\n- `tools/xsub_protocol.py` provides a dependency-free Python 3.11+ CLI to decode 27-byte telemetry frames (reporting raw unsigned integers and offering two's-complement conversion via `signed_16()` without fabricating sensor calibration curves) and encode 10-byte command frames for inspection.\n- Automated CI (`quality.yml` and `codeql.yml`) runs Ruff linting, unit tests, and `scripts/verify_repository.py` to validate artifact hashes and repository hygiene, while `docs/HARDWARE.md` lays out a seven-step electrical, DRC/ERC, current-limited bring-up, and recalibration checklist before anyone powers an archived board.",
-              "es": "No es seguro asumir que proyectos binarios heredados de CodeWarrior, LabVIEW o MATLAB compilen o operen sin cambios diez años después. Por eso la frontera mantenida del repositorio es deliberadamente acotada y verificable:\n\n- `tools/xsub_protocol.py` ofrece un CLI en Python 3.11+ sin dependencias de terceros para decodificar tramas de 27 bytes (reportando enteros crudos y conversión a complemento a dos mediante `signed_16()`, sin inventar curvas de calibración) y construir tramas de comando de 10 bytes para inspección.\n- La integración continua (`quality.yml` y `codeql.yml`) ejecuta Ruff, pruebas unitarias y `scripts/verify_repository.py` para validar hashes de artefactos e higiene del repositorio, mientras `docs/HARDWARE.md` define un checklist de siete pasos —revisión en Altium, DRC/ERC, encendido con límite de corriente y recalibración— antes de energizar una tarjeta archivada."
-            }
+            "Legacy CodeWarrior, LabVIEW, and MATLAB binary projects cannot safely be assumed to compile or run unchanged ten years later. The maintained boundary of the repository is therefore deliberately narrow and verifiable:\n\n- `tools/xsub_protocol.py` provides a dependency-free Python 3.11+ CLI to decode 27-byte telemetry frames (reporting raw unsigned integers and offering two's-complement conversion via `signed_16()` without fabricating sensor calibration curves) and encode 10-byte command frames for inspection.\n- Automated CI (`quality.yml` and `codeql.yml`) runs Ruff linting, unit tests, and `scripts/verify_repository.py` to validate artifact hashes and repository hygiene, while `docs/HARDWARE.md` lays out a seven-step electrical, DRC/ERC, current-limited bring-up, and recalibration checklist before anyone powers an archived board."
           ]
         },
         {
-          "heading": {
-            "en": "Takeaway",
-            "es": "Aprendizaje clave"
-          },
+          "heading": "Takeaway",
           "paragraphs": [
-            {
-              "en": "Good embedded engineering is as much about knowing where a design stops being safe as making it work on the bench. Preserving `X-Sub/Telemetry-System` with an honest protocol audit, explicit safety warnings, and automated verification demonstrates the exact review lens I bring to connected hardware projects today.",
-              "es": "La buena ingeniería embebida consiste tanto en saber dónde un diseño deja de ser seguro como en hacerlo funcionar en el banco. Preservar `X-Sub/Telemetry-System` con una auditoría honesta del protocolo, advertencias claras y verificación automatizada refleja exactamente el criterio con el que reviso proyectos de hardware conectado hoy."
-            }
+            "Good embedded engineering is as much about knowing where a design stops being safe as making it work on the bench. Preserving `X-Sub/Telemetry-System` with an honest protocol audit, explicit safety warnings, and automated verification demonstrates the exact review lens I bring to connected hardware projects today."
           ]
         }
       ],
       "sources": [
         {
-          "label": {
-            "en": "Public repository",
-            "es": "Repositorio público"
-          },
+          "label": "Public repository",
           "url": "https://github.com/X-Sub/Telemetry-System"
         },
         {
-          "label": {
-            "en": "Hardware guide",
-            "es": "Guía de hardware"
-          },
+          "label": "Hardware guide",
           "url": "https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/HARDWARE.md"
         },
         {
-          "label": {
-            "en": "Protocol reference",
-            "es": "Referencia del protocolo"
-          },
+          "label": "Protocol reference",
           "url": "https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/PROTOCOL.md"
         }
       ],
@@ -390,472 +192,270 @@
         "path": "/assets/img/lab/rov-telemetry-board.webp",
         "width": 900,
         "height": 631,
-        "alt": {
-          "en": "Assembled telemetry sub-board with connectors and a central microcontroller",
-          "es": "Tarjeta de telemetría montada con conectores y un microcontrolador central"
-        },
-        "caption": {
-          "en": "A telemetry sub-board from the X-Sub archive.",
-          "es": "Tarjeta de telemetría del archivo X-Sub."
-        },
+        "alt": "Assembled telemetry sub-board with connectors and a central microcontroller",
+        "caption": "A telemetry sub-board from the X-Sub archive.",
         "small_path": "/assets/img/lab/rov-telemetry-board-480.webp"
       },
       "date_published": "2026-11-22",
-      "board": true
+      "board": true,
+      "path": "/work/xsub-telemetry.html",
+      "period": "Early work · 2015–2016",
+      "card_intro": "Undergraduate thesis archive pairing custom acquisition boards and embedded firmware with a modern audit of the serial protocol."
     },
     {
-      "paths": {
-        "en": "/work/altium-pcb-library.html",
-        "es": "/es/trabajo/altium-pcb-library.html"
-      },
       "meta": {
-        "title": {
-          "en": "Validating a Shared Altium PCB Library — Danilo Díaz Tarascó",
-          "es": "Validación de una Librería PCB en Altium — Danilo Díaz Tarascó"
-        },
-        "description": {
-          "en": "How to validate Altium PCB footprints and schematic symbols using a file manifest, automated integrity checks and manual datasheet review.",
-          "es": "Cómo validar footprints y símbolos esquemáticos en Altium con un manifiesto, controles de integridad y revisión manual de datasheets."
-        },
-        "og_title": {
-          "en": "Disciplined PCB Component Libraries in Altium Designer",
-          "es": "Disciplina en Librerías de Componentes PCB en Altium Designer"
-        },
-        "og_description": {
-          "en": "How automated integrity checks and manual datasheet gates keep binary Altium schematic and PCB libraries safe for fabrication.",
-          "es": "Cómo las verificaciones automáticas de integridad y las revisiones contra datasheet protegen librerías binarias de Altium antes de fabricar."
-        }
+        "title": "Validating a Shared Altium PCB Library — Danilo Díaz Tarascó",
+        "description": "How to validate Altium PCB footprints and schematic symbols using a file manifest, automated integrity checks and manual datasheet review.",
+        "og_title": "Disciplined PCB Component Libraries in Altium Designer",
+        "og_description": "How automated integrity checks and manual datasheet gates keep binary Altium schematic and PCB libraries safe for fabrication."
       },
-      "title": {
-        "en": "Disciplined PCB Component Libraries in Altium Designer",
-        "es": "Disciplina en librerías de componentes PCB en Altium Designer"
-      },
-      "intro": {
-        "en": "The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.",
-        "es": "La librería combina verificaciones automáticas de los archivos binarios de Altium con una revisión manual contra los datasheets."
-      },
+      "title": "Disciplined PCB Component Libraries in Altium Designer",
+      "intro": "The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.",
       "blocks": [
         {
-          "heading": {
-            "en": "The problem",
-            "es": "El problema"
-          },
+          "heading": "The problem",
           "paragraphs": [
-            {
-              "en": "A large share of expensive PCB respins start long before routing: they begin in the component library. One swapped pin on a schematic symbol, a mirrored pin-1 mark, an undersized drill on a power header, or an unverified land pattern pulled from an anonymous forum can turn a two-week fabrication run into scrap hardware.\n\nAt the same time, native Altium Designer libraries (`.SchLib` and `.PcbLib`) are opaque binary compound files. Standard `git diff` cannot show whether a footprint pad shifted by 0.2 mm, whether a file was corrupted during a save, or whether temporary Altium history and lock files slipped into a commit.\n\nOver several years of hardware work (2019–2026), I curated my reusable components into `Personal-Altium-Library`, published publicly under CERN-OHL-P-2.0. To make a binary EDA repository trustworthy for both personal reuse and external engineers, I paired the library files with a two-layer validation workflow modeled after software release discipline.",
-              "es": "Una proporción alta de los respins costosos de PCB empieza mucho antes del ruteo: nace en la librería de componentes. Un pin invertido en un símbolo esquemático, una marca de pin 1 espejada, un taladro subdimensionado en un conector de potencia o un land pattern descargado sin verificar pueden convertir dos semanas de fabricación en tarjetas inservibles.\n\nAl mismo tiempo, las librerías nativas de Altium Designer (`.SchLib` y `.PcbLib`) son archivos binarios compuestos y opacos. Un `git diff` convencional no muestra si un pad se desplazó 0.2 mm, si un binario se corrompió al guardarse o si se colaron archivos temporales e historiales automáticos de Altium en un commit.\n\nA lo largo de varios años de proyectos de hardware (2019–2026) reuní mis componentes reutilizables en `Personal-Altium-Library`, publicados bajo licencia CERN-OHL-P-2.0. Para que un repositorio binario de EDA resulte confiable tanto para uso propio como para otros ingenieros, combiné los archivos de librería con un flujo de validación en dos capas inspirado en la disciplina de entregas de software."
-            }
+            "A large share of expensive PCB respins start long before routing: they begin in the component library. One swapped pin on a schematic symbol, a mirrored pin-1 mark, an undersized drill on a power header, or an unverified land pattern pulled from an anonymous forum can turn a two-week fabrication run into scrap hardware.\n\nAt the same time, native Altium Designer libraries (`.SchLib` and `.PcbLib`) are opaque binary compound files. Standard `git diff` cannot show whether a footprint pad shifted by 0.2 mm, whether a file was corrupted during a save, or whether temporary Altium history and lock files slipped into a commit.\n\nOver several years of hardware work (2019–2026), I curated my reusable components into `Personal-Altium-Library`, published publicly under CERN-OHL-P-2.0. To make a binary EDA repository trustworthy for both personal reuse and external engineers, I paired the library files with a two-layer validation workflow modeled after software release discipline."
           ]
         },
         {
-          "heading": {
-            "en": "What the library covers",
-            "es": "Qué cubre la librería"
-          },
+          "heading": "What the library covers",
           "paragraphs": [
-            {
-              "en": "The repository tracks two checked-in Altium libraries whose exact sizes and SHA-256 digests are recorded in `library-manifest.json`:\n\n- **`AltiumLibraryDDT.SchLib`** (396,800 bytes) — **81 schematic symbols**.\n- **`AltiumLibraryDDT.PcbLib`** (36,292,608 bytes) — **106 PCB footprints**.\n\nAcross `docs/INVENTORY.md`, the catalog spans practical building blocks from real hardware builds rather than synthetic demo parts: SMD passives across 0402/0603/1206 packages, high-voltage diodes, barrier terminal blocks and shrouded headers, wireless modules (`ESP32-DEVKITC-32D`, `ESP8266_ESP-12`, `HM-10`), power modules (`LM2596`, `MT3608`, `Mini-360`), load-cell and current sensors (`HX711`, `ACS758LCB-050B`), relays (`G5LE`), and micro-SD holders.",
-              "es": "El repositorio mantiene dos librerías de Altium cuyos tamaños exactos y resúmenes SHA-256 quedan registrados en `library-manifest.json`:\n\n- **`AltiumLibraryDDT.SchLib`** (396,800 bytes) — **81 símbolos esquemáticos**.\n- **`AltiumLibraryDDT.PcbLib`** (36,292,608 bytes) — **106 footprints PCB**.\n\nSegún `docs/INVENTORY.md`, el catálogo agrupa bloques reales de proyectos de hardware en lugar de piezas sintéticas: pasivos SMD en encapsulados 0402/0603/1206, diodos de alto voltaje, borneras y headers con shroud, módulos inalámbricos (`ESP32-DEVKITC-32D`, `ESP8266_ESP-12`, `HM-10`), módulos de potencia (`LM2596`, `MT3608`, `Mini-360`), sensores de celda de carga y corriente (`HX711`, `ACS758LCB-050B`), relés (`G5LE`) y conectores micro-SD."
-            }
+            "The repository tracks two checked-in Altium libraries whose exact sizes and SHA-256 digests are recorded in `library-manifest.json`:\n\n- **`AltiumLibraryDDT.SchLib`** (396,800 bytes) — **81 schematic symbols**.\n- **`AltiumLibraryDDT.PcbLib`** (36,292,608 bytes) — **106 PCB footprints**.\n\nAcross `docs/INVENTORY.md`, the catalog spans practical building blocks from real hardware builds rather than synthetic demo parts: SMD passives across 0402/0603/1206 packages, high-voltage diodes, barrier terminal blocks and shrouded headers, wireless modules (`ESP32-DEVKITC-32D`, `ESP8266_ESP-12`, `HM-10`), power modules (`LM2596`, `MT3608`, `Mini-360`), load-cell and current sensors (`HX711`, `ACS758LCB-050B`), relays (`G5LE`), and micro-SD holders."
           ]
         },
         {
-          "heading": {
-            "en": "Two-layer validation for binary EDA files",
-            "es": "Validación en dos capas para archivos binarios de EDA"
-          },
+          "heading": "Two-layer validation for binary EDA files",
           "paragraphs": [
-            {
-              "en": "Because CI cannot replace an electrical engineer inspecting copper geometry in Altium, `docs/VALIDATION.md` separates what machines can guarantee from what requires human review in the EDA tool.\n\n### Layer 1: Automated repository integrity (CI)\n\nRunning `python3 scripts/validate_repository.py` locally and in GitHub Actions (`quality.yml`) enforces six deterministic checks on every push and pull request:\n\n1. Required project, licensing, and engineering-notice files exist.\n2. Both `.SchLib` and `.PcbLib` carry valid compound-file binary signatures (catching truncated or text-corrupted commits immediately).\n3. File byte sizes and SHA-256 checksums match `library-manifest.json` exactly.\n4. Declared symbol (81) and footprint (106) counts match the tracked inventory in `docs/INVENTORY.md`.\n5. Local Markdown documentation links resolve cleanly.\n6. Common generated artifacts, Altium backups, and autosave files are blocked from entering Git.\n\nWhen a component is intentionally added or edited, `scripts/update_manifest.py` refreshes the manifest — and the policy explicitly forbids blindly accepting a regenerated hash without verifying that only intended library entries changed.\n\n### Layer 2: Manual Altium engineering gate\n\nBefore any modified symbol or footprint is accepted, `docs/VALIDATION.md` defines a four-part Altium review checklist:\n\n- **Library integrity:** Open and save both libraries without conversion or repair warnings and run built-in library checks.\n- **Schematic review:** Verify every pin number, name, electrical type, hidden power pin, designator, and footprint link directly against the current manufacturer datasheet.\n- **Footprint review:** Check pad geometry, numbering, drill sizes, thermal pads, solder mask, paste, silkscreen, courtyard, pin-1 indicator, and 3D body height against the manufacturer's recommended land pattern and fabricator tolerances.\n- **Integration review:** Place the symbol in a temporary schematic, push it to a temporary PCB, verify all pin-to-pad mappings, run ERC and DRC, and inspect both board sides in 2D and 3D.",
-              "es": "Como la automatización en CI no reemplaza el ojo de un ingeniero electrónico revisando cobre en Altium, `docs/VALIDATION.md` separa lo que la máquina puede garantizar de lo que exige revisión manual dentro de la herramienta EDA.\n\n### Capa 1: Integridad automática del repositorio (CI)\n\nEjecutar `python3 scripts/validate_repository.py` en local y en GitHub Actions (`quality.yml`) aplica seis verificaciones deterministas en cada push y pull request:\n\n1. Existen los archivos requeridos de proyecto, licencia y aviso de ingeniería.\n2. Tanto `.SchLib` como `.PcbLib` conservan firmas válidas de archivo compuesto binario (detectando de inmediato commits truncados o corruptos).\n3. Los tamaños en bytes y checksums SHA-256 coinciden exactamente con `library-manifest.json`.\n4. Los conteos declarados (81 símbolos y 106 footprints) coinciden con el inventario en `docs/INVENTORY.md`.\n5. Todos los enlaces internos de documentación en Markdown resuelven sin errores.\n6. Se bloquea el ingreso de respaldos, cachés y archivos autogenerados por Altium.\n\nCuando un componente se agrega o modifica intencionalmente, `scripts/update_manifest.py` actualiza el manifiesto —y la política prohíbe aceptar un cambio de hash sin comprobar primero qué entradas específicas cambiaron.\n\n### Capa 2: Compuerta manual de ingeniería en Altium\n\nAntes de aceptar un símbolo o footprint modificado, `docs/VALIDATION.md` exige un lista de 4 puntos dentro de Altium:\n\n- **Integridad de librería:** Abrir y guardar ambas librerías sin advertencias de conversión o reparación y correr las validaciones internas.\n- **Revisión de esquemático:** Contrastar cada número de pin, nombre, tipo eléctrico, pin oculto de alimentación, designador y vínculo de footprint directamente contra el datasheet vigente del fabricante.\n- **Revisión de footprint:** Verificar geometría de pads, numeración, taladros, thermal pads, solder mask, pasta, serigrafía, courtyard, indicador de pin 1 y altura del modelo 3D frente al land pattern recomendado y las tolerancias del fabricante de PCB.\n- **Revisión de integración:** Colocar el símbolo en un esquemático temporal, transferirlo a una PCB temporal, comprobar cada mapeo pin-a-pad, correr ERC y DRC e inspeccionar ambas caras en 2D y 3D."
-            }
+            "Because CI cannot replace an electrical engineer inspecting copper geometry in Altium, `docs/VALIDATION.md` separates what machines can guarantee from what requires human review in the EDA tool.\n\n### Layer 1: Automated repository integrity (CI)\n\nRunning `python3 scripts/validate_repository.py` locally and in GitHub Actions (`quality.yml`) enforces six deterministic checks on every push and pull request:\n\n1. Required project, licensing, and engineering-notice files exist.\n2. Both `.SchLib` and `.PcbLib` carry valid compound-file binary signatures (catching truncated or text-corrupted commits immediately).\n3. File byte sizes and SHA-256 checksums match `library-manifest.json` exactly.\n4. Declared symbol (81) and footprint (106) counts match the tracked inventory in `docs/INVENTORY.md`.\n5. Local Markdown documentation links resolve cleanly.\n6. Common generated artifacts, Altium backups, and autosave files are blocked from entering Git.\n\nWhen a component is intentionally added or edited, `scripts/update_manifest.py` refreshes the manifest — and the policy explicitly forbids blindly accepting a regenerated hash without verifying that only intended library entries changed.\n\n### Layer 2: Manual Altium engineering gate\n\nBefore any modified symbol or footprint is accepted, `docs/VALIDATION.md` defines a four-part Altium review checklist:\n\n- **Library integrity:** Open and save both libraries without conversion or repair warnings and run built-in library checks.\n- **Schematic review:** Verify every pin number, name, electrical type, hidden power pin, designator, and footprint link directly against the current manufacturer datasheet.\n- **Footprint review:** Check pad geometry, numbering, drill sizes, thermal pads, solder mask, paste, silkscreen, courtyard, pin-1 indicator, and 3D body height against the manufacturer's recommended land pattern and fabricator tolerances.\n- **Integration review:** Place the symbol in a temporary schematic, push it to a temporary PCB, verify all pin-to-pad mappings, run ERC and DRC, and inspect both board sides in 2D and 3D."
           ]
         },
         {
-          "heading": {
-            "en": "Takeaway",
-            "es": "Aprendizaje clave"
-          },
+          "heading": "Takeaway",
           "paragraphs": [
-            {
-              "en": "Reliability in connected hardware starts with boring, repeatable habits: versioned manifests, datasheet-first verification, and honest boundaries about what automation can and cannot prove. `Personal-Altium-Library` is both a public engineering resource and a concrete look at how I structure PCB review workflows before releasing Gerbers to fabrication.",
-              "es": "La confiabilidad en hardware conectado empieza por hábitos sobrios y repetibles: manifiestos versionados, verificación contra datasheet y límites honestos sobre lo que la automatización cubre y lo que no. `Personal-Altium-Library` funciona a la vez como recurso abierto y como muestra concreta de cómo estructuro una revisión de PCB antes de liberar Gerbers a fabricación."
-            }
+            "Reliability in connected hardware starts with boring, repeatable habits: versioned manifests, datasheet-first verification, and honest boundaries about what automation can and cannot prove. `Personal-Altium-Library` is both a public engineering resource and a concrete look at how I structure PCB review workflows before releasing Gerbers to fabrication."
           ]
         }
       ],
       "sources": [
         {
-          "label": {
-            "en": "Public repository",
-            "es": "Repositorio público"
-          },
+          "label": "Public repository",
           "url": "https://github.com/ddtdanilo/Personal-Altium-Library"
         },
         {
-          "label": {
-            "en": "Inventory",
-            "es": "Inventario"
-          },
+          "label": "Inventory",
           "url": "https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/INVENTORY.md"
         },
         {
-          "label": {
-            "en": "Validation guide",
-            "es": "Guía de validación"
-          },
+          "label": "Validation guide",
           "url": "https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md"
         },
         {
-          "label": {
-            "en": "Library manifest",
-            "es": "Manifiesto de la librería"
-          },
+          "label": "Library manifest",
           "url": "https://github.com/ddtdanilo/Personal-Altium-Library/blob/main/library-manifest.json"
         }
       ],
       "date_published": "2026-11-22",
       "specs": [
         {
-          "label": {
-            "en": "Schematic symbols",
-            "es": "Símbolos esquemáticos"
-          },
-          "value": {
-            "en": "81",
-            "es": "81"
-          },
+          "label": "Schematic symbols",
+          "value": "81",
           "featured": true
         },
         {
-          "label": {
-            "en": "PCB footprints",
-            "es": "Footprints PCB"
-          },
-          "value": {
-            "en": "106",
-            "es": "106"
-          },
+          "label": "PCB footprints",
+          "value": "106",
           "featured": true
         },
         {
-          "label": {
-            "en": "Automated CI checks",
-            "es": "Controles automatizados de CI"
-          },
-          "value": {
-            "en": "6 deterministic checks",
-            "es": "6 verificaciones deterministas"
-          }
+          "label": "Automated CI checks",
+          "value": "6 deterministic checks"
         },
         {
-          "label": {
-            "en": "Altium review",
-            "es": "Revisión en Altium"
-          },
-          "value": {
-            "en": "4-part datasheet checklist",
-            "es": "Lista de 4 puntos basada en datasheets"
-          }
+          "label": "Altium review",
+          "value": "4-part datasheet checklist"
         },
         {
-          "label": {
-            "en": "License",
-            "es": "Licencia"
-          },
-          "value": {
-            "en": "CERN-OHL-P-2.0",
-            "es": "CERN-OHL-P-2.0"
-          }
+          "label": "License",
+          "value": "CERN-OHL-P-2.0"
+        }
+      ],
+      "path": "/work/altium-pcb-library.html",
+      "period": "Public library · 2019–2026",
+      "card_intro": "Reusable library of 81 schematic symbols and 106 PCB footprints pairing automated binary checks with manual datasheet review."
+    },
+    {
+      "path": "/work/plant-operations-agents.html",
+      "title": "AI for Plant Operations: A Security-First Tool Gateway",
+      "intro": "Connecting AI assistants to plant ERP records, technical procedures, and device telemetry through a serverless AWS gateway built for least privilege, guarded writes, and full auditability.",
+      "featured": true,
+      "date_published": "2026-11-22",
+      "schema_image": "/assets/img/gateway.svg",
+      "meta": {
+        "title": "AI for Plant Operations: Security-First Tool Gateway — Danilo Díaz Tarascó",
+        "description": "How a serverless AWS gateway gives AI assistants access to plant ERP, procedures, and device data using SSO, guarded writes, and an audit ledger.",
+        "og_title": "AI for Plant Operations: A Security-First Tool Gateway",
+        "og_description": "Designing a serverless MCP tool gateway for industrial plants: per-person SSO, deny-by-default permissions, two-step signed writes, conflict detection, and an audit ledger."
+      },
+      "blocks": [
+        {
+          "heading": "The problem on a plant",
+          "paragraphs": [
+            "Running an industrial plant generates operational truth in separate places. The ERP holds sales orders, inventory, manufacturing orders, quality records, maintenance tickets, and equipment history. Standard operating procedures, troubleshooting notes, and wiring references live in a technical knowledge base. Live and historical device telemetry sits in its own monitoring stack.\n\nRoutine questions cross all three boundaries at once. An engineer or supervisor wants to know what happened to a specific machine, which maintenance tickets are open at a site, whether a field device is healthy, or what the documented procedure requires. Getting a reliable answer usually means switching portals, piecing together identifiers, or waiting on the one person who knows where a record lives. On the plant floor, the gap is wider because software has to work under touchscreens, gloves, and glare rather than a quiet desk.\n\nGiving an AI assistant direct access to production systems is unacceptable without hard engineering boundaries. Shared credentials hide who acted, the gateway must enforce access, and an unguarded write against an ERP or equipment record can disrupt live operations."
+          ]
+        },
+        {
+          "heading": "The design",
+          "paragraphs": [
+            "I originated, designed, and built a single serverless tool gateway on AWS using the Model Context Protocol, an open standard for structured assistant tooling. The gateway routes every tool call to one of three operational domains: the ERP, the technical knowledge base, and live and historical device telemetry.\n\nPeople ask questions in plain language: what happened to this machine, which tickets are open at this site, whether a device is healthy, or what the procedure states. The assistant queries structured tools behind the gateway, grounds its answer in the actual records, and cites the source in business terms so the reader can verify it immediately.\n\nThe gateway sits inside a broader operational workflow designed for daily plant use:\n\n- **Hybrid knowledge search:** The team knowledge base combines keyword search with semantic search, so part numbers, error codes, and natural-language troubleshooting questions all resolve reliably.\n- **Daily monitoring summaries:** Automated operational summaries surface recurring issues and fleet health trends without requiring manual checks across every site.\n- **Plant-floor interfaces:** Companion interfaces are designed specifically for field conditions, prioritizing large touch targets, glove usability, and legibility under glare."
+          ],
+          "figure": true
+        },
+        {
+          "heading": "The security model",
+          "paragraphs": [
+            "The gateway infrastructure enforces these controls for every tool call. Every control follows standard least-privilege practice for production enterprise and industrial systems:\n\n- **Per-person identity:** Every user signs in through single sign-on, and access tokens are strictly bound to the gateway as their audience so the token is intended for this service alone.\n- **Deny-by-default permissions:** An administrator manages explicit per-person, per-system grants. If a user is not authorized for a given backend or operation, the gateway rejects the call before any downstream request runs.\n- **Read and write separation:** Read tools and write tools are explicitly separated in the tool surface, preventing a routine lookup from crossing into a state-changing action.\n- **Two-step guarded writes:** Changing a record requires two distinct steps. First, the gateway prepares the exact proposed change for review. Second, the apply step executes only with a signed, expiring token and performs conflict detection to abort if the underlying record changed in the meantime.\n- **User-attributed audit ledger:** Every state change is written to an audit ledger under the authenticated person's identity, creating a clear operational trail.\n- **Scoped service accounts and managed secrets:** Downstream integrations run with minimum-rights service accounts. Credentials live in a managed secret store and never appear in prompts, tool outputs, or knowledge base documents.\n- **Operational limits and observability:** Response-size caps and execution-time limits bound the work each request can trigger, backed by health monitoring, alarms, and usage logs."
+          ],
+          "security_controls": true
+        },
+        {
+          "heading": "What it changed for the team",
+          "paragraphs": [
+            "With one controlled entry point over operational records, operators, engineers, and managers spend less time hunting across disconnected interfaces and more time acting on verified facts. Questions about machine history, open tickets, device status, and documented procedures receive grounded answers with clear business sources instead of tribal knowledge or guesswork.\n\nJust as important, separating reads from two-step guarded writes lets teams move past read-only demos into real operational workflows. People can prepare updates with confidence that concurrent changes are caught, permissions are enforced, and every action is attributable to the person who approved it."
+          ]
+        },
+        {
+          "heading": "What I would bring to yours",
+          "paragraphs": [
+            "If your industrial, hardware, or operations team wants AI connected to ERP records, internal documentation, or device telemetry without compromising production security, I can design and build the same pattern for your environment. That covers the Model Context Protocol gateway on AWS, identity and per-system authorization, two-step write guards and audit logging, hybrid knowledge search, and interfaces usable on the floor.\n\nStart with a focused architecture session or reach out on LinkedIn to scope a dedicated build."
+          ]
         }
       ]
     }
   ],
   "home": {
-    "headline": {
-      "en": "Hardware that",
-      "es": "Hardware que"
-    },
-    "headline_end": {
-      "en": "ships.",
-      "es": "llega a campo."
-    },
-    "roleline": {
-      "en": "Danilo Díaz Tarascó · CTO",
-      "es": "Danilo Díaz Tarascó · CTO"
-    },
-    "intro": {
-      "en": "I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment.",
-      "es": "Soy CTO en Sento Tech Labs e ingeniero electrónico. Llevo más de diez años desarrollando productos de IoT industrial, desde el diseño hasta el despliegue en campo."
-    },
-    "availability": {
-      "en": "I offer focused 1:1 technical consulting in English and Spanish.",
-      "es": "Ofrezco consultoría técnica individual en español e inglés."
-    },
+    "headline": "Forward-deployed engineering,",
+    "headline_end": "board to cloud.",
+    "roleline": "Danilo Díaz Tarascó · Forward-deployed engineer, hardware to cloud",
+    "intro": "I work where the product runs: on the bench, at the site, and in the cloud account. I take connected hardware from a first prototype to a fleet that provisions automatically, updates over the air, and reports faults.",
     "proof": [
       {
-        "value": {
-          "en": "10+ years",
-          "es": "Más de 10 años"
-        },
-        "label": {
-          "en": "Building connected hardware",
-          "es": "Desarrollo de hardware conectado"
-        }
+        "value": "10+ years",
+        "label": "Connected hardware to cloud"
       },
       {
-        "value": {
-          "en": "12 engineers",
-          "es": "12 ingenieros"
-        },
-        "label": {
-          "en": "Team leadership",
-          "es": "Liderazgo de equipo"
-        }
+        "value": "12 engineers",
+        "label": "Team led as CTO"
       },
       {
-        "value": {
-          "en": "FCC",
-          "es": "FCC"
-        },
-        "label": {
-          "en": "Hardware certification",
-          "es": "Certificación de hardware"
-        }
+        "value": "FCC",
+        "label": "Hardware certification"
       },
       {
-        "value": {
-          "en": "EN / ES",
-          "es": "ES / EN"
-        },
-        "label": {
-          "en": "Consulting languages",
-          "es": "Idiomas de consultoría"
-        }
+        "value": "Hardware → cloud",
+        "label": "Full path"
       }
     ],
     "about": [
-      {
-        "en": "My work spans microcontroller firmware, PCB design, certification and cloud infrastructure. I’ve taken connected products from prototypes through certification and deployments in Latin America, the Caribbean and the United States.",
-        "es": "Mi trabajo abarca firmware para microcontroladores, diseño de PCB, certificación e infraestructura en la nube. He llevado productos conectados del prototipo a la certificación y el despliegue en América Latina, el Caribe y Estados Unidos."
-      },
-      {
-        "en": "I lead a team of 12 engineers working on embedded hardware, connectivity and cloud services. I hold a degree in Electronics Engineering from Universidad Simón Bolívar.",
-        "es": "Lidero un equipo de 12 ingenieros en hardware embebido, conectividad y servicios en la nube. Soy ingeniero electrónico de la Universidad Simón Bolívar."
-      },
-      {
-        "en": "My master’s studies in electronics are at Universidad Simón Bolívar, with the thesis pending. That university awarded an honorific mention to my undergraduate thesis on underwater telemetry. My team took first place in the IEEE Open Category at CCSBOTS 2013.",
-        "es": "Cursé estudios de maestría en electrónica en la Universidad Simón Bolívar y tengo la tesis pendiente. La universidad otorgó una mención honorífica a mi tesis de pregrado sobre telemetría submarina. Mi equipo obtuvo el primer lugar en la categoría IEEE Open de CCSBOTS 2013."
-      }
+      "I work as a forward-deployed engineer across the full stack of connected hardware: custom PCBs, microcontroller firmware, field connectivity, cloud infrastructure, edge AI, and operational agents. Over the last decade I have taken industrial IoT products from first prototypes through certification and production fleets across Latin America, the Caribbean, and the United States.",
+      "I serve as CTO at Sento Tech Labs, leading a team of 12 engineers across embedded hardware, connectivity, and cloud services. I hold a degree in Electronics Engineering from Universidad Simón Bolívar.",
+      "My master’s studies in electronics are at Universidad Simón Bolívar, with the thesis pending. The university awarded an honorific mention to my undergraduate thesis on underwater telemetry, and my team took first place in the IEEE Open Category at CCSBOTS 2013."
     ],
     "selected": [
       {
-        "title": {
-          "en": "Telemetry for intermittent networks",
-          "es": "Telemetría para redes intermitentes"
-        },
-        "body": {
-          "en": "I developed embedded systems that keep collecting data when industrial sites lose connectivity.",
-          "es": "Desarrollé sistemas embebidos que siguen recopilando datos cuando los sitios industriales pierden la conexión."
-        },
-        "id": "work-telemetry"
+        "title": "AI for Plant Operations: A Security-First Tool Gateway",
+        "body": "A serverless AWS Model Context Protocol gateway giving AI assistants audited, least-privilege access to plant ERP records, technical procedures, and device telemetry.",
+        "url": "/work/plant-operations-agents.html"
       },
       {
-        "title": {
-          "en": "Software for connected device fleets",
-          "es": "Software para flotas de dispositivos conectados"
-        },
-        "body": {
-          "en": "I led cloud architecture and firmware delivery work so field devices could be maintained remotely.",
-          "es": "Lideré el trabajo de arquitectura en la nube y entrega de firmware para facilitar el mantenimiento remoto de dispositivos."
-        },
-        "id": "work-fleet"
+        "title": "A device fleet that updates itself",
+        "body": "Zero-touch provisioning, staged over-the-air firmware rollouts with rollback, and remote diagnostics for field-deployed industrial units.",
+        "url": "#fleet-operations",
+        "action": "See fleet capabilities"
       },
       {
-        "title": {
-          "en": "Hardware from prototype to production",
-          "es": "Hardware del prototipo a producción"
-        },
-        "body": {
-          "en": "I designed industrial PCBs, led hardware through FCC certification and helped scale enclosures from 3D printing to injection molding.",
-          "es": "Diseñé PCB industriales, lideré la certificación FCC de hardware y ayudé a llevar carcasas de impresión 3D a moldeo por inyección."
-        },
-        "id": "work-hardware"
+        "title": "Industrial hardware through certification",
+        "body": "Custom industrial PCBs taken from prototype through FCC certification and production, including scaling enclosures from 3D printing to injection molding.",
+        "url": "#board-design",
+        "action": "See hardware capabilities"
       }
     ],
     "consult_preview": [
-      {
-        "en": "Bring a schematic, a firmware question or a system diagram to a 30-, 60- or 90-minute review. After payment we agree on a time by email. You receive written notes after the session.",
-        "es": "Trae un esquemático, una pregunta de firmware o un diagrama del sistema a una revisión de 30, 60 o 90 minutos. Después del pago acordamos la hora por correo. Al terminar recibes notas por escrito."
-      }
+      "Book a 30-, 60-, or 90-minute 1:1 session for a focused schematic, firmware, or architecture decision, or reach out on LinkedIn for a scoped engagement. You receive written notes within 24 hours."
     ],
     "contact": [
-      {
-        "en": "For professional inquiries or a project that needs more than one session, get in touch on LinkedIn.",
-        "es": "Para consultas profesionales o proyectos que requieren más de una sesión, escríbeme por LinkedIn."
-      }
+      "For professional inquiries or a project that needs more than one session, get in touch on LinkedIn."
     ],
     "experience": [
       {
-        "dates": {
-          "en": "Jun 2024 — present",
-          "es": "jun 2024 — presente"
-        },
-        "title": {
-          "en": "Chief Technology Officer",
-          "es": "Chief Technology Officer (CTO)"
-        },
-        "org": {
-          "en": "Sento Tech Labs",
-          "es": "Sento Tech Labs"
-        },
-        "body": {
-          "en": "Lead a team of 12 engineers and set the technical direction for industrial IoT hardware, firmware and cloud services.",
-          "es": "Lidero un equipo de 12 ingenieros y defino la dirección técnica para hardware, firmware y servicios en la nube de IoT industrial."
-        },
+        "dates": "Jun 2024 — present",
+        "title": "Chief Technology Officer",
+        "org": "Sento Tech Labs",
+        "body": "Lead a team of 12 engineers and set the technical direction for industrial IoT hardware, firmware and cloud services.",
         "start": "2024-06"
       },
       {
-        "dates": {
-          "en": "Feb 2023 — Jun 2024",
-          "es": "feb 2023 — jun 2024"
-        },
-        "title": {
-          "en": "Senior Electronics Engineer — Team Lead",
-          "es": "Ingeniero Electrónico Senior — Líder de equipo"
-        },
-        "org": {
-          "en": "Sento Tech Labs",
-          "es": "Sento Tech Labs"
-        },
-        "body": {
-          "en": "Led a multidisciplinary team developing industrial IoT hardware for demanding field conditions.",
-          "es": "Lideré un equipo multidisciplinario que desarrolló hardware de IoT industrial para condiciones exigentes en campo."
-        },
+        "dates": "Feb 2023 — Jun 2024",
+        "title": "Senior Electronics Engineer — Team Lead",
+        "org": "Sento Tech Labs",
+        "body": "Led a multidisciplinary team developing industrial IoT hardware for demanding field conditions.",
         "start": "2023-02",
         "end": "2024-06"
       },
       {
-        "dates": {
-          "en": "Nov 2021 — Nov 2022",
-          "es": "nov 2021 — nov 2022"
-        },
-        "title": {
-          "en": "Software Engineer / DevOps",
-          "es": "Ingeniero de Software / DevOps"
-        },
-        "org": {
-          "en": "PowDevs",
-          "es": "PowDevs"
-        },
-        "body": {
-          "en": "Built serverless infrastructure for a connected industrial device platform.",
-          "es": "Construí infraestructura serverless para una plataforma de dispositivos industriales conectados."
-        },
+        "dates": "Nov 2021 — Nov 2022",
+        "title": "Software Engineer / DevOps",
+        "org": "PowDevs",
+        "body": "Built serverless infrastructure for a connected industrial device platform.",
         "start": "2021-11",
         "end": "2022-11"
       },
       {
-        "dates": {
-          "en": "Jun 2019 — Nov 2021",
-          "es": "jun 2019 — nov 2021"
-        },
-        "title": {
-          "en": "Development Engineer",
-          "es": "Ingeniero de Desarrollo"
-        },
-        "org": {
-          "en": "Vantu S.A.S",
-          "es": "Vantu S.A.S"
-        },
-        "body": {
-          "en": "Designed PCBs for industrial IoT and led designs through FCC certification.",
-          "es": "Diseñé PCB para IoT industrial y lideré el proceso de certificación FCC."
-        },
+        "dates": "Jun 2019 — Nov 2021",
+        "title": "Development Engineer",
+        "org": "Vantu S.A.S",
+        "body": "Designed PCBs for industrial IoT and led designs through FCC certification.",
         "start": "2019-06",
         "end": "2021-11"
       },
       {
-        "dates": {
-          "en": "Sep 2016 — Jun 2019",
-          "es": "sep 2016 — jun 2019"
-        },
-        "title": {
-          "en": "Hardware Engineer",
-          "es": "Ingeniero de Hardware"
-        },
-        "org": {
-          "en": "Innavitas SAPI — Wiot",
-          "es": "Innavitas SAPI — Wiot"
-        },
-        "body": {
-          "en": "Developed embedded systems for industrial and automotive instrumentation.",
-          "es": "Desarrollé sistemas embebidos para instrumentación industrial y automotriz."
-        },
+        "dates": "Sep 2016 — Jun 2019",
+        "title": "Hardware Engineer",
+        "org": "Innavitas SAPI — Wiot",
+        "body": "Developed embedded systems for industrial and automotive instrumentation.",
         "start": "2016-09",
         "end": "2019-06"
       }
     ],
     "expertise": [
       {
-        "title": {
-          "en": "Embedded systems and PCBs",
-          "es": "Sistemas embebidos y PCB"
-        },
-        "body": {
-          "en": "Altium Designer, MCU design, IPC standards and FCC certification.",
-          "es": "Altium Designer, diseño con microcontroladores, normas IPC y certificación FCC."
-        },
+        "title": "Embedded systems and PCBs",
         "keywords": [
           "Altium Designer",
           "MCU design",
           "IPC standards",
           "FCC certification"
-        ],
-        "id": "expertise-embedded"
+        ]
       },
       {
-        "title": {
-          "en": "Power electronics",
-          "es": "Electrónica de potencia"
-        },
-        "body": {
-          "en": "DC-DC converters, power distribution boards and solar telemetry.",
-          "es": "Convertidores DC-DC, tarjetas de distribución de energía y telemetría solar."
-        },
+        "title": "Power electronics",
         "keywords": [
           "DC-DC converters",
           "Power distribution boards",
           "Solar telemetry"
-        ],
-        "id": "expertise-power"
+        ]
       },
       {
-        "title": {
-          "en": "Firmware and software",
-          "es": "Firmware y software"
-        },
-        "body": {
-          "en": "C and C++ for microcontrollers, MicroPython and Python.",
-          "es": "C y C++ para microcontroladores, MicroPython y Python."
-        },
+        "title": "Firmware and software",
         "keywords": [
           "C",
           "C++",
           "MicroPython",
           "Python"
-        ],
-        "id": "expertise-firmware"
+        ]
       },
       {
-        "title": {
-          "en": "IoT connectivity",
-          "es": "Conectividad IoT"
-        },
-        "body": {
-          "en": "MQTT, LoRa, BLE, Wi-Fi, cellular and industrial telemetry.",
-          "es": "MQTT, LoRa, BLE, Wi-Fi, redes celulares y telemetría industrial."
-        },
+        "title": "IoT connectivity",
         "keywords": [
           "MQTT",
           "LoRa",
@@ -863,683 +463,420 @@
           "Wi-Fi",
           "Cellular",
           "Industrial telemetry"
-        ],
-        "id": "expertise-connectivity"
+        ]
       },
       {
-        "title": {
-          "en": "Cloud and APIs",
-          "es": "Nube y APIs"
-        },
-        "body": {
-          "en": "AWS architecture, serverless pipelines, telemetry data models and infrastructure as code.",
-          "es": "Arquitectura en AWS, servicios serverless, modelos de datos de telemetría e infraestructura como código."
-        },
+        "title": "Cloud and APIs",
         "keywords": [
           "AWS architecture",
           "Serverless computing",
           "Infrastructure as code",
           "Telemetry data models"
-        ],
-        "id": "expertise-cloud"
+        ]
       },
       {
-        "title": {
-          "en": "Engineering leadership",
-          "es": "Liderazgo técnico"
-        },
-        "body": {
-          "en": "Technical direction, product roadmaps and team development.",
-          "es": "Dirección técnica, planes de desarrollo y formación de equipos."
-        },
+        "title": "Engineering leadership",
         "keywords": [
           "Technical direction",
           "Product roadmaps",
           "Team development"
-        ],
-        "id": "expertise-leadership"
+        ]
+      },
+      {
+        "title": "Fleet operations",
+        "keywords": [
+          "Device provisioning",
+          "Staged OTA updates",
+          "Rollback",
+          "Remote diagnostics"
+        ]
+      },
+      {
+        "title": "Edge AI",
+        "keywords": [
+          "Computer vision",
+          "On-device models",
+          "Field data"
+        ]
+      },
+      {
+        "title": "AI agents for operations",
+        "keywords": [
+          "Audited tool servers",
+          "ERP integration",
+          "Device data",
+          "Permission controls"
+        ]
       }
     ],
     "projects": [
       {
-        "title": {
-          "en": "Personal Altium Library",
-          "es": "Personal Altium Library"
-        },
-        "body": {
-          "en": "Public schematic symbols and PCB footprints with automated file integrity checks.",
-          "es": "Símbolos esquemáticos y footprints de PCB con verificación automática de integridad."
-        },
+        "title": "Personal Altium Library",
+        "body": "Public schematic symbols and PCB footprints with automated file integrity checks.",
         "url": "https://github.com/ddtdanilo/Personal-Altium-Library"
       },
       {
-        "title": {
-          "en": "X-Sub Telemetry System",
-          "es": "X-Sub Telemetry System"
-        },
-        "body": {
-          "en": "Underwater robot hardware, firmware and a maintained serial protocol toolkit.",
-          "es": "Hardware y firmware de un robot submarino y herramientas para analizar su protocolo serial."
-        },
+        "title": "X-Sub Telemetry System",
+        "body": "Underwater robot hardware, firmware and a maintained serial protocol toolkit.",
         "url": "https://github.com/X-Sub/Telemetry-System"
       },
       {
-        "title": {
-          "en": "UT383BT Lux BLE",
-          "es": "UT383BT Lux BLE"
-        },
-        "body": {
-          "en": "Python tools to read and log a light meter over Bluetooth LE.",
-          "es": "Herramientas en Python para leer y registrar datos de un luxómetro por Bluetooth LE."
-        },
+        "title": "UT383BT Lux BLE",
+        "body": "Python tools to read and log a light meter over Bluetooth LE.",
         "url": "https://github.com/ddtdanilo/ut383bt-lux-ble-python"
       },
       {
-        "title": {
-          "en": "vcpkg contribution",
-          "es": "Contribución a vcpkg"
-        },
-        "body": {
-          "en": "Merged upstream port for a MISRA C wrapper for LMDB.",
-          "es": "Port integrado al proyecto para una interfaz de LMDB en C bajo criterios MISRA."
-        },
+        "title": "vcpkg contribution",
+        "body": "Merged upstream port for a MISRA C wrapper for LMDB.",
         "url": "https://github.com/microsoft/vcpkg/pull/50323"
       },
       {
-        "title": {
-          "en": "Pycom MicroPython port",
-          "es": "Port de MicroPython para Pycom"
-        },
-        "body": {
-          "en": "An upstream-based MicroPython port for Pycom boards.",
-          "es": "Port de MicroPython para tarjetas Pycom basado en el proyecto original."
-        },
+        "title": "Pycom MicroPython port",
+        "body": "An upstream-based MicroPython port for Pycom boards.",
         "url": "https://github.com/ddtdanilo/pycom-micropython"
       },
       {
-        "title": {
-          "en": "LMDB wrapper for MISRA C",
-          "es": "Interfaz LMDB para MISRA C"
-        },
-        "body": {
-          "en": "The C wrapper packaged in the merged vcpkg port.",
-          "es": "La interfaz en C incluida en el port integrado a vcpkg."
-        },
+        "title": "LMDB wrapper for MISRA C",
+        "body": "The C wrapper packaged in the merged vcpkg port.",
         "url": "https://github.com/ddtdanilo/LMDB-wrapper-MISRA-C"
       }
     ],
-    "signal_chain": [
+    "proof_line": "CTO at Sento Tech Labs, leading 12 engineers. More than ten years shipping electronics, firmware, and cloud systems to the field.",
+    "working_method": [
       {
-        "label": {
-          "en": "Sensor",
-          "es": "Sensor"
-        },
-        "target": "work-telemetry",
-        "stage": "sensor",
-        "protocol": "I²C / ADC"
+        "title": "Go to the problem",
+        "body": "I start from the failing unit, the site, or the log."
       },
       {
-        "label": {
-          "en": "Board",
-          "es": "Tarjeta"
-        },
-        "target": "expertise-embedded",
-        "stage": "board"
+        "title": "Instrument it",
+        "body": "I make the device and pipeline show what is happening before changing anything."
       },
       {
-        "label": {
-          "en": "Firmware",
-          "es": "Firmware"
-        },
-        "target": "expertise-firmware",
-        "stage": "firmware",
-        "protocol": "UART"
+        "title": "Ship the smallest fix that holds",
+        "body": "I deliver the hardware revision, firmware release, or cloud change and validate it on real units."
       },
       {
-        "label": {
-          "en": "Radio",
-          "es": "Radio"
-        },
-        "target": "expertise-connectivity",
-        "stage": "radio",
-        "protocol": "LoRa / BLE"
+        "title": "Leave it operable",
+        "body": "I hand over runbooks, update paths, and diagnostics so your team owns the system afterwards."
+      }
+    ],
+    "capabilities": [
+      {
+        "title": "Design or review boards",
+        "body": "Schematic, PCB layout, and pre-fabrication reviews before the board goes to the fab or certification lab.",
+        "id": "board-design"
       },
       {
-        "label": {
-          "en": "Gateway",
-          "es": "Gateway"
-        },
-        "target": "work-fleet",
-        "stage": "gateway",
-        "protocol": "MQTT"
+        "title": "Diagnose field failures",
+        "body": "Find why deployed units fail and ship the root-cause fix across hardware, firmware, and cloud."
       },
       {
-        "label": {
-          "en": "Cloud",
-          "es": "Nube"
-        },
-        "target": "expertise-cloud",
-        "stage": "cloud",
-        "protocol": "HTTPS"
+        "title": "Build the fleet update path",
+        "body": "Zero-touch provisioning, staged OTA rollouts with rollback, and remote fleet health checks.",
+        "id": "fleet-operations"
       },
       {
-        "label": {
-          "en": "Model",
-          "es": "Modelo"
-        },
-        "target": "expertise-cloud",
-        "stage": "model"
+        "title": "Move prototypes to production",
+        "body": "Manufacturing files, production test procedures, and scaling enclosures past 3D printing."
+      },
+      {
+        "title": "Stand up the cloud stack",
+        "body": "Ingestion pipelines, storage, APIs, dashboards, and alerts deployed as infrastructure as code on AWS."
+      },
+      {
+        "title": "Deploy edge AI",
+        "body": "Run computer vision and inference models next to the sensor, evaluated on real field data."
+      },
+      {
+        "title": "Wire AI agents to operations",
+        "body": "Build permissioned, audited tool servers over your ERP, technical documentation, and device data."
+      },
+      {
+        "title": "Lead a hardware product team",
+        "body": "Fractional technical direction across architecture reviews, product roadmaps, and engineering hiring."
       }
     ]
   },
   "consult": {
-    "title": {
-      "en": "Bring a design decision.",
-      "es": "Revisemos una decisión de diseño."
-    },
-    "intro": {
-      "en": "I offer private, one-to-one consulting on industrial IoT hardware, firmware and cloud architecture. Bring the schematic, code excerpt or diagram behind your question. We can work in English or Spanish.",
-      "es": "Ofrezco consultoría individual en hardware para IoT industrial, firmware y arquitectura en la nube. Trae el esquemático, el fragmento de código o el diagrama que te llevó a hacer la pregunta. Podemos trabajar en español o en inglés."
-    },
+    "title": "Bring a design decision.",
+    "intro": "I work with hardware and IoT teams on architecture reviews, field failures, fleet infrastructure, edge AI, and operational AI agents. Book a focused 1:1 session for a specific decision, or connect on LinkedIn for a scoped engagement.",
     "tiers": [
       {
         "id": "quick-call",
-        "title": {
-          "en": "Quick Call",
-          "es": "Consulta breve"
-        },
+        "title": "Quick Call",
         "url": "https://buy.stripe.com/28E7sLeKU7NAbmi6p014400",
         "minutes": 30,
         "price": 50,
-        "duration": {
-          "en": "30 minutes",
-          "es": "30 minutos"
-        },
-        "scope": {
-          "en": "One focused question about a board, device or cloud service.",
-          "es": "Una pregunta concreta sobre una tarjeta, un dispositivo o un servicio en la nube."
-        },
-        "outcome": {
-          "en": "A next step and a way to check whether it worked.",
-          "es": "El siguiente paso y una forma de comprobar si funcionó."
-        }
+        "duration": "30 minutes",
+        "scope": "One focused question about a board, device or cloud service.",
+        "outcome": "A next step and a way to check whether it worked."
       },
       {
         "id": "deep-dive",
-        "title": {
-          "en": "Deep Dive",
-          "es": "Análisis profundo"
-        },
+        "title": "Deep Dive",
         "url": "https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401",
         "minutes": 60,
         "price": 120,
-        "duration": {
-          "en": "60 minutes",
-          "es": "60 minutos"
-        },
-        "scope": {
-          "en": "Walk through a schematic, firmware path or system diagram and compare the options.",
-          "es": "Recorremos un esquemático, una parte del firmware o un diagrama del sistema y comparamos opciones."
-        },
-        "outcome": {
-          "en": "The tradeoffs behind a recommendation and the first checks to run.",
-          "es": "Una recomendación con sus ventajas y limitaciones, y las primeras pruebas que conviene hacer."
-        }
+        "duration": "60 minutes",
+        "scope": "Walk through a schematic, firmware path or system diagram and compare the options.",
+        "outcome": "The tradeoffs behind a recommendation and the first checks to run."
       },
       {
         "id": "strategy",
-        "title": {
-          "en": "Strategy Session",
-          "es": "Sesión de estrategia"
-        },
+        "title": "Strategy Session",
         "url": "https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402",
         "minutes": 90,
         "price": 200,
-        "duration": {
-          "en": "90 minutes",
-          "es": "90 minutos"
-        },
-        "scope": {
-          "en": "Review your roadmap, technical constraints and the decisions blocking the next release.",
-          "es": "Revisamos el plan de desarrollo, las restricciones técnicas y las decisiones pendientes para el próximo lanzamiento."
-        },
-        "outcome": {
-          "en": "An ordered set of priorities, dependencies and milestones for your team.",
-          "es": "Prioridades, dependencias e hitos en el orden en que tu equipo puede abordarlos."
-        }
+        "duration": "90 minutes",
+        "scope": "Review your roadmap, technical constraints and the decisions blocking the next release.",
+        "outcome": "An ordered set of priorities, dependencies and milestones for your team."
       }
     ],
     "steps": [
       {
-        "title": {
-          "en": "Pay on Stripe",
-          "es": "Paga en Stripe"
-        },
-        "body": {
-          "en": "Choose your session and pay on Stripe. Use an email address you check. If checkout offers scheduling fields, you can include two preferred times and your time zone.",
-          "es": "Elige la sesión y paga en Stripe. Usa un correo que revises con frecuencia. Si al pagar aparecen campos de horario, puedes indicar dos opciones y tu zona horaria."
-        }
+        "title": "Pay on Stripe",
+        "body": "Choose your session and pay on Stripe. Use an email address you check. If checkout offers scheduling fields, you can include two preferred times and your time zone."
       },
       {
-        "title": {
-          "en": "Agree on a time",
-          "es": "Acuerda la hora"
-        },
-        "body": {
-          "en": "Within one business day after payment, I’ll email you personally to agree on a time. I coordinate from Colombia (UTC−5). If you didn’t enter your preferences at checkout, reply with them.",
-          "es": "Te escribiré personalmente en un plazo de un día hábil después del pago para acordar la hora. Coordino las sesiones en horario de Colombia (UTC−5). Si no indicaste tus horarios al pagar, puedes enviármelos al responder."
-        }
+        "title": "Agree on a time",
+        "body": "Within one business day after payment, I’ll email you personally to agree on a time. I coordinate from Colombia (UTC−5). If you didn’t enter your preferences at checkout, reply with them."
       },
       {
-        "title": {
-          "en": "Meet online",
-          "es": "Reúnete en línea"
-        },
-        "body": {
-          "en": "Once we agree on the time, I’ll send a calendar invitation with a Google Meet link. We’ll review your material together on the call.",
-          "es": "Cuando acordemos la hora, te enviaré una invitación de calendario con el enlace de Google Meet. Durante la llamada revisaremos juntos tu material."
-        }
+        "title": "Meet online",
+        "body": "Once we agree on the time, I’ll send a calendar invitation with a Google Meet link. We’ll review your material together on the call."
       },
       {
-        "title": {
-          "en": "Get written notes",
-          "es": "Recibe notas por escrito"
-        },
-        "body": {
-          "en": "Within 24 hours after the session, I’ll send written notes with the decisions and next steps.",
-          "es": "Dentro de las 24 horas posteriores a la sesión, recibirás por escrito las decisiones y los próximos pasos."
-        }
+        "title": "Get written notes",
+        "body": "Within 24 hours after the session, I’ll send written notes with the decisions and next steps."
       }
     ],
     "terms": [
-      {
-        "en": "You can reschedule at no charge up to 24 hours before the session. Reply to the scheduling email. If we can’t agree on a time within seven days after payment, you’ll receive a full refund.",
-        "es": "Puedes cambiar el horario sin costo hasta 24 horas antes de la sesión. Responde al correo de coordinación. Si en los siete días posteriores al pago no logramos acordar un horario, recibirás un reembolso completo."
-      }
-    ],
-    "other_work": [
-      {
-        "en": "For a project larger than one session, tell me the decision, schedule and scope on LinkedIn.",
-        "es": "Si el proyecto requiere más de una sesión, cuéntame por LinkedIn qué necesitas decidir, en qué plazo y con qué alcance."
-      }
+      "You can reschedule at no charge up to 24 hours before the session. Reply to the scheduling email. If we can’t agree on a time within seven days after payment, you’ll receive a full refund."
     ],
     "faq": [
       {
-        "question": {
-          "en": "How does scheduling work after I pay?",
-          "es": "¿Cómo funciona el agendamiento después de pagar?"
-        },
-        "answer": {
-          "en": "Within one business day after payment, I’ll email you to agree on a time in Colombia time (UTC−5). Once we confirm a time, I’ll send a Google Meet invitation.",
-          "es": "Te escribiré en un plazo de un día hábil después del pago para acordar la hora en horario de Colombia (UTC−5). Una vez confirmada la hora, te enviaré una invitación de Google Meet."
-        }
+        "question": "How does scheduling work after I pay?",
+        "answer": "Within one business day after payment, I’ll email you to agree on a time in Colombia time (UTC−5). Once we confirm a time, I’ll send a Google Meet invitation."
       },
       {
-        "question": {
-          "en": "What if we cannot find a mutually convenient time?",
-          "es": "¿Qué pasa si no logramos coincidir en horario?"
-        },
-        "answer": {
-          "en": "If we cannot agree on a time within 7 days of your payment, you receive a full refund via Stripe — no questions asked.",
-          "es": "Si no podemos acordar un horario dentro de los 7 días siguientes al pago, recibes un reembolso completo a través de Stripe, sin fricción."
-        }
+        "question": "What if we cannot find a mutually convenient time?",
+        "answer": "If we cannot agree on a time within 7 days of your payment, you receive a full refund via Stripe — no questions asked."
       },
       {
-        "question": {
-          "en": "Can I reschedule my session?",
-          "es": "¿Puedo reprogramar mi sesión?"
-        },
-        "answer": {
-          "en": "Yes. You can reschedule free of charge up to 24 hours before the confirmed meeting time by replying to our scheduling email.",
-          "es": "Sí. Puedes reprogramar sin costo hasta 24 horas antes de la hora confirmada respondiendo al correo de coordinación."
-        }
+        "question": "Can I reschedule my session?",
+        "answer": "Yes. You can reschedule free of charge up to 24 hours before the confirmed meeting time by replying to our scheduling email."
       },
       {
-        "question": {
-          "en": "What should I prepare or send beforehand?",
-          "es": "¿Qué conviene preparar o enviar antes de la llamada?"
-        },
-        "answer": {
-          "en": "In your reply, tell me what you need to decide, what you’ve tried and which constraints matter. A redacted schematic, short code excerpt or architecture diagram is usually enough. If you need a non-disclosure agreement (NDA), ask before sending confidential material.",
-          "es": "Cuéntame en tu respuesta qué necesitas decidir, qué has probado y qué restricciones debes respetar. Suele bastar con un esquemático sin datos sensibles, un fragmento de código o un diagrama de arquitectura. Si necesitas un acuerdo de confidencialidad (NDA), pídelo antes de enviarme material confidencial."
-        }
+        "question": "What should I prepare or send beforehand?",
+        "answer": "In your reply, tell me what you need to decide, what you’ve tried and which constraints matter. A redacted schematic, short code excerpt or architecture diagram is usually enough. If you need a non-disclosure agreement (NDA), ask before sending confidential material."
       },
       {
-        "question": {
-          "en": "Can we sign an NDA before sharing proprietary material?",
-          "es": "¿Podemos firmar un NDA antes de compartir material propietario?"
-        },
-        "answer": {
-          "en": "Yes. If your questions involve unreleased hardware, schematics, or proprietary architecture, mention it when we coordinate by email (or message me on LinkedIn before paying) and I will review and sign a standard mutual NDA before the call.",
-          "es": "Sí. Si vamos a revisar hardware aún no publicado, esquemáticos o arquitectura propietaria, indícalo al coordinar el horario por correo (o escríbeme por LinkedIn antes de pagar) y reviso y firmo un NDA mutuo estándar antes de la sesión."
-        }
+        "question": "Can we sign an NDA before sharing proprietary material?",
+        "answer": "Yes. If your questions involve unreleased hardware, schematics, or proprietary architecture, mention it when we coordinate by email (or message me on LinkedIn before paying) and I will review and sign a standard mutual NDA before the call."
       },
       {
-        "question": {
-          "en": "Will I receive a receipt or invoice for company reimbursement?",
-          "es": "¿Recibo comprobante o factura para gastos de empresa?"
-        },
-        "answer": {
-          "en": "If you need a copy of your Stripe receipt, ask when I contact you. If your company needs a particular invoice format or purchase-order reference, contact me on LinkedIn before paying so we can confirm what’s available.",
-          "es": "Si necesitas una copia del recibo de Stripe, pídemela cuando te escriba. Si tu empresa requiere un formato específico de factura o una referencia de orden de compra, escríbeme por LinkedIn antes de pagar para confirmar qué puedo entregarte."
-        }
+        "question": "Will I receive a receipt or invoice for company reimbursement?",
+        "answer": "If you need a copy of your Stripe receipt, ask when I contact you. If your company needs a particular invoice format or purchase-order reference, contact me on LinkedIn before paying so we can confirm what’s available."
       },
       {
-        "question": {
-          "en": "What do I get after the call?",
-          "es": "¿Qué recibo después de la sesión?"
-        },
-        "answer": {
-          "en": "Within 24 hours after the session, I send concise written notes summarizing the technical tradeoffs discussed, key decisions, and prioritized next steps.",
-          "es": "En menos de 24 horas después de la llamada te envío notas escritas concisas con los tradeoffs técnicos discutidos, las decisiones clave y los próximos pasos priorizados."
-        }
+        "question": "What do I get after the call?",
+        "answer": "Within 24 hours after the session, I send concise written notes summarizing the technical tradeoffs discussed, key decisions, and prioritized next steps."
       },
       {
-        "question": {
-          "en": "Are sessions available in both English and Spanish?",
-          "es": "¿Las sesiones pueden ser en español o en inglés?"
-        },
-        "answer": {
-          "en": "Yes — choose whichever language your team prefers (Spanish is native; English is full professional proficiency, C1+).",
-          "es": "Sí — en el idioma que prefiera tu equipo (español nativo e inglés con competencia profesional completa, C1+)."
-        }
+        "question": "What if I need an ongoing design review or a multi-week engagement?",
+        "answer": "See Scoped engagements for the kinds of work I take on. Send the problem, schedule, and constraints on LinkedIn."
       },
       {
-        "question": {
-          "en": "What if I need an ongoing design review or a multi-week engagement?",
-          "es": "¿Qué hago si necesito una revisión profunda o acompañamiento de varias semanas?"
-        },
-        "answer": {
-          "en": "The Stripe sessions are designed for focused 30-, 60-, or 90-minute technical unblocking. For deeper schematic/PCB reviews, multi-week architecture work, or fractional advisory, send a brief summary on LinkedIn before paying so we can confirm scope and availability.",
-          "es": "Las sesiones por Stripe están pensadas para destrabar decisiones técnicas puntuales de 30, 60 o 90 minutos. Para revisiones extensas de esquemáticos/PCB, arquitectura de varias semanas o asesoría fraccional, envíame un resumen breve por LinkedIn antes de pagar para confirmar alcance y disponibilidad."
-        }
-      },
-      {
-        "question": {
-          "en": "What if I paid and did not hear back within one business day?",
-          "es": "¿Qué hago si pagué y no recibí correo en un día hábil?"
-        },
-        "answer": {
-          "en": "Check your spam folder. If the message hasn’t arrived, contact me on LinkedIn with the day and session you bought.",
-          "es": "Revisa tu carpeta de spam. Si no encuentras el correo, escríbeme por LinkedIn con la fecha y la sesión que compraste."
-        }
+        "question": "What if I paid and did not hear back within one business day?",
+        "answer": "Check your spam folder. If the message hasn’t arrived, contact me on LinkedIn with the day and session you bought."
       }
     ],
-    "service_name": {
-      "en": "Technical consulting in industrial IoT, embedded systems and cloud",
-      "es": "Consultoría técnica en IoT industrial, sistemas embebidos y nube"
-    },
-    "document_title": {
-      "en": "Technical consulting — Danilo Díaz Tarascó",
-      "es": "Consultoría técnica — Danilo Díaz Tarascó"
-    }
+    "service_name": "Technical consulting in industrial IoT, embedded systems and cloud",
+    "document_title": "Technical consulting — Danilo Díaz Tarascó",
+    "scoped_engagements": [
+      {
+        "title": "Board and firmware design review",
+        "body": "Schematic, PCB layout, power budget, and firmware review before fabrication or certification."
+      },
+      {
+        "title": "Field-failure investigation",
+        "body": "Structured root-cause diagnosis across hardware, radio, firmware, and cloud when deployed units misbehave."
+      },
+      {
+        "title": "Fleet and OTA readiness audit",
+        "body": "Review of provisioning, staged firmware delivery, rollback safety, and remote diagnostics before scaling."
+      },
+      {
+        "title": "AI agents for operations",
+        "body": "Permissioned, audited tool servers connecting AI assistants to ERP records, technical documentation, and device telemetry.",
+        "url": "/work/plant-operations-agents.html",
+        "link_label": "Read the plant operations note"
+      },
+      {
+        "title": "Fractional technical lead",
+        "body": "Ongoing technical direction, architecture reviews, roadmaps, and hiring support for hardware product teams."
+      }
+    ],
+    "engagement_intro": "For multi-week work or hands-on implementation, send the problem, schedule, and constraints on LinkedIn."
   },
   "privacy": {
-    "title": {
-      "en": "Privacy notice",
-      "es": "Aviso de privacidad"
-    },
-    "intro": {
-      "en": "This site serves static pages and local fonts. It uses no analytics, tracking scripts, or cookies.",
-      "es": "Este sitio sirve páginas estáticas y fuentes locales. No usa analítica, scripts de seguimiento ni cookies."
-    },
+    "title": "Privacy notice",
+    "intro": "This site serves static pages and local fonts. It uses no analytics, tracking scripts, or cookies.",
     "blocks": [
       {
-        "heading": {
-          "en": "Theme preference",
-          "es": "Preferencia de tema"
-        },
+        "heading": "Theme preference",
         "paragraphs": [
-          {
-            "en": "If you choose a theme, the browser may save that preference locally. The page URL determines the language.",
-            "es": "Si eliges un tema, el navegador puede guardar esa preferencia en el dispositivo. El idioma depende de la URL."
-          }
+          "If you choose a theme, the browser may save that preference locally."
         ]
       },
       {
-        "heading": {
-          "en": "Hosting and links",
-          "es": "Alojamiento y enlaces"
-        },
+        "heading": "Hosting and links",
         "paragraphs": [
-          {
-            "en": "GitHub Pages hosts the site and handles the network requests needed to serve it. Other services handle your information under their own terms when you follow a link.",
-            "es": "GitHub Pages aloja el sitio y procesa las solicitudes de red necesarias para servirlo. Cuando abres un enlace externo, ese servicio trata tus datos según sus propias condiciones."
-          }
+          "GitHub Pages hosts the site and handles the network requests needed to serve it. Other services handle your information under their own terms when you follow a link."
         ]
       },
       {
-        "heading": {
-          "en": "Consulting payments",
-          "es": "Pagos de consultoría"
-        },
+        "heading": "Consulting payments",
         "paragraphs": [
-          {
-            "en": "Stripe hosts checkout. This site does not receive card details. I use contact and scheduling information from checkout to coordinate and deliver the session and handle billing.",
-            "es": "El pago se realiza en Stripe. Este sitio no recibe datos de la tarjeta. Uso los datos de contacto y horario para coordinar y prestar la sesión y gestionar la facturación."
-          }
+          "Stripe hosts checkout. This site does not receive card details. I use contact and scheduling information from checkout to coordinate and deliver the session and handle billing."
         ]
       },
       {
-        "heading": {
-          "en": "Questions about your data",
-          "es": "Preguntas sobre tus datos"
-        },
+        "heading": "Questions about your data",
         "paragraphs": [
-          {
-            "en": "Contact me on LinkedIn with privacy questions or requests about your data.",
-            "es": "Si tienes preguntas de privacidad o solicitudes sobre tus datos, escríbeme por LinkedIn."
-          }
+          "Contact me on LinkedIn with privacy questions or requests about your data."
         ]
       }
     ]
   },
   "success": {
-    "title": {
-      "en": "After checkout",
-      "es": "Después del pago"
-    },
+    "title": "After checkout",
     "paragraphs": [
-      {
-        "en": "If you completed checkout, I’ll email you within one business day to agree on a time. You can reply with preferred times and your time zone. Once we agree, I’ll send a Google Meet invitation.",
-        "es": "Si completaste el pago, te escribiré en un plazo de un día hábil para acordar la hora. Puedes responder con tus horarios preferidos y tu zona horaria. Una vez acordemos la hora, te enviaré una invitación de Google Meet."
-      },
-      {
-        "en": "If the message doesn’t arrive, check your spam folder and contact me on LinkedIn.",
-        "es": "Si no te llega el mensaje, revisa la carpeta de spam y escríbeme por LinkedIn."
-      }
+      "If you completed checkout, I’ll email you within one business day to agree on a time. You can reply with preferred times and your time zone. Once we agree, I’ll send a Google Meet invitation.",
+      "If the message doesn’t arrive, check your spam folder and contact me on LinkedIn."
     ]
   },
   "missing": {
-    "title": {
-      "en": "Page not found",
-      "es": "Página no encontrada"
-    },
+    "title": "Page not found",
     "paragraphs": [
-      {
-        "en": "Start from the portfolio or go to consulting options.",
-        "es": "Empieza por el portafolio o consulta las opciones de consultoría."
-      }
+      "Start from the portfolio or go to consulting options."
     ]
   },
   "last_updated": "2026-11-22",
   "board": {
     "source_url": "https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/PCB/X-Sub_Board/MCU.PcbDoc",
     "license_url": "https://github.com/X-Sub/Telemetry-System/blob/22aa3054668b9ac26f78241831455f62f9df0d27/LICENSE",
-    "source_label": {
-      "en": "Board source",
-      "es": "Archivo fuente"
-    },
-    "license_label": {
-      "en": "MIT license",
-      "es": "Licencia MIT"
-    },
-    "title": {
-      "en": "X-Sub underwater robot acquisition board layout",
-      "es": "Diseño PCB de la tarjeta de adquisición del robot submarino X-Sub"
-    },
-    "caption": {
-      "en": "X-Sub acquisition board. Original {copper_layers}-layer layout with an {mcu} MCU.",
-      "es": "Tarjeta de adquisición X-Sub. Diseño original de {copper_layers} capas con MCU {mcu}."
-    },
-    "description": {
-      "en": "Vector rendering of the {copper_layers}-layer acquisition PCB designed by Danilo Díaz Tarascó for the X-Sub underwater robot. The board measures {width_mm} by {height_mm} millimeters and has {footprints} footprints, {nets} named nets, {segments} copper track segments and {vias} vias around a Freescale {mcu} microcontroller.",
-      "es": "Dibujo vectorial de la tarjeta de adquisición de {copper_layers} capas diseñada por Danilo Díaz Tarascó para el robot submarino X-Sub. La tarjeta mide {width_mm} por {height_mm} milímetros y tiene {footprints} footprints, {nets} redes con nombre, {segments} segmentos de pista de cobre y {vias} vías alrededor de un microcontrolador Freescale {mcu}."
-    },
-    "spec_label": {
-      "en": "X-Sub acquisition board specifications",
-      "es": "Especificaciones de la tarjeta de adquisición X-Sub"
-    },
+    "source_label": "Board source",
+    "license_label": "MIT license",
+    "title": "X-Sub underwater robot acquisition board layout",
+    "caption": "Early X-Sub acquisition board. Original {copper_layers}-layer layout with an {mcu} MCU.",
+    "description": "Vector rendering of the {copper_layers}-layer acquisition PCB designed by Danilo Díaz Tarascó for the X-Sub underwater robot. The board measures {width_mm} by {height_mm} millimeters and has {footprints} footprints, {nets} named nets, {segments} copper track segments and {vias} vias around a Freescale {mcu} microcontroller.",
     "specs": {
-      "mcu": {
-        "en": "MCU",
-        "es": "MCU"
-      },
-      "dimensions": {
-        "en": "Board",
-        "es": "Tarjeta"
-      },
-      "copper_layers": {
-        "en": "Copper layers",
-        "es": "Capas de cobre"
-      },
-      "footprints": {
-        "en": "Footprints",
-        "es": "Footprints"
-      },
-      "nets": {
-        "en": "Named nets",
-        "es": "Redes"
-      },
-      "segments": {
-        "en": "Track segments",
-        "es": "Segmentos"
-      },
-      "vias": {
-        "en": "Vias",
-        "es": "Vías"
-      }
+      "mcu": "MCU",
+      "dimensions": "Board",
+      "copper_layers": "Copper layers",
+      "footprints": "Footprints",
+      "nets": "Named nets",
+      "segments": "Track segments",
+      "vias": "Vias"
     },
-    "trace": {
-      "en": "Trace a signal",
-      "es": "Trazar una señal"
-    },
-    "all": {
-      "en": "All signals",
-      "es": "Todas las señales"
-    },
-    "rest": {
-      "en": "Select a signal group to trace its real copper tracks, vias, and pads on the board.",
-      "es": "Selecciona un grupo de señales para trazar sus pistas de cobre, vías y pads en la tarjeta."
-    },
-    "layers": {
-      "en": "Separate layers",
-      "es": "Separar capas"
-    },
+    "trace": "Trace a signal",
+    "all": "All signals",
+    "rest": "Select a signal group to trace its real copper tracks, vias, and pads on the board.",
+    "layers": "Separate layers",
     "groups": {
       "imu": {
         "tag": "I²C",
-        "label": {
-          "en": "IMU & compass",
-          "es": "IMU y brújula"
-        },
-        "sentence": {
-          "en": "I²C bus reading 6-axis motion from the MPU-6050 and heading from the HMC6352 digital compass.",
-          "es": "Bus I²C que lee el movimiento de 6 ejes del MPU-6050 y el rumbo de la brújula digital HMC6352."
-        }
+        "label": "IMU & compass",
+        "sentence": "I²C bus reading 6-axis motion from the MPU-6050 and heading from the HMC6352 digital compass."
       },
       "thrusters": {
         "tag": "PWM",
-        "label": {
-          "en": "Thrusters ×4",
-          "es": "Propulsores ×4"
-        },
-        "sentence": {
-          "en": "Four PWM channels driving bidirectional brushless ESCs for underwater propulsion and maneuvering.",
-          "es": "Cuatro canales PWM para los ESC brushless bidireccionales que impulsan y maniobran el ROV."
-        }
+        "label": "Thrusters ×4",
+        "sentence": "Four PWM channels driving bidirectional brushless ESCs for underwater propulsion and maneuvering."
       },
       "depth": {
         "tag": "ADC",
-        "label": {
-          "en": "Depth sensor",
-          "es": "Sensor de profundidad"
-        },
-        "sentence": {
-          "en": "Scales the MPX5700AP pressure sensor via an OPA345 op-amp to measure dive depth at the 3.3 V ADC.",
-          "es": "Acondiciona el sensor de presión MPX5700AP con un OPA345 para medir profundidad en el ADC de 3,3 V."
-        }
+        "label": "Depth sensor",
+        "sentence": "Scales the MPX5700AP pressure sensor via an OPA345 op-amp to measure dive depth at the 3.3 V ADC."
       },
       "ingress": {
         "tag": "GPIO",
-        "label": {
-          "en": "Water ingress",
-          "es": "Detección de agua"
-        },
-        "sentence": {
-          "en": "Two digital probes inside the sealed housing that alert the controller if water enters the hull.",
-          "es": "Dos sondas digitales en la carcasa sellada que alertan al controlador si entra agua al casco."
-        }
+        "label": "Water ingress",
+        "sentence": "Two digital probes inside the sealed housing that alert the controller if water enters the hull."
       },
       "camera": {
         "tag": "PWM",
-        "label": {
-          "en": "Camera pan/tilt",
-          "es": "Cámara pan/tilt"
-        },
-        "sentence": {
-          "en": "Two PWM servo lines that pan and tilt the underwater inspection camera from surface commands.",
-          "es": "Dos líneas PWM de servo que orientan el paneo e inclinación de la cámara submarina desde superficie."
-        }
+        "label": "Camera pan/tilt",
+        "sentence": "Two PWM servo lines that pan and tilt the underwater inspection camera from surface commands."
       },
       "serial": {
         "tag": "UART",
-        "label": {
-          "en": "Serial link",
-          "es": "Enlace serial"
-        },
-        "sentence": {
-          "en": "UART link carrying 27-byte telemetry frames and 10-byte commands between the MCU and onboard pcDuino.",
-          "es": "Enlace UART que intercambia tramas de telemetría (27 B) y comandos (10 B) entre el MCU y la pcDuino."
-        }
+        "label": "Serial link",
+        "sentence": "UART link carrying 27-byte telemetry frames and 10-byte commands between the MCU and onboard pcDuino."
       },
       "lights": {
         "tag": "PWM",
-        "label": {
-          "en": "LED lights",
-          "es": "Luces LED"
-        },
-        "sentence": {
-          "en": "Two transistor-switched PWM outputs dimming high-intensity LED lamps for underwater visibility.",
-          "es": "Dos salidas PWM con transistor que regulan dos focos LED de alta intensidad bajo el agua."
-        }
+        "label": "LED lights",
+        "sentence": "Two transistor-switched PWM outputs dimming high-intensity LED lamps for underwater visibility."
       },
       "battery": {
         "tag": "ADC",
-        "label": {
-          "en": "Battery monitor",
-          "es": "Monitor de batería"
-        },
-        "sentence": {
-          "en": "Resistive voltage divider feeding pack voltage into ADC channel 5 to track remaining dive power.",
-          "es": "Divisor resistivo que lleva el voltaje de la batería al canal ADC 5 para vigilar la autonomía."
-        }
+        "label": "Battery monitor",
+        "sentence": "Resistive voltage divider feeding pack voltage into ADC channel 5 to track remaining dive power."
       },
       "power": {
         "tag": "DC",
-        "label": {
-          "en": "Power rails",
-          "es": "Rieles de potencia"
-        },
-        "sentence": {
-          "en": "The PCB routes 3.3 V logic, 5 V sensors and servo power separately, with a common ground.",
-          "es": "La PCB separa la alimentación de la lógica a 3,3 V, los sensores a 5 V y los servos, con tierra común."
-        }
+        "label": "Power rails",
+        "sentence": "The PCB routes 3.3 V logic, 5 V sensors and servo power separately, with a common ground."
       }
     },
-    "stack": {
-      "en": "Stack layers",
-      "es": "Apilar capas"
-    }
+    "stack": "Stack layers"
+  },
+  "redirects": {
+    "/es/": "/",
+    "/es/consultoria.html": "/consult.html",
+    "/es/privacidad.html": "/privacy.html",
+    "/es/trabajo/xsub-telemetry.html": "/work/xsub-telemetry.html",
+    "/es/trabajo/altium-pcb-library.html": "/work/altium-pcb-library.html"
+  },
+  "featured": {
+    "path": "/work/plant-operations-agents.html",
+    "title": "AI for plant operations, built security-first",
+    "paragraphs": [
+      "Industrial plants already hold the answers to most daily operational questions, split across an ERP, a technical knowledge base, and device telemetry. I originated, designed, and built a serverless AWS tool gateway on the Model Context Protocol that connects AI assistants to all three systems under strict operational security.",
+      "Operators, engineers, and managers ask in plain language about machine history, open maintenance tickets, device health, or standard procedures and get answers grounded in real records, with sources named in business terms. Around the gateway sit hybrid keyword-and-semantic search for documentation, daily monitoring summaries, and interfaces built for touch, gloves, and glare on the plant floor."
+    ],
+    "controls": [
+      {
+        "label": "Identity",
+        "value": "SSO per person. Gateway-bound tokens."
+      },
+      {
+        "label": "Permissions",
+        "value": "Deny by default. Grants by person and system."
+      },
+      {
+        "label": "Writes",
+        "value": "Prepare, then signed apply. Expiry and conflict check."
+      },
+      {
+        "label": "Audit",
+        "value": "Changes logged under the user’s identity."
+      },
+      {
+        "label": "Secrets",
+        "value": "Managed store. Kept out of prompts and documents."
+      },
+      {
+        "label": "Limits",
+        "value": "Response-size and time caps."
+      },
+      {
+        "label": "Monitoring",
+        "value": "Health checks, alarms, and usage logs."
+      }
+    ],
+    "figure_caption": "The gateway verifies identity and permissions, separates reads from guarded writes, and attributes each change to the person who applied it."
   }
 }

@@ -11,10 +11,10 @@ This repository is the public personal portfolio of Danilo Díaz Tarascó. GitHu
 
 ## Structure and checks
 
-- Edit data/site.json for bilingual copy, routes, public facts and offer details. tools/build_site.py uses the Python standard library to write HTML, the sitemap and public machine-readable copies. Commit its outputs. No deploy-time build.
-- Publish complete static HTML for each language with real navigation links between counterparts. Retain data-en, data-es, localized accessible labels and data-lang-block for longer prose.
-- Use vanilla CSS and JavaScript with local fonts and assets. All page content and conversion links must work when JavaScript is blocked.
+- Edit data/site.json for English copy, routes, public facts and offer details. The home illustration uses data/path.json for its seven stage descriptions. tools/build_site.py uses the Python standard library to write HTML, the sitemap and public machine-readable copies. Commit its outputs. No deploy-time build.
+- Publish English-only pages and machine-readable records. Keep the five legacy language URLs as noindex redirects to their canonical counterparts.
+- Use vanilla CSS and JavaScript with local fonts and assets. Light is the default theme. Dark requires an explicit, locally stored visitor choice. All page content and conversion links must work when JavaScript is blocked.
 - Copy public-safe tokens, fonts with licences and marks from the design system. Record licence provenance and preserve the SVG board notice. Strip metadata from published raster images.
-- Run python3 tools/build_site.py, python3 tools/build_site.py --check and git diff --check before committing. Test 320 px, 390 px and desktop, both languages, keyboard and reduced motion.
+- Run python3 tools/build_site.py, python3 tools/build_site.py --check and git diff --check before committing. Test 320 px, 390 px and desktop, both themes, keyboard, reduced motion and JavaScript blocked.
 - Use concise English Conventional Commits and the owner's GitHub noreply identity. Keep files, comments and commits free of automated authorship attribution.
 - The generator hashes linked stylesheets and the favicon in HTML. Regenerate after changing those assets. Use new filenames for changed font or image binaries when their containing source does not change.

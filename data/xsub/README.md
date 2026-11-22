@@ -8,6 +8,6 @@ python3 tools/build_site.py
 python3 tools/build_site.py --check
 ```
 
-The site generator reads the imported layout with the Python standard library. It writes `assets/img/hero-board.svg` and `assets/img/board.json`, and inlines the same geometry in the English and Spanish portfolio and X-Sub pages. The JSON retains exact dimensions. Displayed dimensions are rounded to one decimal place.
+The site generator reads the imported layout with the Python standard library. It writes `assets/img/xsub-board.svg` and `assets/img/board.json`, and inlines the geometry on the X-Sub case note as early work from 2015–2016. The JSON retains exact dimensions. Displayed dimensions are rounded to one decimal place.
 
 The figure shows the original traces, pads, vias, outline, and simplified copper pours. It retains board-level silkscreen outlines. Solder paste, solder mask, fabrication marks, and tiny reference text are omitted. Layer spacing and visible edge thickness illustrate the stack.

@@ -20,16 +20,7 @@ import build_board
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data" / "site.json"
 BOARD_SOURCE = ROOT / "data" / "xsub" / "mcu.kicad_pcb"
-LANGS = ("en", "es")
-CHAIN_GLYPHS = {
-    "sensor": '<circle cx="15" cy="15" r="4"/><path d="M8 9a9 9 0 0 0 0 12m14 0a9 9 0 0 0 0-12M4 6a13 13 0 0 0 0 18m22 0a13 13 0 0 0 0-18"/>',
-    "board": '<rect x="3" y="5" width="24" height="20" rx="2"/><rect x="12" y="11" width="8" height="8"/><path d="M12 15H8V11m12 5h3v5M7 8h2m12 14h2"/>',
-    "firmware": '<rect x="7" y="7" width="16" height="16" rx="2"/><path d="M11 3v4m8-4v4m-8 16v4m8-4v4M3 11h4m-4 8h4m16-8h4m-4 8h4M13 12l-3 3 3 3m4-6 3 3-3 3"/>',
-    "radio": '<circle cx="15" cy="13" r="2"/><path d="M15 15v12m-5 0h10M10 7a8 8 0 0 0 0 12m10 0a8 8 0 0 0 0-12M6 4a12 12 0 0 0 0 18m18 0a12 12 0 0 0 0-18"/>',
-    "gateway": '<rect x="3" y="8" width="24" height="15" rx="2"/><path d="M8 8V4m14 4V4M7 16h3m4 0h3m7-3v5m-3-2h6"/>',
-    "cloud": '<path d="M7 22a5 5 0 0 1-1-10 8 8 0 0 1 15-3 7 7 0 0 1 1 13ZM10 25h10"/>',
-    "model": '<path d="m15 3 11 6v12l-11 6-11-6V9Zm0 12L4 9m11 6 11-6M15 27V15m-5-9 11 6"/>',
-}
+SOCIAL_IMAGE = "/assets/img/social-fde.jpg"
 # Normalized phrase fingerprints keep excluded legacy terms out of public source.
 DENY = {
     1: {'57de4cf40144bdf7d000', '97037ff68fa8d08e57d2'},
@@ -48,26 +39,17 @@ def esc(value):
     return html.escape(str(value), quote=True)
 
 
-def pair(value):
-    return {"en": value, "es": value}
+def text(value, tag="span", attrs=""):
+    return f'<{tag}{attrs}>{esc(value)}</{tag}>'
 
 
-def text(value, lang, tag="span", attrs=""):
-    if isinstance(value, str):
-        value = pair(value)
-    return (
-        f'<{tag}{attrs} data-en="{esc(value["en"])}" data-es="{esc(value["es"])}">'
-        f'{esc(value[lang])}</{tag}>'
-    )
-
-
-def link(value, lang, url, classes="", attrs=""):
+def link(value, url, classes="", attrs=""):
     style = f' class="{classes}"' if classes else ""
-    return text(value, lang, "a", f' href="{esc(url)}"{style}{attrs}')
+    return text(value, "a", f' href="{esc(url)}"{style}{attrs}')
 
 
-def paragraphs(items, lang):
-    return "\n".join(text(item, lang, "p") for item in items)
+def paragraphs(items):
+    return "\n".join(text(item, "p") for item in items)
 
 
 def inline_markup(value):
@@ -76,9 +58,9 @@ def inline_markup(value):
     return re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", value)
 
 
-def case_prose(value, lang):
+def case_prose(value):
     result = []
-    for group in value[lang].split("\n\n"):
+    for group in value.split("\n\n"):
         lines = group.splitlines()
         if not lines:
             continue
@@ -92,30 +74,27 @@ def case_prose(value, lang):
             result.append(f"<{tag}>{items}</{tag}>")
             continue
         result.append("<p>" + inline_markup(" ".join(lines)) + "</p>")
-    return f'<div data-lang-block="{lang}">' + "\n".join(result) + "</div>"
+    return '<div class="case-block">' + "\n".join(result) + "</div>"
 
 
-def alt_attrs(value, lang):
-    return (
-        f' aria-label="{esc(value[lang])}" data-aria-en="{esc(value["en"])}"'
-        f' data-aria-es="{esc(value["es"])}"'
-    )
+def label_attr(value):
+    return f' aria-label="{esc(value)}"'
 
 
 def json_text(value):
     return json.dumps(value, ensure_ascii=False, indent=2) + "\n"
 
 
-def section(ident, title, lang, body, classes=""):
+def section(ident, title, body, classes=""):
     return (
         f'<section class="band {classes}" id="{ident}" aria-labelledby="{ident}-heading">'
-        + text(title, lang, "h2", f' id="{ident}-heading" class="section-head--trace"')
+        + text(title, "h2", f' id="{ident}-heading" class="section-head--trace"')
         + "\n" + body + "\n</section>"
     )
 
 
-def page_header(title, intro, lang):
-    return '<header class="page-header">' + text(title, lang, "h1") + text(intro, lang, "p") + "</header>"
+def page_header(title, intro):
+    return '<header class="page-header">' + text(title, "h1") + text(intro, "p") + "</header>"
 
 
 def svg_asset(path):
@@ -134,11 +113,18 @@ class Site:
         self.copy = data["copy"]
         self.pages = data["pages"]
         self.cases = data["cases"]
-        self.pairs = [item["paths"] for item in (*self.pages.values(), *self.cases) if "paths" in item]
-        self.by_path = {path: pair_paths for pair_paths in self.pairs for path in pair_paths.values()}
+        self.indexed = [item["path"] for item in (*self.pages.values(), *self.cases) if "path" in item]
+        self.redirects = data["redirects"]
         self.board_svg, board_json = build_board.build(build_board.parse(BOARD_SOURCE.read_text(encoding="utf-8")))
         self.board = json.loads(board_json)
-        self.files = {"assets/img/hero-board.svg": self.board_svg, "assets/img/board.json": board_json}
+        self.path_svg = svg_asset("assets/img/path.svg")
+        self.path_figure_data = json.loads((ROOT / "data/path.json").read_text(encoding="utf-8"))
+        stage_ids = [stage["id"] for stage in self.path_figure_data["stages"]]
+        svg_stages = {elem.get("data-stage") for elem in ElementTree.fromstring(self.path_svg).iter()
+                      if elem.get("data-stage")}
+        if len(stage_ids) != 7 or len(set(stage_ids)) != 7 or set(stage_ids) != svg_stages:
+            raise ValueError("The path SVG and seven stage descriptions must match")
+        self.files = {"assets/img/xsub-board.svg": self.board_svg, "assets/img/board.json": board_json}
 
     def url(self, path):
         return urljoin(self.origin, path)
@@ -147,67 +133,53 @@ class Site:
         version = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()[:12]
         return f"/{path}?v={version}"
 
-    def nav(self, lang, path, sibling):
-        home = self.pages["home"]["paths"][lang]
-        consult = self.pages["consult"]["paths"][lang]
-        brand_label = pair(f"DDT · {self.name}")
+    def nav(self, path):
+        home = self.pages["home"]["path"]
+        consult = self.pages["consult"]["path"]
         mark = svg_asset("assets/img/logo.svg").replace(
             "<svg ", '<svg class="brand-mark" aria-hidden="true" focusable="false" ', 1
         ).replace(' role="img" aria-labelledby="title"', "").replace('<title id="title">DDT</title>', "")
         brand = (
-            f'<a class="brand" href="{home}"{alt_attrs(brand_label, lang)}>'
-            + mark
-            + text(self.name, lang, attrs=' class="brand-name"') + "</a>"
+            f'<a class="brand" href="{home}"{label_attr(f"DDT · {self.name}")}>'
+            + mark + text(self.name, attrs=' class="brand-name"') + "</a>"
         )
         main = "".join((
-            link(self.copy["work"], lang, home + "#work"),
-            link(self.copy["experience"], lang, home + "#experience"),
-            link(self.copy["consult"], lang, consult,
-                 attrs=' aria-current="page"' if path == consult else ""),
+            link(self.copy["work"], home + "#work"),
+            link(self.copy["experience"], home + "#experience"),
+            link(self.copy["consult"], consult, attrs=' aria-current="page"' if path == consult else ""),
         ))
-        other = "es" if lang == "en" else "en"
-        locale = link(self.copy["locale"], lang, sibling, "locale",
-                      f' lang="{other}" hreflang="{other}"')
         theme = (
             '<button type="button" id="theme-toggle" class="theme-toggle">'
-            + text(self.copy["theme"], lang, attrs=' class="use-dark-theme"')
-            + text(self.copy["theme_light"], lang, attrs=' class="use-light-theme"')
+            + text(self.copy["theme"], attrs=' class="use-dark-theme"')
+            + text(self.copy["theme_light"], attrs=' class="use-light-theme"')
             + "</button>"
         )
-        skip = link(self.copy["skip"], lang, "#main", "skip")
+        skip = link(self.copy["skip"], "#main", "skip")
         return (
             f'{skip}<header class="site-header"><div class="wrap nav">{brand}'
-            f'<nav class="nav-links"{alt_attrs(self.copy["primary_nav"], lang)}>{main}</nav>'
-            f'<div class="nav-utilities">{locale}{theme}</div></div></header>'
+            f'<nav class="nav-links"{label_attr(self.copy["primary_nav"])}>{main}</nav>'
+            f'<div class="nav-utilities">{theme}</div></div></header>'
         )
 
-    def footer(self, lang):
-        links = link(self.copy["privacy"], lang, self.pages["privacy"]["paths"][lang])
-        links += "".join(link(network, lang, url) for network, url in self.social.items())
+    def footer(self):
+        links = link(self.copy["privacy"], self.pages["privacy"]["path"])
+        links += "".join(link(network, url) for network, url in self.social.items())
         return (
             '<footer class="site-footer"><div class="wrap footer-row">'
-            + text(self.name, lang) + '<div class="footer-links">' + links + "</div></div></footer>"
+            + text(self.name) + '<div class="footer-links">' + links + "</div></div></footer>"
         )
 
-    def document(self, item, lang, body, schema=None, *, route=None, layout="", interactive_board=False):
+    def document(self, item, body, schema=None, *, route=None, layout="", interactive_figure=False):
         indexed = route is None
-        paths = item.get("paths", self.pages["home"]["paths"])
-        path = route or paths[lang]
-        title = item["meta"]["title"][lang]
-        description = item["meta"]["description"][lang]
-        og_title = item["meta"].get("og_title", item["meta"]["title"])[lang]
-        og_description = item["meta"].get("og_description", item["meta"]["description"])[lang]
-        other = "es" if lang == "en" else "en"
-        alternate = paths[other]
-        og_locale = {"en": "en_US", "es": "es_CO"}
-        if indexed:
-            alternates = "\n".join(
-                f'<link rel="alternate" hreflang="{language}" href="{self.url(target)}">'
-                for language, target in {**paths, "x-default": paths["en"]}.items()
-            )
-            crawl = f'<link rel="canonical" href="{self.url(path)}">\n{alternates}'
-        else:
-            crawl = '<meta name="robots" content="noindex, follow">'
+        path = item["path"] if indexed else route
+        title = item["meta"]["title"]
+        description = item["meta"]["description"]
+        og_title = item["meta"].get("og_title", title)
+        og_description = item["meta"].get("og_description", description)
+        crawl = (
+            f'<link rel="canonical" href="{self.url(path)}">' if indexed
+            else '<meta name="robots" content="noindex, follow">'
+        )
         meta = f"""<title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
 {crawl}
@@ -215,39 +187,38 @@ class Site:
 <meta property="og:url" content="{self.url(path)}">
 <meta property="og:title" content="{esc(og_title)}">
 <meta property="og:description" content="{esc(og_description)}">
-<meta property="og:image" content="{self.url('/assets/img/social-xsub.jpg')}">
+<meta property="og:image" content="{self.url(SOCIAL_IMAGE)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{esc(self.copy['social_image'][lang])}">
-<meta property="og:locale" content="{og_locale[lang]}">
-<meta property="og:locale:alternate" content="{og_locale[other]}">
+<meta property="og:image:alt" content="{esc(self.copy['social_image'])}">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">"""
         if schema:
             jsonld = json_text({"@context": "https://schema.org", **schema}).replace("<", "\\u003c")
             meta += f'\n<script type="application/ld+json">{jsonld}</script>'
-        if indexed and path == paths[lang]:
+        if indexed:
             if layout in ("home", "consult"):
-                twin = self.markdown_path(layout, lang)
+                twin = self.markdown_path(layout)
                 api = "resume.json" if layout == "home" else "consulting.json"
                 meta += f'\n<link rel="alternate" type="text/markdown" href="/{twin}">'
                 meta += f'\n<link rel="describedby" type="application/json" href="/api/{api}">'
             if layout == "home":
                 meta += '\n<link rel="api-catalog" href="/.well-known/api-catalog">'
         script = (ROOT / "assets/js/main.js").read_text().strip()
-        board_script = (ROOT / "assets/js/board.js").read_text().strip() if interactive_board else ""
-        board_script = f"<script>{board_script}</script>" if board_script else ""
+        figure_script = (ROOT / "assets/js/figure.js").read_text().strip() if interactive_figure else ""
+        figure_script = f"<script>{figure_script}</script>" if figure_script else ""
         stylesheets = ("assets/css/tokens.css", "assets/css/components.css", "assets/css/style.css")
-        if interactive_board:
-            # Start layout without waiting for three stylesheet responses while the inline board arrives.
+        if interactive_figure:
+            # Start layout without waiting for three stylesheet responses while the inline figure arrives.
             styles = "<style>\n" + "\n".join((ROOT / path).read_text() for path in stylesheets) + "</style>"
         else:
             styles = "\n".join(f'<link rel="stylesheet" href="{self.asset(path)}">' for path in stylesheets)
         return f"""<!doctype html>
-<html lang="{lang}">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 <script>{script}</script>
 <link rel="stylesheet" href="{self.asset('assets/fonts/fonts.css')}">
 <link rel="preload" href="/assets/fonts/instrument-serif/InstrumentSerif-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -257,122 +228,110 @@ class Site:
 {styles}
 </head>
 <body class="{layout}">
-{self.nav(lang, path, alternate)}
+{self.nav(path)}
 <main id="main" class="wrap" tabindex="-1">
 {body}
 </main>
-{self.footer(lang)}
-{board_script}
+{self.footer()}
+{figure_script}
 </body>
 </html>
 """
 
     @staticmethod
-    def markdown_path(layout, lang):
-        if layout == "home":
-            return "index.md" if lang == "en" else "es/index.md"
-        return "consult.md" if lang == "en" else "es/consultoria.md"
+    def markdown_path(layout):
+        return "index.md" if layout == "home" else "consult.md"
 
-    def offer_id(self, lang, tier):
-        return self.url(self.pages["consult"]["paths"][lang]) + "#offer-" + tier["id"]
+    def offer_id(self, tier):
+        return self.url(self.pages["consult"]["path"]) + "#offer-" + tier["id"]
 
-    def person(self, lang):
+    def person(self):
         data = self.data["person"]
         return {
             "@type": "Person",
             "@id": self.url("/#person"),
             "name": self.name,
             "alternateName": data["alternate_names"],
-            "jobTitle": data["role"][lang],
+            "jobTitle": data["role"],
+            "hasOccupation": {
+                "@type": "Occupation", "name": data["positioning"], "skills": data["occupation_topics"],
+            },
             "url": self.url("/"),
-            "description": self.data["home"]["intro"][lang],
+            "description": self.data["home"]["intro"],
             "worksFor": {"@type": "Organization", "name": data["employer"], "url": data["employer_url"]},
             "sameAs": list(self.social.values()),
-            "knowsLanguage": list(LANGS),
-            "makesOffer": [{"@id": self.offer_id(lang, tier)} for tier in self.data["consult"]["tiers"]],
-            "knowsAbout": [item["title"][lang] for item in self.data["home"]["expertise"]],
+            "knowsLanguage": "en",
+            "makesOffer": [{"@id": self.offer_id(tier)} for tier in self.data["consult"]["tiers"]],
+            "knowsAbout": data["occupation_topics"],
         }
 
-    def signal_chain(self, lang):
-        chain = self.data["home"]["signal_chain"]
-
-        def diagram(size, bounds, compact=False):
-            ident = "signal-chain-" + size
-            traces = []
-            nodes = []
-            for index, item in enumerate(chain):
-                if compact:
-                    x, y, width, height = 28, 8 + index * 96, 154, 62
-                    gx, gy, lx, ly = x + 17, y + 16, x + 61, y + 31
-                    cx, cy = x + 32, y + 79
-                    trace = f"M{cx} {y + height}v34"
-                    note_pos = f'x="{cx + 16}" y="{cy}" class="chain-protocol chain-protocol--vertical"'
-                else:
-                    x, y, width, height = 14 + index * 156, 13, 100, 80
-                    gx, gy, lx, ly = x + 35, y + 12, x + 50, y + 62
-                    cx, cy = x + 128, y + 54
-                    trace = f"M{x + width} {y + 41}h9l13 13h12l13-13h9"
-                    note_pos = f'x="{cx}" y="{cy + 39}" class="chain-protocol"'
-                if index < len(chain) - 1:
-                    traces.append(
-                        '<g class="chain-trace" aria-hidden="true">'
-                        f'<path d="{trace}"/><circle cx="{cx}" cy="{cy}" r="4.5"/></g>'
-                    )
-                    if protocol := item.get("protocol"):
-                        traces.append(f'<text {note_pos}>{esc(protocol)}</text>')
-                label = text(item["label"], lang, "text", f' x="{lx}" y="{ly}" class="chain-label"')
-                nodes.append(
-                    f'<a href="#{esc(item["target"])}"{alt_attrs(item["label"], lang)}>'
-                    f'<rect class="chain-node" x="{x}" y="{y}" width="{width}" height="{height}" rx="5"/>'
-                    f'<g class="chain-glyph" transform="translate({gx} {gy})" aria-hidden="true">'
-                    + CHAIN_GLYPHS[item["stage"]] + "</g>"
-                    + label + '</a>'
-                )
-            caption = text(self.copy["signal_chain"], lang, "title", f' id="{ident}"')
-            return (
-                f'<svg class="signal-chain signal-chain--{size}" viewBox="0 0 {bounds[0]} {bounds[1]}" '
-                f'role="group" aria-labelledby="{ident}">'
-                + caption + "".join(traces) + "".join(nodes) + "</svg>"
-            )
-
-        return diagram("wide", (1064, 120)) + diagram("compact", (230, 654), compact=True)
-
-    def spec_table(self, rows, lang):
+    def spec_table(self, rows, title=None):
         entries = "".join(
-            "<tr>" + text(row["label"], lang, "th", ' scope="row"') + text(row["value"], lang, "td") + "</tr>"
+            "<tr>" + text(row["label"], "th", ' scope="row"') + text(row["value"], "td") + "</tr>"
             for row in rows
         )
         return (
-            '<table class="spec-table">'
-            + text(self.copy["specifications"], lang, "caption")
+            '<table class="spec-table">' + text(title or self.copy["specifications"], "caption")
             + "<tbody>" + entries + "</tbody></table>"
         )
 
-    def board_values(self, lang):
+    def board_values(self):
         spec = self.board["spec"]
-        sep = "," if lang == "es" else "."
-        return {
-            **spec,
-            "width_mm": f'{spec["width_mm"]:.1f}'.replace(".", sep),
-            "height_mm": f'{spec["height_mm"]:.1f}'.replace(".", sep),
-        }
+        return {**spec, "width_mm": f'{spec["width_mm"]:.1f}', "height_mm": f'{spec["height_mm"]:.1f}'}
 
     def board_specs(self):
-        values = {lang: self.board_values(lang) for lang in LANGS}
-        rows = []
-        for key, label in self.data["board"]["specs"].items():
-            if key == "dimensions":
-                display = {lang: "{width_mm} × {height_mm} mm".format(**values[lang]) for lang in LANGS}
-            else:
-                display = {lang: str(values[lang][key]) for lang in LANGS}
-            rows.append({"label": label, "value": display})
-        return rows
+        values = self.board_values()
+        values["dimensions"] = "{width_mm} × {height_mm} mm".format(**values)
+        return [{"label": label, "value": str(values[key])} for key, label in self.data["board"]["specs"].items()]
 
-    def board_figure(self, lang, *, case=False):
+    def signal_controls(self, heading, resting_label, resting_note, signals, *, aligned=False):
+        reset = (
+            '<button type="button" class="signal" data-signal="" aria-pressed="true">'
+            + text(resting_label, attrs=' class="signal-label"') + '</button>'
+        )
+        buttons = "" if aligned else f"<li>{reset}</li>"
+        legend = ""
+        for item in signals:
+            target = item.get("nets", item["id"])
+            buttons += (
+                f'<li><button type="button" class="signal" data-signal="{esc(item["id"])}" '
+                f'data-targets="{esc(target)}" data-note="{esc(item["sentence"])}" aria-pressed="false">'
+                + text(item["label"], attrs=' class="signal-label"')
+                + text(item["tag"].replace(" · ", "\u2009·\u2009") if aligned else item["tag"],
+                       attrs=' class="signal-nets" aria-hidden="true"')
+                + '</button></li>'
+            )
+            legend += "<div>" + text(item["label"], "dt") + text(item["sentence"], "dd") + "</div>"
+        heading_class = "visually-hidden" if aligned else "board-label"
+        panel = (
+            '<div class="tech-panel board-interactive">'
+            + text(heading, "h2", f' id="figure-signals" class="{heading_class}"')
+            + '<ul class="signal-list" role="list" aria-labelledby="figure-signals">' + buttons + "</ul>"
+            + (f'<div class="path-reset">{reset}</div>' if aligned else "")
+            + text(resting_note, "p", ' class="signal-note"')
+            + '<p class="signal-status visually-hidden" role="status" aria-atomic="true"></p></div>'
+        )
+        fallback = (
+            '<details class="board-legend">' + text(heading, "summary") + "<dl>" + legend + "</dl></details>"
+        )
+        return panel, fallback
+
+    def path_figure(self):
+        panel, fallback = self.signal_controls(
+            self.copy["whole_path"], self.copy["all_stages"], self.copy["path_rest"],
+            self.path_figure_data["stages"], aligned=True,
+        )
+        return (
+            '<figure class="tech-figure path-figure" data-trace>'
+            + '<div class="path-stage">' + self.path_svg + "</div>"
+            + panel + text(self.copy["path_caption"], "figcaption") + fallback + "</figure>"
+        )
+
+    def board_figure(self):
         copy = self.data["board"]
-        values = {locale: self.board_values(locale) for locale in LANGS}
-        desc = {locale: copy["description"][locale].format(**values[locale]) for locale in LANGS}
-        caption = {locale: copy["caption"][locale].format(**values[locale]) for locale in LANGS}
+        values = self.board_values()
+        desc = copy["description"].format(**values)
+        caption = copy["caption"].format(**values)
         svg = ElementTree.fromstring(self.board_svg)
         _, _, width, height = svg.attrib["viewBox"].split()
         ns = "http://www.w3.org/2000/svg"
@@ -391,8 +350,7 @@ class Site:
             'aria-hidden="true" focusable="false">'
             + (svg_style if depth == 0 else "")
             + "".join(
-                f'<g id="board-preview-{layer}" class="xsub-board">'
-                + ElementTree.tostring(layers_by_name[layer], encoding="unicode") + "</g>"
+                ElementTree.tostring(layers_by_name[layer], encoding="unicode")
                 for layer in names
             )
             + "</svg>"
@@ -400,201 +358,214 @@ class Site:
         )
         groups = self.board["signals"]
         if set(groups) != set(copy["groups"]):
-            raise ValueError("The board signal groups and bilingual copy must match")
-        selected = (
-            '<li><button type="button" class="signal" data-signal="" aria-pressed="true">'
-            + text(copy["all"], lang, "span", ' class="signal-label"') + "</button></li>"
-        )
-        legend = ""
-        for group, nets in groups.items():
-            item = copy["groups"][group]
-            selected += (
-                f'<li><button type="button" class="signal" data-signal="{esc(group)}" '
-                f'data-nets="{esc(" ".join(nets))}" data-note="{esc(item["sentence"][lang])}" aria-pressed="false">'
-                + text(item["label"], lang, "span", ' class="signal-label"')
-                + f'<span class="signal-nets" aria-hidden="true">{esc(item["tag"])}</span>'
-                + "</button></li>"
-            )
-            legend += "<div>" + text(item["label"], lang, "dt") + text(item["sentence"], lang, "dd") + "</div>"
-        specs = self.board_specs()
-        plate = self.spec_table(specs, lang) if case else (
-            '<dl class="spec-plate"' + alt_attrs(copy["spec_label"], lang) + '>'
-            + "".join("<div>" + text(row["label"], lang, "dt") + text(row["value"], lang, "dd") + "</div>"
-                      for row in specs) + "</dl>"
-        )
-        classes = "tech-figure tech-figure--case" if case else "tech-figure tech-figure--hero"
+            raise ValueError("The X-Sub net groups and copy must match")
+        signals = [
+            {"id": group, "nets": " ".join(nets), **copy["groups"][group]} for group, nets in groups.items()
+        ]
+        panel, fallback = self.signal_controls(copy["trace"], copy["all"], copy["rest"], signals)
         return (
-            f'<figure class="{classes}" aria-labelledby="board-caption">'
+            '<figure class="tech-figure tech-figure--case" data-trace aria-labelledby="board-caption">'
             + f'<div class="tech-stage"><div id="board-stack" class="tech-board" style="aspect-ratio:{width}/{height}" role="img"'
-            + alt_attrs(copy["title"], lang) + ' aria-describedby="board-desc">'
+            + label_attr(copy["title"]) + ' aria-describedby="board-desc">'
             + build_board.LICENCE + layers + "</div>"
-            + text(desc, lang, "p", ' id="board-desc" class="visually-hidden"') + "</div>"
-            + '<div class="tech-panel board-interactive">'
-            + text(copy["trace"], lang, "h2", ' id="board-signals" class="board-label"')
-            + '<ul class="signal-list" aria-labelledby="board-signals">' + selected + "</ul>"
-            + text(copy["rest"], lang, "p", ' class="signal-note"')
-            + '<p class="signal-status visually-hidden" role="status" aria-atomic="true"></p>'
-            + "</div>"
-            + '<figcaption><div id="board-caption">' + text(caption, lang)
-            + '<span class="board-sources">' + link(copy["source_label"], lang, copy["source_url"])
-            + link(copy["license_label"], lang, copy["license_url"]) + "</span></div>"
+            + text(desc, "p", ' id="board-desc" class="visually-hidden"') + "</div>"
+            + panel + '<figcaption><div id="board-caption">' + text(caption)
+            + '<span class="board-sources">' + link(copy["source_label"], copy["source_url"])
+            + link(copy["license_label"], copy["license_url"]) + "</span></div>"
             + '<button type="button" class="btn btn-secondary board-interactive board-layers" '
-            + f'data-spread data-stack-label="{esc(copy["stack"][lang])}" aria-controls="board-stack">'
-            + text(copy["layers"], lang)
-            + "</button></figcaption>"
-            + '<div class="board-specs">' + plate + "</div>"
-            + '<details class="board-legend">' + text(copy["trace"], lang, "summary")
-            + "<dl>" + legend + "</dl></details></figure>"
+            + f'data-spread data-stack-label="{esc(copy["stack"])}" aria-controls="board-stack">'
+            + text(copy["layers"]) + "</button></figcaption>"
+            + '<div class="board-specs">' + self.spec_table(self.board_specs()) + "</div>"
+            + fallback + "</figure>"
         )
 
-    def home(self, lang):
+    def gateway_figure(self, feature):
+        controls = "".join(
+            f'<button type="button" class="btn btn-secondary" data-gateway-route="{route}" '
+            f'aria-pressed="{str(not route).lower()}">{label}</button>'
+            for route, label in (("", "Both paths"), ("read", "Read path"), ("write", "Write path"))
+        )
+        return (
+            '<figure class="gateway-figure" data-gateway>'
+            + svg_asset("assets/img/gateway.svg") + text(feature["figure_caption"], "figcaption")
+            + '<div class="gateway-controls board-interactive" role="group" aria-label="Highlight a gateway path">'
+            + controls + "</div>"
+            + "</figure>"
+        )
+
+    def featured_work(self):
+        feature = self.data["featured"]
+        body = (
+            '<div class="prose">' + paragraphs(feature["paragraphs"]) + "</div>"
+            + '<div class="feature-grid">' + self.gateway_figure(feature)
+            + self.spec_table(feature["controls"], self.copy["security_controls"])
+            + "</div>"
+            + link(self.copy["read_note"], feature["path"], "btn btn-secondary")
+        )
+        return section("plant-operations", feature["title"], body, "featured-work")
+
+    def home(self):
         content = self.data["home"]
-        home = self.pages["home"]["paths"][lang]
-        consult = self.pages["consult"]["paths"][lang]
+        page = self.pages["home"]
         hero = (
             '<section class="hero" aria-labelledby="hero-heading">'
-            + text(content["roleline"], lang, "p", ' class="hero-name"')
-            + '<h1 id="hero-heading">' + text(content["headline"], lang) + " "
-            + text(content["headline_end"], lang, "em") + "</h1>"
-            + text(content["intro"], lang, "p", ' class="hero-intro"')
-            + text(content["availability"], lang, "p", ' class="hero-availability"')
-            + '<div class="actions">' + link(self.copy["view_consult"], lang, consult, "btn btn-primary")
-            + link(self.copy["view_work"], lang, "#work", "btn btn-secondary")
-            + "</div>" + self.board_figure(lang) + "</section>"
+            + text(content["roleline"], "p", ' class="hero-name"')
+            + '<h1 id="hero-heading">' + esc(content["headline"]) + " "
+            + text(content["headline_end"], "em") + "</h1>"
+            + text(content["intro"], "p", ' class="hero-intro"')
+            + text(content["proof_line"], "p", ' class="hero-availability"')
+            + '<div class="actions">'
+            + link(self.copy["view_consult"], self.pages["consult"]["path"], "btn btn-primary")
+            + link(self.copy["view_work"], "#how-i-work", "btn btn-secondary")
+            + "</div>" + self.path_figure() + "</section>"
         )
         proof = '<dl class="proof-strip">' + "".join(
-            "<div>" + text(item["value"], lang, "dt") + text(item["label"], lang, "dd") + "</div>"
+            "<div>" + text(item["value"], "dt") + text(item["label"], "dd") + "</div>"
             for item in content["proof"]
         ) + "</dl>"
-        work_cards = "".join(self.case_card(case, lang) for case in self.cases)
-        practice = "".join(
-            f'<li id="{esc(item["id"])}">' + text(item["title"], lang, "h3") + text(item["body"], lang, "p") + "</li>"
+        method = '<ol class="steps work-steps">' + "".join(
+            "<li>" + text(item["title"], "h3") + text(item["body"], "p") + "</li>"
+            for item in content["working_method"]
+        ) + "</ol>"
+        selected = "".join(
+            self.card(item["title"], item["body"], item["url"], action_label=item.get("action"))
             for item in content["selected"]
         )
-        work = section(
-            "work", self.copy["selected_work"], lang,
-            f'<div class="card-grid case-grid">{work_cards}</div><ul class="practice">{practice}</ul>'
+        public_work = "".join(
+            self.card(case["title"], case["card_intro"], case["path"], period=case["period"])
+            for case in self.cases if not case.get("featured")
         )
-        experience = "<ol class=\"timeline\">" + "".join(
-            "<li>" + text(item["dates"], lang, "p", ' class="dates"')
-            + '<div>' + text(item["title"], lang, "h3") + text(item["org"], lang, "p", ' class="organization"')
-            + text(item["body"], lang, "p") + "</div></li>"
+        experience = '<ol class="timeline">' + "".join(
+            "<li>" + text(item["dates"], "p", ' class="dates"')
+            + "<div>" + text(item["title"], "h3") + text(item["org"], "p", ' class="organization"')
+            + text(item["body"], "p") + "</div></li>"
             for item in content["experience"]
         ) + "</ol>"
-        expertise = self.signal_chain(lang) + '<div class="card-grid">' + "".join(
-            self.card(item["title"], item["body"], lang, ident=item["id"]) for item in content["expertise"]
+        expertise = '<div class="card-grid capabilities-grid">' + "".join(
+            self.card(item["title"], item["body"], ident=item.get("id")) for item in content["capabilities"]
         ) + '</div>'
         projects = "".join(
-            f'<li>{link(item["title"], lang, item["url"])}{text(item["body"], lang, "p")}</li>'
+            f'<li>{link(item["title"], item["url"])}{text(item["body"], "p")}</li>'
             for item in content["projects"]
         )
-        about = '<div class="prose">' + paragraphs(content["about"], lang) + "</div>"
+        about = '<div class="prose">' + paragraphs(content["about"]) + "</div>"
         price = min(tier["price"] for tier in self.data["consult"]["tiers"])
-        from_price = {language: self.copy["from_price"][language].format(price=price) for language in LANGS}
         offer = (
             '<div class="offer-split"><div class="prose">'
-            + paragraphs(content["consult_preview"], lang)
-            + text(from_price, lang, "p", ' class="from-price"') + "</div>"
-            + link(self.copy["view_consult"], lang, consult, "btn btn-primary") + "</div>"
+            + paragraphs(content["consult_preview"])
+            + text(self.copy["from_price"].format(price=price), "p", ' class="from-price"') + "</div>"
+            + link(self.copy["view_consult"], self.pages["consult"]["path"], "btn btn-primary") + "</div>"
+            + self.engagements(compact=True)
         )
         contact = (
-            '<div class="prose">' + paragraphs(content["contact"], lang)
-            + link(self.copy["connect"], lang, self.social["LinkedIn"], "btn btn-secondary") + "</div>"
+            '<div class="prose">' + paragraphs(content["contact"])
+            + link(self.copy["connect"], self.social["LinkedIn"], "btn btn-secondary") + "</div>"
         )
         body = "\n".join((
-            hero, proof, section("offer", self.copy["consult"], lang, offer),
-            work, section("about", self.copy["about"], lang, about),
-            section("experience", self.copy["experience"], lang, experience),
-            section("expertise", self.copy["expertise"], lang, expertise),
-            section("projects", self.copy["open_source"], lang, f'<ul class="project-list">{projects}</ul>'),
-            section("contact", self.copy["contact"], lang, contact),
+            hero, proof, self.featured_work(),
+            section("how-i-work", self.copy["working_method"], method),
+            section("expertise", self.copy["expertise"], expertise),
+            section("offer", self.copy["consult"], offer),
+            section("work", self.copy["selected_work"], '<div class="card-grid selected-grid">' + selected + "</div>"),
+            section("public-work", self.copy["public_work"], '<div class="card-grid case-grid">' + public_work + "</div>"),
+            section("about", self.copy["about"], about),
+            section("experience", self.copy["experience"], experience),
+            section("projects", self.copy["open_source"], f'<ul class="project-list">{projects}</ul>'),
+            section("contact", self.copy["contact"], contact),
         ))
-        profile = {"@type": "ProfilePage", "@id": self.url(home) + "#page",
-                   "url": self.url(home), "name": self.pages["home"]["meta"]["title"][lang],
-                   "inLanguage": lang, "mainEntity": {"@id": self.url("/#person")}}
-        return self.document(self.pages["home"], lang, body,
-                             {"@graph": [profile, self.person(lang)]}, layout="home", interactive_board=True)
+        profile = {"@type": "ProfilePage", "@id": self.url(page["path"]) + "#page",
+                   "url": self.url(page["path"]), "name": page["meta"]["title"],
+                   "inLanguage": "en", "mainEntity": {"@id": self.url("/#person")}}
+        return self.document(page, body, {"@graph": [profile, self.person()]}, layout="home", interactive_figure=True)
 
-    def case_card(self, case, lang):
-        if case.get("board"):
-            art = (
-                '<svg class="work-board xsub-board" viewBox="278 60 580 322" preserveAspectRatio="xMidYMid slice" '
-                'aria-hidden="true" focusable="false">'
-                + "".join(f'<use href="#board-preview-{layer}"/>'
-                          for layer in ("substrate", "zones", "B.Cu", "F.Cu", "F.SilkS", "drill", "Edge.Cuts"))
-                + "</svg>"
-            )
-        else:
-            art = '<dl class="work-figures">' + "".join(
-                "<div>" + text(row["label"], lang, "dt") + text(row["value"], lang, "dd") + "</div>"
-                for row in case.get("specs", ()) if row.get("featured")
-            ) + "</dl>"
-        return self.card(case["title"], case["intro"], lang, case["paths"][lang], visual=art)
-
-    def card(self, title, body, lang, url=None, *, ident=None, visual=""):
-        heading = f'<h3>{link(title, lang, url, "card-link")}</h3>' if url else text(title, lang, "h3")
-        action = text(self.copy["read_note"], lang, attrs=' class="note-action" aria-hidden="true"') if url else ""
+    def card(self, title, body, url=None, *, period=None, action_label=None, ident=None):
+        heading = f'<h3>{link(title, url, "card-link")}</h3>' if url else text(title, "h3")
+        action = text(action_label or self.copy["read_note"], attrs=' class="note-action" aria-hidden="true"') if url else ""
+        label = text(period, "p", ' class="case-period"') if period else ""
         target = f' id="{esc(ident)}"' if ident else ""
-        return f'<article class="card"{target}>' + heading + visual + text(body, lang, "p") + action + "</article>"
+        return f'<article class="card"{target}>' + label + heading + text(body, "p") + action + "</article>"
 
-    def offer(self, tier, lang):
-        label = {language: self.copy["pay"][language].format(price=tier["price"]) for language in LANGS}
-        price = {language: self.copy["price"][language].format(price=tier["price"]) for language in LANGS}
+    def engagements(self, *, compact=False):
+        data = self.data["consult"]
+        items = []
+        for engagement in data["scoped_engagements"]:
+            if compact:
+                items.append("<li>" + esc(engagement["title"]) + "</li>")
+            else:
+                body = text(engagement["body"], "p")
+                if engagement.get("url"):
+                    body += link(engagement["link_label"], engagement["url"], "link")
+                items.append("<li>" + text(engagement["title"], "h3") + body + "</li>")
+        content = (
+            text(data["engagement_intro"], "p")
+            + '<ul class="engagement-list">' + "".join(items) + "</ul>"
+            + link(self.copy["connect"], self.social["LinkedIn"], "btn btn-secondary")
+        )
+        if compact:
+            return (
+                '<div class="prose home-engagements">'
+                + text(self.copy["scoped_engagements"], "h3") + content + "</div>"
+            )
+        return section("scoped-engagements", self.copy["scoped_engagements"], '<div class="prose">' + content + "</div>")
+
+    def offer(self, tier):
+        label = self.copy["pay"].format(price=tier["price"])
+        price = self.copy["price"].format(price=tier["price"])
         return (
-            f'<article class="card price-card" id="offer-{esc(tier["id"])}">' + text(tier["title"], lang, "h3")
-            + text(tier["duration"], lang, "p", ' class="duration"')
-            + text(price, lang, "p", ' class="price"')
-            + text(tier["scope"], lang, "p") + text(tier["outcome"], lang, "p", ' class="outcome"')
-            + link(label, lang, tier["url"], "btn btn-secondary", ' rel="noreferrer"') + "</article>"
+            f'<article class="card price-card" id="offer-{esc(tier["id"])}">' + text(tier["title"], "h3")
+            + text(tier["duration"], "p", ' class="duration"')
+            + text(price, "p", ' class="price"')
+            + text(tier["scope"], "p") + text(tier["outcome"], "p", ' class="outcome"')
+            + link(label, tier["url"], "btn btn-secondary", ' rel="noreferrer"') + "</article>"
         )
 
-    def consult(self, lang):
+    def consult(self):
         data = self.data["consult"]
         item = self.pages["consult"]
-        url = self.url(item["paths"][lang])
+        url = self.url(item["path"])
         steps = '<ol class="steps">' + "".join(
-            '<li>' + text(step["title"], lang, "h3") + text(step["body"], lang, "p") + "</li>"
+            '<li>' + text(step["title"], "h3") + text(step["body"], "p") + "</li>"
             for step in data["steps"]
         ) + "</ol>"
         faq = '<div class="faq">' + "".join(
-            "<details>" + text(faq["question"], lang, "summary") + text(faq["answer"], lang, "p") + "</details>"
+            "<details>" + text(faq["question"], "summary") + text(faq["answer"], "p") + "</details>"
             for faq in data["faq"]
         ) + "</div>"
-        body = page_header(data["title"], data["intro"], lang)
-        body += section("booking", self.copy["how_it_works"], lang,
-                        steps + '<div class="prose terms">' + paragraphs(data["terms"], lang) + "</div>")
-        body += section("sessions", self.copy["sessions"], lang,
-                        '<div class="card-grid price-grid">' + "".join(self.offer(t, lang) for t in data["tiers"]) + "</div>")
-        body += section("faq", self.copy["faq"], lang, faq)
-        body += section("other-work", self.copy["other_work"], lang,
-                        '<div class="prose">' + paragraphs(data["other_work"], lang)
-                        + link(self.copy["connect"], lang, self.social["LinkedIn"], "btn btn-secondary") + "</div>")
+        body = page_header(data["title"], data["intro"])
+        body += section("booking", self.copy["how_it_works"],
+                        steps + '<div class="prose terms">' + paragraphs(data["terms"]) + "</div>")
+        body += section("sessions", self.copy["sessions"],
+                        '<div class="card-grid price-grid">' + "".join(self.offer(t) for t in data["tiers"]) + "</div>")
+        body += self.engagements()
+        body += section("faq", self.copy["faq"], faq)
         service = {
             "@type": "Service", "@id": url + "#service", "url": url,
-            "name": data["document_title"][lang], "serviceType": data["service_name"][lang],
-            "description": data["intro"][lang],
+            "name": data["document_title"], "serviceType": data["service_name"],
+            "description": data["intro"],
             "provider": {"@type": "Person", "@id": self.url("/#person"), "name": self.name},
-            "availableChannel": {"@type": "ServiceChannel", "availableLanguage": list(LANGS)},
-            "offers": [{"@type": "Offer", "@id": self.offer_id(lang, tier), "name": tier["title"][lang],
-                        "description": tier["outcome"][lang],
+            "availableChannel": {"@type": "ServiceChannel", "availableLanguage": ["en"]},
+            "offers": [{"@type": "Offer", "@id": self.offer_id(tier), "name": tier["title"],
+                        "description": tier["outcome"],
                         "price": tier["price"], "priceCurrency": "USD", "url": tier["url"]}
                        for tier in data["tiers"]],
         }
-        page = {"@type": "WebPage", "@id": url + "#page", "url": url, "inLanguage": lang,
+        page = {"@type": "WebPage", "@id": url + "#page", "url": url, "inLanguage": "en",
                 "mainEntity": {"@id": service["@id"]}}
-        return self.document(item, lang, body, {"@graph": [page, service]}, layout="consult")
+        return self.document(item, body, {"@graph": [page, service]}, layout="consult")
 
-    def case(self, item, lang):
-        url = self.url(item["paths"][lang])
+    def case(self, item):
+        url = self.url(item["path"])
         image = item.get("image")
         body = (
             '<article class="prose case-note">'
-            + link(self.copy["back_work"], lang, self.pages["home"]["paths"][lang] + "#work", "back-link")
-            + page_header(item["title"], item["intro"], lang)
-            + text(self.copy["by"], lang, "p", ' class="byline"')
+            + link(self.copy["work"] if item.get("featured") else self.copy["back_work"],
+                   self.pages["home"]["path"] + ("#work" if item.get("featured") else "#public-work"), "back-link")
+            + (text(item["period"], "p", ' class="case-period"') if item.get("period") else "")
+            + page_header(item["title"], item["intro"])
+            + text(self.copy["by"], "p", ' class="byline"')
         )
         if item.get("board"):
-            body += self.board_figure(lang, case=True)
+            body += self.board_figure()
         if image:
             alt = image["alt"]
             responsive = ""
@@ -604,202 +575,232 @@ class Site:
                     ' sizes="(max-width: 640px) calc(100vw - 32px), 62ch"'
                 )
             body += (
-                f'<figure class="case-figure"><img src="{esc(image["path"])}" alt="{esc(alt[lang])}"'
+                f'<figure class="case-figure"><img src="{esc(image["path"])}" alt="{esc(alt)}"'
                 + responsive
                 + f' width="{image["width"]}" height="{image["height"]}" decoding="async" loading="lazy"'
-                f' data-alt-en="{esc(alt["en"])}" data-alt-es="{esc(alt["es"])}">'
-                + text(image["caption"], lang, "figcaption") + "</figure>"
+                '>'
+                + text(image["caption"], "figcaption") + "</figure>"
             )
         if item.get("specs"):
-            body += self.spec_table(item["specs"], lang)
+            body += self.spec_table(item["specs"])
         for block in item["blocks"]:
-            body += text(block["heading"], lang, "h2", ' class="section-head--trace"')
-            body += "".join(case_prose(value, lang) for value in block["paragraphs"])
-        body += text(self.copy["sources"], lang, "h2") + "<ul>" + "".join(
-            f'<li>{link(item["label"], lang, item["url"])}</li>' for item in item["sources"]
-        ) + "</ul>"
-        body += link(self.copy["view_consult"], lang, self.pages["consult"]["paths"][lang],
+            body += text(block["heading"], "h2", ' class="section-head--trace"')
+            body += "".join(case_prose(value) for value in block["paragraphs"])
+            if block.get("figure"):
+                body += self.gateway_figure(self.data["featured"])
+            if block.get("security_controls"):
+                body += self.spec_table(self.data["featured"]["controls"], self.copy["security_controls"])
+        if item.get("sources"):
+            body += text(self.copy["sources"], "h2") + "<ul>" + "".join(
+                f'<li>{link(source["label"], source["url"])}</li>' for source in item["sources"]
+            ) + "</ul>"
+        body += link(self.copy["view_consult"], self.pages["consult"]["path"],
                      "btn btn-secondary") + "</article>"
         article = {
             "@type": "Article", "@id": url + "#article", "mainEntityOfPage": url,
-            "headline": item["title"][lang], "description": item["intro"][lang], "inLanguage": lang,
+            "headline": item["title"], "description": item["intro"], "inLanguage": "en",
             "datePublished": item["date_published"], "dateModified": self.data["last_updated"],
-            "image": self.url(image["path"] if image else "/assets/img/social-xsub.jpg"),
+            "image": self.url(image["path"] if image else item.get("schema_image", SOCIAL_IMAGE)),
             "author": {"@type": "Person", "@id": self.url("/#person"), "name": self.name},
-            "citation": [source["url"] for source in item["sources"]],
+            **({"citation": [source["url"] for source in item["sources"]]} if item.get("sources") else {}),
         }
-        return self.document(item, lang, body, article, layout="case", interactive_board=item.get("board", False))
+        return self.document(item, body, article, layout="case",
+                             interactive_figure=bool(item.get("board") or item.get("featured")))
 
-    def privacy(self, lang):
+    def privacy(self):
         data = self.data["privacy"]
-        body = '<div class="prose">' + page_header(data["title"], data["intro"], lang)
+        body = '<div class="prose">' + page_header(data["title"], data["intro"])
         for block in data["blocks"]:
-            body += text(block["heading"], lang, "h2") + paragraphs(block["paragraphs"], lang)
-        body += link(self.copy["connect"], lang, self.social["LinkedIn"], "btn btn-secondary") + "</div>"
-        return self.document(self.pages["privacy"], lang, body, layout="utility")
+            body += text(block["heading"], "h2") + paragraphs(block["paragraphs"])
+        body += link(self.copy["connect"], self.social["LinkedIn"], "btn btn-secondary") + "</div>"
+        return self.document(self.pages["privacy"], body, layout="utility")
 
     def utility(self, key, route):
         data = self.data[key]
-        body = ""
-        for lang in LANGS:
-            label = text(data["title"], lang, "h1" if lang == "en" else "h2", f' id="utility-{lang}"')
-            action = link(self.copy["back_home"], lang, self.pages["home"]["paths"][lang], "btn btn-secondary")
-            if key == "success":
-                action += link(self.copy["connect"], lang, self.social["LinkedIn"], "btn btn-secondary")
-            else:
-                action += link(self.copy["view_consult"], lang, self.pages["consult"]["paths"][lang], "btn btn-secondary")
-            body += (
-                f'<section class="prose utility-block" lang="{lang}" aria-labelledby="utility-{lang}">'
-                + label + paragraphs(data["paragraphs"], lang) + f'<div class="actions">{action}</div></section>'
-            )
-        return self.document(self.pages[key], "en", f'<div class="utility-content">{body}</div>',
-                             route=route, layout="utility")
+        action = link(self.copy["back_home"], self.pages["home"]["path"], "btn btn-secondary")
+        if key == "success":
+            action += link(self.copy["connect"], self.social["LinkedIn"], "btn btn-secondary")
+        else:
+            action += link(self.copy["view_consult"], self.pages["consult"]["path"], "btn btn-secondary")
+        body = (
+            '<div class="utility-content"><section class="prose utility-block" aria-labelledby="utility-heading">'
+            + text(data["title"], "h1", ' id="utility-heading"') + paragraphs(data["paragraphs"])
+            + f'<div class="actions">{action}</div></section></div>'
+        )
+        return self.document(self.pages[key], body, route=route, layout="utility")
+
+    def redirect(self, destination):
+        return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page moved</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{esc(self.url(destination))}">
+<meta http-equiv="refresh" content="0; url={esc(destination)}">
+</head>
+<body><main>{link("Continue to the page", destination)}</main></body>
+</html>
+"""
 
     def sitemap(self):
         sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
-                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+                   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
         updated = date.fromisoformat(self.data["last_updated"]).isoformat()
-        for paths in self.pairs:
-            for path in paths.values():
-                sitemap.append("  <url>")
-                sitemap.append(f"    <loc>{esc(self.url(path))}</loc>")
-                sitemap.append(f"    <lastmod>{updated}</lastmod>")
-                for lang, target in {**paths, "x-default": paths["en"]}.items():
-                    sitemap.append(f'    <xhtml:link rel="alternate" hreflang="{lang}" href="{esc(self.url(target))}"/>')
-                sitemap.append("  </url>")
+        for path in self.indexed:
+            sitemap.extend(("  <url>", f"    <loc>{esc(self.url(path))}</loc>",
+                            f"    <lastmod>{updated}</lastmod>", "  </url>"))
         return "\n".join(sitemap + ["</urlset>", ""])
 
-    def add_page(self, url, result):
-        name = url.lstrip("/")
-        self.files[name + "index.html" if url.endswith("/") else name] = result
-
     def render(self):
-        for language in LANGS:
-            for key, renderer in (("home", self.home), ("consult", self.consult), ("privacy", self.privacy)):
-                self.add_page(self.pages[key]["paths"][language], renderer(language))
-            for case in self.cases:
-                self.add_page(case["paths"][language], self.case(case, language))
-        self.add_page("/consult-success.html", self.utility("success", "/consult-success.html"))
-        self.add_page("/404.html", self.utility("missing", "/404.html"))
+        for key, renderer in (("home", self.home), ("consult", self.consult), ("privacy", self.privacy)):
+            self.files[filename(self.pages[key]["path"])] = renderer()
+        for case in self.cases:
+            self.files[filename(case["path"])] = self.case(case)
+        for old, new in self.redirects.items():
+            self.files[filename(old)] = self.redirect(new)
+        self.files["consult-success.html"] = self.utility("success", "/consult-success.html")
+        self.files["404.html"] = self.utility("missing", "/404.html")
         self.files["sitemap.xml"] = self.sitemap()
         self.files["robots.txt"] = self.data["crawler_policy"] + f'\nSitemap: {self.url("/sitemap.xml")}\n'
         self.machine_files()
         return self.files
 
-    def portfolio_markdown(self, lang):
+    def portfolio_markdown(self):
         content = self.data["home"]
-        pages = self.pages
-        lines = [f"# {self.name}", content["intro"][lang], content["availability"][lang],
-                 f'[{self.copy["view_consult"][lang]}]({self.url(pages["consult"]["paths"][lang])})',
+        feature = self.data["featured"]
+        lines = [f"# {self.name}", f'{content["headline"]} {content["headline_end"]}',
+                 content["intro"], content["proof_line"],
+                 f'[{self.copy["view_consult"]}]({self.url(self.pages["consult"]["path"])})',
                  " · ".join(f'[{name}]({url})' for name, url in self.social.items()),
-                 f'## {self.copy["about"][lang]}', *[p[lang] for p in content["about"]],
-                 f'## {self.copy["selected_work"][lang]}']
-        lines.extend(f'- [{case["title"][lang]}]({self.url(case["paths"][lang])}) — {case["intro"][lang]}'
-                     for case in self.cases)
-        lines.extend(f'- {item["title"][lang]} — {item["body"][lang]}' for item in content["selected"])
-        lines.append(f'## {self.copy["experience"][lang]}')
-        lines.extend(f'- {item["dates"][lang]} · {item["title"][lang]} · {item["org"][lang]} — {item["body"][lang]}'
+                 f'## {self.copy["whole_path"]}']
+        lines.extend(f'- {stage["label"]} ({stage["tag"]}) — {stage["sentence"]}'
+                     for stage in self.path_figure_data["stages"])
+        lines.extend((f'## {feature["title"]}', *feature["paragraphs"],
+                      f'[{self.copy["read_note"]}]({self.url(feature["path"])})',
+                      f'## {self.copy["working_method"]}'))
+        lines.extend(f'{i}. {step["title"]}. {step["body"]}' for i, step in enumerate(content["working_method"], 1))
+        lines.append(f'## {self.copy["expertise"]}')
+        lines.extend(f'- {item["title"]} — {item["body"]}' for item in content["capabilities"])
+        lines.append(f'## {self.copy["selected_work"]}')
+        for item in content["selected"]:
+            title = f'[{item["title"]}]({self.url(item["url"])})' if item.get("url") else item["title"]
+            lines.append(f'- {title} — {item["body"]}')
+        lines.append(f'## {self.copy["public_work"]}')
+        lines.extend(f'- [{case["title"]}]({self.url(case["path"])}) · {case["period"]} — {case["card_intro"]}'
+                     for case in self.cases if not case.get("featured"))
+        lines.extend((f'## {self.copy["about"]}', *content["about"],
+                      f'## {self.copy["experience"]}'))
+        lines.extend(f'- {item["dates"]} · {item["title"]} · {item["org"]} — {item["body"]}'
                      for item in content["experience"])
-        lines.append(f'## {self.copy["expertise"][lang]}')
-        lines.extend(f'- {item["title"][lang]} — {item["body"][lang]}' for item in content["expertise"])
-        lines.append(f'## {self.copy["open_source"][lang]}')
-        lines.extend(f'- [{item["title"][lang]}]({item["url"]}) — {item["body"][lang]}'
-                     for item in content["projects"])
+        lines.append(f'## {self.copy["open_source"]}')
+        lines.extend(f'- [{item["title"]}]({item["url"]}) — {item["body"]}' for item in content["projects"])
         return "\n\n".join(lines) + "\n"
 
-    def consult_markdown(self, lang):
+    def consult_markdown(self):
         data = self.data["consult"]
-        lines = [f'# {data["document_title"][lang]}', data["intro"][lang],
-                 f'[{self.copy["consult"][lang]}]({self.url(self.pages["consult"]["paths"][lang])})',
-                 f'## {self.copy["how_it_works"][lang]}']
-        lines.extend(f'{i}. {step["title"][lang]}. {step["body"][lang]}'
-                     for i, step in enumerate(data["steps"], 1))
-        lines.extend(item[lang] for item in data["terms"])
-        lines.append(f'## {self.copy["sessions"][lang]}')
+        lines = [f'# {data["document_title"]}', data["intro"],
+                 f'[{self.copy["consult"]}]({self.url(self.pages["consult"]["path"])})',
+                 f'## {self.copy["how_it_works"]}']
+        lines.extend(f'{i}. {step["title"]}. {step["body"]}' for i, step in enumerate(data["steps"], 1))
+        lines.extend(data["terms"])
+        lines.append(f'## {self.copy["sessions"]}')
         for tier in data["tiers"]:
-            price = self.copy["price"][lang].format(price=tier["price"])
-            lines.extend((f'### {tier["title"][lang]} · {tier["duration"][lang]} · {price}',
-                          tier["scope"][lang], tier["outcome"][lang],
-                          f'[{self.copy["pay"][lang].format(price=tier["price"])}]({tier["url"]})'))
-        lines.append(f'## {self.copy["faq"][lang]}')
-        for item in data["faq"]:
-            lines.extend((f'### {item["question"][lang]}', item["answer"][lang]))
+            price = self.copy["price"].format(price=tier["price"])
+            lines.extend((f'### {tier["title"]} · {tier["duration"]} · {price}', tier["scope"], tier["outcome"],
+                          f'[{self.copy["pay"].format(price=tier["price"])}]({tier["url"]})'))
+        lines.extend((f'## {self.copy["scoped_engagements"]}', data["engagement_intro"]))
+        for item in data["scoped_engagements"]:
+            lines.append(f'- {item["title"]} — {item["body"]}')
+            if item.get("url"):
+                lines.append(f'[{item["link_label"]}]({self.url(item["url"])})')
         lines.append(f'[LinkedIn]({self.social["LinkedIn"]})')
+        lines.append(f'## {self.copy["faq"]}')
+        for item in data["faq"]:
+            lines.extend((f'### {item["question"]}', item["answer"]))
         return "\n\n".join(lines) + "\n"
 
-    def case_markdown(self, item, lang):
-        lines = [f'# {item["title"][lang]}', item["intro"][lang],
-                 f'<{self.url(item["paths"][lang])}>']
+    def case_markdown(self, item):
+        lines = [f'# {item["title"]}', item["intro"], f'<{self.url(item["path"])}>']
+        if item.get("period"):
+            lines.append(item["period"])
         specs = self.board_specs() if item.get("board") else item.get("specs")
         if specs:
-            lines.append(f'## {self.copy["specifications"][lang]}')
-            lines.extend(f'- {row["label"][lang]} — {row["value"][lang]}' for row in specs)
+            lines.append(f'## {self.copy["specifications"]}')
+            lines.extend(f'- {row["label"]} — {row["value"]}' for row in specs)
         for block in item["blocks"]:
-            lines.extend((f'## {block["heading"][lang]}', *[p[lang] for p in block["paragraphs"]]))
-        lines.append(f'## {self.copy["sources"][lang]}')
-        lines.extend(f'- [{source["label"][lang]}]({source["url"]})' for source in item["sources"])
+            lines.extend((f'## {block["heading"]}', *block["paragraphs"]))
+            if block.get("figure"):
+                lines.append(self.data["featured"]["figure_caption"])
+            if block.get("security_controls"):
+                lines.append(f'### {self.copy["security_controls"]}')
+                lines.extend(f'- {row["label"]} — {row["value"]}' for row in self.data["featured"]["controls"])
+        if item.get("sources"):
+            lines.append(f'## {self.copy["sources"]}')
+            lines.extend(f'- [{source["label"]}]({source["url"]})' for source in item["sources"])
         return "\n\n".join(lines) + "\n"
 
     def machine_files(self):
         content = self.data["home"]
-        for lang in LANGS:
-            self.files[self.markdown_path("home", lang)] = self.portfolio_markdown(lang)
-            self.files[self.markdown_path("consult", lang)] = self.consult_markdown(lang)
-        self.files["llms-full.txt"] = "\n---\n\n".join(
-            part for lang in LANGS
-            for part in (self.portfolio_markdown(lang), self.consult_markdown(lang),
-                         *[self.case_markdown(case, lang) for case in self.cases])
-        )
-        llms = [f"# {self.name}", f'> {content["intro"]["en"]}', "",
-                "## Profile and consulting"]
-        for lang in LANGS:
-            for key in ("home", "consult"):
-                page = self.pages[key]
-                llms.append(f'- [{page["meta"]["title"][lang]}]({self.url(page["paths"][lang])})')
-            for case in self.cases:
-                llms.append(f'- [{case["title"][lang]}]({self.url(case["paths"][lang])})')
+        self.files["index.md"] = self.portfolio_markdown()
+        self.files["consult.md"] = self.consult_markdown()
+        self.files["llms-full.txt"] = "\n---\n\n".join((
+            self.files["index.md"], self.files["consult.md"],
+            *[self.case_markdown(case) for case in self.cases],
+        ))
+        llms = [f"# {self.name}", f'> {content["intro"]}', "", "## Profile and consulting"]
+        for key in ("home", "consult"):
+            page = self.pages[key]
+            llms.append(f'- [{page["meta"]["title"]}]({self.url(page["path"])})')
+        llms.extend(f'- [{case["title"]}]({self.url(case["path"])})' for case in self.cases)
         llms += ["", "## Other public formats",
                  f'- [Portfolio Markdown]({self.url("/index.md")})',
                  f'- [Consulting Markdown]({self.url("/consult.md")})',
-                 f'- [Portafolio en Markdown]({self.url("/es/index.md")})',
-                 f'- [Consultoría en Markdown]({self.url("/es/consultoria.md")})',
                  f'- [API catalog]({self.url("/.well-known/api-catalog")})',
                  f'- [OpenAPI description]({self.url("/api/openapi.json")})',
-                 f'- [Bilingual profile, offers and case notes]({self.url("/llms-full.txt")})',
+                 f'- [Full profile, offers and case notes]({self.url("/llms-full.txt")})',
                  f'- [Resume JSON]({self.url("/api/resume.json")})',
                  f'- [Consulting JSON]({self.url("/api/consulting.json")})']
         self.files["llms.txt"] = "\n".join(llms) + "\n"
 
         resume = {
             "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
-            "basics": {"name": self.name, "label": self.data["person"]["role"]["en"],
-                       "url": self.url("/"),
-                       "summary": content["intro"]["en"], "location": self.data["person"]["location"],
+            "basics": {"name": self.name, "label": self.data["person"]["positioning"],
+                       "url": self.url("/"), "summary": content["intro"], "location": self.data["person"]["location"],
                        "profiles": [{"network": network, "url": url} for network, url in self.social.items()]},
-            "work": [{"name": item["org"]["en"], "position": item["title"]["en"], "startDate": item["start"],
-                      **({"endDate": item["end"]} if item.get("end") else {}), "highlights": [item["body"]["en"]]}
+            "work": [{"name": item["org"], "position": item["title"], "startDate": item["start"],
+                      **({"endDate": item["end"]} if item.get("end") else {}), "highlights": [item["body"]]}
                      for item in content["experience"]],
-            "projects": [{"name": item["title"]["en"], "description": item["body"]["en"], "url": item["url"]}
-                         for item in content["projects"]] +
-                        [{"name": case["title"]["en"], "description": case["intro"]["en"],
-                          "url": self.url(case["paths"]["en"])} for case in self.cases],
-            "skills": [{"name": item["title"]["en"], "keywords": item["keywords"]}
-                       for item in content["expertise"]],
-            "languages": [{"language": "Spanish", "fluency": "Native"}, {"language": "English", "fluency": "C1+"}],
+            "projects": [{"name": item["title"], "description": item["body"],
+                          **({"url": self.url(item["url"])} if item.get("url") else {})}
+                         for item in content["selected"]]
+                        + [{"name": case["title"], "description": case["intro"], "url": self.url(case["path"])}
+                           for case in self.cases if not case.get("featured")]
+                        + [{"name": item["title"], "description": item["body"], "url": item["url"]}
+                           for item in content["projects"]],
+            "skills": [{"name": item["title"], "keywords": item["keywords"]} for item in content["expertise"]],
+            "languages": [{"language": "English", "fluency": "C1+"}],
             "awards": self.data["person"]["awards"],
             "education": self.data["person"]["education"],
         }
         consult = self.data["consult"]
         consulting = {
-            "provider": self.name, "page": self.url(self.pages["consult"]["paths"]["en"]),
-            "locales": {lang: self.url(path) for lang, path in self.pages["consult"]["paths"].items()},
-            "currency": "USD", "format": "1:1 Google Meet session, English or Spanish",
-            "flow": [step["body"]["en"] for step in consult["steps"]],
+            "provider": self.name, "page": self.url(self.pages["consult"]["path"]),
+            "currency": "USD", "format": "1:1 Google Meet session",
+            "flow": [step["body"] for step in consult["steps"]],
             "terms": consult["terms"], "scheduling": "manual",
-            "sessions": [{"id": tier["id"], "name": tier["title"]["en"], "minutes": tier["minutes"],
-                          "price": tier["price"], "covers": tier["scope"]["en"], "booking_url": tier["url"],
-                          "nameLocalized": tier["title"], "scope": tier["scope"], "outcome": tier["outcome"]}
+            "sessions": [{"id": tier["id"], "name": tier["title"], "minutes": tier["minutes"],
+                          "price": tier["price"], "covers": tier["scope"], "booking_url": tier["url"],
+                          "scope": tier["scope"], "outcome": tier["outcome"]}
                          for tier in consult["tiers"]],
+            "engagement_intro": consult["engagement_intro"],
+            "engagement_contact": self.social["LinkedIn"],
+            "scoped_engagements": [
+                {"title": item["title"], "description": item["body"],
+                 **({"url": self.url(item["url"])} if item.get("url") else {})}
+                for item in consult["scoped_engagements"]
+            ],
         }
         outputs = {"resume.json": resume, "consulting.json": consulting}
         for name, obj in outputs.items():
@@ -825,10 +826,9 @@ class Site:
         skills = []
         for ident, description, paths in (
             ("danilo-profile", "Find and cite public profile and engineering work.",
-             ["/", "/es/", "/index.md", "/es/index.md", "/api/resume.json",
-              *[path for case in self.cases for path in case["paths"].values()]]),
+             ["/", "/index.md", "/api/resume.json", *[case["path"] for case in self.cases]]),
             ("book-consulting", "Compare and cite consulting sessions and scheduling terms.",
-             ["/consult.html", "/es/consultoria.html", "/consult.md", "/es/consultoria.md", "/api/consulting.json"]),
+             ["/consult.html", "/consult.md", "/api/consulting.json"]),
         ):
             path = f"/.well-known/agent-skills/{ident}/SKILL.md"
             details = "Cite the canonical pages below. Contact is through LinkedIn."
@@ -866,7 +866,9 @@ class PageLinks(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids = []
         self.links = []
-        self.alternates = {}
+        self.localized = False
+        self.refresh = []
+        self.anchors = []
         self.canonicals = []
         self.language = None
         self.robots = set()
@@ -887,8 +889,12 @@ class PageLinks(HTMLParser):
             self.links.extend(part.strip().split()[0] for part in attrs["srcset"].split(","))
         if tag == "link" and attrs.get("rel") == "canonical":
             self.canonicals.append(attrs["href"])
-        if tag == "link" and attrs.get("rel") == "alternate" and "hreflang" in attrs:
-            self.alternates[attrs["hreflang"]] = attrs["href"]
+        if "hreflang" in attrs or {"data-en", "data-es", "data-lang-block"} & attrs.keys():
+            self.localized = True
+        if tag == "meta" and attrs.get("http-equiv") == "refresh":
+            self.refresh.append(attrs["content"])
+        if tag == "a" and "href" in attrs:
+            self.anchors.append(attrs["href"])
         if tag == "meta" and attrs.get("property") == "og:image":
             self.links.append(attrs["content"])
 
@@ -938,18 +944,23 @@ def validate(site, files):
     for name, source in all_files.items():
         problems.extend(privacy_check(name, source))
     pages = {name: PageLinks(source) for name, source in files.items() if name.endswith(".html")}
-    for path, alternates in site.by_path.items():
+    for name, page in pages.items():
+        if page.language != "en" or page.localized:
+            problems.append(f"{name}: expected English-only markup")
+    for path in site.indexed:
         page = pages[filename(path)]
-        expected = {lang: site.url(target) for lang, target in {**alternates, "x-default": alternates["en"]}.items()}
-        language = next(lang for lang, target in alternates.items() if target == path)
-        if (page.alternates != expected or page.canonicals != [site.url(path)]
-                or page.language != language or "noindex" in page.robots):
-            problems.append(f"{path}: canonical or language pair mismatch")
-        for target in alternates.values():
-            if pages[filename(target)].alternates.get(language) != site.url(path):
-                problems.append(f"{path}: missing reciprocal alternate")
+        if page.canonicals != [site.url(path)] or "noindex" in page.robots or page.refresh:
+            problems.append(f"{path}: canonical page is not indexable")
+    for old, new in site.redirects.items():
+        page = pages[filename(old)]
+        if (new not in site.indexed or page.canonicals != [site.url(new)] or "noindex" not in page.robots
+                or page.refresh != [f"0; url={new}"] or page.anchors != [new]):
+            problems.append(f"{old}: invalid redirect stub")
+    obsolete = {str(path.relative_to(ROOT)) for path in (ROOT / "es").rglob("*") if path.is_file()}
+    for name in sorted(obsolete - {filename(path) for path in site.redirects}):
+        problems.append(f"{name}: obsolete localized output")
     for name in ("consult-success.html", "404.html"):
-        if "noindex" not in pages[name].robots or pages[name].alternates:
+        if "noindex" not in pages[name].robots:
             problems.append(f"{name}: utility should be excluded from indexing")
     for name, source in all_files.items():
         if name in pages:
@@ -973,16 +984,12 @@ def validate(site, files):
                 problems.append(f"{name}: broken fragment {target.path}#{target.fragment}")
     index = ElementTree.fromstring(files["sitemap.xml"])
     sitemap_entries = {url.findtext("{*}loc"): url for url in index}
-    if set(sitemap_entries) != {site.url(path) for path in site.by_path}:
+    expected = {site.url(path) for path in site.indexed}
+    if set(sitemap_entries) != expected or len(index) != len(expected):
         problems.append("sitemap.xml: indexed URLs do not match canonical pages")
-    for path, pair_paths in site.by_path.items():
-        entry = sitemap_entries.get(site.url(path))
-        if entry is None:
-            continue
-        expected = {lang: site.url(target) for lang, target in {**pair_paths, "x-default": pair_paths["en"]}.items()}
-        alternates = {item.attrib["hreflang"]: item.attrib["href"] for item in entry.findall("{*}link")}
-        if alternates != expected or entry.findtext("{*}lastmod") != site.data["last_updated"]:
-            problems.append(f"sitemap.xml: alternates or lastmod mismatch for {path}")
+    for url, entry in sitemap_entries.items():
+        if len(entry) != 2 or entry.findtext("{*}lastmod") != site.data["last_updated"]:
+            problems.append(f"sitemap.xml: unexpected metadata for {url}")
     return problems
 
 

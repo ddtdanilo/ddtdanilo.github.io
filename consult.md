@@ -1,6 +1,6 @@
 # Technical consulting — Danilo Díaz Tarascó
 
-I offer private, one-to-one consulting on industrial IoT hardware, firmware and cloud architecture. Bring the schematic, code excerpt or diagram behind your question. We can work in English or Spanish.
+I work with hardware and IoT teams on architecture reviews, field failures, fleet infrastructure, edge AI, and operational AI agents. Book a focused 1:1 session for a specific decision, or connect on LinkedIn for a scoped engagement.
 
 [Consulting](https://ddtdanilo.github.io/consult.html)
 
@@ -42,6 +42,24 @@ An ordered set of priorities, dependencies and milestones for your team.
 
 [Pay USD 200 on Stripe](https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402)
 
+## Scoped engagements
+
+For multi-week work or hands-on implementation, send the problem, schedule, and constraints on LinkedIn.
+
+- Board and firmware design review — Schematic, PCB layout, power budget, and firmware review before fabrication or certification.
+
+- Field-failure investigation — Structured root-cause diagnosis across hardware, radio, firmware, and cloud when deployed units misbehave.
+
+- Fleet and OTA readiness audit — Review of provisioning, staged firmware delivery, rollback safety, and remote diagnostics before scaling.
+
+- AI agents for operations — Permissioned, audited tool servers connecting AI assistants to ERP records, technical documentation, and device telemetry.
+
+[Read the plant operations note](https://ddtdanilo.github.io/work/plant-operations-agents.html)
+
+- Fractional technical lead — Ongoing technical direction, architecture reviews, roadmaps, and hiring support for hardware product teams.
+
+[LinkedIn](https://www.linkedin.com/in/ddtdanilo/)
+
 ## Frequently asked questions
 
 ### How does scheduling work after I pay?
@@ -72,16 +90,10 @@ If you need a copy of your Stripe receipt, ask when I contact you. If your compa
 
 Within 24 hours after the session, I send concise written notes summarizing the technical tradeoffs discussed, key decisions, and prioritized next steps.
 
-### Are sessions available in both English and Spanish?
-
-Yes — choose whichever language your team prefers (Spanish is native; English is full professional proficiency, C1+).
-
 ### What if I need an ongoing design review or a multi-week engagement?
 
-The Stripe sessions are designed for focused 30-, 60-, or 90-minute technical unblocking. For deeper schematic/PCB reviews, multi-week architecture work, or fractional advisory, send a brief summary on LinkedIn before paying so we can confirm scope and availability.
+See Scoped engagements for the kinds of work I take on. Send the problem, schedule, and constraints on LinkedIn.
 
 ### What if I paid and did not hear back within one business day?
 
 Check your spam folder. If the message hasn’t arrived, contact me on LinkedIn with the day and session you bought.
-
-[LinkedIn](https://www.linkedin.com/in/ddtdanilo/)

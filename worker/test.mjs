@@ -41,6 +41,12 @@ r = await rpc({ jsonrpc: '2.0', id: 5, method: 'nope' });
 assert((await r.json()).error.code === -32601, 'unknown method');
 r = await call('/', { headers: { Accept: 'text/html, text/markdown;q=0' } });
 assert(r.headers.get('Content-Type').startsWith('text/html'), 'markdown q=0 respected');
+r = await call('/es/consultoria.html', { headers: { Accept: 'text/markdown' } });
+assert(
+  r.headers.get('Content-Type').startsWith('text/html')
+    && (await r.text()).includes('http-equiv="refresh" content="0; url=/consult.html"'),
+  'legacy consultation URL serves its redirect without Markdown negotiation'
+);
 for (const bad of [null, {}, { jsonrpc: '1.0', id: 9, method: 'ping' }]) {
   r = await call('/mcp', { method: 'POST', body: JSON.stringify(bad) });
   assert((await r.json()).error?.code === -32600, 'invalid request ' + JSON.stringify(bad));

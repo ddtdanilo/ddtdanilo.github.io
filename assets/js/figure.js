@@ -1,17 +1,18 @@
-for (const figure of document.querySelectorAll('.tech-figure')) {
+for (const figure of document.querySelectorAll('[data-trace]')) {
     const buttons = [...figure.querySelectorAll('[data-signal]')];
-    const copper = [...figure.querySelectorAll('.tech-board [data-net]')];
+    const parts = [...figure.querySelectorAll('[data-net], [data-stage]')].map(part => [
+        part, part.dataset.net || part.dataset.stage,
+    ]);
     const note = figure.querySelector('.signal-note');
     const status = figure.querySelector('.signal-status');
     const rest = note.textContent;
     const spread = figure.querySelector('button[data-spread]');
-    const spreadLabel = spread.firstElementChild;
-    const separated = spreadLabel.textContent;
     const signals = new Map(buttons.map(button => [
         button,
-        new Set((button.dataset.nets || '').split(' ')),
+        new Set((button.dataset.targets || '').split(' ')),
     ]));
-    let selected = buttons[0];
+    const reset = buttons.find(button => !button.dataset.signal);
+    let selected = reset;
     let keyboard;
     let hovered;
     let pointing = false;
@@ -24,9 +25,9 @@ for (const figure of document.querySelectorAll('.tech-figure')) {
         } else {
             delete figure.dataset.lit;
         }
-        const nets = signals.get(active);
-        for (const part of copper) {
-            part.classList.toggle('is-lit', nets.has(part.dataset.net));
+        const targets = signals.get(active);
+        for (const [part, target] of parts) {
+            part.classList.toggle('is-lit', targets.has(target));
         }
         const sentence = active.dataset.note || rest;
         if (note.textContent !== sentence) note.textContent = sentence;
@@ -34,7 +35,7 @@ for (const figure of document.querySelectorAll('.tech-figure')) {
 
     function select(button) {
         selected.setAttribute('aria-pressed', 'false');
-        selected = button !== selected ? button : buttons[0];
+        selected = button !== selected ? button : reset;
         selected.setAttribute('aria-pressed', 'true');
         status.textContent = selected.dataset.note || rest;
         keyboard = undefined;
@@ -65,8 +66,29 @@ for (const figure of document.querySelectorAll('.tech-figure')) {
         button.addEventListener('click', () => select(button));
     }
 
-    spread.addEventListener('click', () => {
-        const expanded = figure.toggleAttribute('data-spread');
-        spreadLabel.textContent = expanded ? spread.dataset.stackLabel : separated;
-    });
+    if (spread) {
+        const separateLabel = spread.textContent;
+        spread.addEventListener('click', () => {
+            const expanded = figure.toggleAttribute('data-spread');
+            spread.textContent = expanded ? spread.dataset.stackLabel : separateLabel;
+        });
+    }
+}
+
+
+for (const figure of document.querySelectorAll('[data-gateway]')) {
+    const buttons = [...figure.querySelectorAll('[data-gateway-route]')];
+    for (const button of buttons) {
+        button.addEventListener('click', () => {
+            const route = button.dataset.gatewayRoute;
+            if (route) {
+                figure.dataset.route = route;
+            } else {
+                delete figure.dataset.route;
+            }
+            for (const choice of buttons) {
+                choice.setAttribute('aria-pressed', String(choice === button));
+            }
+        });
+    }
 }

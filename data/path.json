@@ -1,0 +1,47 @@
+{
+  "title": "One engineer, the whole path",
+  "stages": [
+    {
+      "id": "hardware",
+      "label": "Hardware",
+      "tag": "PCB · power · RF",
+      "sentence": "Boards designed for the enclosure, power budget, and certification lab, not just the bench."
+    },
+    {
+      "id": "firmware",
+      "label": "Firmware",
+      "tag": "C/C++ · MicroPython",
+      "sentence": "Firmware that boots safely, recovers from faults, and updates remotely in the field."
+    },
+    {
+      "id": "connectivity",
+      "label": "Connectivity",
+      "tag": "LoRa · BLE · LTE · MQTT",
+      "sentence": "Radio and protocol architectures for intermittent sites, buffering data locally until the link returns."
+    },
+    {
+      "id": "fleet",
+      "label": "Fleet operations",
+      "tag": "provisioning · OTA",
+      "sentence": "Zero-touch provisioning, staged OTA updates with rollback, and remote diagnostics per unit."
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud and data",
+      "tag": "AWS · serverless · IaC",
+      "sentence": "Device registries, ingestion pipelines, APIs, and dashboards built as code and sized for the fleet."
+    },
+    {
+      "id": "edge-ai",
+      "label": "Edge AI",
+      "tag": "vision · edge models",
+      "sentence": "Computer vision and inference models running next to the sensor, even when the network drops."
+    },
+    {
+      "id": "agents",
+      "label": "AI agents",
+      "tag": "tool servers · audit",
+      "sentence": "Agents wired to device data and business systems through permissioned, audited tools."
+    }
+  ]
+}

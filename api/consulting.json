@@ -1,12 +1,8 @@
 {
   "provider": "Danilo Díaz Tarascó",
   "page": "https://ddtdanilo.github.io/consult.html",
-  "locales": {
-    "en": "https://ddtdanilo.github.io/consult.html",
-    "es": "https://ddtdanilo.github.io/es/consultoria.html"
-  },
   "currency": "USD",
-  "format": "1:1 Google Meet session, English or Spanish",
+  "format": "1:1 Google Meet session",
   "flow": [
     "Choose your session and pay on Stripe. Use an email address you check. If checkout offers scheduling fields, you can include two preferred times and your time zone.",
     "Within one business day after payment, I’ll email you personally to agree on a time. I coordinate from Colombia (UTC−5). If you didn’t enter your preferences at checkout, reply with them.",
@@ -14,10 +10,7 @@
     "Within 24 hours after the session, I’ll send written notes with the decisions and next steps."
   ],
   "terms": [
-    {
-      "en": "You can reschedule at no charge up to 24 hours before the session. Reply to the scheduling email. If we can’t agree on a time within seven days after payment, you’ll receive a full refund.",
-      "es": "Puedes cambiar el horario sin costo hasta 24 horas antes de la sesión. Responde al correo de coordinación. Si en los siete días posteriores al pago no logramos acordar un horario, recibirás un reembolso completo."
-    }
+    "You can reschedule at no charge up to 24 hours before the session. Reply to the scheduling email. If we can’t agree on a time within seven days after payment, you’ll receive a full refund."
   ],
   "scheduling": "manual",
   "sessions": [
@@ -28,18 +21,8 @@
       "price": 50,
       "covers": "One focused question about a board, device or cloud service.",
       "booking_url": "https://buy.stripe.com/28E7sLeKU7NAbmi6p014400",
-      "nameLocalized": {
-        "en": "Quick Call",
-        "es": "Consulta breve"
-      },
-      "scope": {
-        "en": "One focused question about a board, device or cloud service.",
-        "es": "Una pregunta concreta sobre una tarjeta, un dispositivo o un servicio en la nube."
-      },
-      "outcome": {
-        "en": "A next step and a way to check whether it worked.",
-        "es": "El siguiente paso y una forma de comprobar si funcionó."
-      }
+      "scope": "One focused question about a board, device or cloud service.",
+      "outcome": "A next step and a way to check whether it worked."
     },
     {
       "id": "deep-dive",
@@ -48,18 +31,8 @@
       "price": 120,
       "covers": "Walk through a schematic, firmware path or system diagram and compare the options.",
       "booking_url": "https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401",
-      "nameLocalized": {
-        "en": "Deep Dive",
-        "es": "Análisis profundo"
-      },
-      "scope": {
-        "en": "Walk through a schematic, firmware path or system diagram and compare the options.",
-        "es": "Recorremos un esquemático, una parte del firmware o un diagrama del sistema y comparamos opciones."
-      },
-      "outcome": {
-        "en": "The tradeoffs behind a recommendation and the first checks to run.",
-        "es": "Una recomendación con sus ventajas y limitaciones, y las primeras pruebas que conviene hacer."
-      }
+      "scope": "Walk through a schematic, firmware path or system diagram and compare the options.",
+      "outcome": "The tradeoffs behind a recommendation and the first checks to run."
     },
     {
       "id": "strategy",
@@ -68,18 +41,33 @@
       "price": 200,
       "covers": "Review your roadmap, technical constraints and the decisions blocking the next release.",
       "booking_url": "https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402",
-      "nameLocalized": {
-        "en": "Strategy Session",
-        "es": "Sesión de estrategia"
-      },
-      "scope": {
-        "en": "Review your roadmap, technical constraints and the decisions blocking the next release.",
-        "es": "Revisamos el plan de desarrollo, las restricciones técnicas y las decisiones pendientes para el próximo lanzamiento."
-      },
-      "outcome": {
-        "en": "An ordered set of priorities, dependencies and milestones for your team.",
-        "es": "Prioridades, dependencias e hitos en el orden en que tu equipo puede abordarlos."
-      }
+      "scope": "Review your roadmap, technical constraints and the decisions blocking the next release.",
+      "outcome": "An ordered set of priorities, dependencies and milestones for your team."
+    }
+  ],
+  "engagement_intro": "For multi-week work or hands-on implementation, send the problem, schedule, and constraints on LinkedIn.",
+  "engagement_contact": "https://www.linkedin.com/in/ddtdanilo/",
+  "scoped_engagements": [
+    {
+      "title": "Board and firmware design review",
+      "description": "Schematic, PCB layout, power budget, and firmware review before fabrication or certification."
+    },
+    {
+      "title": "Field-failure investigation",
+      "description": "Structured root-cause diagnosis across hardware, radio, firmware, and cloud when deployed units misbehave."
+    },
+    {
+      "title": "Fleet and OTA readiness audit",
+      "description": "Review of provisioning, staged firmware delivery, rollback safety, and remote diagnostics before scaling."
+    },
+    {
+      "title": "AI agents for operations",
+      "description": "Permissioned, audited tool servers connecting AI assistants to ERP records, technical documentation, and device telemetry.",
+      "url": "https://ddtdanilo.github.io/work/plant-operations-agents.html"
+    },
+    {
+      "title": "Fractional technical lead",
+      "description": "Ongoing technical direction, architecture reviews, roadmaps, and hiring support for hardware product teams."
     }
   ]
 }

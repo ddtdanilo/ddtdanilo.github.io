@@ -2,9 +2,9 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   "basics": {
     "name": "Danilo Díaz Tarascó",
-    "label": "Chief Technology Officer",
+    "label": "Forward-deployed engineer",
     "url": "https://ddtdanilo.github.io/",
-    "summary": "I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment.",
+    "summary": "I work where the product runs: on the bench, at the site, and in the cloud account. I take connected hardware from a first prototype to a fleet that provisions automatically, updates over the air, and reports faults.",
     "location": {
       "city": "Medellín",
       "countryCode": "CO"
@@ -76,6 +76,31 @@
   ],
   "projects": [
     {
+      "name": "AI for Plant Operations: A Security-First Tool Gateway",
+      "description": "A serverless AWS Model Context Protocol gateway giving AI assistants audited, least-privilege access to plant ERP records, technical procedures, and device telemetry.",
+      "url": "https://ddtdanilo.github.io/work/plant-operations-agents.html"
+    },
+    {
+      "name": "A device fleet that updates itself",
+      "description": "Zero-touch provisioning, staged over-the-air firmware rollouts with rollback, and remote diagnostics for field-deployed industrial units.",
+      "url": "https://ddtdanilo.github.io#fleet-operations"
+    },
+    {
+      "name": "Industrial hardware through certification",
+      "description": "Custom industrial PCBs taken from prototype through FCC certification and production, including scaling enclosures from 3D printing to injection molding.",
+      "url": "https://ddtdanilo.github.io#board-design"
+    },
+    {
+      "name": "Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit",
+      "description": "A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.",
+      "url": "https://ddtdanilo.github.io/work/xsub-telemetry.html"
+    },
+    {
+      "name": "Disciplined PCB Component Libraries in Altium Designer",
+      "description": "The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.",
+      "url": "https://ddtdanilo.github.io/work/altium-pcb-library.html"
+    },
+    {
       "name": "Personal Altium Library",
       "description": "Public schematic symbols and PCB footprints with automated file integrity checks.",
       "url": "https://github.com/ddtdanilo/Personal-Altium-Library"
@@ -104,16 +129,6 @@
       "name": "LMDB wrapper for MISRA C",
       "description": "The C wrapper packaged in the merged vcpkg port.",
       "url": "https://github.com/ddtdanilo/LMDB-wrapper-MISRA-C"
-    },
-    {
-      "name": "Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit",
-      "description": "A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.",
-      "url": "https://ddtdanilo.github.io/work/xsub-telemetry.html"
-    },
-    {
-      "name": "Disciplined PCB Component Libraries in Altium Designer",
-      "description": "The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.",
-      "url": "https://ddtdanilo.github.io/work/altium-pcb-library.html"
     }
   ],
   "skills": [
@@ -170,13 +185,35 @@
         "Product roadmaps",
         "Team development"
       ]
+    },
+    {
+      "name": "Fleet operations",
+      "keywords": [
+        "Device provisioning",
+        "Staged OTA updates",
+        "Rollback",
+        "Remote diagnostics"
+      ]
+    },
+    {
+      "name": "Edge AI",
+      "keywords": [
+        "Computer vision",
+        "On-device models",
+        "Field data"
+      ]
+    },
+    {
+      "name": "AI agents for operations",
+      "keywords": [
+        "Audited tool servers",
+        "ERP integration",
+        "Device data",
+        "Permission controls"
+      ]
     }
   ],
   "languages": [
-    {
-      "language": "Spanish",
-      "fluency": "Native"
-    },
     {
       "language": "English",
       "fluency": "C1+"

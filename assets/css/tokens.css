@@ -1,7 +1,6 @@
 /*
  * DDT Design System: tokens.
- * Light is the default. Dark follows the OS (prefers-color-scheme) unless
- * the page sets data-theme="light" or data-theme="dark" on <html>.
+ * Light is the default. Dark follows an explicit visitor choice.
  * Contrast ratios are WCAG 2.x, measured against --bg / --surface.
  */
 
@@ -116,34 +115,7 @@
   --z-skip: 30;
 }
 
-/* Dark theme: values shared by the OS preference and the explicit toggle. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #0e0f10;
-    --surface: #16181a;
-    --ink: #f4f3ef;             /* 17.28 : 1  / 16.03 : 1 */
-    --ink-muted: #a8a9a4;       /*  8.11 : 1  /  7.52 : 1 */
-    --ink-subtle: #8e908b;      /*  5.95 : 1  /  5.52 : 1 */
-    --accent: #e09a63;          /*  8.20 : 1  /  7.61 : 1 */
-    --accent-hover: #eab089;    /* 10.11 : 1  /  9.38 : 1 */
-    --accent-ink: #111110;      /* on --accent 8.07 : 1, on --accent-hover 9.96 : 1 */
-    --border: #2a2d30;          /*  1.39 : 1 decorative only */
-    --border-ui: #6e7278;       /*  3.97 : 1  /  3.68 : 1 */
-    --focus: #e09a63;           /*  8.20 : 1 */
-    --selection: #4a3222;       /* --ink on it 10.68 : 1 */
-
-    --board-substrate: #1b1d1c;
-    --board-pour: #2a2622;
-    --board-copper: #d08a55;      /*  6.01 : 1  /  5.32 : 1 */
-    --board-copper-back: #7d5a40; /*  2.75 : 1 */
-    --board-copper-dim: #3d342c;  /*  1.39 : 1 */
-    --board-highlight: #f0b688;   /*  9.48 : 1  /  8.40 : 1; 6.81 : 1 against --board-copper-dim */
-    --board-silk: #c9c7c0;        /* 10.02 : 1  /  8.87 : 1 */
-    --board-edge: #6e7278;        /*  3.50 : 1 on substrate, 3.97 : 1 on --bg */
-    --board-shadow: rgb(0 0 0 / 0.45);
-  }
-}
+/* Dark theme is an explicit visitor choice. */
 
 :root[data-theme="dark"] {
   color-scheme: dark;

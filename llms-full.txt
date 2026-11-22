@@ -1,32 +1,88 @@
 # Danilo Díaz Tarascó
 
-I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment.
+Forward-deployed engineering, board to cloud.
 
-I offer focused 1:1 technical consulting in English and Spanish.
+I work where the product runs: on the bench, at the site, and in the cloud account. I take connected hardware from a first prototype to a fleet that provisions automatically, updates over the air, and reports faults.
+
+CTO at Sento Tech Labs, leading 12 engineers. More than ten years shipping electronics, firmware, and cloud systems to the field.
 
 [Explore consulting](https://ddtdanilo.github.io/consult.html)
 
 [LinkedIn](https://www.linkedin.com/in/ddtdanilo/) · [GitHub](https://github.com/ddtdanilo) · [YouTube](https://www.youtube.com/ddtdanilo) · [ORCID](https://orcid.org/0009-0006-7142-0573)
 
-## About
+## The whole path
 
-My work spans microcontroller firmware, PCB design, certification and cloud infrastructure. I’ve taken connected products from prototypes through certification and deployments in Latin America, the Caribbean and the United States.
+- Hardware (PCB · power · RF) — Boards designed for the enclosure, power budget, and certification lab, not just the bench.
 
-I lead a team of 12 engineers working on embedded hardware, connectivity and cloud services. I hold a degree in Electronics Engineering from Universidad Simón Bolívar.
+- Firmware (C/C++ · MicroPython) — Firmware that boots safely, recovers from faults, and updates remotely in the field.
 
-My master’s studies in electronics are at Universidad Simón Bolívar, with the thesis pending. That university awarded an honorific mention to my undergraduate thesis on underwater telemetry. My team took first place in the IEEE Open Category at CCSBOTS 2013.
+- Connectivity (LoRa · BLE · LTE · MQTT) — Radio and protocol architectures for intermittent sites, buffering data locally until the link returns.
+
+- Fleet operations (provisioning · OTA) — Zero-touch provisioning, staged OTA updates with rollback, and remote diagnostics per unit.
+
+- Cloud and data (AWS · serverless · IaC) — Device registries, ingestion pipelines, APIs, and dashboards built as code and sized for the fleet.
+
+- Edge AI (vision · edge models) — Computer vision and inference models running next to the sensor, even when the network drops.
+
+- AI agents (tool servers · audit) — Agents wired to device data and business systems through permissioned, audited tools.
+
+## AI for plant operations, built security-first
+
+Industrial plants already hold the answers to most daily operational questions, split across an ERP, a technical knowledge base, and device telemetry. I originated, designed, and built a serverless AWS tool gateway on the Model Context Protocol that connects AI assistants to all three systems under strict operational security.
+
+Operators, engineers, and managers ask in plain language about machine history, open maintenance tickets, device health, or standard procedures and get answers grounded in real records, with sources named in business terms. Around the gateway sit hybrid keyword-and-semantic search for documentation, daily monitoring summaries, and interfaces built for touch, gloves, and glare on the plant floor.
+
+[Read the note](https://ddtdanilo.github.io/work/plant-operations-agents.html)
+
+## How I work
+
+1. Go to the problem. I start from the failing unit, the site, or the log.
+
+2. Instrument it. I make the device and pipeline show what is happening before changing anything.
+
+3. Ship the smallest fix that holds. I deliver the hardware revision, firmware release, or cloud change and validate it on real units.
+
+4. Leave it operable. I hand over runbooks, update paths, and diagnostics so your team owns the system afterwards.
+
+## What I can take on
+
+- Design or review boards — Schematic, PCB layout, and pre-fabrication reviews before the board goes to the fab or certification lab.
+
+- Diagnose field failures — Find why deployed units fail and ship the root-cause fix across hardware, firmware, and cloud.
+
+- Build the fleet update path — Zero-touch provisioning, staged OTA rollouts with rollback, and remote fleet health checks.
+
+- Move prototypes to production — Manufacturing files, production test procedures, and scaling enclosures past 3D printing.
+
+- Stand up the cloud stack — Ingestion pipelines, storage, APIs, dashboards, and alerts deployed as infrastructure as code on AWS.
+
+- Deploy edge AI — Run computer vision and inference models next to the sensor, evaluated on real field data.
+
+- Wire AI agents to operations — Build permissioned, audited tool servers over your ERP, technical documentation, and device data.
+
+- Lead a hardware product team — Fractional technical direction across architecture reviews, product roadmaps, and engineering hiring.
 
 ## Selected work
 
-- [Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit](https://ddtdanilo.github.io/work/xsub-telemetry.html) — A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.
+- [AI for Plant Operations: A Security-First Tool Gateway](https://ddtdanilo.github.io/work/plant-operations-agents.html) — A serverless AWS Model Context Protocol gateway giving AI assistants audited, least-privilege access to plant ERP records, technical procedures, and device telemetry.
 
-- [Disciplined PCB Component Libraries in Altium Designer](https://ddtdanilo.github.io/work/altium-pcb-library.html) — The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.
+- [A device fleet that updates itself](https://ddtdanilo.github.io#fleet-operations) — Zero-touch provisioning, staged over-the-air firmware rollouts with rollback, and remote diagnostics for field-deployed industrial units.
 
-- Telemetry for intermittent networks — I developed embedded systems that keep collecting data when industrial sites lose connectivity.
+- [Industrial hardware through certification](https://ddtdanilo.github.io#board-design) — Custom industrial PCBs taken from prototype through FCC certification and production, including scaling enclosures from 3D printing to injection molding.
 
-- Software for connected device fleets — I led cloud architecture and firmware delivery work so field devices could be maintained remotely.
+## Public work
 
-- Hardware from prototype to production — I designed industrial PCBs, led hardware through FCC certification and helped scale enclosures from 3D printing to injection molding.
+- [Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit](https://ddtdanilo.github.io/work/xsub-telemetry.html) · Early work · 2015–2016 — Undergraduate thesis archive pairing custom acquisition boards and embedded firmware with a modern audit of the serial protocol.
+
+- [Disciplined PCB Component Libraries in Altium Designer](https://ddtdanilo.github.io/work/altium-pcb-library.html) · Public library · 2019–2026 — Reusable library of 81 schematic symbols and 106 PCB footprints pairing automated binary checks with manual datasheet review.
+
+## About
+
+I work as a forward-deployed engineer across the full stack of connected hardware: custom PCBs, microcontroller firmware, field connectivity, cloud infrastructure, edge AI, and operational agents. Over the last decade I have taken industrial IoT products from first prototypes through certification and production fleets across Latin America, the Caribbean, and the United States.
+
+I serve as CTO at Sento Tech Labs, leading a team of 12 engineers across embedded hardware, connectivity, and cloud services. I hold a degree in Electronics Engineering from Universidad Simón Bolívar.
+
+My master’s studies in electronics are at Universidad Simón Bolívar, with the thesis pending. The university awarded an honorific mention to my undergraduate thesis on underwater telemetry, and my team took first place in the IEEE Open Category at CCSBOTS 2013.
 
 ## Experience
 
@@ -39,20 +95,6 @@ My master’s studies in electronics are at Universidad Simón Bolívar, with th
 - Jun 2019 — Nov 2021 · Development Engineer · Vantu S.A.S — Designed PCBs for industrial IoT and led designs through FCC certification.
 
 - Sep 2016 — Jun 2019 · Hardware Engineer · Innavitas SAPI — Wiot — Developed embedded systems for industrial and automotive instrumentation.
-
-## Expertise
-
-- Embedded systems and PCBs — Altium Designer, MCU design, IPC standards and FCC certification.
-
-- Power electronics — DC-DC converters, power distribution boards and solar telemetry.
-
-- Firmware and software — C and C++ for microcontrollers, MicroPython and Python.
-
-- IoT connectivity — MQTT, LoRa, BLE, Wi-Fi, cellular and industrial telemetry.
-
-- Cloud and APIs — AWS architecture, serverless pipelines, telemetry data models and infrastructure as code.
-
-- Engineering leadership — Technical direction, product roadmaps and team development.
 
 ## Open source
 
@@ -72,7 +114,7 @@ My master’s studies in electronics are at Universidad Simón Bolívar, with th
 
 # Technical consulting — Danilo Díaz Tarascó
 
-I offer private, one-to-one consulting on industrial IoT hardware, firmware and cloud architecture. Bring the schematic, code excerpt or diagram behind your question. We can work in English or Spanish.
+I work with hardware and IoT teams on architecture reviews, field failures, fleet infrastructure, edge AI, and operational AI agents. Book a focused 1:1 session for a specific decision, or connect on LinkedIn for a scoped engagement.
 
 [Consulting](https://ddtdanilo.github.io/consult.html)
 
@@ -114,6 +156,24 @@ An ordered set of priorities, dependencies and milestones for your team.
 
 [Pay USD 200 on Stripe](https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402)
 
+## Scoped engagements
+
+For multi-week work or hands-on implementation, send the problem, schedule, and constraints on LinkedIn.
+
+- Board and firmware design review — Schematic, PCB layout, power budget, and firmware review before fabrication or certification.
+
+- Field-failure investigation — Structured root-cause diagnosis across hardware, radio, firmware, and cloud when deployed units misbehave.
+
+- Fleet and OTA readiness audit — Review of provisioning, staged firmware delivery, rollback safety, and remote diagnostics before scaling.
+
+- AI agents for operations — Permissioned, audited tool servers connecting AI assistants to ERP records, technical documentation, and device telemetry.
+
+[Read the plant operations note](https://ddtdanilo.github.io/work/plant-operations-agents.html)
+
+- Fractional technical lead — Ongoing technical direction, architecture reviews, roadmaps, and hiring support for hardware product teams.
+
+[LinkedIn](https://www.linkedin.com/in/ddtdanilo/)
+
 ## Frequently asked questions
 
 ### How does scheduling work after I pay?
@@ -144,19 +204,13 @@ If you need a copy of your Stripe receipt, ask when I contact you. If your compa
 
 Within 24 hours after the session, I send concise written notes summarizing the technical tradeoffs discussed, key decisions, and prioritized next steps.
 
-### Are sessions available in both English and Spanish?
-
-Yes — choose whichever language your team prefers (Spanish is native; English is full professional proficiency, C1+).
-
 ### What if I need an ongoing design review or a multi-week engagement?
 
-The Stripe sessions are designed for focused 30-, 60-, or 90-minute technical unblocking. For deeper schematic/PCB reviews, multi-week architecture work, or fractional advisory, send a brief summary on LinkedIn before paying so we can confirm scope and availability.
+See Scoped engagements for the kinds of work I take on. Send the problem, schedule, and constraints on LinkedIn.
 
 ### What if I paid and did not hear back within one business day?
 
 Check your spam folder. If the message hasn’t arrived, contact me on LinkedIn with the day and session you bought.
-
-[LinkedIn](https://www.linkedin.com/in/ddtdanilo/)
 
 ---
 
@@ -165,6 +219,8 @@ Check your spam folder. If the message hasn’t arrived, contact me on LinkedIn 
 A degree-project archive brings together custom acquisition boards, embedded firmware and a modern audit of the serial protocol.
 
 <https://ddtdanilo.github.io/work/xsub-telemetry.html>
+
+Early work · 2015–2016
 
 ## Project specifications
 
@@ -186,7 +242,7 @@ A degree-project archive brings together custom acquisition boards, embedded fir
 
 An underwater remotely operated vehicle (ROV) concentrates every boundary problem found in industrial IoT inside a sealed pressure housing. Sensors on different electrical buses must be sampled reliably, actuator commands must reach thrusters and lighting without jitter, power distribution has to survive inductive motor loads, and a single serial link between the embedded controller and the onboard computer has to carry both telemetry and teleoperation frames cleanly.
 
-Between 2015 and 2016, I designed and validated the telemetry and teleoperation system for **X-Sub**, an underwater robot developed by the Mechatronics Research and Development Group at Universidad Simón Bolívar. The work earned an honorific mention as my undergraduate Electronics Engineering thesis (the full 137-page Spanish thesis is preserved in `Libro Tesis.pdf`). Years later, rather than leaving the project as an opaque archive of legacy binaries, I audited the original firmware and hardware files and added modern, dependency-free verification tooling so any engineer can inspect the design honestly.
+Between 2015 and 2016, I designed and validated the telemetry and teleoperation system for **X-Sub**, an underwater robot developed by the Mechatronics Research and Development Group at Universidad Simón Bolívar. The work earned an honorific mention as my undergraduate Electronics Engineering thesis (the full 137-page thesis is preserved in `Libro Tesis.pdf`). Years later, rather than leaving the project as an opaque archive of legacy binaries, I audited the original firmware and hardware files and added modern, dependency-free verification tooling so any engineer can inspect the design honestly.
 
 ## System architecture
 
@@ -234,6 +290,8 @@ Good embedded engineering is as much about knowing where a design stops being sa
 The library pairs automated checks for binary Altium files with a manual review against manufacturer datasheets.
 
 <https://ddtdanilo.github.io/work/altium-pcb-library.html>
+
+Public library · 2019–2026
 
 ## Project specifications
 
@@ -306,308 +364,70 @@ Reliability in connected hardware starts with boring, repeatable habits: version
 
 ---
 
-# Danilo Díaz Tarascó
+# AI for Plant Operations: A Security-First Tool Gateway
 
-Soy CTO en Sento Tech Labs e ingeniero electrónico. Llevo más de diez años desarrollando productos de IoT industrial, desde el diseño hasta el despliegue en campo.
+Connecting AI assistants to plant ERP records, technical procedures, and device telemetry through a serverless AWS gateway built for least privilege, guarded writes, and full auditability.
 
-Ofrezco consultoría técnica individual en español e inglés.
+<https://ddtdanilo.github.io/work/plant-operations-agents.html>
 
-[Ver consultoría](https://ddtdanilo.github.io/es/consultoria.html)
+## The problem on a plant
 
-[LinkedIn](https://www.linkedin.com/in/ddtdanilo/) · [GitHub](https://github.com/ddtdanilo) · [YouTube](https://www.youtube.com/ddtdanilo) · [ORCID](https://orcid.org/0009-0006-7142-0573)
+Running an industrial plant generates operational truth in separate places. The ERP holds sales orders, inventory, manufacturing orders, quality records, maintenance tickets, and equipment history. Standard operating procedures, troubleshooting notes, and wiring references live in a technical knowledge base. Live and historical device telemetry sits in its own monitoring stack.
 
-## Sobre mí
+Routine questions cross all three boundaries at once. An engineer or supervisor wants to know what happened to a specific machine, which maintenance tickets are open at a site, whether a field device is healthy, or what the documented procedure requires. Getting a reliable answer usually means switching portals, piecing together identifiers, or waiting on the one person who knows where a record lives. On the plant floor, the gap is wider because software has to work under touchscreens, gloves, and glare rather than a quiet desk.
 
-Mi trabajo abarca firmware para microcontroladores, diseño de PCB, certificación e infraestructura en la nube. He llevado productos conectados del prototipo a la certificación y el despliegue en América Latina, el Caribe y Estados Unidos.
+Giving an AI assistant direct access to production systems is unacceptable without hard engineering boundaries. Shared credentials hide who acted, the gateway must enforce access, and an unguarded write against an ERP or equipment record can disrupt live operations.
 
-Lidero un equipo de 12 ingenieros en hardware embebido, conectividad y servicios en la nube. Soy ingeniero electrónico de la Universidad Simón Bolívar.
+## The design
 
-Cursé estudios de maestría en electrónica en la Universidad Simón Bolívar y tengo la tesis pendiente. La universidad otorgó una mención honorífica a mi tesis de pregrado sobre telemetría submarina. Mi equipo obtuvo el primer lugar en la categoría IEEE Open de CCSBOTS 2013.
+I originated, designed, and built a single serverless tool gateway on AWS using the Model Context Protocol, an open standard for structured assistant tooling. The gateway routes every tool call to one of three operational domains: the ERP, the technical knowledge base, and live and historical device telemetry.
 
-## Proyectos seleccionados
+People ask questions in plain language: what happened to this machine, which tickets are open at this site, whether a device is healthy, or what the procedure states. The assistant queries structured tools behind the gateway, grounds its answer in the actual records, and cites the source in business terms so the reader can verify it immediately.
 
-- [Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo](https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html) — Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una auditoría moderna del protocolo serial.
+The gateway sits inside a broader operational workflow designed for daily plant use:
 
-- [Disciplina en librerías de componentes PCB en Altium Designer](https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html) — La librería combina verificaciones automáticas de los archivos binarios de Altium con una revisión manual contra los datasheets.
+- **Hybrid knowledge search:** The team knowledge base combines keyword search with semantic search, so part numbers, error codes, and natural-language troubleshooting questions all resolve reliably.
+- **Daily monitoring summaries:** Automated operational summaries surface recurring issues and fleet health trends without requiring manual checks across every site.
+- **Plant-floor interfaces:** Companion interfaces are designed specifically for field conditions, prioritizing large touch targets, glove usability, and legibility under glare.
 
-- Telemetría para redes intermitentes — Desarrollé sistemas embebidos que siguen recopilando datos cuando los sitios industriales pierden la conexión.
+The gateway verifies identity and permissions, separates reads from guarded writes, and attributes each change to the person who applied it.
 
-- Software para flotas de dispositivos conectados — Lideré el trabajo de arquitectura en la nube y entrega de firmware para facilitar el mantenimiento remoto de dispositivos.
+## The security model
 
-- Hardware del prototipo a producción — Diseñé PCB industriales, lideré la certificación FCC de hardware y ayudé a llevar carcasas de impresión 3D a moldeo por inyección.
+The gateway infrastructure enforces these controls for every tool call. Every control follows standard least-privilege practice for production enterprise and industrial systems:
 
-## Trayectoria
+- **Per-person identity:** Every user signs in through single sign-on, and access tokens are strictly bound to the gateway as their audience so the token is intended for this service alone.
+- **Deny-by-default permissions:** An administrator manages explicit per-person, per-system grants. If a user is not authorized for a given backend or operation, the gateway rejects the call before any downstream request runs.
+- **Read and write separation:** Read tools and write tools are explicitly separated in the tool surface, preventing a routine lookup from crossing into a state-changing action.
+- **Two-step guarded writes:** Changing a record requires two distinct steps. First, the gateway prepares the exact proposed change for review. Second, the apply step executes only with a signed, expiring token and performs conflict detection to abort if the underlying record changed in the meantime.
+- **User-attributed audit ledger:** Every state change is written to an audit ledger under the authenticated person's identity, creating a clear operational trail.
+- **Scoped service accounts and managed secrets:** Downstream integrations run with minimum-rights service accounts. Credentials live in a managed secret store and never appear in prompts, tool outputs, or knowledge base documents.
+- **Operational limits and observability:** Response-size caps and execution-time limits bound the work each request can trigger, backed by health monitoring, alarms, and usage logs.
 
-- jun 2024 — presente · Chief Technology Officer (CTO) · Sento Tech Labs — Lidero un equipo de 12 ingenieros y defino la dirección técnica para hardware, firmware y servicios en la nube de IoT industrial.
+### Security controls
 
-- feb 2023 — jun 2024 · Ingeniero Electrónico Senior — Líder de equipo · Sento Tech Labs — Lideré un equipo multidisciplinario que desarrolló hardware de IoT industrial para condiciones exigentes en campo.
+- Identity — SSO per person. Gateway-bound tokens.
 
-- nov 2021 — nov 2022 · Ingeniero de Software / DevOps · PowDevs — Construí infraestructura serverless para una plataforma de dispositivos industriales conectados.
+- Permissions — Deny by default. Grants by person and system.
 
-- jun 2019 — nov 2021 · Ingeniero de Desarrollo · Vantu S.A.S — Diseñé PCB para IoT industrial y lideré el proceso de certificación FCC.
+- Writes — Prepare, then signed apply. Expiry and conflict check.
 
-- sep 2016 — jun 2019 · Ingeniero de Hardware · Innavitas SAPI — Wiot — Desarrollé sistemas embebidos para instrumentación industrial y automotriz.
+- Audit — Changes logged under the user’s identity.
 
-## Especialidades
+- Secrets — Managed store. Kept out of prompts and documents.
 
-- Sistemas embebidos y PCB — Altium Designer, diseño con microcontroladores, normas IPC y certificación FCC.
+- Limits — Response-size and time caps.
 
-- Electrónica de potencia — Convertidores DC-DC, tarjetas de distribución de energía y telemetría solar.
+- Monitoring — Health checks, alarms, and usage logs.
 
-- Firmware y software — C y C++ para microcontroladores, MicroPython y Python.
+## What it changed for the team
 
-- Conectividad IoT — MQTT, LoRa, BLE, Wi-Fi, redes celulares y telemetría industrial.
+With one controlled entry point over operational records, operators, engineers, and managers spend less time hunting across disconnected interfaces and more time acting on verified facts. Questions about machine history, open tickets, device status, and documented procedures receive grounded answers with clear business sources instead of tribal knowledge or guesswork.
 
-- Nube y APIs — Arquitectura en AWS, servicios serverless, modelos de datos de telemetría e infraestructura como código.
+Just as important, separating reads from two-step guarded writes lets teams move past read-only demos into real operational workflows. People can prepare updates with confidence that concurrent changes are caught, permissions are enforced, and every action is attributable to the person who approved it.
 
-- Liderazgo técnico — Dirección técnica, planes de desarrollo y formación de equipos.
+## What I would bring to yours
 
-## Código abierto
+If your industrial, hardware, or operations team wants AI connected to ERP records, internal documentation, or device telemetry without compromising production security, I can design and build the same pattern for your environment. That covers the Model Context Protocol gateway on AWS, identity and per-system authorization, two-step write guards and audit logging, hybrid knowledge search, and interfaces usable on the floor.
 
-- [Personal Altium Library](https://github.com/ddtdanilo/Personal-Altium-Library) — Símbolos esquemáticos y footprints de PCB con verificación automática de integridad.
-
-- [X-Sub Telemetry System](https://github.com/X-Sub/Telemetry-System) — Hardware y firmware de un robot submarino y herramientas para analizar su protocolo serial.
-
-- [UT383BT Lux BLE](https://github.com/ddtdanilo/ut383bt-lux-ble-python) — Herramientas en Python para leer y registrar datos de un luxómetro por Bluetooth LE.
-
-- [Contribución a vcpkg](https://github.com/microsoft/vcpkg/pull/50323) — Port integrado al proyecto para una interfaz de LMDB en C bajo criterios MISRA.
-
-- [Port de MicroPython para Pycom](https://github.com/ddtdanilo/pycom-micropython) — Port de MicroPython para tarjetas Pycom basado en el proyecto original.
-
-- [Interfaz LMDB para MISRA C](https://github.com/ddtdanilo/LMDB-wrapper-MISRA-C) — La interfaz en C incluida en el port integrado a vcpkg.
-
----
-
-# Consultoría técnica — Danilo Díaz Tarascó
-
-Ofrezco consultoría individual en hardware para IoT industrial, firmware y arquitectura en la nube. Trae el esquemático, el fragmento de código o el diagrama que te llevó a hacer la pregunta. Podemos trabajar en español o en inglés.
-
-[Consultoría](https://ddtdanilo.github.io/es/consultoria.html)
-
-## Cómo reservar
-
-1. Paga en Stripe. Elige la sesión y paga en Stripe. Usa un correo que revises con frecuencia. Si al pagar aparecen campos de horario, puedes indicar dos opciones y tu zona horaria.
-
-2. Acuerda la hora. Te escribiré personalmente en un plazo de un día hábil después del pago para acordar la hora. Coordino las sesiones en horario de Colombia (UTC−5). Si no indicaste tus horarios al pagar, puedes enviármelos al responder.
-
-3. Reúnete en línea. Cuando acordemos la hora, te enviaré una invitación de calendario con el enlace de Google Meet. Durante la llamada revisaremos juntos tu material.
-
-4. Recibe notas por escrito. Dentro de las 24 horas posteriores a la sesión, recibirás por escrito las decisiones y los próximos pasos.
-
-Puedes cambiar el horario sin costo hasta 24 horas antes de la sesión. Responde al correo de coordinación. Si en los siete días posteriores al pago no logramos acordar un horario, recibirás un reembolso completo.
-
-## Elige una sesión
-
-### Consulta breve · 30 minutos · 50 USD
-
-Una pregunta concreta sobre una tarjeta, un dispositivo o un servicio en la nube.
-
-El siguiente paso y una forma de comprobar si funcionó.
-
-[Pagar 50 USD en Stripe](https://buy.stripe.com/28E7sLeKU7NAbmi6p014400)
-
-### Análisis profundo · 60 minutos · 120 USD
-
-Recorremos un esquemático, una parte del firmware o un diagrama del sistema y comparamos opciones.
-
-Una recomendación con sus ventajas y limitaciones, y las primeras pruebas que conviene hacer.
-
-[Pagar 120 USD en Stripe](https://buy.stripe.com/dRmaEXdGQc3Q0HE7t414401)
-
-### Sesión de estrategia · 90 minutos · 200 USD
-
-Revisamos el plan de desarrollo, las restricciones técnicas y las decisiones pendientes para el próximo lanzamiento.
-
-Prioridades, dependencias e hitos en el orden en que tu equipo puede abordarlos.
-
-[Pagar 200 USD en Stripe](https://buy.stripe.com/fZu4gzcCM7NAbmi28K14402)
-
-## Preguntas frecuentes
-
-### ¿Cómo funciona el agendamiento después de pagar?
-
-Te escribiré en un plazo de un día hábil después del pago para acordar la hora en horario de Colombia (UTC−5). Una vez confirmada la hora, te enviaré una invitación de Google Meet.
-
-### ¿Qué pasa si no logramos coincidir en horario?
-
-Si no podemos acordar un horario dentro de los 7 días siguientes al pago, recibes un reembolso completo a través de Stripe, sin fricción.
-
-### ¿Puedo reprogramar mi sesión?
-
-Sí. Puedes reprogramar sin costo hasta 24 horas antes de la hora confirmada respondiendo al correo de coordinación.
-
-### ¿Qué conviene preparar o enviar antes de la llamada?
-
-Cuéntame en tu respuesta qué necesitas decidir, qué has probado y qué restricciones debes respetar. Suele bastar con un esquemático sin datos sensibles, un fragmento de código o un diagrama de arquitectura. Si necesitas un acuerdo de confidencialidad (NDA), pídelo antes de enviarme material confidencial.
-
-### ¿Podemos firmar un NDA antes de compartir material propietario?
-
-Sí. Si vamos a revisar hardware aún no publicado, esquemáticos o arquitectura propietaria, indícalo al coordinar el horario por correo (o escríbeme por LinkedIn antes de pagar) y reviso y firmo un NDA mutuo estándar antes de la sesión.
-
-### ¿Recibo comprobante o factura para gastos de empresa?
-
-Si necesitas una copia del recibo de Stripe, pídemela cuando te escriba. Si tu empresa requiere un formato específico de factura o una referencia de orden de compra, escríbeme por LinkedIn antes de pagar para confirmar qué puedo entregarte.
-
-### ¿Qué recibo después de la sesión?
-
-En menos de 24 horas después de la llamada te envío notas escritas concisas con los tradeoffs técnicos discutidos, las decisiones clave y los próximos pasos priorizados.
-
-### ¿Las sesiones pueden ser en español o en inglés?
-
-Sí — en el idioma que prefiera tu equipo (español nativo e inglés con competencia profesional completa, C1+).
-
-### ¿Qué hago si necesito una revisión profunda o acompañamiento de varias semanas?
-
-Las sesiones por Stripe están pensadas para destrabar decisiones técnicas puntuales de 30, 60 o 90 minutos. Para revisiones extensas de esquemáticos/PCB, arquitectura de varias semanas o asesoría fraccional, envíame un resumen breve por LinkedIn antes de pagar para confirmar alcance y disponibilidad.
-
-### ¿Qué hago si pagué y no recibí correo en un día hábil?
-
-Revisa tu carpeta de spam. Si no encuentras el correo, escríbeme por LinkedIn con la fecha y la sesión que compraste.
-
-[LinkedIn](https://www.linkedin.com/in/ddtdanilo/)
-
----
-
-# Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo
-
-Un archivo de tesis reúne tarjetas de adquisición, firmware embebido y una auditoría moderna del protocolo serial.
-
-<https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html>
-
-## Especificaciones del proyecto
-
-- MCU — MCF51QE128CLH
-
-- Tarjeta — 93,1 × 53,9 mm
-
-- Capas de cobre — 2
-
-- Footprints — 46
-
-- Redes — 39
-
-- Segmentos — 457
-
-- Vías — 33
-
-## El problema
-
-Un vehículo submarino teleoperado (ROV) concentra dentro de una carcasa sellada casi todos los retos de frontera que aparecen en el IoT industrial. Sensores en distintos buses eléctricos deben muestrearse con consistencia, los comandos de actuadores deben llegar a los propulsores e iluminación sin jitter, la distribución de potencia tiene que convivir con cargas inductivas y un único enlace serial entre el microcontrolador y la computadora a bordo debe transportar telemetría y comandos con claridad.
-
-Entre 2015 y 2016 diseñé y validé el sistema de telemetría y teleoperación para **X-Sub**, un robot submarino del Grupo I+D en Mecatrónica de la Universidad Simón Bolívar. El proyecto obtuvo mención honorífica como tesis de Ingeniería Electrónica (las 137 páginas originales se conservan en `Libro Tesis.pdf`). Años después audité el firmware y el hardware originales y agregué herramientas de verificación sin dependencias para inspeccionarlo con transparencia.
-
-## Arquitectura del sistema
-
-La arquitectura preservada separa la adquisición y actuación en tiempo real del registro y la visualización en superficie:
-
-- **Controlador embebido (`MCU Firmware/X-Sub MCU Firmware/`):** Microcontrolador Freescale **MCF51QE128** de 32 bits (ColdFire V1) desarrollado en CodeWarrior con drivers de Processor Expert y lógica propia en C (`xSub.c`, `OneWire.c` y `main.c`).
-- **Interfaces de sensores:** Unidad inercial **MPU-6050** y brújula digital **HMC6352** por I²C; sensor de temperatura externa **DS18B20** por 1-Wire; sensor de presión **MPX5700AP** y monitoreo de batería por ADC; y detección digital de presencia de agua por GPIO.
-- **Salidas de actuadores:** Canales PWM para cuatro ESCs brushless bidireccionales, dos servos de cámara (pan/tilt) y dos canales LED de alta intensidad, además de indicadores de estado y handshake.
-- **PCBs a medida (`PCB/`):** Dos tarjetas en Altium Designer: `X-Sub_Board` para adquisición, control e interfaces de sensores, y `pcDuino Link Board` para distribución de energía e interconexión con la computadora a bordo.
-- **Ruta a bordo y superficie:** El MCF51QE128 intercambia tramas binarias de longitud fija por UART (115200 baudios en los experimentos de Python) con una **pcDuino** a bordo, encargada de registrar y retransmitir datos hacia prototipos de visualización explorados originalmente en Python 3.4, LabVIEW y MATLAB/Simulink.
-
-## Auditoría del protocolo serial
-
-Revisar el código C original (`xSub.c`, `Events.c`, `Init.c`) una década después deja ver tanto lo que funcionó como lo que no pasaría una revisión productiva actual:
-
-- **Tramas de telemetría (27 bytes):** Valores de 16 bits en big-endian para estado, temperatura externa e interna, presión externa, aceleración en 3 ejes, velocidad angular en 3 ejes, velocidad lineal, rumbo de brújula, presencia de agua y nivel de batería, cerrados con el terminador `0xFF`.
-- **Tramas de comando (10 bytes):** Consignas para cuatro motores, pan y tilt de cámara, dos luces y estado del PC (rango 0–255 cada uno), más el terminador `0xFF`.
-- **Limitaciones documentadas:** Aunque el byte 25 de telemetría se llama `XOR` en el firmware archivado, la inicialización le asigna la constante decimal `26` sin ejecutar un cálculo real de checksum al armar la trama. El protocolo tampoco incluye escape o recuperación de sincronismo, números de secuencia, timeout de comando ni autenticación.
-
-En `docs/PROTOCOL.md` y `docs/HARDWARE.md` esas brechas se documentan de forma explícita. Cualquier protocolo de telemetría para hardware industrial en producción requiere CRC real, delimitación determinística (como COBS o prefijo de longitud), fail-safes por watchdog ante pérdida de enlace y autenticación cuando los comandos atraviesan redes no confiables.
-
-## Frontera moderna de verificación
-
-No es seguro asumir que proyectos binarios heredados de CodeWarrior, LabVIEW o MATLAB compilen o operen sin cambios diez años después. Por eso la frontera mantenida del repositorio es deliberadamente acotada y verificable:
-
-- `tools/xsub_protocol.py` ofrece un CLI en Python 3.11+ sin dependencias de terceros para decodificar tramas de 27 bytes (reportando enteros crudos y conversión a complemento a dos mediante `signed_16()`, sin inventar curvas de calibración) y construir tramas de comando de 10 bytes para inspección.
-- La integración continua (`quality.yml` y `codeql.yml`) ejecuta Ruff, pruebas unitarias y `scripts/verify_repository.py` para validar hashes de artefactos e higiene del repositorio, mientras `docs/HARDWARE.md` define un checklist de siete pasos —revisión en Altium, DRC/ERC, encendido con límite de corriente y recalibración— antes de energizar una tarjeta archivada.
-
-## Aprendizaje clave
-
-La buena ingeniería embebida consiste tanto en saber dónde un diseño deja de ser seguro como en hacerlo funcionar en el banco. Preservar `X-Sub/Telemetry-System` con una auditoría honesta del protocolo, advertencias claras y verificación automatizada refleja exactamente el criterio con el que reviso proyectos de hardware conectado hoy.
-
-## Fuentes
-
-- [Repositorio público](https://github.com/X-Sub/Telemetry-System)
-
-- [Guía de hardware](https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/HARDWARE.md)
-
-- [Referencia del protocolo](https://github.com/X-Sub/Telemetry-System/blob/HEAD/docs/PROTOCOL.md)
-
----
-
-# Disciplina en librerías de componentes PCB en Altium Designer
-
-La librería combina verificaciones automáticas de los archivos binarios de Altium con una revisión manual contra los datasheets.
-
-<https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html>
-
-## Especificaciones del proyecto
-
-- Símbolos esquemáticos — 81
-
-- Footprints PCB — 106
-
-- Controles automatizados de CI — 6 verificaciones deterministas
-
-- Revisión en Altium — Lista de 4 puntos basada en datasheets
-
-- Licencia — CERN-OHL-P-2.0
-
-## El problema
-
-Una proporción alta de los respins costosos de PCB empieza mucho antes del ruteo: nace en la librería de componentes. Un pin invertido en un símbolo esquemático, una marca de pin 1 espejada, un taladro subdimensionado en un conector de potencia o un land pattern descargado sin verificar pueden convertir dos semanas de fabricación en tarjetas inservibles.
-
-Al mismo tiempo, las librerías nativas de Altium Designer (`.SchLib` y `.PcbLib`) son archivos binarios compuestos y opacos. Un `git diff` convencional no muestra si un pad se desplazó 0.2 mm, si un binario se corrompió al guardarse o si se colaron archivos temporales e historiales automáticos de Altium en un commit.
-
-A lo largo de varios años de proyectos de hardware (2019–2026) reuní mis componentes reutilizables en `Personal-Altium-Library`, publicados bajo licencia CERN-OHL-P-2.0. Para que un repositorio binario de EDA resulte confiable tanto para uso propio como para otros ingenieros, combiné los archivos de librería con un flujo de validación en dos capas inspirado en la disciplina de entregas de software.
-
-## Qué cubre la librería
-
-El repositorio mantiene dos librerías de Altium cuyos tamaños exactos y resúmenes SHA-256 quedan registrados en `library-manifest.json`:
-
-- **`AltiumLibraryDDT.SchLib`** (396,800 bytes) — **81 símbolos esquemáticos**.
-- **`AltiumLibraryDDT.PcbLib`** (36,292,608 bytes) — **106 footprints PCB**.
-
-Según `docs/INVENTORY.md`, el catálogo agrupa bloques reales de proyectos de hardware en lugar de piezas sintéticas: pasivos SMD en encapsulados 0402/0603/1206, diodos de alto voltaje, borneras y headers con shroud, módulos inalámbricos (`ESP32-DEVKITC-32D`, `ESP8266_ESP-12`, `HM-10`), módulos de potencia (`LM2596`, `MT3608`, `Mini-360`), sensores de celda de carga y corriente (`HX711`, `ACS758LCB-050B`), relés (`G5LE`) y conectores micro-SD.
-
-## Validación en dos capas para archivos binarios de EDA
-
-Como la automatización en CI no reemplaza el ojo de un ingeniero electrónico revisando cobre en Altium, `docs/VALIDATION.md` separa lo que la máquina puede garantizar de lo que exige revisión manual dentro de la herramienta EDA.
-
-### Capa 1: Integridad automática del repositorio (CI)
-
-Ejecutar `python3 scripts/validate_repository.py` en local y en GitHub Actions (`quality.yml`) aplica seis verificaciones deterministas en cada push y pull request:
-
-1. Existen los archivos requeridos de proyecto, licencia y aviso de ingeniería.
-2. Tanto `.SchLib` como `.PcbLib` conservan firmas válidas de archivo compuesto binario (detectando de inmediato commits truncados o corruptos).
-3. Los tamaños en bytes y checksums SHA-256 coinciden exactamente con `library-manifest.json`.
-4. Los conteos declarados (81 símbolos y 106 footprints) coinciden con el inventario en `docs/INVENTORY.md`.
-5. Todos los enlaces internos de documentación en Markdown resuelven sin errores.
-6. Se bloquea el ingreso de respaldos, cachés y archivos autogenerados por Altium.
-
-Cuando un componente se agrega o modifica intencionalmente, `scripts/update_manifest.py` actualiza el manifiesto —y la política prohíbe aceptar un cambio de hash sin comprobar primero qué entradas específicas cambiaron.
-
-### Capa 2: Compuerta manual de ingeniería en Altium
-
-Antes de aceptar un símbolo o footprint modificado, `docs/VALIDATION.md` exige un lista de 4 puntos dentro de Altium:
-
-- **Integridad de librería:** Abrir y guardar ambas librerías sin advertencias de conversión o reparación y correr las validaciones internas.
-- **Revisión de esquemático:** Contrastar cada número de pin, nombre, tipo eléctrico, pin oculto de alimentación, designador y vínculo de footprint directamente contra el datasheet vigente del fabricante.
-- **Revisión de footprint:** Verificar geometría de pads, numeración, taladros, thermal pads, solder mask, pasta, serigrafía, courtyard, indicador de pin 1 y altura del modelo 3D frente al land pattern recomendado y las tolerancias del fabricante de PCB.
-- **Revisión de integración:** Colocar el símbolo en un esquemático temporal, transferirlo a una PCB temporal, comprobar cada mapeo pin-a-pad, correr ERC y DRC e inspeccionar ambas caras en 2D y 3D.
-
-## Aprendizaje clave
-
-La confiabilidad en hardware conectado empieza por hábitos sobrios y repetibles: manifiestos versionados, verificación contra datasheet y límites honestos sobre lo que la automatización cubre y lo que no. `Personal-Altium-Library` funciona a la vez como recurso abierto y como muestra concreta de cómo estructuro una revisión de PCB antes de liberar Gerbers a fabricación.
-
-## Fuentes
-
-- [Repositorio público](https://github.com/ddtdanilo/Personal-Altium-Library)
-
-- [Inventario](https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/INVENTORY.md)
-
-- [Guía de validación](https://github.com/ddtdanilo/Personal-Altium-Library/blob/HEAD/docs/VALIDATION.md)
-
-- [Manifiesto de la librería](https://github.com/ddtdanilo/Personal-Altium-Library/blob/main/library-manifest.json)
+Start with a focused architecture session or reach out on LinkedIn to scope a dedicated build.

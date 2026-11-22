@@ -1,23 +1,18 @@
 # Danilo Díaz Tarascó
-> I’m a hands-on CTO at Sento Tech Labs and an electronics engineer with more than ten years bringing industrial IoT products from design to deployment.
+> I work where the product runs: on the bench, at the site, and in the cloud account. I take connected hardware from a first prototype to a fleet that provisions automatically, updates over the air, and reports faults.
 
 ## Profile and consulting
-- [Danilo Díaz Tarascó — CTO & Electronics Engineer · IIoT, Embedded, Cloud](https://ddtdanilo.github.io/)
-- [Consulting — Danilo Díaz Tarascó · IIoT, PCB, Firmware & AWS](https://ddtdanilo.github.io/consult.html)
+- [Danilo Díaz Tarascó — Forward-Deployed Engineer · Hardware, Firmware, Cloud, AI](https://ddtdanilo.github.io/)
+- [Consulting — Danilo Díaz Tarascó · Hardware, Firmware, Cloud & AI](https://ddtdanilo.github.io/consult.html)
 - [Underwater ROV Telemetry: Hardware, Firmware, and a Protocol Audit](https://ddtdanilo.github.io/work/xsub-telemetry.html)
 - [Disciplined PCB Component Libraries in Altium Designer](https://ddtdanilo.github.io/work/altium-pcb-library.html)
-- [Danilo Díaz Tarascó — CTO e Ingeniero Electrónico · IIoT, Embebidos, Cloud](https://ddtdanilo.github.io/es/)
-- [Consultoría — Danilo Díaz Tarascó · IIoT, PCB, Firmware y AWS](https://ddtdanilo.github.io/es/consultoria.html)
-- [Telemetría para ROV submarino: hardware, firmware y auditoría de protocolo](https://ddtdanilo.github.io/es/trabajo/xsub-telemetry.html)
-- [Disciplina en librerías de componentes PCB en Altium Designer](https://ddtdanilo.github.io/es/trabajo/altium-pcb-library.html)
+- [AI for Plant Operations: A Security-First Tool Gateway](https://ddtdanilo.github.io/work/plant-operations-agents.html)
 
 ## Other public formats
 - [Portfolio Markdown](https://ddtdanilo.github.io/index.md)
 - [Consulting Markdown](https://ddtdanilo.github.io/consult.md)
-- [Portafolio en Markdown](https://ddtdanilo.github.io/es/index.md)
-- [Consultoría en Markdown](https://ddtdanilo.github.io/es/consultoria.md)
 - [API catalog](https://ddtdanilo.github.io/.well-known/api-catalog)
 - [OpenAPI description](https://ddtdanilo.github.io/api/openapi.json)
-- [Bilingual profile, offers and case notes](https://ddtdanilo.github.io/llms-full.txt)
+- [Full profile, offers and case notes](https://ddtdanilo.github.io/llms-full.txt)
 - [Resume JSON](https://ddtdanilo.github.io/api/resume.json)
 - [Consulting JSON](https://ddtdanilo.github.io/api/consulting.json)

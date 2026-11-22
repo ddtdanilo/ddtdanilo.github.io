@@ -19,9 +19,6 @@ const MARKDOWN_TWINS = {
   '/': '/index.md',
   '/index.html': '/index.md',
   '/consult.html': '/consult.md',
-  '/es/': '/es/index.md',
-  '/es/index.html': '/es/index.md',
-  '/es/consultoria.html': '/es/consultoria.md',
 };
 
 const LINK_HEADER = [

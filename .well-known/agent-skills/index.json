@@ -6,14 +6,14 @@
       "type": "skill-md",
       "description": "Find and cite public profile and engineering work.",
       "url": "/.well-known/agent-skills/danilo-profile/SKILL.md",
-      "digest": "sha256:936670ed21dfbae3e4e052793193bd1c9f840f05433cb997a023912c4a6fed04"
+      "digest": "sha256:9b39c44ea40564d66f39425be6ce10992777c3057a6ce2683abe21c286ed59be"
     },
     {
       "name": "book-consulting",
       "type": "skill-md",
       "description": "Compare and cite consulting sessions and scheduling terms.",
       "url": "/.well-known/agent-skills/book-consulting/SKILL.md",
-      "digest": "sha256:2c30b103f3b9191f68b9b6a0f4478cd8da7e441b6b3845675928ca4dc9b619f3"
+      "digest": "sha256:e35c87bedfefff1635c94be386ae4e88384dc53eb6eb7d0f9ce053b5a441af62"
     }
   ]
 }
